@@ -42,7 +42,7 @@ module.exports = (env) => {
     entry: path.resolve(__dirname, 'src/main'),
 
     output: {
-      publicPath: '/',
+      publicPath: isDev ? '/' : '/Avion-Online-Store/',
       path: path.resolve(__dirname, 'dist'),
       filename: 'main.[contenthash].js',
       clean: true,

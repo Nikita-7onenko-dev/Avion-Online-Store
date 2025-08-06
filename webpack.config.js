@@ -22,7 +22,7 @@ module.exports = (env) => {
 
     cache: {
       type: 'filesystem',
-      cacheDirectory: path.resolve(__dirname, 'webpack-cache'),
+      cacheDirectory: path.resolve(__dirname, '.webpack-cache'),
       buildDependencies: {
         config: [__filename],
       }

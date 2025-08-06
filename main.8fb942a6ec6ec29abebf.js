@@ -27083,11 +27083,9 @@ var ClipLoader_default = /*#__PURE__*/__webpack_require__.n(ClipLoader);
 
 function AboutBlock({ variation, imgSrc, title, paragraph, anotherParagraph, withLink, linkLabel, linkHref }) {
     const [isLoad, setIsLoad] = (0,react.useState)(false);
-    // const base = process.env.PUBLIC_URL;
+    const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
     const spinnerColor = variation === 'highlighted' ? '#fff' : '#2a254b';
-    return ((0,jsx_runtime.jsxs)("div", { className: `${aboutBlock_module.aboutBlock} ${variation && aboutBlock_module[variation]}`, children: [(0,jsx_runtime.jsxs)("div", { className: aboutBlock_module.aboutBlockText, children: [(0,jsx_runtime.jsxs)("div", { className: aboutBlock_module.aboutBlockTextTop, children: [(0,jsx_runtime.jsx)("h3", { children: title }), (0,jsx_runtime.jsx)("p", { children: paragraph }), anotherParagraph && (0,jsx_runtime.jsx)("p", { children: anotherParagraph })] }), withLink && (0,jsx_runtime.jsx)(Link, { to: linkHref, className: 'globalLink', children: linkLabel })] }), (0,jsx_runtime.jsxs)("div", { className: aboutBlock_module.imageWrapper, children: [(0,jsx_runtime.jsx)("img", { 
-                        // src={`${base}${imgSrc}`} 
-                        src: imgSrc, alt: "", loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: spinnerColor, size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] })] }));
+    return ((0,jsx_runtime.jsxs)("div", { className: `${aboutBlock_module.aboutBlock} ${variation && aboutBlock_module[variation]}`, children: [(0,jsx_runtime.jsxs)("div", { className: aboutBlock_module.aboutBlockText, children: [(0,jsx_runtime.jsxs)("div", { className: aboutBlock_module.aboutBlockTextTop, children: [(0,jsx_runtime.jsx)("h3", { children: title }), (0,jsx_runtime.jsx)("p", { children: paragraph }), anotherParagraph && (0,jsx_runtime.jsx)("p", { children: anotherParagraph })] }), withLink && (0,jsx_runtime.jsx)(Link, { to: linkHref, className: 'globalLink', children: linkLabel })] }), (0,jsx_runtime.jsxs)("div", { className: aboutBlock_module.imageWrapper, children: [(0,jsx_runtime.jsx)("img", { src: `${base}${imgSrc}`, alt: "", loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: spinnerColor, size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] })] }));
 }
 
 ;// ./src/Components/CtaBlock/ctaBlock.module.scss
@@ -29588,6 +29586,7 @@ function ProductDescription({ description, features, designer }) {
 function ProductBlock({ productData }) {
     const productImageRef = (0,react.useRef)(null);
     const pathname = useLocation();
+    const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
     const [isLoad, setIsLoad] = (0,react.useState)(false);
     (0,react.useEffect)(() => {
         productImageRef.current?.scrollIntoView({
@@ -29596,7 +29595,7 @@ function ProductBlock({ productData }) {
         });
     }, [pathname]);
     const isWideImage = productData.aspectRatio === '8/5';
-    return ((0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productBlock} ${isWideImage ? productBlock_module.productBlockWide : ''}`, children: [(0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productBlockImageWrapper} ${isWideImage ? productBlock_module.wideImageWrapper : productBlock_module.smallImageWrapper}`, ref: productImageRef, children: [(0,jsx_runtime.jsx)("img", { src: productData.image, alt: productData.name, loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#2a254b', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productDescriptionBlock} ${isWideImage ?
+    return ((0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productBlock} ${isWideImage ? productBlock_module.productBlockWide : ''}`, children: [(0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productBlockImageWrapper} ${isWideImage ? productBlock_module.wideImageWrapper : productBlock_module.smallImageWrapper}`, ref: productImageRef, children: [(0,jsx_runtime.jsx)("img", { src: `${base}${productData.image}`, alt: productData.name, loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#2a254b', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productDescriptionBlock} ${isWideImage ?
                     productBlock_module.productDescriptionSmall : productBlock_module.productDescriptionWide}`, children: [(0,jsx_runtime.jsx)(ProductTitle, { name: productData.name, price: productData.price }), (0,jsx_runtime.jsx)(ProductDescription, { description: productData.description, features: productData?.features, designer: productData.designer }), (0,jsx_runtime.jsx)(ProductDimensionsTable, { height: productData.height, width: productData.width, depth: productData.depth }), (0,jsx_runtime.jsx)(AddToCartBar, { product: productData })] })] }));
 }
 
@@ -29701,6 +29700,7 @@ function applyFilterOptions(filterOptions, products) {
 const pageSize = 5;
 function AllProductsGrid({ filterOptions }) {
     const [items, setItems] = (0,react.useState)([]);
+    const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
     let iRef = (0,react.useRef)(0);
     let filteredProducts = applyFilterOptions(filterOptions, products);
     const productsChunk = [];
@@ -29723,7 +29723,7 @@ function AllProductsGrid({ filterOptions }) {
     }, [filterOptions]);
     const [imgSet, setImgSet] = (0,react.useState)(new Set());
     return ((0,jsx_runtime.jsxs)("div", { className: AllProductsGrid_module.productGridBlock, children: [(0,jsx_runtime.jsx)("ul", { className: AllProductsGrid_module.productGrid, children: items.map(product => {
-                    return ((0,jsx_runtime.jsx)("li", { className: product.aspectRatio === '8/5' ? AllProductsGrid_module.wideElement : '', children: (0,jsx_runtime.jsxs)(Link, { to: `/${product.id}`, className: AllProductsGrid_module.productCard, children: [(0,jsx_runtime.jsxs)("div", { className: product.aspectRatio === '4/5' ? AllProductsGrid_module.imgFrameSmall : AllProductsGrid_module.imgFrameWide, children: [(0,jsx_runtime.jsx)("img", { src: product.image, alt: "", loading: 'lazy', onLoad: () => {
+                    return ((0,jsx_runtime.jsx)("li", { className: product.aspectRatio === '8/5' ? AllProductsGrid_module.wideElement : '', children: (0,jsx_runtime.jsxs)(Link, { to: `/${product.id}`, className: AllProductsGrid_module.productCard, children: [(0,jsx_runtime.jsxs)("div", { className: product.aspectRatio === '4/5' ? AllProductsGrid_module.imgFrameSmall : AllProductsGrid_module.imgFrameWide, children: [(0,jsx_runtime.jsx)("img", { src: `${base}${product.image}`, alt: "", loading: 'lazy', onLoad: () => {
                                                 setImgSet(prev => new Set(prev).add(product.id));
                                             }, style: imgSet.has(product.id) ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#2a254b', size: 40, cssOverride: imgSet.has(product.id) ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsx)("p", { children: product.name }), (0,jsx_runtime.jsxs)("p", { children: [product.price, "$"] })] }) }, product.id));
                 }) }), (0,jsx_runtime.jsx)("button", { className: 'globalButton', onClick: loadMore, children: "Load more" })] }));
@@ -29999,13 +29999,14 @@ function ContactsBlock() {
 
 function ContactsHeroBlock({ ref }) {
     const [isLoad, setIsLoad] = (0,react.useState)(false);
+    const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
     function scrollToFeedbackForm() {
         ref.current?.scrollIntoView({
             behavior: 'smooth',
             block: 'end'
         });
     }
-    return ((0,jsx_runtime.jsxs)("div", { className: contactsHeroBlock_module.contactsHeroBlock, children: [(0,jsx_runtime.jsxs)("div", { className: contactsHeroBlock_module.bannerTextBlock, children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("h3", { children: "Contact us" }), (0,jsx_runtime.jsx)("p", { children: "Have a question or request? Use the feedback form or any contact details below" })] }), (0,jsx_runtime.jsx)("button", { className: 'globalButton', onClick: scrollToFeedbackForm, children: "Use feedback form" })] }), (0,jsx_runtime.jsx)("img", { src: '/img/ContactsHeroBlock.jpg', onLoad: () => setIsLoad(true), loading: 'lazy', style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#fff', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }));
+    return ((0,jsx_runtime.jsxs)("div", { className: contactsHeroBlock_module.contactsHeroBlock, children: [(0,jsx_runtime.jsxs)("div", { className: contactsHeroBlock_module.bannerTextBlock, children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("h3", { children: "Contact us" }), (0,jsx_runtime.jsx)("p", { children: "Have a question or request? Use the feedback form or any contact details below" })] }), (0,jsx_runtime.jsx)("button", { className: 'globalButton', onClick: scrollToFeedbackForm, children: "Use feedback form" })] }), (0,jsx_runtime.jsx)("img", { src: `${base}/img/ContactsHeroBlock.jpg`, onLoad: () => setIsLoad(true), loading: 'lazy', style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#fff', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }));
 }
 
 ;// ./src/Components/FeedbackForm/feedbackForm.module.scss
@@ -30138,7 +30139,8 @@ function ClipLoader_ClipLoader(_a) {
 
 function FeedbackForm({ ref }) {
     const [isLoad, setIsLoad] = (0,react.useState)(false);
-    return ((0,jsx_runtime.jsxs)("div", { className: feedbackForm_module.feedbackFormContainer, children: [(0,jsx_runtime.jsxs)("div", { className: feedbackForm_module.imageWrapper, children: [(0,jsx_runtime.jsx)("img", { src: "/img/feedbackForm2.webp", alt: "", loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)(esm_ClipLoader, { color: '#2a254b', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsxs)("form", { action: "/submit-form", className: feedbackForm_module.feedbackForm, ref: ref, children: [(0,jsx_runtime.jsx)("h3", { children: "Feedback form" }), (0,jsx_runtime.jsxs)("fieldset", { children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "name", children: "Name:" }), (0,jsx_runtime.jsx)("input", { type: "text", id: "name", name: "name", placeholder: "Enter your name", required: true })] }), (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "email", children: "Email:" }), (0,jsx_runtime.jsx)("input", { type: "email", id: "email", name: "email", placeholder: "Enter your email", required: true })] })] }), (0,jsx_runtime.jsxs)("fieldset", { children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "subject", children: "Subject:" }), (0,jsx_runtime.jsx)("input", { type: "subject", id: "subject", name: "subject", placeholder: "Subject of your message" })] }), (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "message", children: "Message:" }), (0,jsx_runtime.jsx)("textarea", { id: "message", name: "message", placeholder: "Type your message here..." })] })] }), (0,jsx_runtime.jsx)("button", { type: "button", className: 'globalButton', children: "Send" })] })] }));
+    const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
+    return ((0,jsx_runtime.jsxs)("div", { className: feedbackForm_module.feedbackFormContainer, children: [(0,jsx_runtime.jsxs)("div", { className: feedbackForm_module.imageWrapper, children: [(0,jsx_runtime.jsx)("img", { src: `${base}/img/feedbackForm2.webp`, alt: "", loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)(esm_ClipLoader, { color: '#2a254b', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsxs)("form", { action: "/submit-form", className: feedbackForm_module.feedbackForm, ref: ref, children: [(0,jsx_runtime.jsx)("h3", { children: "Feedback form" }), (0,jsx_runtime.jsxs)("fieldset", { children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "name", children: "Name:" }), (0,jsx_runtime.jsx)("input", { type: "text", id: "name", name: "name", placeholder: "Enter your name", required: true })] }), (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "email", children: "Email:" }), (0,jsx_runtime.jsx)("input", { type: "email", id: "email", name: "email", placeholder: "Enter your email", required: true })] })] }), (0,jsx_runtime.jsxs)("fieldset", { children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "subject", children: "Subject:" }), (0,jsx_runtime.jsx)("input", { type: "subject", id: "subject", name: "subject", placeholder: "Subject of your message" })] }), (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "message", children: "Message:" }), (0,jsx_runtime.jsx)("textarea", { id: "message", name: "message", placeholder: "Type your message here..." })] })] }), (0,jsx_runtime.jsx)("button", { type: "button", className: 'globalButton', children: "Send" })] })] }));
 }
 
 ;// ./src/pages/ContactsPage.tsx

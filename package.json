@@ -2,11 +2,14 @@
   "name": "avion",
   "version": "1.0.0",
   "main": "webpack.config.js",
+  "homepage": "https://github.com/Nikita-7onenko-dev/Avion-Online-Store.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --env mode=development",
     "build:dev": "webpack --env mode=development",
-    "build:prod": "webpack --env mode=production"
+    "build:prod": "webpack --env mode=production",
+    "predeploy": "npm run build:prod",
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",

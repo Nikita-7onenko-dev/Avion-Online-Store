@@ -30185,7 +30185,6 @@ function App() {
 
 function RouterProvider_RouterProvider({ children }) {
     const isProd = "production" === 'production';
-    console.log("production");
     if (isProd) {
         return ((0,jsx_runtime.jsx)(HashRouter, { children: children }));
     }

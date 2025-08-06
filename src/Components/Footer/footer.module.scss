@@ -1,0 +1,35 @@
+
+
+footer{
+  background-color: var(--darkBackgroundColor);
+  padding-block: 50px 15px;
+  padding-inline: clamp(20px, 5vw, 100px);
+  color: #fff;
+
+  p{
+    margin-top: 15px;
+    font-size: 14px;
+  }
+}
+
+.footerLeft{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  gap: clamp(20px, 10vw - 40px, 200px);
+}
+
+.footerTop{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: rgba(235, 232, 244, 0.3960784314) 1px solid;
+}
+
+
+@media screen and (max-width:600px) {
+  .footerTop{
+    flex-direction: column;
+  }
+
+}

@@ -1,0 +1,31 @@
+
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    gap: clamp(20px, 10vw - 40px, 200px);
+    color: #FFF;
+    white-space: nowrap;
+
+    ul{
+      li{
+        margin-bottom: 16px;
+        font-size: 15px;
+        a{
+          color: #FFF;
+        }
+
+        h4{
+          font-size: 17px;
+          font-family: CLashDisplay;
+        }
+      }
+    }
+  }
+
+@media screen and (max-width:800px) {
+  .categoryUl {
+    display: none;
+  }
+
+}

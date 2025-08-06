@@ -1,0 +1,40 @@
+
+
+.featuresBlock{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding-block: 60px 0px;
+  padding-inline: var(--paddingInline);
+
+  
+  h3{
+    font-size: var(--fontSizeM);
+    font-family: ClashDisplay;
+    color: var(--darkFontColor);
+    text-align: center;
+  }
+}
+
+.featuresCardsContainer{
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+
+@media screen and (max-width: 850px) {
+
+  .featuresBlock{
+    h3{
+      text-align: left;
+    }
+  }
+
+  .featuresCardsContainer{
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  
+}

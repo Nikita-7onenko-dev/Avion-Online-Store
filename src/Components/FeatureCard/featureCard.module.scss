@@ -1,0 +1,19 @@
+
+
+.featureCard{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 270px;
+  padding: 10px;
+
+  h4{
+    font-size: var(--fontSizeM);
+    color: var(--darkFontColor);
+  }
+  p{
+    font-size: var(--fontSizeXS);
+    color: var(--darkFontColor);
+    line-height: 150%;
+  }
+}

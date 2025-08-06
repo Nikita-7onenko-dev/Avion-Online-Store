@@ -1,0 +1,31 @@
+  .searchForm{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    overflow: hidden;
+    width: 18px;
+    transition: width 0.4s ease;
+    
+    input{
+      background-color: var(--lightGrayBackground);
+      border-radius: 5px;
+      padding: 2px 5px;
+      border: rgba(0, 0, 0, 0.1) 1px solid;
+      max-width: 120px;
+    }
+
+    button{
+      height: 16px;
+      z-index: 1;
+    }
+  }
+
+  .active{
+    width: 173px;
+  }
+
+  @media screen and (max-width: 500px) {
+    .searchForm{
+      flex-direction: row-reverse;
+    }
+  }

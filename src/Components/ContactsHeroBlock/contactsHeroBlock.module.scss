@@ -1,0 +1,86 @@
+
+.contactsHeroBlock{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b28e72;
+  min-height: 270px;
+
+  span{
+    left: 25%;
+  }
+
+  img{
+    max-width: 100%;
+    min-height: 160px;
+  }
+}
+
+.bannerTextBlock{
+  position: absolute;
+  right: clamp(30px, 9vw - 20px, 200px);
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  padding-inline: var(--paddingInline);
+  padding-block: 20px;
+  width: clamp(320px, 25vw + 200px, 550px);
+  gap: clamp(40px, 10vw, 200px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h3{
+    font-size: var(--fontSizeL);
+    font-family: ClashDisplay;
+    margin-bottom: 15px;
+  }
+
+  p{
+    font-size: 16px;
+    line-height: 120%;
+  }
+
+  button{
+    background-color: var(--lightGrayBackground);
+    color: var(--darkFontColor);
+    width: fit-content;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .contactsHeroBlock{
+    position: initial;
+    display: flex;
+    flex-direction: column;
+
+    span{
+      left: initial;
+      bottom: 40%;
+    }
+  }
+
+  .bannerTextBlock{
+    position: initial;
+    width: initial;
+    transform: initial;
+    gap: 60px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .bannerTextBlock{
+    button{
+      width: initial;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .contactsHeroBlock{
+    min-height: 500px;
+  }
+  
+}

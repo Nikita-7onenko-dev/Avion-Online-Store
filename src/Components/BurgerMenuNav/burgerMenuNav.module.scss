@@ -1,0 +1,16 @@
+.burgerMenuNavList{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: start;
+  a{
+    color: #fff;
+  }
+}
+
+/* .burgerMenuItem{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+} */

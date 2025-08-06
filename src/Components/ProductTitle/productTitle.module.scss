@@ -1,0 +1,19 @@
+
+
+.productTitle{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  border-bottom: var(--borderGray) 2px solid;
+  padding-bottom: 20px;
+  width: 100%;
+  
+  h2{
+    font-size: var(--fontSizeLWideRange);
+    font-family: ClashDisplay;
+  }
+
+  span{
+    font-size: var(--fontSizeM);
+  }
+}

@@ -1,0 +1,28 @@
+
+
+.productDimensionsTable{
+
+  h3{
+    font-size: 16px;
+    padding-bottom: 20px;
+  }  
+
+  table{
+  width: fit-content;
+  border-collapse: collapse;
+  td,th{
+    padding-right: 25px;
+    text-align: center;
+  }
+  th{
+    padding-bottom: 10px;
+  }
+}
+
+th:nth-child(2), td:nth-child(2), th:nth-child(3), td:nth-child(3) {
+  border-left: var(--borderGray) 2.5px solid;
+  padding-left: 25px;
+}
+
+}
+

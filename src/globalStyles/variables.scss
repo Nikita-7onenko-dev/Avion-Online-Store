@@ -1,0 +1,24 @@
+
+
+:root{
+  --darkFontColor: #2a254b;
+  --lightFontColor: #726e8d;
+  --whiteFontColor: #fff;
+  --darkBackgroundColor: #2a254b;
+  --lightBackgroundColor: #726e8d;
+  --lightGrayBackground:#f4f4ffbc;
+  --borderGray: #EBE8F4;
+
+  
+  --paddingInline: clamp(20px, 5vw, 100px);
+
+  --fontSizeXL: clamp(32px, 5vw, 36px);
+  --fontSizeL: clamp(24px, 5vw - 10px, 32px);
+  --fontSizeM: clamp(20px, 3vw, 24px);
+  --fontSizeS: clamp(16px, 3vw, 20px);
+  --fontSizeXS: clamp(14px, 1.8vw, 16px);
+
+  --fontSizeLWideRange: clamp(24px, 3vw, 36px);
+}
+
+

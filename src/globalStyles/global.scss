@@ -1,0 +1,71 @@
+
+// Нормализация - сброс стилей
+@import url('./normalize.scss');
+
+// Шрифты
+@import url('../../public/fonts/fontFace.scss');
+
+// Переменные
+@import url('./variables.scss');
+
+
+body{
+  color: var(--darkFontColor);
+}
+
+.active{
+  color: #6c63ff !important;
+  border-bottom: 2px solid #6c63ff;
+}
+
+.globalLink{
+  color: var(--darkFontColor);
+  background: var(--lightGrayBackground);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 32px;
+  width: 175px;
+  height: 47px;
+}
+
+.globalButton{
+  color: #fff;
+  background-color: var(--darkBackgroundColor);
+  padding: 12px 23px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 98px;
+}
+
+.embla {
+  overflow: hidden;
+  margin-inline:clamp(-100px, -5vw, -20px);
+  padding-inline: clamp(20px, 5vw, 100px);
+}
+
+.embla__container {
+  cursor: grab;
+  display: flex;
+}
+
+.embla__container:active{
+  cursor: grabbing;
+}
+
+.embla__slide {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+a{
+  color: var(--darkFontColor);
+}
+
+@media screen and (max-width: 400px) {
+  .globalLink{
+    width: 100%;
+  }
+}

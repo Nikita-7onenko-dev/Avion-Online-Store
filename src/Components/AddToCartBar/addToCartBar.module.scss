@@ -1,0 +1,31 @@
+
+
+.AddToCartBar{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+ 
+  
+  label{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+}
+
+@container (max-width: 350px) {
+
+  .AddToCartBar{
+    flex-direction: column;
+    gap: 30px;
+
+    button{
+      width: 100%;
+      max-width: 320px;
+      align-self: center;
+    }
+  }
+}

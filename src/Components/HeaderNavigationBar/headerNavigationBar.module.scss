@@ -1,0 +1,22 @@
+
+
+.headerNavigationList{
+  display: flex;
+  justify-content: center;
+  gap: clamp(10px, 6vw - 20px, 50px);
+  padding: 20px 10px;
+  color: var(--lightFontColor);
+  background-color: var(--lightGrayBackground);
+  font-size: clamp(14px, 2.5vw ,16px);
+
+  a{
+    color: var(--darkFontColor);
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  .headerNavigationList{
+    display: none;
+  }
+}

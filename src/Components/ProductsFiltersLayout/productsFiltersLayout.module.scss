@@ -1,0 +1,30 @@
+
+.filtersWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+
+@media screen and (max-width: 500px) {
+  
+  .filtersWrapper{
+    flex-direction: row;
+    justify-content: space-between;
+    width: 300vw;
+    height: 150px;
+    padding-top: 10px;
+
+    fieldset{
+      padding-inline: 40px;
+    }   
+  }
+ 
+  .hidden{
+    display: none;
+    width: initial;
+    legend{
+      display: none;
+    }
+  }
+}

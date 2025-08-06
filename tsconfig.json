@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",                          // В какую версию JS компилировать (обычно ESNext или ES6)
+    "module": "ESNext",                          // Какой модульный синтаксис использовать (Webpack понимает ESNext)
+    "moduleResolution": "Node",                  // Как искать модули (нужно для импорта из node_modules)
+    "jsx": "react-jsx",                          // JSX-поддержка (react-jsx — для React 17+)
+    "strict": true,                              // Включает все строгие проверки типов (лучше включать!)
+    "esModuleInterop": true,                     // Позволяет импортировать CommonJS-модули, как ES6 (import fs from 'fs')
+    "forceConsistentCasingInFileNames": true,    // Ошибка при несовпадении регистра в путях (Windows может "простить")
+    "skipLibCheck": true,                        // Пропустить проверку типов у внешних библиотек (ускоряет сборку)
+    "resolveJsonModule": true,                   // Позволяет импортировать .json файлы как модули
+    "baseUrl": "./src",                          // Базовая директория для абсолютных путей, типа '@/components'
+    "paths": {
+      "@/*": ["./*"]                             // Позволяет писать import Button from "@/ui/Button"
+    },
+    "outDir": "./dist",                          // Куда класть собранные .js файлы (не обязательно для Webpack)
+    "allowSyntheticDefaultImports": true         // Чтобы можно было делать `import React from 'react'`
+  },
+  "include": ["src"],                            // Какие файлы компилировать
+  "exclude": ["node_modules", "dist"]            // Что исключить из компиляции
+}

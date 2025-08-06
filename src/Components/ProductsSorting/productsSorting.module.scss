@@ -1,0 +1,68 @@
+.sorting{
+    fieldset{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 400px;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    
+    label{
+      display: flex;
+      gap: 10px;
+    }
+
+    legend{
+      margin-bottom: 15px;
+    }
+  }
+}
+
+
+@media screen and (min-width:500px) {
+  .sorting{
+    fieldset{
+        legend:hover{
+        cursor: pointer;
+      }
+    }
+
+    .hiddenFieldset{
+      max-height: 0px ;
+    }
+  }
+}
+
+.activeLabel{
+  font-weight: 600;
+}
+
+.activeLegend{
+  font-weight: 600;
+}
+
+
+
+@media screen and (max-width: 500px) {
+
+  .sorting{
+    padding-top: 10px;
+    display: flex;
+    justify-content: end;
+
+    fieldset{
+      width: 45%;
+    }
+    legend{
+      display: none;
+    }
+  }
+
+  .hidden{
+    display: none;
+    width: initial;
+    legend{
+      display: none;
+    }
+  }
+}

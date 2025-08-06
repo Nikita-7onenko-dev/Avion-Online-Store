@@ -1,0 +1,41 @@
+
+
+.filtersAndSortingList{
+  min-width: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding-block: 20px;
+  padding-right: var(--paddingInline);
+  gap: 30px;
+
+  >button{
+    background-color: var(--lightGrayBackground);
+    color: var(--darkFontColor);
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+
+  .filtersAndSortingList{
+    padding-inline: var(--paddingInline);
+    margin-inline: clamp(-100px, -5vw, -20px);
+    padding-block: 0px;
+    min-width: initial;
+    height: 0px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    transition: height 0.4s ease;
+    display: flex;
+    flex-direction: column;
+
+    >button{
+      display: none;
+    }
+  }
+  
+  .active{
+    height: 150px;
+  }
+}

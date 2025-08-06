@@ -1,0 +1,56 @@
+
+.filtersControls{
+  display: none;
+  justify-content: center;
+  gap: 15px;
+  padding-top: 20px;
+  padding-inline: 10px;
+  
+
+  button{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 14px 24px 14px 32px;
+    width: 150px;
+    height: 50px;
+    background-color: var(--lightGrayBackground);
+    color: var(--darkFontColor);
+  }
+}
+
+.resetButton{
+  display: none;
+}
+
+
+
+@media screen and (max-width: 500px) {
+
+  .filtersControls{
+    display: flex;
+
+    svg{
+      transition: transform 0.4s ease;
+      width: 20px;
+      height: 20px;
+      margin-top: 3.5px;
+    }
+  }
+
+  .svgRotate {
+    transform: rotate(180deg);
+  }
+
+  .resetButton{
+    display: initial;
+    background-color: var(--lightGrayBackground);
+    margin-top: 10px;
+    height: 30px;
+    width: calc(100% - 20px);
+    margin-inline: auto;
+  }
+
+}

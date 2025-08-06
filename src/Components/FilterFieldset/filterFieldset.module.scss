@@ -1,0 +1,64 @@
+
+  .filterFieldset{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    max-height: 400px;
+    color: var(--darkFontColor);
+
+    label{
+      display: flex;
+      gap: 10px;
+    }
+
+    legend{ 
+      margin-bottom: 15px;
+    }
+    
+  }
+
+.activeLabel{
+  font-weight: 600;
+}
+
+.activeLegend{
+  font-weight: 600;
+}
+
+
+@media screen and (min-width:500px) {
+  
+    .filterFieldset{
+        legend:hover{
+        cursor: pointer;
+      }
+    }
+
+    .hiddenFieldset{
+      max-height: 0px !important;
+    }
+}
+
+
+
+
+@media screen and (max-width: 500px) {
+  
+  .filterFieldset{
+    scroll-snap-align: start;
+    align-items: start;
+    width: 100vw;
+    height: 100%;
+    overflow-y: scroll;
+  }    
+ 
+  .hidden{
+    display: none;
+    width: initial;
+    legend{
+      display: none;
+    }
+  }
+}

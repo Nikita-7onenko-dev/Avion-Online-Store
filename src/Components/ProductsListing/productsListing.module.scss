@@ -1,0 +1,77 @@
+
+.productsListingContainer{
+  padding-inline: var(--paddingInline);
+  padding-block: 70px 0px;
+  
+  h3{
+    font-size: var(--fontSizeL);
+    color: var(--darkFontColor);    
+    font-family: ClashDisplay;
+  }
+
+  // ul{
+  //   /* Сбрасываем padding для списка за счет отрицательного margin и выравниваем конец списка с помощью padding */
+  //   margin-inline:clamp(-100px, -5vw, -20px);
+  //   padding-inline: clamp(20px, 5vw, 100px);
+  //   margin-block: 35px;
+  //   display: flex;
+  //   gap: 20px;
+  //   overflow-x: scroll;
+  //   overflow-y: hidden;
+  // }
+
+  // .link{
+  //   background-color: var(--lightGrayBackground);
+  //   color: var(--darkFontColor);
+  //   margin-inline: auto;
+  // }
+}
+
+.productCard:active{
+  cursor: grabbing;
+}
+
+.productCard{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+  a{
+    color: var(--darkFontColor);
+  }
+
+  a:active{
+    cursor: grabbing;
+  }
+
+  p{
+    font-size: 18px;
+    color: var(--darkFontColor);
+  }
+  p:last-child{
+    font-size: 16px;
+  }
+}
+
+.imgFrame{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: var(--lightGrayBackground);
+  
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.imgFrameSmall{
+  aspect-ratio: 4 / 5;
+  width: clamp(160px, 20vw, 305px);
+}
+
+.imgFrameWide{
+  aspect-ratio: 8 / 5;
+  width: clamp(320px, 40vw, 610px);
+}

@@ -6,7 +6,10 @@ import { Link } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 
 
+
 export default function HeroBlock(): React.JSX.Element {
+
+  const base = process.env.PUBLIC_URL;
 
   const [isLoad, setIsLoad] = useState(false);
 
@@ -25,7 +28,7 @@ export default function HeroBlock(): React.JSX.Element {
       </div>
       <div className={styles.heroBlockImgWrapper}>
         <img 
-          src='/img/Products/prod-1753028929626.jpg' 
+          src={`${base}/img/products/prod-1753028929626.jpg`} 
           alt="" 
           loading='lazy'
           onLoad={() => setIsLoad(true)} 

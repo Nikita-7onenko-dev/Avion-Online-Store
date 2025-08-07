@@ -54,6 +54,8 @@ export default function AllProductsPage(): React.JSX.Element {
   
   const [filterOptions, setFilterOption] = useState<FiltersOptionsType>(initialOptions);
 
+  const base = process.env.PUBLIC_URL;
+
   useEffect(() => {
     setFilterOption(initialOptions)
   }, [searchParams])
@@ -61,7 +63,10 @@ export default function AllProductsPage(): React.JSX.Element {
 
   return (
     <>
-      <div className={styles.allProductsBanner}>
+      <div 
+        className={styles.allProductsBanner}
+        style={{backgroundImage: `url('${base}/img/allProductsBanner.jpg')`}}  
+      >
       {title}
       </div>
       <div className={styles.allProductsBlock}>

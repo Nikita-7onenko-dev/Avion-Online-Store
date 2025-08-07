@@ -4,6 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const webpack = require('webpack');
+const packageJson = require('./package.json');
 
 module.exports = (env) => {
   const isDev = env.mode === 'development';
@@ -16,7 +18,9 @@ module.exports = (env) => {
     resolve:{
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       alias: {
-        "@": path.resolve(__dirname, 'src')
+        "@": path.resolve(__dirname, 'src'),
+        "@img": path.resolve(__dirname, 'src/assets/img'),
+        "@icons": path.resolve(__dirname, 'src/assets/icons')
       }
     },
 
@@ -42,7 +46,7 @@ module.exports = (env) => {
     entry: path.resolve(__dirname, 'src/main'),
 
     output: {
-      publicPath: isDev ? '/' : '/Avion-Online-Store/',
+      publicPath: isDev ? '/' : packageJson.homepage + '/',
       path: path.resolve(__dirname, 'dist'),
       filename: 'main.[contenthash].js',
       clean: true,
@@ -87,13 +91,16 @@ module.exports = (env) => {
         },
 
         {
-          test: /\.(png|jpe?g|gif|webp|svg)$/i, // Для изображений
-          type: 'asset/resource', // Или asset/inline или asset, если нужно другое поведение
+          test: /\.(png|jpe?g|gif|webp|svg)$/i,
+          type: 'asset/resource',
         },
       ]
     },
 
     plugins: [
+      new webpack.DefinePlugin({
+        'process.env.PUBLIC_URL': JSON.stringify( isDev ? '' : packageJson.homepage || '')
+      }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'index.html'),
         filename: 'index.html'

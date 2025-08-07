@@ -20,7 +20,7 @@ export default function HeaderTop( {isOpenBurger, setIsOpenBurger}: Props): Reac
       <Link to='/' className={styles.title}><h2>Avion</h2></Link>
       <div className={styles.iconLayoutLeft}>
         {
-        isShowCart && <Link to='/shoppingCart'>
+        isShowCart && <Link to='/shoppingCart' className={styles.cartLink}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <rect width="16" height="16" fill="white"/>
             <path d="M5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15Z" fill="#2A254B"/>
@@ -33,7 +33,7 @@ export default function HeaderTop( {isOpenBurger, setIsOpenBurger}: Props): Reac
         <SearchForm />
       </div>
       <div className={styles.iconLayoutRight}>
-        <Link to='/shoppingCart'>
+        <Link to='/shoppingCart' className={styles.cartLink}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <rect width="16" height="16" fill="white"/>
             <path d="M5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15Z" fill="#2A254B"/>

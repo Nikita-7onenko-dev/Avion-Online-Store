@@ -18,6 +18,8 @@ const pageSize = 5;
 export default function AllProductsGrid({filterOptions}: Props): React.JSX.Element {
 
   const [items, setItems] = useState<ProductType[]>([]);
+  
+  const base = process.env.PUBLIC_URL;
 
   let iRef = useRef<number>(0);
 
@@ -57,7 +59,7 @@ export default function AllProductsGrid({filterOptions}: Props): React.JSX.Eleme
                   <Link to={`/${product.id}`} className={styles.productCard}>
                     <div className={product.aspectRatio === '4/5' ? styles.imgFrameSmall : styles.imgFrameWide}>
                       <img 
-                        src={product.image} 
+                        src={`${base}${product.image}`} 
                         alt="" 
                         loading='lazy'
                         onLoad={() => {                          

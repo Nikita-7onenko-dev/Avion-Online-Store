@@ -8,10 +8,18 @@ type Props = {
 
 export default function CtaBlock({isWithImage}: Props): React.JSX.Element {
 
-
   if(isWithImage) {
+    const base = process.env.PUBLIC_URL;
+    document.documentElement.style.setProperty(
+      '--checkmark-url',
+      `url('${base}/icons/Checkmark.svg')`
+    );
+
     return (
-      <div className={`${styles.ctaBlockContainer} ${styles.withImage}`}>
+      <div 
+        className={`${styles.ctaBlockContainer} ${styles.withImage}`}
+        style={{backgroundImage: `url('${base}/img/Cta.jpg')`}}
+      >
         <div>
           <h3>Join the club and get the benefits</h3>
           <p>Sign up for our newsletter and receive exclusive offers on new ranges, sales, pop up stores and more</p>

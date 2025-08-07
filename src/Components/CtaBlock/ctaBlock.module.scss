@@ -34,8 +34,6 @@
 
 .withImage{
   background-color: #d8d9dd;
-
-  background-image: url('/img/Cta.jpg');
   background-position: center;
   background-repeat: no-repeat;
   color: #fff;
@@ -54,7 +52,7 @@
         position: relative;
         top: 1px;
         padding-right: 20px;
-        background: url('/icons/Checkmark.svg') 0 0 no-repeat;
+        background: var(--checkmark-url) 0 0 no-repeat;
       }
     }
   }

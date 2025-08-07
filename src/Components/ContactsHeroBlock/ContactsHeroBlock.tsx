@@ -11,6 +11,8 @@ export default function ContactsHeroBlock({ref}: Props): React.JSX.Element {
 
   const [isLoad, setIsLoad] = useState(false);
 
+  const base = process.env.PUBLIC_URL;
+
   function scrollToFeedbackForm() {
     ref.current?.scrollIntoView({
       behavior: 'smooth',
@@ -28,7 +30,7 @@ export default function ContactsHeroBlock({ref}: Props): React.JSX.Element {
           <button className='globalButton' onClick={scrollToFeedbackForm}>Use feedback form</button>
         </div>
         <img 
-          src='/img/ContactsHeroBlock.jpg' 
+          src={`${base}/img/ContactsHeroBlock.jpg`}
           onLoad={() => setIsLoad(true)}
           loading='lazy'
           style={isLoad ? {visibility: 'visible'} : {visibility: 'hidden'} } 

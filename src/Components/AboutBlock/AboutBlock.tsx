@@ -39,6 +39,7 @@ export default function AboutBlock({
 }: Props  ): React.JSX.Element {
 
   const [isLoad, setIsLoad] = useState(false);  
+  const base = process.env.PUBLIC_URL;
   
   const spinnerColor = variation === 'highlighted' ? '#fff' : '#2a254b'
 
@@ -54,7 +55,7 @@ export default function AboutBlock({
     </div>
     <div className={styles.imageWrapper}>
       <img 
-        src={imgSrc} 
+        src={`${base}${imgSrc}`} 
         alt="" 
         loading='lazy' 
         onLoad={() => setIsLoad(true)}

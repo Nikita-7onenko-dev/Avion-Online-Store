@@ -20,6 +20,8 @@ export default function ProductBlock({productData}: Props): React.JSX.Element {
   const productImageRef = useRef<HTMLDivElement>(null);
   const pathname = useLocation();
   
+  const base = process.env.PUBLIC_URL;
+
   const [isLoad, setIsLoad] = useState(false);  
   
   useEffect(() => {
@@ -39,7 +41,7 @@ export default function ProductBlock({productData}: Props): React.JSX.Element {
         ref={productImageRef}
       >
         <img 
-          src={productData.image} 
+          src={`${base}${productData.image}`} 
           alt={productData.name}
           loading='lazy' 
           onLoad={() => setIsLoad(true)}

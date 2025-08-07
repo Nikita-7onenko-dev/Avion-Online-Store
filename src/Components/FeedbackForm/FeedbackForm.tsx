@@ -10,13 +10,14 @@ type Props = {
 
 export default function FeedbackForm({ref}: Props): React.JSX.Element {
 
-  const [isLoad, setIsLoad] = useState(false)
+  const [isLoad, setIsLoad] = useState(false);
+  const base = process.env.PUBLIC_URL;
 
   return (
     <div className={styles.feedbackFormContainer}>
       <div className={styles.imageWrapper}>
         <img 
-        src="/img/feedbackForm2.webp"
+        src={`${base}/img/feedbackForm2.webp`}
         alt="" 
         loading='lazy'
         onLoad={() => setIsLoad(true)} 

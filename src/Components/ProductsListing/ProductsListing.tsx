@@ -1,12 +1,9 @@
 import { products } from "@/data/products";
 
-import styles from './productsListing.module.scss'
-
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import ClipLoader from "react-spinners/ClipLoader";
 import ProductListingEmblaCarousel from "../ProductListingEmblaCarousel/ProductListingEmblaCarousel";
 import {EmblaOptionsType} from 'embla-carousel'
+
+import ProductListingCard from "../ProductListingCard/ProductListingCard";
 
 type Filters = {
   productType: string;
@@ -85,48 +82,11 @@ export default function ProductListing
     result = result.slice(0, 8)
   }
 
-  const productCards = result.map(product => {
-    const [isLoad, setIsLoad] = useState(false);  
-    return (
-      <li key={product.id} className={`${product.aspectRatio === '4/5' ? styles.imgFrameSmall : styles.imgFrameWide} embla__slide`}>
-        <Link className={`${styles.productCard}`} to={`/${product.id}`} >
-          <div className={`${product.aspectRatio === '4/5' ? styles.imgFrameSmall : styles.imgFrameWide} ${styles.imgFrame}`}>
-            <img 
-              src={product.image} 
-              alt="" 
-              loading="lazy"
-              onLoad={() => setIsLoad(true)}
-              style={isLoad ? {visibility: 'visible'} : {visibility: 'hidden'} } 
-            />
-            <ClipLoader 
-              color={'#2a254b'}
-              size={40}
-              cssOverride={isLoad ? {display: 'none'} : {display: 'inline-block', position: 'absolute'} } 
-            />
-          </div>
-          <p>{product.name}</p>
-          <p>{product.price}$</p>
-        </Link>
-      </li>  
-    )
-  })
+  const productCards = result.map(product => <ProductListingCard key={product.id} product={product} /> )
 
   const options: EmblaOptionsType = {dragFree: true}
 
   return (
-    // <div className={styles.productsListingContainer}>
-    //   <h3>{title}</h3>
-    //   <ul>{productCards}</ul>
-    //   <Link 
-    //     className={`${styles.link} globalLink`}
-    //      to={{
-    //       pathname: '/allProducts',
-    //       search: searchParams
-    //      }}
-    //   > 
-    //     View collection
-    //   </Link>
-    // </div>
     <ProductListingEmblaCarousel options={options} slides={productCards} title={title} searchParams={searchParams} />
   )
 }

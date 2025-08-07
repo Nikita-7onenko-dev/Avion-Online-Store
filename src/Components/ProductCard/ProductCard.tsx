@@ -19,12 +19,13 @@ export default function ProductCart({product, quantity, setQuantity}: Props): Re
   const {removeFromCart} = useCartContext();
   const [isLoad, setIsLoad] = useState(false);  
   
+  const base = process.env.PUBLIC_URL;
   
   return (
     <div className={styles.productCard}>
       <Link to={`/${product.id}`} className={`${styles.imageWrapper} ${product.aspectRatio === '4/5' ? styles.small : styles.wide}`}>
         <img 
-          src={product.image}
+          src={`${base}${product.image}`}
           alt={product.name} 
           loading='lazy'
           onLoad={() => setIsLoad(true)}  

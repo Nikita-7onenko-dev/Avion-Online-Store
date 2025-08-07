@@ -110,7 +110,8 @@ module.exports = (env) => {
       }),
       new CopyWebpackPlugin({
         patterns: [
-          { from: 'public/img', to: 'img' }
+          { from: 'public/img', to: 'img' },
+          {from: 'public/icons', to: 'icons'}
         ]
       }),
       !isDev && new BundleAnalyzerPlugin({

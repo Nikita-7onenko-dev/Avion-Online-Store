@@ -5,7 +5,7 @@ import {FiltersOptionsType} from '@/types/FiltersOptionsType';
 import { products } from '@/data/products';
 
 import { Link } from 'react-router-dom';
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import  ClipLoader from 'react-spinners/ClipLoader';
 import applyFilterOptions from '@/utils/applyFilterOptions';
 
@@ -14,29 +14,31 @@ type Props = {
 }
 
 const pageSize = 5;
+const base = process.env.PUBLIC_URL;
 
 export default function AllProductsGrid({filterOptions}: Props): React.JSX.Element {
 
   const [items, setItems] = useState<ProductType[]>([]);
-  
-  const base = process.env.PUBLIC_URL;
 
-  let iRef = useRef<number>(0);
+  const iRef = useRef<number>(0);
 
-  let filteredProducts = applyFilterOptions(filterOptions, products);
+  const filteredProducts = useMemo(() => {
+    return applyFilterOptions(filterOptions, products);
+  }, [filterOptions]) 
 
-  const productsChunk: ProductType[] = [];
+  const hasMoreProducts = () => iRef.current < filteredProducts.length;
 
   function loadMore() {
+    const productsChunk: ProductType[] = [];
     const isReload = iRef.current === 0;
 
-    for(let k = 0; k < pageSize && iRef.current < filteredProducts.length; k++){
+    for(let k = 0; k < pageSize && hasMoreProducts(); k++){
       productsChunk.push(filteredProducts[iRef.current]);
       iRef.current++;
     }
 
     if(isReload) {
-      setItems( () => [...productsChunk])
+      setItems(productsChunk)
     } else {
       setItems( prev => [...prev, ...productsChunk])  
     }
@@ -48,10 +50,10 @@ export default function AllProductsGrid({filterOptions}: Props): React.JSX.Eleme
 
   },[filterOptions]);
 
-  const [imgSet, setImgSet] = useState(new Set())
+  const [imgSet, setImgSet] = useState(new Set());
 
   return (
-      <div className={styles.productGridBlock}>
+      <div className={styles.productGridBlock} style={hasMoreProducts() ? {} : {paddingBottom: '50px'}}>
         <ul className={styles.productGrid}>
             {items.map(product => {
               return (
@@ -80,12 +82,12 @@ export default function AllProductsGrid({filterOptions}: Props): React.JSX.Eleme
               )
             })}
         </ul>
-        <button
-        className='globalButton'
+        {hasMoreProducts() && <button
+          className='globalButton'
           onClick={loadMore}
         >
           Load more
-        </button>
+        </button>}
       </div>
   )
 }

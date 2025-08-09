@@ -7,7 +7,7 @@ export default function applyFilterOptions(filterOptions: FiltersOptionsType, pr
     let filteredProducts = products;
 
     if(filterOptions.search) {
-      filteredProducts = filteredProducts.filter(product => product.name.includes(filterOptions.search) )      
+      filteredProducts = filteredProducts.filter(product => product.name.toLocaleLowerCase().includes(filterOptions.search.toLowerCase() ) )      
     }    
     if(filterOptions.filters.productType.length > 0) { 
       filteredProducts = filteredProducts.filter(product => product.productType.some(type => filterOptions.filters.productType.includes(type) )  )

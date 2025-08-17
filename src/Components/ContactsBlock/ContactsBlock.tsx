@@ -30,8 +30,7 @@ export default function ContactsBlock(): React.JSX.Element {
         <SocialLinks color="#2a254b" />
       </address>
       <div className={styles.map}>
-        <iframe width="100%" height="100%" src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=New%20York%2021%20New%20York%20Street+(Avion)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-        </iframe>
+        <iframe width="100%" height="100%" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Century%2021%20NYC%2022%20Cortlandt%20St,%20Manhattan,%20NY%2010007,%20United%20States+(Avion)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
       </div>
     </div>
   )

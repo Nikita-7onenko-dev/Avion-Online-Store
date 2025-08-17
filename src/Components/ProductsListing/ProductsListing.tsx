@@ -1,22 +1,22 @@
-import { products } from "@/data/products";
-
 import ProductListingEmblaCarousel from "../ProductListingEmblaCarousel/ProductListingEmblaCarousel";
 import {EmblaOptionsType} from 'embla-carousel'
 
 import ProductListingCard from "../ProductListingCard/ProductListingCard";
 
+import fetchAllProducts from "@/utils/fetchAllProducts";
+import { useEffect, useState } from "react";
+import { ProductType } from "@/types/ProductType";
+
 type Filters = {
   productType: string;
   category: string;
   designer: string;
-  cheapest: boolean;
-  newest: boolean;
-  popular: boolean;
-  excludeId: string;
+  sorting: "Price: Low to High" | "Price: High to Low" | "Newest" | "Best sellers"
 }
 
 type RestProps = {
   title: string;
+  excludeId?: string;
 }
 
 type AtLeastOne<T> = Partial<T> & { [K in keyof T]: Pick<T, K> }[keyof T]
@@ -29,64 +29,46 @@ export default function ProductListing
     productType,
     category,
     designer,
-    cheapest,
-    newest,
-    popular, 
+    sorting,
     excludeId,
     title 
   }: AtLeastOneProp & RestProps): React.JSX.Element {
 
-  let result = products;
-  let searchParams = ''
+  const [products, setProducts] = useState<ProductType[] | null>(null);
 
-  if(productType) {
-      searchParams+= `productType=${productType}`;
-      result = result.filter(product => {
-      return product.productType.includes(productType);
-    })
+  let filters = {
+    productType: productType ? [productType] : [],
+    category: category ? [category] : [],
+    designers: designer ? [designer] : [],
+    priceFilters: []
   }
 
-  if(category) {
-    searchParams+=`category=${category}`;
-    result = result.filter(product => {
-      return product.category.includes(category);
-    })
-  }
+  const params = new URLSearchParams({
+    filters: JSON.stringify(filters),
+    sorting: sorting || '',
+    limit: "8"
+  }).toString();
 
-  if(designer) {
-    searchParams+=`designer=${designer}`
-    result = result.filter(product => {
-      return product.designer.includes(designer);
-    })
-  }
+  useEffect( () => {
+    const fetchData = async() => {
+      let data = (await fetchAllProducts(params)).products;
+      if(excludeId) {
+        data = data.filter(prod => prod._id !== excludeId);
+      }
+      setProducts(data);
+    }
 
-  if(excludeId) {
-    result = result.filter(product => product.id !== excludeId)
-  }
-  
-  if(cheapest) {
-    result = result.sort((a, b) => a.price - b.price );
-  }
+    fetchData();
 
-  if(newest) {
-    result = result.sort((a, b) => {
-      return new Date(a.dateAdded).getTime() > new Date(b.dateAdded).getTime() ? -1 : 1
-    });
-  }
+  }, [])
 
-  if(popular) {
-    result = result.sort((a, b) => b.popularityScore - a.popularityScore);
-  }
-
-  if(result.length > 8) {
-    result = result.slice(0, 8)
-  }
-
-  const productCards = result.map(product => <ProductListingCard key={product.id} product={product} /> )
+  const productCards = products ? 
+   ( products.map(product => <ProductListingCard key={product._id} product={product} variation="listingElement" /> ) ) :
+   ( [...Array(8).keys()].map(index => <ProductListingCard key={index} variation="listingElement" />) )
 
   const options: EmblaOptionsType = {dragFree: true}
 
   return (
-    <ProductListingEmblaCarousel options={options} slides={productCards} title={title} searchParams={searchParams} />
+    <ProductListingEmblaCarousel options={options} slides={productCards} title={title} searchParams={params} />
   )
 }

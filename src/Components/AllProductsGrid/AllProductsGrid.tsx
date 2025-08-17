@@ -1,13 +1,14 @@
 import styles from './AllProductsGrid.module.scss';
 
+import ProductListingCard from '../ProductListingCard/ProductListingCard';
+
 import { ProductType } from "@/types/ProductType";
 import {FiltersOptionsType} from '@/types/FiltersOptionsType';
-import { products } from '@/data/products';
 
-import { Link } from 'react-router-dom';
-import { useEffect, useState, useRef, useMemo } from "react";
-import  ClipLoader from 'react-spinners/ClipLoader';
-import applyFilterOptions from '@/utils/applyFilterOptions';
+import { useEffect, useState } from "react";
+import fetchAllProducts from '@/utils/fetchAllProducts';
+import { useFilters } from '@/Context/FiltersContextProvider';
+
 
 type Props = {
   filterOptions: FiltersOptionsType;
@@ -16,75 +17,62 @@ type Props = {
 const pageSize = 5;
 const base = process.env.PUBLIC_URL;
 
-export default function AllProductsGrid({filterOptions}: Props): React.JSX.Element {
+function loadMore(setAlreadyLoaded: React.Dispatch<React.SetStateAction<number>>) {
+  setAlreadyLoaded( (prev) => prev + pageSize );
+}
 
-  const [items, setItems] = useState<ProductType[]>([]);
+export default function AllProductsGrid(): React.JSX.Element {
 
-  const iRef = useRef<number>(0);
+  const [products, setProducts] = useState<ProductType[]>([]);
+  const [hasMore, setHasMore] = useState<boolean>(true);
+  const [alreadyLoaded, setAlreadyLoaded] = useState<number>(0);
+  const { filtersOptions } = useFilters();
 
-  const filteredProducts = useMemo(() => {
-    return applyFilterOptions(filterOptions, products);
-  }, [filterOptions]) 
-
-  const hasMoreProducts = () => iRef.current < filteredProducts.length;
-
-  function loadMore() {
-    const productsChunk: ProductType[] = [];
-    const isReload = iRef.current === 0;
-
-    for(let k = 0; k < pageSize && hasMoreProducts(); k++){
-      productsChunk.push(filteredProducts[iRef.current]);
-      iRef.current++;
+  let ignore = false;
+  async function fetchProducts(searchParams: URLSearchParams) {
+    const data = await fetchAllProducts(searchParams.toString());
+    if(!ignore) {
+      setProducts( prev => [...prev, ...data.products]);
+      setHasMore(data.hasMore);
     }
 
-    if(isReload) {
-      setItems(productsChunk)
-    } else {
-      setItems( prev => [...prev, ...productsChunk])  
-    }
   }
-  
+
+  let searchParams = new URLSearchParams({
+    search: filtersOptions.search,
+    sorting: filtersOptions.sorting,
+    filters: JSON.stringify(filtersOptions.filters),
+    alreadyLoaded: alreadyLoaded.toString(),
+    limit: pageSize.toString()
+  })
+
   useEffect(() => {
-    iRef.current = 0;
-    loadMore();
+    setProducts([]);
+    setAlreadyLoaded(0);
+    
+  },[filtersOptions])
 
-  },[filterOptions]);
+  useEffect(() => {
+ 
+    fetchProducts(searchParams);
 
-  const [imgSet, setImgSet] = useState(new Set());
+    return () => {
+      ignore = true;
+    }
+  }, [alreadyLoaded, filtersOptions])
 
   return (
-      <div className={styles.productGridBlock} style={hasMoreProducts() ? {} : {paddingBottom: '50px'}}>
+      <div className={styles.productGridBlock} style={hasMore ? {} : {paddingBottom: '50px'}}>
         <ul className={styles.productGrid}>
-            {items.map(product => {
-              return (
-                <li key={product.id} className={product.aspectRatio === '8/5' ? styles.wideElement : '' }>
-                  <Link to={`/${product.id}`} className={styles.productCard}>
-                    <div className={product.aspectRatio === '4/5' ? styles.imgFrameSmall : styles.imgFrameWide}>
-                      <img 
-                        src={`${base}${product.image}`} 
-                        alt="" 
-                        loading='lazy'
-                        onLoad={() => {                          
-                          setImgSet(prev => new Set(prev).add(product.id))
-                        }}
-                        style={imgSet.has(product.id) ? {visibility: 'visible'} : {visibility: 'hidden'} } 
-                      />
-                      <ClipLoader 
-                        color={'#2a254b'}
-                        size={40}
-                        cssOverride={imgSet.has(product.id) ? {display: 'none'} : {display: 'inline-block', position: 'absolute'} } 
-                      />
-                    </div>
-                    <p>{product.name}</p>
-                    <p>{product.price}$</p>
-                  </Link>
-                </li>  
-              )
-            })}
+            {
+              products ? 
+                ( products.map(product => <ProductListingCard key={product._id} product={product} variation='gridElement' /> ) ) :
+                ( [...Array(8).keys()].map(index => <ProductListingCard key={index} variation='gridElement' />) )
+            }
         </ul>
-        {hasMoreProducts() && <button
+        {hasMore && <button
           className='globalButton'
-          onClick={loadMore}
+          onClick={() => loadMore(setAlreadyLoaded)}
         >
           Load more
         </button>}

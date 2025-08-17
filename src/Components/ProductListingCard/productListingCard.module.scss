@@ -1,24 +1,13 @@
 
-.productCard:active{
-  cursor: grabbing;
-}
-
 .productCard{
   display: flex;
   flex-direction: column;
   gap: 10px;
-  
-  a{
-    color: var(--darkFontColor);
-  }
-
-  a:active{
-    cursor: grabbing;
-  }
+  color: var(--darkFontColor);
+  max-height: 100%;
 
   p{
     font-size: 18px;
-    color: var(--darkFontColor);
   }
   p:last-child{
     font-size: 16px;
@@ -29,8 +18,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   background-color: var(--lightGrayBackground);
+  width: 100%;
   
   img{
     width: 100%;
@@ -40,10 +29,29 @@
 
 .imgFrameSmall{
   aspect-ratio: 4 / 5;
-  width: clamp(160px, 20vw, 305px);
 }
 
 .imgFrameWide{
-  aspect-ratio: 8 / 5;
+  aspect-ratio: 8 / 5;  
+}
+
+.listingElement{
+  width: clamp(160px, 20vw, 305px);
+
+  .productCard:active{
+    cursor: grabbing;
+  }
+}
+
+.listingElementWide{
   width: clamp(320px, 40vw, 610px);
+}
+
+.gridElement{
+  width: 100%;
+}
+
+.gridElementWide{
+  grid-column: span 2;
+  padding-inline: 5px;
 }

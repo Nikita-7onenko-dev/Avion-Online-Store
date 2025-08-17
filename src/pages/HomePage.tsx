@@ -12,8 +12,8 @@ export default function HomePage(): React.JSX.Element {
     <>
       <HeroBlock />
       <Features />
-      <ProductListing category='Ceramics' newest title='New Ceramics' />
-      <ProductListing popular title='Our popular products' />
+      <ProductListing category='Ceramics' sorting="Newest" title='New Ceramics' />
+      <ProductListing sorting="Best sellers" title='Our popular products' />
       <CtaBlock />
       <AboutBlock
         withLink

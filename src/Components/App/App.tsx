@@ -8,18 +8,16 @@ import ShoppingCart from '../../pages/ShoppingCart/ShoppingCart';
 
 import { Route, Routes } from 'react-router-dom';
 
-import { FiltersContext } from '@/Context/FiltersContext';
-import getFiltersContextValue from '@/utils/getFilterContextValue';
+import { FiltersProvider } from '@/Context/FiltersContextProvider';
 import { CartProvider } from '@/Context/CartContext';
 import ContactsPage from '@/pages/ContactsPage';
 
-const filtersContextValue = getFiltersContextValue();
 
 export default function App(): React.JSX.Element {
   
   return (
     <CartProvider> 
-      <FiltersContext.Provider value={filtersContextValue}>
+      <FiltersProvider>
         <Header />
         <main>
           <Routes>
@@ -32,7 +30,7 @@ export default function App(): React.JSX.Element {
           </Routes>
         </main>
         <Footer />
-      </FiltersContext.Provider>
+      </FiltersProvider>
     </CartProvider>
   )
 }

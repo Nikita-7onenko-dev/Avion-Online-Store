@@ -5,59 +5,27 @@ import ProductFiltersBar from '@/Components/ProductsFiltersBar/ProductsFiltersAn
 
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import {FiltersOptionsType} from '@/types/FiltersOptionsType'
+import searchParamsParser from '@/utils/searchParamsParser';
+import { useFilters } from '@/Context/FiltersContextProvider';
+
+const base = process.env.PUBLIC_URL;
 
 export default function AllProductsPage(): React.JSX.Element {
 
   const [searchParams] = useSearchParams();
-  const productType = searchParams.get('productType');
-  const category = searchParams.get('category');
-  const sorting = searchParams.get('sorting');
-  const designer = searchParams.get('designer')
-  const search = searchParams.get('search');
 
-  const initialOptions: FiltersOptionsType = {
-    filters: {
-      productType: [],
-      category: [],
-      designers: [],
-      priceFilters: [],
-    },
-    sorting: '',
-    search: ''
-  }
-
-  let title: React.ReactNode;
-  if(sorting) {
-    title = <h2>{sorting}</h2>;
-    initialOptions.sorting = sorting;
-  }
-  if(category) {
-    title = <h2>{category}</h2>;
-    initialOptions.filters.category = [category];
-  }
-  if(productType) {
-    title = <h2>{productType}</h2>;
-    initialOptions.filters.productType = [productType];
-  } 
-  if(designer) {
-    title = <h2>{designer}</h2>;
-    initialOptions.filters.designers = [designer]
-  }
-  if(search) {
-    title = <h2>{`Searching for: ${search}`}</h2>;
-    initialOptions.search = search;
-  }
-  if(!title){
-    title = (<h2>All Products</h2>);
-  }
-  
-  const [filterOptions, setFilterOption] = useState<FiltersOptionsType>(initialOptions);
-
-  const base = process.env.PUBLIC_URL;
+  const { setFiltersOptions } = useFilters();
+  const [title, setTitle] = useState<string>("All Products");
 
   useEffect(() => {
-    setFilterOption(initialOptions)
+
+    const [filterOptions, title] = searchParamsParser(searchParams);
+
+    if(searchParams.size > 0) {
+      setFiltersOptions(filterOptions);
+    }
+
+    setTitle(title);
   }, [searchParams])
 
 
@@ -67,11 +35,11 @@ export default function AllProductsPage(): React.JSX.Element {
         className={styles.allProductsBanner}
         style={{backgroundImage: `url('${base}/img/allProductsBanner.jpg')`}}  
       >
-      {title}
+      <h2>{title}</h2>
       </div>
       <div className={styles.allProductsBlock}>
-        <ProductFiltersBar  setFilterOption={setFilterOption} filterOptions={filterOptions} />
-        <AllProductsGrid filterOptions={filterOptions} />  
+        <ProductFiltersBar />
+        <AllProductsGrid />  
       </div>
     </>
   )

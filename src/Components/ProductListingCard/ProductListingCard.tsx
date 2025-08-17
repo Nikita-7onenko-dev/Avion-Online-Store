@@ -5,20 +5,30 @@ import { useState } from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
 
 type Props = {
-  product: ProductType
+  product?: ProductType
+  variation: "listingElement" | "gridElement"
 }
 
-export default function ProductListingCard({product}: Props): React.JSX.Element {
+const base = process.env.PUBLIC_URL;
+
+export default function ProductListingCard({product, variation}: Props): React.JSX.Element {
 
   const [isLoad, setIsLoad] = useState(false);  
-  const base = process.env.PUBLIC_URL;
+
+
+  const aspectRatio = product?.aspectRatio || '4/5';
+  const image = product?.image || null;
+  const name = product?.name || '';
+  const price = product?.price ? product?.price + ' $' : '' ;
+
 
 return (
-      <li key={product.id} className={`${product.aspectRatio === '4/5' ? styles.imgFrameSmall : styles.imgFrameWide} embla__slide`}>
-        <Link className={`${styles.productCard}`} to={`/${product.id}`} >
-          <div className={`${product.aspectRatio === '4/5' ? styles.imgFrameSmall : styles.imgFrameWide} ${styles.imgFrame}`}>
+      <li 
+        className={`${styles[variation]} ${product?.aspectRatio === '8/5' ? styles[variation] + 'Wide' : '' } ${ variation === 'listingElement' ? 'embla__slide' : '' }`}>
+        <Link className={`${styles.productCard}`} to={`/${product?._id || ''}`} >
+          <div className={`${aspectRatio === '4/5' ? styles.imgFrameSmall : styles.imgFrameWide} ${styles.imgFrame}`}>
             <img 
-              src={`${base}${product.image}`} 
+              src={`${base}${image}`} 
               alt="" 
               loading="lazy"
               onLoad={() => setIsLoad(true)}
@@ -30,8 +40,8 @@ return (
               cssOverride={isLoad ? {display: 'none'} : {display: 'inline-block', position: 'absolute'} } 
             />
           </div>
-          <p>{product.name}</p>
-          <p>{product.price}$</p>
+          <p>{name}</p>
+          <p>{price}</p>
         </Link>
       </li>  
     )

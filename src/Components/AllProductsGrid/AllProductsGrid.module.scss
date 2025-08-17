@@ -15,60 +15,7 @@
 // grid-template-columns: repeat(auto-fit, minmax(120px, auto));
 .productGrid{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(clamp(125px, 20vw, 240px), auto));
+  grid-template-columns: repeat(auto-fill, minmax(clamp(125px, 20vw, 240px), 1fr) );
   column-gap: 10px;
   row-gap: 20px;
-
-  li{
-    width: 100%;
-  }
-}
-
-.wideElement{
-  grid-column: span 2;
-  padding-inline: 5px;
-}
-
-.productCard{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  color: inherit;
-  
-  a{
-    font-size: 20px;
-  }
-
-  p{
-    font-size: 14px;
-  }
-}
-
-.imgFrameSmall{
-  aspect-ratio: 4 / 5;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--lightGrayBackground);
-
-  img{
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.imgFrameWide{
-  aspect-ratio: 8 / 5;  
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--lightGrayBackground);
-
-  img{
-    width: 100%;
-    height: 100%;
-  }
 }

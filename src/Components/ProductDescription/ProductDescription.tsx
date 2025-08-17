@@ -24,7 +24,7 @@ export default function ProductDescription({description, features, designer}: Pr
       <p>{"Designer: "}
         <Link to={{
           pathname: '/allProducts',
-          search: `designer=${designer}`
+          search: `designers=${designer}`
         }}>
           {designer}
         </Link>

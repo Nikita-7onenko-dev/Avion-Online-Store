@@ -26,7 +26,7 @@ export default function ProductListingEmblaCarousel({slides, options, title, sea
             className={`${styles.link} globalLink`}
             to={{
               pathname: '/allProducts',
-              search: searchParams
+              search: searchParams,
             }}
           > 
             View collection

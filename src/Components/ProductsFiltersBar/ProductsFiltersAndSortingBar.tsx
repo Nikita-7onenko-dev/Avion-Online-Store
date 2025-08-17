@@ -1,18 +1,12 @@
 import FiltersAndSortingList from '../FiltersAndSortingList/FiltersAndSortingList';
 import FiltersControls from '../FiltersControls/FiltersControls';
 
-import { FiltersOptionsType } from '@/types/FiltersOptionsType';
 import { ShowFilterOptionsType } from '@/types/ShowFilterOptionsType';
-
+import { useFilters } from '@/Context/FiltersContextProvider';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-type Props = {
-  setFilterOption: React.Dispatch<React.SetStateAction<FiltersOptionsType>>;
-  filterOptions: FiltersOptionsType;
-}
-
-export default function ProductFiltersBar({setFilterOption, filterOptions}: Props): React.JSX.Element {
+export default function ProductFiltersBar(): React.JSX.Element {
 
   const [ShowOptions, setShowOptions] = useState<ShowFilterOptionsType>({
     filters: false,
@@ -23,8 +17,9 @@ export default function ProductFiltersBar({setFilterOption, filterOptions}: Prop
     designers: true
   });
 
-  const navigate = useNavigate()
+  const { setFiltersOptions } = useFilters()
 
+  const navigate = useNavigate()
 
   function showFiltersClick() {
     setShowOptions(prev => ({
@@ -44,7 +39,7 @@ export default function ProductFiltersBar({setFilterOption, filterOptions}: Prop
 
   function resetFilters() {
     navigate('/allProducts')
-    setFilterOption({
+    setFiltersOptions({
       filters: {
         productType: [],
         category: [],
@@ -65,8 +60,6 @@ export default function ProductFiltersBar({setFilterOption, filterOptions}: Prop
         resetFilters={resetFilters}
       >
         <FiltersAndSortingList 
-        filterOptions={filterOptions}
-        setFilterOption={setFilterOption}
         showOptions={ShowOptions}
         setShowOptions={setShowOptions}
         resetFilters={resetFilters}

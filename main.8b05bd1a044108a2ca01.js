@@ -146,58 +146,14 @@ function ShoppingCart() {
 
 /***/ }),
 
-/***/ 542:
+/***/ 452:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  A: () => (/* binding */ HomePage)
-});
-
-// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(4848);
-// EXTERNAL MODULE: ./src/Components/AboutBlock/AboutBlock.tsx + 1 modules
-var AboutBlock = __webpack_require__(9782);
-// EXTERNAL MODULE: ./src/Components/CtaBlock/CtaBlock.tsx + 3 modules
-var CtaBlock = __webpack_require__(8753);
-// EXTERNAL MODULE: ./src/Components/Features/Features.tsx + 3 modules
-var Features = __webpack_require__(6335);
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(6540);
-;// ./src/Components/HeroBlock/heroBlock.module.scss
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const heroBlock_module = ({"heroBlock":"UYraP2","heroBlockLeft":"Or198m","heroBlockImgWrapper":"gx_Ed9","heroBlockLeftBottom":"VzATaO"});
-// EXTERNAL MODULE: ./node_modules/react-router/dist/development/chunk-EF7DTUVF.mjs
-var chunk_EF7DTUVF = __webpack_require__(1362);
-// EXTERNAL MODULE: ./node_modules/react-spinners/ClipLoader.js
-var ClipLoader = __webpack_require__(7420);
-var ClipLoader_default = /*#__PURE__*/__webpack_require__.n(ClipLoader);
-;// ./src/Components/HeroBlock/HeroBlock.tsx
-
-
-
-
-
-function HeroBlock() {
-    const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
-    const [isLoad, setIsLoad] = (0,react.useState)(false);
-    return ((0,jsx_runtime.jsxs)("div", { className: heroBlock_module.heroBlock, children: [(0,jsx_runtime.jsxs)("div", { className: heroBlock_module.heroBlockLeft, children: [(0,jsx_runtime.jsx)("h3", { children: "The furniture brand for the future, with timeless designs" }), (0,jsx_runtime.jsxs)("div", { className: heroBlock_module.heroBlockLeftBottom, children: [(0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/allProducts', className: 'globalLink', children: "View collection" }), (0,jsx_runtime.jsx)("p", { children: "A new era in eco friendly furniture with Avelon, the French luxury retail brand with nice fonts, tasteful colors and a beautiful way to display things digitally using modern web technologies." })] })] }), (0,jsx_runtime.jsxs)("div", { className: heroBlock_module.heroBlockImgWrapper, children: [(0,jsx_runtime.jsx)("img", { src: `${base}/img/HeroBlock.jpg`, alt: "", loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#fff', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] })] }));
-}
-
-// EXTERNAL MODULE: ./src/Components/ProductsListing/ProductsListing.tsx + 5 modules
-var ProductsListing = __webpack_require__(9100);
-;// ./src/pages/HomePage.tsx
-
-
-
-
-
-
-function HomePage() {
-    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)(HeroBlock, {}), (0,jsx_runtime.jsx)(Features/* default */.A, {}), (0,jsx_runtime.jsx)(ProductsListing/* default */.A, { category: 'Ceramics', sorting: "Newest", title: 'New Ceramics' }), (0,jsx_runtime.jsx)(ProductsListing/* default */.A, { sorting: "Best sellers", title: 'Our popular products' }), (0,jsx_runtime.jsx)(CtaBlock/* default */.A, {}), (0,jsx_runtime.jsx)(AboutBlock/* default */.A, { withLink: true, linkLabel: "Get in touch", linkHref: "/contacts", imgSrc: "/img/AboutBlockImage.jpg", title: "From a studio in London to a global brand with over 400 outlets", paragraph: "When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market.", anotherParagraph: "Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community." })] }));
-}
-
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"heroBlock":"UYraP2","heroBlockLeft":"Or198m","heroBlockImgWrapper":"gx_Ed9","heroBlockLeftBottom":"VzATaO"});
 
 /***/ }),
 
@@ -384,7 +340,7 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
 /* harmony import */ var _Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1438);
-/* harmony import */ var _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(542);
+/* harmony import */ var _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4649);
 /* harmony import */ var _Footer_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3148);
 /* harmony import */ var _pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6621);
 /* harmony import */ var _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3216);
@@ -394,8 +350,8 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(9255);
 /* harmony import */ var _Context_CartContext__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(5783);
 /* harmony import */ var _pages_ContactsPage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(2008);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_9__]);
-([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_9__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_9__]);
+([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_9__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
@@ -25870,11 +25826,11 @@ function HeaderNavigationBar() {
                 pathname: '/allProducts',
                 search: `productType=${productType}`
             }, className: () => productType === currentProductType ? 'active' : '', children: productType }) }, productType)));
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("nav", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", { className: _headerNavigationBar_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.headerNavigationList, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { onClick: () => setFiltersOptions({
-                        filters: { productType: [], category: [], designers: [], priceFilters: [] },
-                        sorting: '',
-                        search: ''
-                    }), children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .NavLink */ .k2, { to: '/allProducts', className: ({ isActive }) => isActive && !currentProductType ? 'active' : '', children: "All Products" }) }), categoryLinkItems, (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .NavLink */ .k2, { to: '/about', children: "About us" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .NavLink */ .k2, { to: '/contacts', children: "Contacts" }) })] }) }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("nav", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", { className: _headerNavigationBar_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.headerNavigationList, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .NavLink */ .k2, { to: '/allProducts', className: ({ isActive }) => isActive && !currentProductType ? 'active' : '', onClick: () => setFiltersOptions({
+                            filters: { productType: [], category: [], designers: [], priceFilters: [] },
+                            sorting: '',
+                            search: ''
+                        }), children: "All Products" }) }), categoryLinkItems, (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .NavLink */ .k2, { to: '/about', children: "About us" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .NavLink */ .k2, { to: '/contacts', children: "Contacts" }) })] }) }));
 }
 
 __webpack_async_result__();
@@ -26734,6 +26690,36 @@ exports.unstable_wrapCallback = function (callback) {
 
 /***/ }),
 
+/***/ 4649:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (/* binding */ HomePage)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
+/* harmony import */ var _Components_AboutBlock_AboutBlock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9782);
+/* harmony import */ var _Components_CtaBlock_CtaBlock__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8753);
+/* harmony import */ var _Components_Features_Features__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6335);
+/* harmony import */ var _Components_HeroBlock_HeroBlock__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8878);
+/* harmony import */ var _Components_ProductsListing_ProductsListing__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9100);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_HeroBlock_HeroBlock__WEBPACK_IMPORTED_MODULE_4__]);
+_Components_HeroBlock_HeroBlock__WEBPACK_IMPORTED_MODULE_4__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
+
+
+
+
+function HomePage() {
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_HeroBlock_HeroBlock__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_Features_Features__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_ProductsListing_ProductsListing__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, { category: 'Ceramics', sorting: "Newest", title: 'New Ceramics' }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_ProductsListing_ProductsListing__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, { sorting: "Best sellers", title: 'Our popular products' }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_CtaBlock_CtaBlock__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_AboutBlock_AboutBlock__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A, { withLink: true, linkLabel: "Get in touch", linkHref: "/contacts", imgSrc: "/img/AboutBlockImage.jpg", title: "From a studio in London to a global brand with over 400 outlets", paragraph: "When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market.", anotherParagraph: "Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community." })] }));
+}
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
 /***/ 4848:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -27245,7 +27231,7 @@ function AddToCartBar({ product }) {
 
 
 function ProductDimensionsTable({ height, width, depth }) {
-    return ((0,jsx_runtime.jsxs)("div", { className: productDimensionsTable_module.productDimensionsTable, children: [(0,jsx_runtime.jsx)("h3", { children: "Dimensions" }), (0,jsx_runtime.jsxs)("table", { children: [(0,jsx_runtime.jsx)("thead", { children: (0,jsx_runtime.jsxs)("tr", { children: [(0,jsx_runtime.jsx)("th", { children: "Height" }), (0,jsx_runtime.jsx)("th", { children: "Width" }), (0,jsx_runtime.jsx)("th", { children: "Depth" })] }) }), (0,jsx_runtime.jsx)("tbody", { children: (0,jsx_runtime.jsxs)("tr", { children: [(0,jsx_runtime.jsx)("td", { children: height }), (0,jsx_runtime.jsx)("td", { children: width }), (0,jsx_runtime.jsx)("td", { children: depth })] }) })] })] }));
+    return ((0,jsx_runtime.jsxs)("div", { className: productDimensionsTable_module.productDimensionsTable, children: [(0,jsx_runtime.jsx)("h3", { children: "Dimensions" }), (0,jsx_runtime.jsxs)("table", { children: [(0,jsx_runtime.jsx)("thead", { children: (0,jsx_runtime.jsxs)("tr", { children: [(0,jsx_runtime.jsx)("th", { children: "Height" }), (0,jsx_runtime.jsx)("th", { children: "Width" }), (0,jsx_runtime.jsx)("th", { children: "Depth" })] }) }), (0,jsx_runtime.jsx)("tbody", { children: (0,jsx_runtime.jsxs)("tr", { children: [(0,jsx_runtime.jsx)("td", { children: height && height }), (0,jsx_runtime.jsx)("td", { children: width && width }), (0,jsx_runtime.jsx)("td", { children: depth && depth })] }) })] })] }));
 }
 
 ;// ./src/Components/ProductTitle/productTitle.module.scss
@@ -27255,7 +27241,7 @@ function ProductDimensionsTable({ height, width, depth }) {
 
 
 function ProductTitle({ name, price }) {
-    return ((0,jsx_runtime.jsxs)("div", { className: productTitle_module.productTitle, children: [(0,jsx_runtime.jsx)("h2", { children: name }), (0,jsx_runtime.jsxs)("span", { children: [price, "$"] })] }));
+    return ((0,jsx_runtime.jsxs)("div", { className: productTitle_module.productTitle, children: [(0,jsx_runtime.jsx)("h2", { children: name }), (0,jsx_runtime.jsx)("span", { children: price })] }));
 }
 
 ;// ./src/Components/ProductDescription/productDescription.module.scss
@@ -27270,10 +27256,11 @@ function ProductDescription({ description, features, designer }) {
     if (features) {
         featuresList = features.map(feature => ((0,jsx_runtime.jsx)("li", { children: feature }, feature)));
     }
-    return ((0,jsx_runtime.jsxs)("div", { className: productDescription_module.productBlockDescription, children: [(0,jsx_runtime.jsx)("h3", { children: "Product description:" }), (0,jsx_runtime.jsx)("p", { children: description }), (0,jsx_runtime.jsxs)("p", { children: ["Designer: ", (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: {
-                            pathname: '/allProducts',
-                            search: `designers=${designer}`
-                        }, children: designer })] }), (0,jsx_runtime.jsx)("ul", { children: features && featuresList })] }));
+    return ((0,jsx_runtime.jsxs)("div", { className: productDescription_module.productBlockDescription, children: [(0,jsx_runtime.jsx)("h3", { children: "Product description:" }), (0,jsx_runtime.jsx)("p", { children: description }), (0,jsx_runtime.jsxs)("p", { children: ["Designer: ", designer &&
+                        (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: {
+                                pathname: '/allProducts',
+                                search: `designers=${designer}`
+                            }, children: designer })] }), (0,jsx_runtime.jsx)("ul", { children: features && featuresList })] }));
 }
 
 ;// ./src/Components/ProductBlock/ProductBlock.tsx
@@ -27289,7 +27276,6 @@ function ProductDescription({ description, features, designer }) {
 function ProductBlock({ productData }) {
     const productImageRef = (0,react.useRef)(null);
     const pathname = (0,chunk_EF7DTUVF/* useLocation */.zy)();
-    const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
     const [isLoad, setIsLoad] = (0,react.useState)(false);
     (0,react.useEffect)(() => {
         productImageRef.current?.scrollIntoView({
@@ -27297,9 +27283,20 @@ function ProductBlock({ productData }) {
             block: 'start',
         });
     }, [pathname]);
-    const isWideImage = productData.aspectRatio === '8/5';
-    return ((0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productBlock} ${isWideImage ? productBlock_module.productBlockWide : ''}`, children: [(0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productBlockImageWrapper} ${isWideImage ? productBlock_module.wideImageWrapper : productBlock_module.smallImageWrapper}`, ref: productImageRef, children: [(0,jsx_runtime.jsx)("img", { src: productData.image, alt: productData.name, loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#2a254b', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productDescriptionBlock} ${isWideImage ?
-                    productBlock_module.productDescriptionSmall : productBlock_module.productDescriptionWide}`, children: [(0,jsx_runtime.jsx)(ProductTitle, { name: productData.name, price: productData.price }), (0,jsx_runtime.jsx)(ProductDescription, { description: productData.description, features: productData?.features, designer: productData.designer }), (0,jsx_runtime.jsx)(ProductDimensionsTable, { height: productData.height, width: productData.width, depth: productData.depth }), (0,jsx_runtime.jsx)(AddToCartBar, { product: productData })] })] }));
+    const isWideImage = productData?.aspectRatio === '8/5';
+    const data = {
+        image: productData?.image || '/',
+        name: productData?.name || '',
+        description: productData?.description || '',
+        price: productData?.price ? productData?.price + ' $' : '',
+        features: productData?.features || null,
+        designer: productData?.designer || '',
+        width: productData?.width || null,
+        height: productData?.height || null,
+        depth: productData?.depth || null,
+    };
+    return ((0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productBlock} ${isWideImage ? productBlock_module.productBlockWide : ''}`, children: [(0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productBlockImageWrapper} ${isWideImage ? productBlock_module.wideImageWrapper : productBlock_module.smallImageWrapper}`, ref: productImageRef, children: [(0,jsx_runtime.jsx)("img", { src: data.image, alt: data.name, loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#2a254b', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productDescriptionBlock} ${isWideImage ?
+                    productBlock_module.productDescriptionSmall : productBlock_module.productDescriptionWide}`, children: [(0,jsx_runtime.jsx)(ProductTitle, { name: data.name, price: data.price }), (0,jsx_runtime.jsx)(ProductDescription, { description: data.description, features: data.features, designer: data.designer }), (0,jsx_runtime.jsx)(ProductDimensionsTable, { height: data.height, width: data.width, depth: data.depth }), productData && (0,jsx_runtime.jsx)(AddToCartBar, { product: productData })] })] }));
 }
 
 // EXTERNAL MODULE: ./src/Components/ProductsListing/ProductsListing.tsx + 5 modules
@@ -27336,10 +27333,8 @@ function ProductPage() {
             }
         }
         fetchProduct();
-    });
-    if (!productData)
-        return (0,jsx_runtime.jsx)(jsx_runtime.Fragment, {});
-    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)(ProductBlock, { productData: productData }), (0,jsx_runtime.jsx)(ProductsListing/* default */.A, { productType: productData.productType[0], excludeId: productData._id, title: 'You might also like' }), (0,jsx_runtime.jsx)(Features/* default */.A, {}), (0,jsx_runtime.jsx)(CtaBlock/* default */.A, { isWithImage: true })] }));
+    }, [id]);
+    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)(ProductBlock, { productData: productData }), (0,jsx_runtime.jsx)(ProductsListing/* default */.A, { productType: productData?.productType[0] || '', excludeId: productData?._id, title: 'You might also like' }), (0,jsx_runtime.jsx)(Features/* default */.A, {}), (0,jsx_runtime.jsx)(CtaBlock/* default */.A, { isWithImage: true })] }));
 }
 
 
@@ -27415,8 +27410,7 @@ var ClipLoader_default = /*#__PURE__*/__webpack_require__.n(ClipLoader);
 
 
 
-const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
-console.log("base: " + base);
+const base = (/* unused pure expression or super */ null && ("https://nikita-7onenko-dev.github.io/Avion-Online-Store"));
 function MainProductCard({ product, variation }) {
     const [isLoad, setIsLoad] = (0,react.useState)(false);
     const aspectRatio = product?.aspectRatio || '4/5';
@@ -27559,15 +27553,14 @@ const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
 function AllProductsPage() {
     const [searchParams] = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__/* .useSearchParams */ .ok)();
     const { setFiltersOptions } = (0,_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_7__/* .useFilters */ .R)();
-    const [title, setTitle] = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)("All Products");
+    const [filterOptions, title] = (0,_utils_searchParamsParser__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A)(searchParams);
     (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)(() => {
-        const [filterOptions, title] = (0,_utils_searchParamsParser__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A)(searchParams);
         if (searchParams.size > 0) {
             setFiltersOptions(filterOptions);
         }
-        setTitle(title);
-    }, [searchParams]);
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: _allProductsPage_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.allProductsBanner, style: { backgroundImage: `url('${base}/img/allProductsBanner.jpg')` }, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: title }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _allProductsPage_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.allProductsBlock, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_ProductsFiltersBar_ProductsFiltersAndSortingBar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_AllProductsGrid_AllProductsGrid__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {})] })] }));
+    }, [searchParams.toString()]);
+    console.log(searchParams.toString());
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: _allProductsPage_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.allProductsBanner, style: { backgroundImage: `url('${base}/img/allProductsBanner.jpg')` }, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: title }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _allProductsPage_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.allProductsBlock, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_ProductsFiltersBar_ProductsFiltersAndSortingBar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_AllProductsGrid_AllProductsGrid__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { localSearchParams: searchParams.toString() })] })] }));
 }
 
 __webpack_async_result__();
@@ -27692,7 +27685,7 @@ const pageSize = 5;
 function loadMore(setAlreadyLoaded) {
     setAlreadyLoaded((prev) => prev + pageSize);
 }
-function AllProductsGrid() {
+function AllProductsGrid({ localSearchParams }) {
     const [products, setProducts] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]);
     const [hasMore, setHasMore] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
     const [alreadyLoaded, setAlreadyLoaded] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(0);
@@ -27718,13 +27711,15 @@ function AllProductsGrid() {
     (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
         setProducts([]);
         setAlreadyLoaded(0);
-    }, [filtersOptions]);
+    }, [localSearchParams]);
     (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
-        fetchProducts(searchParams);
+        if (!ignore) {
+            fetchProducts(searchParams);
+        }
         return () => {
             ignore = true;
         };
-    }, [alreadyLoaded, filtersOptions]);
+    }, [alreadyLoaded, localSearchParams]);
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _AllProductsGrid_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productGridBlock, style: hasMore ? {} : { paddingBottom: '50px' }, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("ul", { className: _AllProductsGrid_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productGrid, children: products.length > 0 ?
                     (products.map(product => (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_MainProductCard_MainProductCard__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { product: product, variation: 'gridElement' }, product._id))) :
                     ([...Array(8).keys()].map(index => (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_MainProductCard_MainProductCard__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { variation: 'gridElement' }, index))) }), isLoading ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { children: "Loading..." })) : (hasMore && (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: 'globalButton', onClick: () => loadMore(setAlreadyLoaded), children: "Load more" }))] }));
@@ -27793,6 +27788,44 @@ function RouterProvider({ children }) {
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__/* .BrowserRouter */ .Kd, { children: children }));
 }
 
+
+/***/ }),
+
+/***/ 8878:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (/* binding */ HeroBlock)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6540);
+/* harmony import */ var _heroBlock_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(452);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1362);
+/* harmony import */ var react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7420);
+/* harmony import */ var react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9255);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__]);
+_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
+
+
+
+
+function HeroBlock() {
+    const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
+    const [isLoad, setIsLoad] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+    const { setFiltersOptions } = (0,_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__/* .useFilters */ .R)();
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _heroBlock_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.heroBlock, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _heroBlock_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.heroBlockLeft, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { children: "The furniture brand for the future, with timeless designs" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _heroBlock_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.heroBlockLeftBottom, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: '/allProducts', className: 'globalLink', onClick: () => setFiltersOptions({
+                                    filters: { productType: [], category: [], designers: [], priceFilters: [] },
+                                    sorting: '',
+                                    search: ''
+                                }), children: "View collection" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", { children: "A new era in eco friendly furniture with Avelon, the French luxury retail brand with nice fonts, tasteful colors and a beautiful way to display things digitally using modern web technologies." })] })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _heroBlock_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.heroBlockImgWrapper, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: `${base}/img/HeroBlock.jpg`, alt: "", loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4___default()), { color: '#fff', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] })] }));
+}
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
 
 /***/ }),
 
@@ -29612,7 +29645,7 @@ function ProductListing({ productType, category, designer, sorting, excludeId, t
             setProducts(data);
         };
         fetchData();
-    }, []);
+    }, [excludeId]);
     const productCards = products ?
         (products.map(product => (0,jsx_runtime.jsx)(MainProductCard/* default */.A, { product: product, variation: "listingElement" }, product._id))) :
         ([...Array(8).keys()].map(index => (0,jsx_runtime.jsx)(MainProductCard/* default */.A, { variation: "listingElement" }, index)));

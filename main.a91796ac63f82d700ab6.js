@@ -27420,10 +27420,10 @@ console.log("base: " + base);
 function MainProductCard({ product, variation }) {
     const [isLoad, setIsLoad] = (0,react.useState)(false);
     const aspectRatio = product?.aspectRatio || '4/5';
-    const image = product?.image || null;
+    const image = product?.image || "";
     const name = product?.name || '';
     const price = product?.price ? product?.price + ' $' : '';
-    return ((0,jsx_runtime.jsx)("li", { className: `${mainProductCard_module[variation]} ${product?.aspectRatio === '8/5' ? mainProductCard_module[variation] + 'Wide' : ''} ${variation === 'listingElement' ? 'embla__slide' : ''}`, children: (0,jsx_runtime.jsxs)(chunk_EF7DTUVF/* Link */.N_, { className: `${mainProductCard_module.productCard}`, to: `/${product?._id || ''}`, children: [(0,jsx_runtime.jsxs)("div", { className: `${aspectRatio === '4/5' ? mainProductCard_module.imgFrameSmall : mainProductCard_module.imgFrameWide} ${mainProductCard_module.imgFrame}`, children: [(0,jsx_runtime.jsx)("img", { src: `${image}`, alt: "", loading: "lazy", onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#2a254b', size: 40, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsx)("p", { children: name }), (0,jsx_runtime.jsx)("p", { children: price })] }) }));
+    return ((0,jsx_runtime.jsx)("li", { className: `${mainProductCard_module[variation]} ${aspectRatio === '8/5' ? mainProductCard_module[variation] + 'Wide' : ''} ${variation === 'listingElement' ? 'embla__slide' : ''}`, children: (0,jsx_runtime.jsxs)(chunk_EF7DTUVF/* Link */.N_, { className: `${mainProductCard_module.productCard}`, to: `/${product?._id || ''}`, children: [(0,jsx_runtime.jsxs)("div", { className: `${aspectRatio === '4/5' ? mainProductCard_module.imgFrameSmall : mainProductCard_module.imgFrameWide} ${mainProductCard_module.imgFrame}`, children: [(0,jsx_runtime.jsx)("img", { src: `${image}`, alt: "", loading: "lazy", onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#2a254b', size: 40, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsx)("p", { children: name }), (0,jsx_runtime.jsx)("p", { children: price })] }) }));
 }
 
 

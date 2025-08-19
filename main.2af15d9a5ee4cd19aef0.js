@@ -26765,7 +26765,7 @@ function FooterNavigation() {
     const categoryListItems = filterContext.categories.map(category => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: {
                 pathname: '/allProducts',
                 search: `category=${category}`
-            }, state: { scrollToTop: true }, children: [" ", category] }) })));
+            }, state: { scrollToTop: true }, children: [" ", category] }) }, category)));
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("nav", { className: _footerNavigation_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.navigation, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h4", { children: "Menu" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: {
                                 pathname: '/allProducts',
                                 search: 'sorting=Newest'

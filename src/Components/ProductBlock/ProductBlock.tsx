@@ -12,7 +12,7 @@ import ProductTitle from '../ProductTitle/ProductTitle';
 import ProductDescription from '../ProductDescription/ProductDescription';
 
 type Props = {
-  productData: ProductType
+  productData: ProductType | null;
 }
 
 export default function ProductBlock({productData}: Props): React.JSX.Element {
@@ -20,8 +20,6 @@ export default function ProductBlock({productData}: Props): React.JSX.Element {
   const productImageRef = useRef<HTMLDivElement>(null);
   const pathname = useLocation();
   
-  const base = process.env.PUBLIC_URL;
-
   const [isLoad, setIsLoad] = useState(false);  
   
   useEffect(() => {
@@ -31,9 +29,20 @@ export default function ProductBlock({productData}: Props): React.JSX.Element {
     })
   }, [pathname])
 
+  const isWideImage = productData?.aspectRatio === '8/5';
 
-  const isWideImage = productData.aspectRatio === '8/5';
-
+  const data = {
+    image: productData?.image || '/',
+    name: productData?.name || '',
+    description: productData?.description || '',
+    price: productData?.price ? productData?.price + ' $' : '' ,
+    features: productData?.features || null,
+    designer: productData?.designer || '',
+    width: productData?.width || null,
+    height: productData?.height || null,
+    depth: productData?.depth || null,
+  }
+   
   return (
     <div className={`${styles.productBlock} ${isWideImage ? styles.productBlockWide : ''}`}>
       <div 
@@ -41,8 +50,8 @@ export default function ProductBlock({productData}: Props): React.JSX.Element {
         ref={productImageRef}
       >
         <img 
-          src={`${base}${productData.image}`} 
-          alt={productData.name}
+          src={data.image} 
+          alt={data.name}
           loading='lazy' 
           onLoad={() => setIsLoad(true)}
           style={isLoad ? {visibility: 'visible'} : {visibility: 'hidden'} }   
@@ -57,14 +66,14 @@ export default function ProductBlock({productData}: Props): React.JSX.Element {
         className={`${styles.productDescriptionBlock} ${isWideImage ?
           styles.productDescriptionSmall : styles.productDescriptionWide}`}
       >
-        <ProductTitle name={productData.name} price={productData.price}/>
-        <ProductDescription description={productData.description} features={productData?.features} designer={productData.designer} />
+        <ProductTitle name={data.name} price={data.price}/>
+        <ProductDescription description={data.description} features={data.features} designer={data.designer} />
         <ProductDimensionsTable
-          height={productData.height}
-          width={productData.width}
-          depth={productData.depth}  
+          height={data.height}
+          width={data.width}
+          depth={data.depth}  
         />
-        <AddToCartBar product={productData} />
+        {productData && <AddToCartBar product={productData} />}
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 import style from './shoppingCart.module.scss';
 
-import ProductCart from "../../Components/ProductCard/ProductCard";
+import ShoppingCartProductCard from "../../Components/ShoppingCartProductCard/ShoppingCartProductCard";
 import QuantityInput from '../../Components/QuantityInput/QuantityInput';
 import useCartContext from '@/Context/CartContext';
 
@@ -19,12 +19,12 @@ export default function ShoppingCart(): React.JSX.Element {
   }
 
   const addedProductsList = cart.map(product => (
-    <tr key={product.id}>
+    <tr key={product._id}>
       <td>
-          <ProductCart product={product} quantity={getProductQuantity(product.id)} />
+          <ShoppingCartProductCard product={product} quantity={getProductQuantity(product._id)} />
       </td>
-      <td><QuantityInput quantity={getProductQuantity(product.id)} productId={product.id}/></td>
-      <td style={{whiteSpace: 'nowrap'}}>{product.price * getProductQuantity(product.id)} $</td>
+      <td><QuantityInput quantity={getProductQuantity(product._id)} productId={product._id}/></td>
+      <td style={{whiteSpace: 'nowrap'}}>{product.price * getProductQuantity(product._id)} $</td>
     </tr>
   ))
 

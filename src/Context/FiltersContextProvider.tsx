@@ -17,7 +17,10 @@ type FiltersContextObj = {
 
 // Получаем все существующие в базе данных поля: все типы продуктов, все категории, все дизайнеры
 async function fetchAllFiltersOptionsFields(): Promise<{allProductTypes :string[], allCategories: string[], allDesigners: string[]}> {
-  const response = await fetch('https://avion-online-store-server.onrender.com/filtersOptions');
+
+  const url = process.env.API_URL + 'filtersOptions' || 'https://avion-online-store-server.onrender.com/api/filtersOptions';
+
+  const response = await fetch(url);
   const filtersOptionsFields = await response.json();
 
   return filtersOptionsFields;
@@ -54,10 +57,10 @@ export function FiltersProvider({ children }: { children: ReactNode }) {
     search: ''
   };
 
-  const [filterOptions, setFiltersOptions] = useState<FiltersOptionsType>(initialOptions);
+  const [filtersOptions, setFiltersOptions] = useState<FiltersOptionsType>(initialOptions);
 
   return (
-    <FiltersContext.Provider value={{filterContext: filterContextValue, filtersOptions: filterOptions, setFiltersOptions: setFiltersOptions}}>
+    <FiltersContext.Provider value={{filterContext: filterContextValue, filtersOptions, setFiltersOptions}}>
       {children}
     </FiltersContext.Provider>
   );

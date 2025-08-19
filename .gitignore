@@ -4,4 +4,6 @@ dist/
 
 .webpack-cache/
 
+.env*
+
 npm-debug.log*

@@ -6,7 +6,15 @@
 
   button{
     margin-inline: auto;
-    margin-top: 20px ;
+    margin-block: 50px 30px ;
+  }
+
+  span{
+    display: block;
+    width: fit-content;
+    color: var(--darkFontColor);
+    margin-inline: auto;
+    margin-block: 50px 30px ;
   }
 }
 

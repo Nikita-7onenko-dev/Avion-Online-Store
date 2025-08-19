@@ -4,10 +4,9 @@
   "main": "webpack.config.js",
   "homepage": "https://nikita-7onenko-dev.github.io/Avion-Online-Store",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --env mode=development",
-    "build:dev": "webpack --env mode=development",
-    "build:prod": "webpack --env mode=production",
+    "start:host": "webpack serve --env MODE=development NODE_ENV=dev.host",
+    "start:local": "webpack serve --env MODE=development NODE_ENV=dev.local",
+    "build:prod": "webpack --env MODE=production NODE_ENV=prod",
     "predeploy": "npm run build:prod",
     "deploy": "gh-pages -d dist"
   },
@@ -23,6 +22,7 @@
     "copy-webpack-plugin": "^13.0.0",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.2",
+    "dotenv-webpack": "^8.1.1",
     "gh-pages": "^6.3.0",
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",

@@ -27,9 +27,7 @@ export default function searchParamsParser(searchParams: URLSearchParams): [Filt
     priceFilters = priceFilters || searchParams.get('priceFilters');
     const sorting = searchParams.get('sorting');
     const search = searchParams.get('search');
-
-    console.log(search)
-
+    
 
     const productTypeArr = ensureArray(productType);
     const categoryArr = ensureArray(category);

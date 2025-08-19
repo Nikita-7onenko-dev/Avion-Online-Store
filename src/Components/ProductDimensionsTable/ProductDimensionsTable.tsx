@@ -1,9 +1,9 @@
 import styles from './productDimensionsTable.module.scss'
 
 type Props = {
-  height: number;
-  width: number;
-  depth: number;
+  height: number | null;
+  width: number | null;
+  depth: number | null;
 }
 
 export default function ProductDimensionsTable({height, width, depth}: Props): React.JSX.Element {
@@ -22,9 +22,9 @@ export default function ProductDimensionsTable({height, width, depth}: Props): R
         </thead>
         <tbody>
           <tr>
-            <td>{height}</td>
-            <td>{width}</td>
-            <td>{depth}</td>
+            <td>{height && height}</td>
+            <td>{width && width}</td>
+            <td>{depth && depth }</td>
           </tr>
         </tbody>
       </table>

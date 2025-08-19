@@ -24,9 +24,9 @@ export function CartProvider({children}: {children: ReactNode}) {
     const productCartItem = {...product, quantity: quantity}
 
     setCart(cart => {
-      if(cart.some(item => item.id === productCartItem.id)) {
+      if(cart.some(item => item._id === productCartItem._id)) {
         return cart.map(item => {
-          if(item.id === productCartItem.id) {
+          if(item._id === productCartItem._id) {
             return {...item, quantity: item.quantity + quantity};
           } else return item;
         })
@@ -39,7 +39,7 @@ export function CartProvider({children}: {children: ReactNode}) {
   function changeCartItemQuantity(id: string, action: 'inc' | 'dec' | 'lit', quantity?: number): void {
     setCart( cart => {
       return cart.map(item => {
-        if(item.id === id) {
+        if(item._id === id) {
           switch(action) {
             case 'inc': return {...item, quantity: item.quantity + 1};
             case 'dec': return {...item, quantity: item.quantity - 1};
@@ -51,7 +51,7 @@ export function CartProvider({children}: {children: ReactNode}) {
   }
 
   function removeFromCart(id:string) {
-    setCart( cart => cart.filter(item => item.id !== id))
+    setCart( cart => cart.filter(item => item._id !== id))
   }
 
   function clearCart() {
@@ -66,7 +66,7 @@ export function CartProvider({children}: {children: ReactNode}) {
   }
 
   function getProductQuantity(id: string) {
-    return cart.find(item => item.id === id)!.quantity
+    return cart.find(item => item._id === id)!.quantity
   }
 
   return (

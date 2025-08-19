@@ -1,7 +1,7 @@
 import ProductListingEmblaCarousel from "../ProductListingEmblaCarousel/ProductListingEmblaCarousel";
-import {EmblaOptionsType} from 'embla-carousel'
+import {EmblaOptionsType} from 'embla-carousel';
 
-import ProductListingCard from "../ProductListingCard/ProductListingCard";
+import MainProductCard from "../MainProductCard/MainProductCard";
 
 import fetchAllProducts from "@/utils/fetchAllProducts";
 import { useEffect, useState } from "react";
@@ -11,7 +11,7 @@ type Filters = {
   productType: string;
   category: string;
   designer: string;
-  sorting: "Price: Low to High" | "Price: High to Low" | "Newest" | "Best sellers"
+  sorting: "Price: Low to High" | "Price: High to Low" | "Newest" | "Best sellers";
 }
 
 type RestProps = {
@@ -57,14 +57,14 @@ export default function ProductListing
       }
       setProducts(data);
     }
-
+    
     fetchData();
 
-  }, [])
+  }, [excludeId])
 
   const productCards = products ? 
-   ( products.map(product => <ProductListingCard key={product._id} product={product} variation="listingElement" /> ) ) :
-   ( [...Array(8).keys()].map(index => <ProductListingCard key={index} variation="listingElement" />) )
+   ( products.map(product => <MainProductCard key={product._id} product={product} variation="listingElement" /> ) ) :
+   ( [...Array(8).keys()].map(index => <MainProductCard key={index} variation="listingElement" />) )
 
   const options: EmblaOptionsType = {dragFree: true}
 

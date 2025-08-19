@@ -5,9 +5,12 @@ type ResponseData = {
   hasMore: boolean
 }
 
+
+
 export default async function fetchAllProducts(params?: string): Promise<ResponseData> {
 
-  let url = "https://avion-online-store-server.onrender.com/products";
+  let url = process.env.API_URL + 'products/' || "https://avion-online-store-server.onrender.com/api/products/"
+
   if(params) {
     url = url + `?${params}`
   }

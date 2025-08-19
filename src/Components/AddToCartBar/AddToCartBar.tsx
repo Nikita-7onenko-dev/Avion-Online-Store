@@ -15,7 +15,7 @@ export default function AddToCartBar({product}: {product: ProductType}): React.J
   return (
     <div className={styles.addToCartBar}>
       <label>
-        Amount:<QuantityInput quantity={quantity} setQuantity={setQuantity} productId={product.id} />
+        Amount:<QuantityInput quantity={quantity} setQuantity={setQuantity} productId={product._id} />
       </label>
       <button onClick={() => addToCart(product, quantity)} className='globalButton'>Add to cart</button> 
     </div>

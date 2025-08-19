@@ -3,15 +3,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require('webpack');
 const packageJson = require('./package.json');
 
+const Dotenv = require('dotenv-webpack');
+
 module.exports = (env) => {
-  const isDev = env.mode === 'development';
+  const nodeEnv = env.NODE_ENV;
+  const isDev = env.MODE === 'development';
+
   return {
 
-    mode: env.mode,
+    mode: env.MODE,
     
     devtool: isDev ? 'source-map' : false,
 
@@ -98,8 +102,8 @@ module.exports = (env) => {
     },
 
     plugins: [
-      new webpack.DefinePlugin({
-        'process.env.PUBLIC_URL': JSON.stringify( isDev ? '' : packageJson.homepage || '')
+      new Dotenv({
+        path: path.resolve(`./.env.${nodeEnv}`)
       }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'index.html'),
@@ -114,11 +118,11 @@ module.exports = (env) => {
           {from: 'public/icons', to: 'icons'}
         ]
       }),
-      !isDev && new BundleAnalyzerPlugin({
-        analyzerMode: 'json',
-        generateStatsFile: true,
-        statsFilename: 'stats.json' // сохранит в корне проекта
-      })
+      // !isDev && new BundleAnalyzerPlugin({
+      //   analyzerMode: 'json',
+      //   generateStatsFile: true,
+      //   statsFilename: 'stats.json' // сохранит в корне проекта
+      // })
     ].filter(Boolean),
 
     optimization: {

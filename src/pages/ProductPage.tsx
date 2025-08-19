@@ -14,25 +14,26 @@ export default function ProductPage(): React.JSX.Element {
   const [productData, setProductData] = useState<ProductType | null>(null)
 
   const {id} = useParams();
+
   useEffect(() => {
 
     async function fetchProduct() {
+
       if(id) {
         const data = await fetchOneProduct(id);
         setProductData(data)
       }
     }
 
-    fetchProduct()
+    fetchProduct();
 
-  })
+  }, [id])
 
-  if(!productData) return <></>;
 
   return (
     <>
       <ProductBlock productData={productData} />
-      <ProductListing productType={productData.productType[0]} excludeId={productData._id} title='You might also like' />
+      <ProductListing productType={productData?.productType[0] || ''} excludeId={productData?._id} title='You might also like' />
       <Features />
       <CtaBlock isWithImage />
     </>

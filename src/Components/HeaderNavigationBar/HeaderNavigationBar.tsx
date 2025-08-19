@@ -25,16 +25,15 @@ export default function HeaderNavigationBar(): React.JSX.Element {
   return (
     <nav>
       <ul className={styles.headerNavigationList}>
-        <li 
-          onClick={() => setFiltersOptions({
+        <li>
+          <NavLink to='/allProducts'
+            className={({isActive}) => isActive && !currentProductType ? 'active' : ''}
+            onClick={() => setFiltersOptions({
               filters: { productType: [], category: [], designers: [], priceFilters: [] },
               sorting: '',
               search: ''
             })
           }
-        >
-          <NavLink to='/allProducts'
-            className={({isActive}) => isActive && !currentProductType ? 'active' : ''}
           >
             All Products
           </NavLink>

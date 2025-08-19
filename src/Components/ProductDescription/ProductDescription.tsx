@@ -3,7 +3,7 @@ import styles from './productDescription.module.scss'
 
 type Props = {
   description: string;
-  features?: string[];
+  features?: string[] | null;
   designer: string;
 }
 
@@ -22,12 +22,13 @@ export default function ProductDescription({description, features, designer}: Pr
       <h3>Product description:</h3>
       <p>{description}</p>
       <p>{"Designer: "}
-        <Link to={{
-          pathname: '/allProducts',
-          search: `designers=${designer}`
-        }}>
+        {designer && 
+          <Link to={{
+            pathname: '/allProducts',
+            search: `designers=${designer}`
+          }}>
           {designer}
-        </Link>
+        </Link>}
       </p>
       <ul>{features && featuresList}</ul>
     </div>

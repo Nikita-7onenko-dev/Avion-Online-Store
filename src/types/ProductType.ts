@@ -1,7 +1,6 @@
   
   export type ProductType = {
-    _id?: string;
-    id: string;
+    _id: string;
     name: string;
     productType: string[];
     category: string[];

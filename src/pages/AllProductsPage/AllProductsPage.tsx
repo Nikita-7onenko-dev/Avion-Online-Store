@@ -13,21 +13,15 @@ const base = process.env.PUBLIC_URL;
 export default function AllProductsPage(): React.JSX.Element {
 
   const [searchParams] = useSearchParams();
-
   const { setFiltersOptions } = useFilters();
-  const [title, setTitle] = useState<string>("All Products");
+  const [filterOptions, title] = searchParamsParser(searchParams);
 
   useEffect(() => {
 
-    const [filterOptions, title] = searchParamsParser(searchParams);
-
     if(searchParams.size > 0) {
       setFiltersOptions(filterOptions);
-    }
-
-    setTitle(title);
+    }  
   }, [searchParams])
-
 
   return (
     <>

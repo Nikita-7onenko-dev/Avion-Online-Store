@@ -52,9 +52,13 @@
     }
 
     div:nth-child(3){
-      display: none;
+      // display: none;
       justify-content: space-between;
       align-items: center;
+
+      span:nth-child(2){
+        display: none;
+      }
     }
 
     >div:last-child{
@@ -86,6 +90,11 @@
 
 
   @media screen and (max-width: 500px) {
+
+    .productCard{
+      max-width: none;
+    }
+
     .productDescription{
       >div:last-child{
         display: flex;
@@ -93,6 +102,10 @@
 
       div:nth-child(3){
         display: flex;
+
+        span:nth-child(2) {
+          display: initial;
+        }
       }
     }
   }

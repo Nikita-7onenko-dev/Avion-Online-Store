@@ -1,5 +1,5 @@
 .headerNav{
-  overflow-x: scroll;
+  overflow-x: auto;
   background-color: var(--lightGrayBackground);
 }
 
@@ -16,8 +16,18 @@
 
 }
 
+.headerNav {
+  scrollbar-width: thin;
+}
+
+.headerNav::-webkit-scrollbar {
+  width: 5px;
+}
+
 @media screen and (max-width: 500px) {
   .headerNavigationList{
     display: none;
   }
 }
+
+

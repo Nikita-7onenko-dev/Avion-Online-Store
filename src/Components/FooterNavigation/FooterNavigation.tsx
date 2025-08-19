@@ -9,7 +9,7 @@ export default function FooterNavigation(): React.JSX.Element {
   const {filterContext, setFiltersOptions} = useFilters();
 
   const categoryListItems = filterContext.categories.map( category => (
-      <li>
+      <li key={category}>
         <Link
           to={{
             pathname: '/allProducts',

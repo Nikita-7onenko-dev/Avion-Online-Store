@@ -7,6 +7,7 @@
     color: #FFF;
     white-space: nowrap;
     flex-wrap: wrap;
+    flex-grow: 1;
 
     ul{
       li{
@@ -24,7 +25,7 @@
     }
   }
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:530px) {
   .categoryUl {
     display: none;
   }

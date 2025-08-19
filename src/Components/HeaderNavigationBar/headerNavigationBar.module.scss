@@ -1,17 +1,18 @@
-
+.headerNav{
+  overflow-x: scroll;
+  background-color: var(--lightGrayBackground);
+}
 
 .headerNavigationList{
   display: flex;
   justify-content: center;
-  gap: clamp(10px, 6vw - 20px, 50px);
-  padding: 20px 10px;
+  gap: clamp(15px, 6vw - 20px, 50px);
+  padding: 20px 20px;
   color: var(--lightFontColor);
-  background-color: var(--lightGrayBackground);
-  font-size: clamp(14px, 2.5vw ,16px);
-
-  a{
-    color: var(--darkFontColor);
-  }
+  font-size: clamp(16px, 2.5vw, 18px);
+  white-space: nowrap;
+  width: fit-content;
+  margin-inline: auto;
 
 }
 

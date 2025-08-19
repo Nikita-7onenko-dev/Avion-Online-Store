@@ -23,7 +23,7 @@ export default function HeaderNavigationBar(): React.JSX.Element {
   ))
 
   return (
-    <nav>
+    <nav className={styles.headerNav}>
       <ul className={styles.headerNavigationList}>
         <li>
           <NavLink to='/allProducts'

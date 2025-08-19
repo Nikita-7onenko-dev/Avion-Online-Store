@@ -17,6 +17,7 @@ footer{
   justify-content: space-between;
   padding-bottom: 20px;
   gap: clamp(20px, 10vw - 40px, 200px);
+  flex-grow: 1;
 }
 
 .footerTop{
@@ -24,6 +25,7 @@ footer{
   justify-content: space-between;
   gap: 20px;
   border-bottom: rgba(235, 232, 244, 0.3960784314) 1px solid;
+  flex-wrap: wrap;
 }
 
 

@@ -7,7 +7,7 @@
   min-height: 350px;
 }
 
-.heroBlockLeft, .heroBlockImgWrapper{
+.heroBlockLeft{
   background-color: var(--darkBackgroundColor);
 }
 
@@ -54,6 +54,7 @@
   flex-grow: 1;
   flex-shrink: 0;
   aspect-ratio: 61/75;
+  background-color: #83a9ac;
   img{
     width: 100%;
   }

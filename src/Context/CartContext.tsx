@@ -60,7 +60,7 @@ export function CartProvider({children}: {children: ReactNode}) {
 
   function getCartTotalSum(cart: CartItem[]) {
     return cart.reduce((acc, item) => {
-      acc+= (item.price *  item.quantity)
+      acc+= (item.price * item.quantity)
       return acc
     }, 0)
   }

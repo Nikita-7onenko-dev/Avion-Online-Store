@@ -5,10 +5,15 @@
   width: 100%;
   max-width: 460px;
   margin-top: 30px;
+  flex-wrap: wrap;
 
   input{
     background-color: var(--lightGrayBackground);
-    padding: 15px 20px;
-    width: 100%;
+    padding: 15px 15px;
+    flex-grow: 4;
+  }
+
+  button{
+    flex-grow: 1;
   }
 }

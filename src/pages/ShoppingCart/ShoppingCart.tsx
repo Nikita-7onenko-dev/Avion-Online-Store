@@ -44,7 +44,7 @@ export default function ShoppingCart(): React.JSX.Element {
         </tbody>
         <tfoot>
           <tr>
-            <th colSpan={3}>Subtotal <span>{getCartTotalSum(cart)} $</span></th>
+            <th colSpan={3}>Subtotal <span key={getCartTotalSum(cart)}>{getCartTotalSum(cart)} $</span></th>
           </tr> 
           <tr>
             <td colSpan={3}>Taxes and shipping are calculated at checkout</td>

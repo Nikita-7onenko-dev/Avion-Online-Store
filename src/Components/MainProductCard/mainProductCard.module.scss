@@ -8,9 +8,11 @@
 
   p{
     font-size: 18px;
+    min-height: 18px;
   }
   p:last-child{
     font-size: 16px;
+    min-width: 16px;
   }
 }
 

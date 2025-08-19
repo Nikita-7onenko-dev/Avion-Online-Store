@@ -6,6 +6,7 @@
     gap: clamp(20px, 10vw - 40px, 200px);
     color: #FFF;
     white-space: nowrap;
+    flex-wrap: wrap;
 
     ul{
       li{

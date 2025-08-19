@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { useState } from 'react';
 import  ClipLoader  from 'react-spinners/ClipLoader';
+import { useFilters } from '@/Context/FiltersContextProvider';
 
 
 type BaseProps = {
@@ -41,7 +42,10 @@ export default function AboutBlock({
   const [isLoad, setIsLoad] = useState(false);  
   const base = process.env.PUBLIC_URL;
   
-  const spinnerColor = variation === 'highlighted' ? '#fff' : '#2a254b'
+  const spinnerColor = variation === 'highlighted' ? '#fff' : '#2a254b';
+
+
+  const { setFiltersOptions } = useFilters();
 
   return (
     <div className={`${styles.aboutBlock} ${variation && styles[variation]}`}>
@@ -51,7 +55,19 @@ export default function AboutBlock({
         <p>{paragraph}</p>
         {anotherParagraph && <p>{anotherParagraph}</p>}
       </div>
-      {withLink && <Link to={linkHref} state={{scrollToTop: true}} className='globalLink'>{linkLabel}</Link>}
+      {
+      withLink && 
+        <Link 
+          onClick={ () => setFiltersOptions({
+            filters: { productType: [], category: [], designers: [], priceFilters: [] },
+            sorting: '',
+            search: ''
+          })}
+          to={linkHref} 
+          state={{scrollToTop: true}} 
+          className='globalLink'
+        >{linkLabel}</Link>
+      }
     </div>
     <div className={styles.imageWrapper}>
       <img 

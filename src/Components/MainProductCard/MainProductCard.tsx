@@ -40,8 +40,8 @@ return (
               cssOverride={isLoad ? {display: 'none'} : {display: 'inline-block', position: 'absolute'} } 
             />
           </div>
-          <p>{name}</p>
-          <p>{price}</p>
+          <p style={product ? {} : {backgroundColor: "#f4f4ffbc"}} >{name}</p>
+          <p style={product ? {} : {backgroundColor: "#f4f4ffbc"}}>{price}</p>
         </Link>
       </li>  
     )

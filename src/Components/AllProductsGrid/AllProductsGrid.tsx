@@ -64,17 +64,12 @@ export default function AllProductsGrid(): React.JSX.Element {
   return (
     <div className={styles.productGridBlock} style={hasMore ? {} : {paddingBottom: '50px'}}>
       {
-        isLoading ? (
-          <ul className={styles.productGrid}>
-            {[...Array(8).keys()].map(index => <MainProductCard key={index} variation='gridElement' />)}
-          </ul>
-        ) : products.length > 0 ? (
-            <ul className={styles.productGrid}>
-            {products.map(product => <MainProductCard key={product._id} product={product} variation='gridElement' /> )}
-            </ul>
-        ) : 
-        <span>We couldn't find any products matching your search.</span>
-      }
+      <ul className={styles.productGrid}>
+        {(products.length > 0) && products.map(product => <MainProductCard key={product._id} product={product} variation='gridElement' /> )}
+        {(isLoading && products.length > 0 ) && [...Array(pageSize).keys()].map(index => <MainProductCard key={index} variation='gridElement' />)}
+      </ul>
+      }        
+      {(products.length === 0 && !isLoading) && <span>We couldn't find any products matching your search.</span>}
       {isLoading ? (
         <span>Loading...</span>
       ) : (

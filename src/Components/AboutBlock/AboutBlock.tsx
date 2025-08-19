@@ -51,7 +51,7 @@ export default function AboutBlock({
         <p>{paragraph}</p>
         {anotherParagraph && <p>{anotherParagraph}</p>}
       </div>
-      {withLink && <Link to={linkHref} className='globalLink'>{linkLabel}</Link>}
+      {withLink && <Link to={linkHref} state={{scrollToTop: true}} className='globalLink'>{linkLabel}</Link>}
     </div>
     <div className={styles.imageWrapper}>
       <img 

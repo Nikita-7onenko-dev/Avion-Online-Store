@@ -23,10 +23,13 @@ export default function ProductDescription({description, features, designer}: Pr
       <p>{description}</p>
       <p>{"Designer: "}
         {designer && 
-          <Link to={{
-            pathname: '/allProducts',
-            search: `designers=${designer}`
-          }}>
+          <Link 
+            to={{
+              pathname: '/allProducts',
+              search: `designers=${designer}`
+            }}
+            state={{scrollToTop: true}}  
+          >
           {designer}
         </Link>}
       </p>

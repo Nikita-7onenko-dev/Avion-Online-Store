@@ -20,14 +20,15 @@ export default function HeroBlock(): React.JSX.Element {
       <div className={styles.heroBlockLeft}>
         <h3>The furniture brand for the future, with timeless designs</h3>
         <div className={styles.heroBlockLeftBottom}>
-          <Link to='/allProducts' 
+          <Link 
+            to='/allProducts' 
             className='globalLink'
             onClick={() => setFiltersOptions({
               filters: { productType: [], category: [], designers: [], priceFilters: [] },
               sorting: '',
               search: ''
-            })
-          }  
+            })}
+            state={{scrollToTop: true}}  
           >View collection</Link>
           <p>
             A new era in eco friendly furniture with Avelon, the French luxury retail brand

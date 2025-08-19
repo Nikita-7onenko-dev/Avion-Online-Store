@@ -28,6 +28,7 @@ export default function ProductListingEmblaCarousel({slides, options, title, sea
               pathname: '/allProducts',
               search: searchParams,
             }}
+            state={{scrollToTop: true}}  
           > 
             View collection
           </Link>

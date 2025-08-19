@@ -1,15 +1,34 @@
 import { Link } from 'react-router-dom'
 import styles from './burgerMenuNav.module.scss'
+import { useFilters } from '@/Context/FiltersContextProvider'
 
 export default function BurgerMenuNav(): React.JSX.Element {
 
+  const {filterContext, setFiltersOptions} = useFilters();
+
+  const productTypeLinkItems = filterContext.productType.map(productType => {
+    return (
+      <li key={productType}>
+        <Link to={{
+          pathname: '/allProducts',
+          search: `?productType=${productType}`
+        }}>{productType}</Link>
+      </li>
+    )
+  })
+
   return (
       <ul className={styles.burgerMenuNavList}>
-        <li><Link to='/allProducts'>All Products</Link></li>
-        <li><Link to='/allProducts?productType=Furniture'>Furniture</Link></li>
-        <li><Link to='/allProducts?productType=Homeware'>Homeware</Link></li>
-        <li><Link to='/allProducts?productType=Lighting'>Lighting</Link></li>
-        <li><Link to='/allProducts?productType=Accessories'>Accessories</Link></li>
+        <li>
+          <Link 
+            to='/allProducts'
+            onClick={() => setFiltersOptions({
+              filters: { productType: [], category: [], designers: [], priceFilters: [] },
+              sorting: '',
+              search: ''
+            })}>All Products</Link>
+        </li>
+        {productTypeLinkItems}
         <li><Link to='/about'>About us</Link></li>
         <li><Link to='/contacts'>Contacts</Link></li>
       </ul>

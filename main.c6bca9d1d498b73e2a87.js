@@ -27556,11 +27556,18 @@ function AllProductsPage() {
     const [filterOptions, title] = (0,_utils_searchParamsParser__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A)(searchParams);
     (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)(() => {
         if (searchParams.size > 0) {
-            setFiltersOptions(filterOptions);
+            setFiltersOptions(prev => {
+                if (JSON.stringify(prev) === JSON.stringify(filterOptions)) {
+                    return prev;
+                }
+                else {
+                    return filterOptions;
+                }
+            });
         }
     }, [searchParams.toString()]);
     console.log(searchParams.toString());
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: _allProductsPage_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.allProductsBanner, style: { backgroundImage: `url('${base}/img/allProductsBanner.jpg')` }, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: title }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _allProductsPage_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.allProductsBlock, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_ProductsFiltersBar_ProductsFiltersAndSortingBar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_AllProductsGrid_AllProductsGrid__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { localSearchParams: searchParams.toString() })] })] }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: _allProductsPage_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.allProductsBanner, style: { backgroundImage: `url('${base}/img/allProductsBanner.jpg')` }, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: title }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _allProductsPage_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.allProductsBlock, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_ProductsFiltersBar_ProductsFiltersAndSortingBar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_AllProductsGrid_AllProductsGrid__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {})] })] }));
 }
 
 __webpack_async_result__();
@@ -27685,7 +27692,7 @@ const pageSize = 5;
 function loadMore(setAlreadyLoaded) {
     setAlreadyLoaded((prev) => prev + pageSize);
 }
-function AllProductsGrid({ localSearchParams }) {
+function AllProductsGrid() {
     const [products, setProducts] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]);
     const [hasMore, setHasMore] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
     const [alreadyLoaded, setAlreadyLoaded] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(0);
@@ -27711,7 +27718,7 @@ function AllProductsGrid({ localSearchParams }) {
     (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
         setProducts([]);
         setAlreadyLoaded(0);
-    }, [localSearchParams]);
+    }, [filtersOptions]);
     (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
         if (!ignore) {
             fetchProducts(searchParams);
@@ -27719,7 +27726,7 @@ function AllProductsGrid({ localSearchParams }) {
         return () => {
             ignore = true;
         };
-    }, [alreadyLoaded, localSearchParams]);
+    }, [alreadyLoaded, filtersOptions]);
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _AllProductsGrid_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productGridBlock, style: hasMore ? {} : { paddingBottom: '50px' }, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("ul", { className: _AllProductsGrid_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productGrid, children: products.length > 0 ?
                     (products.map(product => (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_MainProductCard_MainProductCard__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { product: product, variation: 'gridElement' }, product._id))) :
                     ([...Array(8).keys()].map(index => (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_MainProductCard_MainProductCard__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { variation: 'gridElement' }, index))) }), isLoading ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { children: "Loading..." })) : (hasMore && (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: 'globalButton', onClick: () => loadMore(setAlreadyLoaded), children: "Load more" }))] }));

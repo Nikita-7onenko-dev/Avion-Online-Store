@@ -140,7 +140,7 @@ function ShoppingCart() {
         return ((0,jsx_runtime.jsx)("div", { className: shoppingCart_module.shoppingCartBlock, children: (0,jsx_runtime.jsx)("h2", { children: "Your cart is empty" }) }));
     }
     const addedProductsList = cart.map(product => ((0,jsx_runtime.jsxs)("tr", { children: [(0,jsx_runtime.jsx)("td", { children: (0,jsx_runtime.jsx)(ShoppingCartProductCard, { product: product, quantity: getProductQuantity(product._id) }) }), (0,jsx_runtime.jsx)("td", { children: (0,jsx_runtime.jsx)(QuantityInput/* default */.A, { quantity: getProductQuantity(product._id), productId: product._id }) }), (0,jsx_runtime.jsxs)("td", { style: { whiteSpace: 'nowrap' }, children: [product.price * getProductQuantity(product._id), " $"] })] }, product._id)));
-    return ((0,jsx_runtime.jsxs)("div", { className: shoppingCart_module.shoppingCartBlock, children: [(0,jsx_runtime.jsx)("h2", { children: "Your shopping cart" }), (0,jsx_runtime.jsxs)("table", { children: [(0,jsx_runtime.jsx)("thead", { children: (0,jsx_runtime.jsxs)("tr", { children: [(0,jsx_runtime.jsx)("th", { children: "Product" }), (0,jsx_runtime.jsx)("th", { children: "Quantity" }), (0,jsx_runtime.jsx)("th", { children: "Total" })] }) }), (0,jsx_runtime.jsx)("tbody", { children: addedProductsList }), (0,jsx_runtime.jsxs)("tfoot", { children: [(0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsxs)("th", { colSpan: 3, children: ["Subtotal ", (0,jsx_runtime.jsxs)("span", { children: [getCartTotalSum(cart), " $"] })] }) }), (0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsx)("td", { colSpan: 3, children: "Taxes and shipping are calculated at checkout" }) }), (0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsx)("td", { colSpan: 3, children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/', className: 'globalLink', children: "Go to checkout" }) }) })] })] })] }));
+    return ((0,jsx_runtime.jsxs)("div", { className: shoppingCart_module.shoppingCartBlock, children: [(0,jsx_runtime.jsx)("h2", { children: "Your shopping cart" }), (0,jsx_runtime.jsxs)("table", { children: [(0,jsx_runtime.jsx)("thead", { children: (0,jsx_runtime.jsxs)("tr", { children: [(0,jsx_runtime.jsx)("th", { children: "Product" }), (0,jsx_runtime.jsx)("th", { children: "Quantity" }), (0,jsx_runtime.jsx)("th", { children: "Total" })] }) }), (0,jsx_runtime.jsx)("tbody", { children: addedProductsList }), (0,jsx_runtime.jsxs)("tfoot", { children: [(0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsxs)("th", { colSpan: 3, children: ["Subtotal ", (0,jsx_runtime.jsxs)("span", { children: [getCartTotalSum(cart), " $"] }, getCartTotalSum(cart))] }) }), (0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsx)("td", { colSpan: 3, children: "Taxes and shipping are calculated at checkout" }) }), (0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsx)("td", { colSpan: 3, children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/', className: 'globalLink', children: "Go to checkout" }) }) })] })] })] }));
 }
 
 
@@ -218,6 +218,46 @@ function searchParamsParser(searchParams) {
     return [initialOptions, title];
 }
 
+
+/***/ }),
+
+/***/ 680:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (/* binding */ AboutBlock)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
+/* harmony import */ var _aboutBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5066);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1362);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6540);
+/* harmony import */ var react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7420);
+/* harmony import */ var react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9255);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__]);
+_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
+
+
+
+
+function AboutBlock({ variation, imgSrc, title, paragraph, anotherParagraph, withLink, linkLabel, linkHref }) {
+    const [isLoad, setIsLoad] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
+    const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
+    const spinnerColor = variation === 'highlighted' ? '#fff' : '#2a254b';
+    const { setFiltersOptions } = (0,_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__/* .useFilters */ .R)();
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: `${_aboutBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.aboutBlock} ${variation && _aboutBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A[variation]}`, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _aboutBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.aboutBlockText, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _aboutBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.aboutBlockTextTop, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { children: title }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", { children: paragraph }), anotherParagraph && (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", { children: anotherParagraph })] }), withLink &&
+                        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__/* .Link */ .N_, { onClick: () => setFiltersOptions({
+                                filters: { productType: [], category: [], designers: [], priceFilters: [] },
+                                sorting: '',
+                                search: ''
+                            }), to: linkHref, state: { scrollToTop: true }, className: 'globalLink', children: linkLabel })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _aboutBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.imageWrapper, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: `${base}${imgSrc}`, alt: "", loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4___default()), { color: spinnerColor, size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] })] }));
+}
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
 
 /***/ }),
 
@@ -343,15 +383,15 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4649);
 /* harmony import */ var _Footer_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3148);
 /* harmony import */ var _pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6621);
-/* harmony import */ var _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3216);
+/* harmony import */ var _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4863);
 /* harmony import */ var _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7592);
 /* harmony import */ var _pages_ShoppingCart_ShoppingCart__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(335);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(1362);
 /* harmony import */ var _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(9255);
 /* harmony import */ var _Context_CartContext__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(5783);
 /* harmony import */ var _pages_ContactsPage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(2008);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_9__]);
-([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_9__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_9__]);
+([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_9__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
@@ -26341,48 +26381,6 @@ function Footer() {
 
 /***/ }),
 
-/***/ 3216:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  A: () => (/* binding */ AboutPage)
-});
-
-// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(4848);
-// EXTERNAL MODULE: ./src/Components/AboutBlock/AboutBlock.tsx + 1 modules
-var AboutBlock = __webpack_require__(9782);
-;// ./src/Components/AboutHeroTitle/aboutHeroTitle.module.scss
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const aboutHeroTitle_module = ({"aboutHeroTitle":"kLwKVj"});
-;// ./src/Components/AboutHeroTitle/AboutHeroTitle.tsx
-
-
-function AboutHeroTitle() {
-    return ((0,jsx_runtime.jsx)("div", { className: aboutHeroTitle_module.aboutHeroTitle, children: (0,jsx_runtime.jsx)("h2", { children: "A brand built on the love of craftsmanship, quality and outstanding customer service" }) }));
-}
-
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(6540);
-;// ./src/pages/AboutPage.tsx
-
-
-
-
-function AboutPage() {
-    (0,react.useEffect)(() => {
-        window.scrollTo({
-            top: 0
-        });
-    }, []);
-    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)(AboutHeroTitle, {}), (0,jsx_runtime.jsx)(AboutBlock/* default */.A, { imgSrc: "/img/AboutBlockImage.jpg", title: "From a studio in London to a global brand with over 400 outlets", paragraph: "When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market.", anotherParagraph: "Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community." }), (0,jsx_runtime.jsx)(AboutBlock/* default */.A, { variation: "reverse", imgSrc: "/img/AboutBlock2.jpg", title: "Our service isn\u2019t just personal, it\u2019s actually hyper personally exquisite", paragraph: "When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market.", anotherParagraph: "Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community." }), (0,jsx_runtime.jsx)(AboutBlock/* default */.A, { variation: "highlighted", withLink: true, linkLabel: "View collection", linkHref: "/allProducts", imgSrc: "/img/AboutBlock3.jpg", title: "It started with a small idea", paragraph: "A global brand with local beginnings, our story began in a small studio in South London in early 2014" })] }));
-}
-
-
-/***/ }),
-
 /***/ 4477:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -26738,13 +26736,13 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */   A: () => (/* binding */ HomePage)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
-/* harmony import */ var _Components_AboutBlock_AboutBlock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9782);
+/* harmony import */ var _Components_AboutBlock_AboutBlock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(680);
 /* harmony import */ var _Components_CtaBlock_CtaBlock__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8753);
 /* harmony import */ var _Components_Features_Features__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6335);
 /* harmony import */ var _Components_HeroBlock_HeroBlock__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8878);
 /* harmony import */ var _Components_ProductsListing_ProductsListing__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9100);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_HeroBlock_HeroBlock__WEBPACK_IMPORTED_MODULE_4__]);
-_Components_HeroBlock_HeroBlock__WEBPACK_IMPORTED_MODULE_4__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_AboutBlock_AboutBlock__WEBPACK_IMPORTED_MODULE_1__, _Components_HeroBlock_HeroBlock__WEBPACK_IMPORTED_MODULE_4__]);
+([_Components_AboutBlock_AboutBlock__WEBPACK_IMPORTED_MODULE_1__, _Components_HeroBlock_HeroBlock__WEBPACK_IMPORTED_MODULE_4__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
@@ -26781,6 +26779,48 @@ if (true) {
 } else // removed by dead control flow
 {}
 
+
+/***/ }),
+
+/***/ 4863:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (/* binding */ AboutPage)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
+/* harmony import */ var _Components_AboutBlock_AboutBlock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(680);
+/* harmony import */ var _Components_AboutHeroTitle_AboutHeroTitle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8376);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6540);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_AboutBlock_AboutBlock__WEBPACK_IMPORTED_MODULE_1__]);
+_Components_AboutBlock_AboutBlock__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
+
+
+function AboutPage() {
+    (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
+        window.scrollTo({
+            top: 0
+        });
+    }, []);
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_AboutHeroTitle_AboutHeroTitle__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_AboutBlock_AboutBlock__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A, { imgSrc: "/img/AboutBlockImage.jpg", title: "From a studio in London to a global brand with over 400 outlets", paragraph: "When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market.", anotherParagraph: "Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community." }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_AboutBlock_AboutBlock__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A, { variation: "reverse", imgSrc: "/img/AboutBlock2.jpg", title: "Our service isn\u2019t just personal, it\u2019s actually hyper personally exquisite", paragraph: "When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market.", anotherParagraph: "Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community." }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_AboutBlock_AboutBlock__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A, { variation: "highlighted", withLink: true, linkLabel: "View collection", linkHref: "/allProducts", imgSrc: "/img/AboutBlock3.jpg", title: "It started with a small idea", paragraph: "A global brand with local beginnings, our story began in a small studio in South London in early 2014" })] }));
+}
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
+/***/ 5066:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"aboutBlock":"Mca110","reverse":"KSsKz5","highlighted":"Yj1dAE","imageWrapper":"Kl0bsR","aboutBlockText":"xB6HOt","aboutBlockTextTop":"RyEP2S"});
 
 /***/ }),
 
@@ -27725,6 +27765,30 @@ __webpack_async_result__();
 
 /***/ }),
 
+/***/ 8376:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (/* binding */ AboutHeroTitle)
+});
+
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(4848);
+;// ./src/Components/AboutHeroTitle/aboutHeroTitle.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const aboutHeroTitle_module = ({"aboutHeroTitle":"kLwKVj"});
+;// ./src/Components/AboutHeroTitle/AboutHeroTitle.tsx
+
+
+function AboutHeroTitle() {
+    return ((0,jsx_runtime.jsx)("div", { className: aboutHeroTitle_module.aboutHeroTitle, children: (0,jsx_runtime.jsx)("h2", { children: "A brand built on the love of craftsmanship, quality and outstanding customer service" }) }));
+}
+
+
+/***/ }),
+
 /***/ 8478:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -27785,7 +27849,7 @@ function AllProductsGrid() {
             ignore = true;
         };
     }, [alreadyLoaded, filtersOptions]);
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _AllProductsGrid_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productGridBlock, style: hasMore ? {} : { paddingBottom: '50px' }, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", { className: _AllProductsGrid_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productGrid, children: [(products.length > 0) && products.map(product => (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_MainProductCard_MainProductCard__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { product: product, variation: 'gridElement' }, product._id)), (isLoading && products.length > 0) && [...Array(alreadyLoaded + pageSize).keys()].map(index => (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_MainProductCard_MainProductCard__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { variation: 'gridElement' }, index))] }), (products.length === 0 && !isLoading) && (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { children: "We couldn't find any products matching your search." }), isLoading ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { children: "Loading..." })) : (hasMore && (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: 'globalButton', onClick: () => loadMore(setAlreadyLoaded), children: "Load more" }))] }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _AllProductsGrid_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productGridBlock, style: hasMore ? {} : { paddingBottom: '50px' }, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", { className: _AllProductsGrid_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productGrid, children: [(products.length > 0) && products.map(product => (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_MainProductCard_MainProductCard__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { product: product, variation: 'gridElement' }, product._id)), (isLoading && products.length > 0) && [...Array(pageSize).keys()].map(index => (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_MainProductCard_MainProductCard__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { variation: 'gridElement' }, index))] }), (products.length === 0 && !isLoading) && (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { children: "We couldn't find any products matching your search." }), isLoading ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { children: "Loading..." })) : (hasMore && (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: 'globalButton', onClick: () => loadMore(setAlreadyLoaded), children: "Load more" }))] }));
 }
 
 __webpack_async_result__();
@@ -27810,11 +27874,27 @@ var jsx_runtime = __webpack_require__(4848);
 ;// ./src/Components/SubscribeForm/subscribeForm.module.scss
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const subscribeForm_module = ({"subscribeForm":"lNWTdh"});
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(6540);
 ;// ./src/Components/SubscribeForm/SubscribeForm.tsx
 
 
+
 function SubscribeForm() {
-    return ((0,jsx_runtime.jsxs)("form", { className: subscribeForm_module.subscribeForm, children: [(0,jsx_runtime.jsx)("input", { type: "email", name: "email", placeholder: "your@email.com" }), (0,jsx_runtime.jsx)("button", { type: 'button', className: 'globalButton', children: "Sign up" })] }));
+    const formRef = (0,react.useRef)(null);
+    const buttonRef = (0,react.useRef)(null);
+    const [gap, setGap] = (0,react.useState)(false);
+    (0,react.useEffect)(() => {
+        if (!buttonRef.current)
+            return;
+        const observer = new ResizeObserver(([entry]) => {
+            const width = entry.contentRect.width;
+            setGap(width > 200);
+        });
+        observer.observe(buttonRef?.current);
+        return () => observer.disconnect();
+    }, []);
+    return ((0,jsx_runtime.jsxs)("form", { style: gap ? { gap: '30px' } : {}, className: subscribeForm_module.subscribeForm, children: [(0,jsx_runtime.jsx)("input", { type: "email", name: "email", placeholder: "your@email.com" }), (0,jsx_runtime.jsx)("button", { ref: buttonRef, type: 'button', className: 'globalButton', children: "Sign up" })] }));
 }
 
 ;// ./src/Components/CtaBlock/CtaBlock.tsx
@@ -29911,43 +29991,6 @@ function jsxProd(type, config, maybeKey) {
 exports.Fragment = REACT_FRAGMENT_TYPE;
 exports.jsx = jsxProd;
 exports.jsxs = jsxProd;
-
-
-/***/ }),
-
-/***/ 9782:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  A: () => (/* binding */ AboutBlock)
-});
-
-// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(4848);
-;// ./src/Components/AboutBlock/aboutBlock.module.scss
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const aboutBlock_module = ({"aboutBlock":"Mca110","reverse":"KSsKz5","highlighted":"Yj1dAE","imageWrapper":"Kl0bsR","aboutBlockText":"xB6HOt","aboutBlockTextTop":"RyEP2S"});
-// EXTERNAL MODULE: ./node_modules/react-router/dist/development/chunk-EF7DTUVF.mjs
-var chunk_EF7DTUVF = __webpack_require__(1362);
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(6540);
-// EXTERNAL MODULE: ./node_modules/react-spinners/ClipLoader.js
-var ClipLoader = __webpack_require__(7420);
-var ClipLoader_default = /*#__PURE__*/__webpack_require__.n(ClipLoader);
-;// ./src/Components/AboutBlock/AboutBlock.tsx
-
-
-
-
-
-function AboutBlock({ variation, imgSrc, title, paragraph, anotherParagraph, withLink, linkLabel, linkHref }) {
-    const [isLoad, setIsLoad] = (0,react.useState)(false);
-    const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
-    const spinnerColor = variation === 'highlighted' ? '#fff' : '#2a254b';
-    return ((0,jsx_runtime.jsxs)("div", { className: `${aboutBlock_module.aboutBlock} ${variation && aboutBlock_module[variation]}`, children: [(0,jsx_runtime.jsxs)("div", { className: aboutBlock_module.aboutBlockText, children: [(0,jsx_runtime.jsxs)("div", { className: aboutBlock_module.aboutBlockTextTop, children: [(0,jsx_runtime.jsx)("h3", { children: title }), (0,jsx_runtime.jsx)("p", { children: paragraph }), anotherParagraph && (0,jsx_runtime.jsx)("p", { children: anotherParagraph })] }), withLink && (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: linkHref, state: { scrollToTop: true }, className: 'globalLink', children: linkLabel })] }), (0,jsx_runtime.jsxs)("div", { className: aboutBlock_module.imageWrapper, children: [(0,jsx_runtime.jsx)("img", { src: `${base}${imgSrc}`, alt: "", loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: spinnerColor, size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] })] }));
-}
 
 
 /***/ }),

@@ -234,9 +234,9 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6540);
 /* harmony import */ var react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7420);
 /* harmony import */ var react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9255);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__]);
-_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6618);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_5__]);
+_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_5__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
@@ -247,7 +247,7 @@ function AboutBlock({ variation, imgSrc, title, paragraph, anotherParagraph, wit
     const [isLoad, setIsLoad] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
     const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
     const spinnerColor = variation === 'highlighted' ? '#fff' : '#2a254b';
-    const { setFiltersOptions } = (0,_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__/* .useFilters */ .R)();
+    const { setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_5__/* .useProductsAndFilters */ .u)();
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: `${_aboutBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.aboutBlock} ${variation && _aboutBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A[variation]}`, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _aboutBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.aboutBlockText, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _aboutBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.aboutBlockTextTop, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { children: title }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", { children: paragraph }), anotherParagraph && (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", { children: anotherParagraph })] }), withLink &&
                         (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__/* .Link */ .N_, { onClick: () => setFiltersOptions({
                                 filters: { productType: [], category: [], designers: [], priceFilters: [] },
@@ -272,9 +272,9 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _productsFiltersLayout_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6516);
 /* harmony import */ var _FilterFieldset_FilterFieldset__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2960);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1362);
-/* harmony import */ var _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9255);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_FilterFieldset_FilterFieldset__WEBPACK_IMPORTED_MODULE_2__, _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_4__]);
-([_FilterFieldset_FilterFieldset__WEBPACK_IMPORTED_MODULE_2__, _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_4__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6618);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_FilterFieldset_FilterFieldset__WEBPACK_IMPORTED_MODULE_2__, _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_4__]);
+([_FilterFieldset_FilterFieldset__WEBPACK_IMPORTED_MODULE_2__, _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_4__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
@@ -282,7 +282,7 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Fil
 
 function ProductsFiltersLayout({ showOptions, setShowOptions }) {
     const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .useNavigate */ .Zp)();
-    const { filtersOptions, setFiltersOptions } = (0,_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_4__/* .useFilters */ .R)();
+    const { filtersOptions, setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_4__/* .useProductsAndFilters */ .u)();
     function onChange(e) {
         const { name, value, checked } = e.target;
         navigate('/allProducts');
@@ -387,11 +387,11 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7592);
 /* harmony import */ var _pages_ShoppingCart_ShoppingCart__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(335);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(1362);
-/* harmony import */ var _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(9255);
+/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(6618);
 /* harmony import */ var _Context_CartContext__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(5783);
 /* harmony import */ var _pages_ContactsPage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(2008);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _Footer_Footer__WEBPACK_IMPORTED_MODULE_3__, _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_9__]);
-([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _Footer_Footer__WEBPACK_IMPORTED_MODULE_3__, _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_9__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _Footer_Footer__WEBPACK_IMPORTED_MODULE_3__, _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_9__]);
+([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _Footer_Footer__WEBPACK_IMPORTED_MODULE_3__, _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_9__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
@@ -405,7 +405,7 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Com
 
 
 function App() {
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Context_CartContext__WEBPACK_IMPORTED_MODULE_10__/* .CartProvider */ .e, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_9__/* .FiltersProvider */ .B, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Routes */ .BV, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_HomePage__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/about', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/shoppingCart', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ShoppingCart_ShoppingCart__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/allProducts', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/:id', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/contacts', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ContactsPage__WEBPACK_IMPORTED_MODULE_11__/* ["default"] */ .A, {}) })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Footer_Footer__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {})] }) }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Context_CartContext__WEBPACK_IMPORTED_MODULE_10__/* .CartProvider */ .e, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_9__/* .ProductsAndFiltersProvider */ .y, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Routes */ .BV, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_HomePage__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/about', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/shoppingCart', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ShoppingCart_ShoppingCart__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/allProducts', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/:id', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/contacts', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ContactsPage__WEBPACK_IMPORTED_MODULE_11__/* ["default"] */ .A, {}) })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Footer_Footer__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {})] }) }));
 }
 
 __webpack_async_result__();
@@ -25849,17 +25849,17 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */   A: () => (/* binding */ HeaderNavigationBar)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
-/* harmony import */ var _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9255);
+/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6618);
 /* harmony import */ var _headerNavigationBar_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1860);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1362);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_1__]);
-_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__]);
+_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
 
 function HeaderNavigationBar() {
-    const { filterContext, setFiltersOptions } = (0,_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_1__/* .useFilters */ .R)();
+    const { filterContext, setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__/* .useProductsAndFilters */ .u)();
     const [searchParams] = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .useSearchParams */ .ok)();
     const currentProductType = searchParams.get('productType');
     const categoryLinkItems = filterContext.productType.map(productType => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .NavLink */ .k2, { to: {
@@ -25888,15 +25888,15 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1362);
 /* harmony import */ var _burgerMenuNav_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4732);
-/* harmony import */ var _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9255);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_3__]);
-_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6618);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__]);
+_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
 
 function BurgerMenuNav() {
-    const { filterContext, setFiltersOptions } = (0,_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_3__/* .useFilters */ .R)();
+    const { filterContext, setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__/* .useProductsAndFilters */ .u)();
     const productTypeLinkItems = filterContext.productType.map(productType => {
         return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__/* .Link */ .N_, { to: {
                     pathname: '/allProducts',
@@ -26263,9 +26263,9 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
 /* harmony import */ var _filterFieldset_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5746);
-/* harmony import */ var _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9255);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_2__]);
-_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6618);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__]);
+_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
@@ -26278,8 +26278,8 @@ function FilterFieldset({ filter, title, showOptions, setShowOptions, onChange }
             [filter]: !prev[filter],
         }));
     }
-    const filterNames = (0,_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_2__/* .useFilters */ .R)().filterContext[filter];
-    const { filtersOptions } = (0,_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_2__/* .useFilters */ .R)();
+    const filterNames = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__/* .useProductsAndFilters */ .u)().filterContext[filter];
+    const { filtersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__/* .useProductsAndFilters */ .u)();
     const filterItems = filterNames.map(filterName => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", { className: filtersOptions.filters[filter].includes(filterName) ? _filterFieldset_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.activeLabel : '', children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { type: "checkbox", checked: filtersOptions.filters[filter].includes(filterName), value: filterName, name: filter, onChange: onChange }), filterName] }, filterName)));
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("fieldset", { className: `${showOptions[filter] ? '' : _filterFieldset_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.hiddenFieldset} ${_filterFieldset_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.filterFieldset}`, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("legend", { className: filtersOptions.filters[filter].length > 0 ? _filterFieldset_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.activeLegend : '', onClick: () => toggleFieldset(), children: title }), filterItems] }));
 }
@@ -26761,17 +26761,17 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */   A: () => (/* binding */ FooterNavigation)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
-/* harmony import */ var _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9255);
+/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6618);
 /* harmony import */ var _footerNavigation_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7580);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1362);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_1__]);
-_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__]);
+_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
 
 function FooterNavigation() {
-    const { filterContext, setFiltersOptions } = (0,_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_1__/* .useFilters */ .R)();
+    const { filterContext, setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__/* .useProductsAndFilters */ .u)();
     const categoryListItems = filterContext.categories.map(category => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: {
                 pathname: '/allProducts',
                 search: `category=${category}`
@@ -27277,6 +27277,113 @@ if (true) {
 
 /***/ }),
 
+/***/ 6618:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   u: () => (/* binding */ useProductsAndFilters),
+/* harmony export */   y: () => (/* binding */ ProductsAndFiltersProvider)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6540);
+/* harmony import */ var _utils_fetchAllProducts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1027);
+
+
+
+// Получаем все существующие в базе данных поля: все типы продуктов, все категории, все дизайнеры
+async function fetchAllFiltersOptionsFields() {
+    const url = "https://avion-online-store-server.onrender.com/api/" + 'filtersOptions' || 0;
+    const response = await fetch(url);
+    const filtersOptionsFields = await response.json();
+    return filtersOptionsFields;
+}
+const { allProductTypes, allCategories, allDesigners } = await fetchAllFiltersOptionsFields();
+// Создаем контекст
+const ProductsAndFiltersContext = (0,react__WEBPACK_IMPORTED_MODULE_1__.createContext)(undefined);
+// Раздаем значение контекста отсюда
+function useProductsAndFilters() {
+    const context = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(ProductsAndFiltersContext);
+    if (!context) {
+        throw new Error("useFilters must be used inside productsAndFiltersProvider");
+    }
+    return context;
+}
+// Компонент провайдер
+function ProductsAndFiltersProvider({ children }) {
+    // Фильтры и сортировки
+    const filterContext = {
+        productType: allProductTypes,
+        designers: allDesigners,
+        categories: allCategories,
+        priceFilters: ['0 - 100', '101 - 250', '251+'],
+        sorting: ['Price: Low to High', 'Price: High to Low', 'Newest', 'Best sellers'],
+    };
+    const initialOptions = {
+        filters: { productType: [], category: [], designers: [], priceFilters: [] },
+        sorting: '',
+        search: ''
+    };
+    const [filtersOptions, setFiltersOptions] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(initialOptions);
+    // Товары и запросы к серверу
+    const [products, setProducts] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
+    const [hasMore, setHasMore] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+    const [alreadyLoaded, setAlreadyLoaded] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0);
+    const [isLoading, setIsLoading] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true);
+    let ignore = false;
+    const pageSize = 5;
+    // Запрос списка товаров у сервера
+    async function fetchProducts(searchParams) {
+        setIsLoading(true);
+        const data = await (0,_utils_fetchAllProducts__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(searchParams.toString());
+        if (!ignore) {
+            setIsLoading(false);
+            setProducts(prev => [...prev, ...data.products]);
+            setHasMore(data.hasMore);
+        }
+    }
+    // Загрузить еще
+    function loadMore() {
+        setAlreadyLoaded((prev) => prev + pageSize);
+    }
+    // Слушаем filterOptions
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+        setProducts([]);
+        setAlreadyLoaded(0);
+    }, [filtersOptions]);
+    // Слушаем сколько уже загружено и FilterOptions 
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+        let searchParams = new URLSearchParams({
+            search: filtersOptions.search,
+            sorting: filtersOptions.sorting,
+            filters: JSON.stringify(filtersOptions.filters),
+            alreadyLoaded: alreadyLoaded.toString(),
+            limit: pageSize.toString()
+        });
+        if (!ignore) {
+            fetchProducts(searchParams);
+        }
+        return () => {
+            ignore = true;
+        };
+    }, [alreadyLoaded, filtersOptions]);
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(ProductsAndFiltersContext.Provider, { value: {
+            filterContext,
+            filtersOptions,
+            setFiltersOptions,
+            products,
+            hasMore,
+            alreadyLoaded,
+            isLoading,
+            loadMore
+        }, children: children }));
+}
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } }, 1);
+
+/***/ }),
+
 /***/ 6621:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -27441,15 +27548,15 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
 /* harmony import */ var _productsSorting_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3140);
-/* harmony import */ var _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9255);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_2__]);
-_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6618);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__]);
+_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
 function ProductsSorting({ showOptions, setShowOptions }) {
-    const { sorting } = (0,_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_2__/* .useFilters */ .R)().filterContext;
-    const { filtersOptions, setFiltersOptions } = (0,_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_2__/* .useFilters */ .R)();
+    const { sorting } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__/* .useProductsAndFilters */ .u)().filterContext;
+    const { filtersOptions, setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__/* .useProductsAndFilters */ .u)();
     function toggleFieldset() {
         if (document.body.offsetWidth < 500)
             return;
@@ -27651,9 +27758,9 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1362);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6540);
 /* harmony import */ var _utils_searchParamsParser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(609);
-/* harmony import */ var _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(9255);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_AllProductsGrid_AllProductsGrid__WEBPACK_IMPORTED_MODULE_2__, _Components_ProductsFiltersBar_ProductsFiltersAndSortingBar__WEBPACK_IMPORTED_MODULE_3__, _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_7__]);
-([_Components_AllProductsGrid_AllProductsGrid__WEBPACK_IMPORTED_MODULE_2__, _Components_ProductsFiltersBar_ProductsFiltersAndSortingBar__WEBPACK_IMPORTED_MODULE_3__, _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_7__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(6618);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_AllProductsGrid_AllProductsGrid__WEBPACK_IMPORTED_MODULE_2__, _Components_ProductsFiltersBar_ProductsFiltersAndSortingBar__WEBPACK_IMPORTED_MODULE_3__, _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_7__]);
+([_Components_AllProductsGrid_AllProductsGrid__WEBPACK_IMPORTED_MODULE_2__, _Components_ProductsFiltersBar_ProductsFiltersAndSortingBar__WEBPACK_IMPORTED_MODULE_3__, _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_7__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
@@ -27665,17 +27772,19 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Com
 const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
 function AllProductsPage() {
     const [searchParams] = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__/* .useSearchParams */ .ok)();
-    const { setFiltersOptions } = (0,_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_7__/* .useFilters */ .R)();
+    const { setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_7__/* .useProductsAndFilters */ .u)();
     const [filterOptions, title] = (0,_utils_searchParamsParser__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A)(searchParams);
     const location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__/* .useLocation */ .zy)();
+    (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)(() => {
+        if (searchParams.size > 0) {
+            setFiltersOptions(filterOptions);
+        }
+    }, [searchParams.toString()]);
     (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)(() => {
         if (location.state?.scrollToTop) {
             window.scrollTo(0, 0);
         }
-        if (searchParams.size > 0) {
-            setFiltersOptions(filterOptions);
-        }
-    }, [searchParams.toString(), location]);
+    }, [location.state?.scrollToTop]);
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: _allProductsPage_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.allProductsBanner, style: { backgroundImage: `url('${base}/img/allProductsBanner.jpg')` }, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: title }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _allProductsPage_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.allProductsBlock, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_ProductsFiltersBar_ProductsFiltersAndSortingBar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_AllProductsGrid_AllProductsGrid__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {})] })] }));
 }
 
@@ -27694,11 +27803,11 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
 /* harmony import */ var _FiltersAndSortingList_FiltersAndSortingList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1542);
 /* harmony import */ var _FiltersControls_FiltersControls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9381);
-/* harmony import */ var _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9255);
+/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6618);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6540);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(1362);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_FiltersAndSortingList_FiltersAndSortingList__WEBPACK_IMPORTED_MODULE_1__, _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_3__]);
-([_FiltersAndSortingList_FiltersAndSortingList__WEBPACK_IMPORTED_MODULE_1__, _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_FiltersAndSortingList_FiltersAndSortingList__WEBPACK_IMPORTED_MODULE_1__, _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__]);
+([_FiltersAndSortingList_FiltersAndSortingList__WEBPACK_IMPORTED_MODULE_1__, _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
@@ -27714,7 +27823,7 @@ function ProductFiltersBar() {
         priceFilters: true,
         designers: true
     });
-    const { setFiltersOptions } = (0,_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_3__/* .useFilters */ .R)();
+    const { setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__/* .useProductsAndFilters */ .u)();
     const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__/* .useNavigate */ .Zp)();
     function showFiltersClick() {
         setShowOptions(prev => ({
@@ -27810,57 +27919,17 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
 /* harmony import */ var _AllProductsGrid_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5644);
 /* harmony import */ var _MainProductCard_MainProductCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7339);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6540);
-/* harmony import */ var _utils_fetchAllProducts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1027);
-/* harmony import */ var _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9255);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__]);
-_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
-
-
+/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6618);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__]);
+_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
 
 const pageSize = 5;
-function loadMore(setAlreadyLoaded) {
-    setAlreadyLoaded((prev) => prev + pageSize);
-}
 function AllProductsGrid() {
-    const [products, setProducts] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]);
-    const [hasMore, setHasMore] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
-    const [alreadyLoaded, setAlreadyLoaded] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(0);
-    const [isLoading, setIsLoading] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(true);
-    const { filtersOptions } = (0,_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__/* .useFilters */ .R)();
-    let ignore = false;
-    async function fetchProducts(searchParams) {
-        setIsLoading(true);
-        const data = await (0,_utils_fetchAllProducts__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)(searchParams.toString());
-        if (!ignore) {
-            setIsLoading(false);
-            setProducts(prev => [...prev, ...data.products]);
-            setHasMore(data.hasMore);
-        }
-    }
-    (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
-        setProducts([]);
-        setAlreadyLoaded(0);
-    }, [filtersOptions]);
-    (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
-        let searchParams = new URLSearchParams({
-            search: filtersOptions.search,
-            sorting: filtersOptions.sorting,
-            filters: JSON.stringify(filtersOptions.filters),
-            alreadyLoaded: alreadyLoaded.toString(),
-            limit: pageSize.toString()
-        });
-        if (!ignore) {
-            fetchProducts(searchParams);
-        }
-        return () => {
-            ignore = true;
-        };
-    }, [alreadyLoaded, filtersOptions]);
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _AllProductsGrid_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productGridBlock, style: hasMore ? {} : { paddingBottom: '50px' }, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", { className: _AllProductsGrid_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productGrid, children: [(products.length > 0) && products.map(product => (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_MainProductCard_MainProductCard__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { product: product, variation: 'gridElement' }, product._id)), (isLoading && products.length > 0) && [...Array(pageSize).keys()].map(index => (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_MainProductCard_MainProductCard__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { variation: 'gridElement' }, index))] }), (products.length === 0 && !isLoading) && (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { children: "We couldn't find any products matching your search." }), isLoading ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { children: "Loading..." })) : (hasMore && (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: 'globalButton', onClick: () => loadMore(setAlreadyLoaded), children: "Load more" }))] }));
+    const { products, hasMore, alreadyLoaded, isLoading, loadMore } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__/* .useProductsAndFilters */ .u)();
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _AllProductsGrid_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productGridBlock, style: hasMore ? {} : { paddingBottom: '50px' }, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", { className: _AllProductsGrid_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productGrid, children: [(products.length > 0) && products.map(product => (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_MainProductCard_MainProductCard__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { product: product, variation: 'gridElement' }, product._id)), (isLoading && products.length > 0) && [...Array(pageSize).keys()].map(index => (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_MainProductCard_MainProductCard__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { variation: 'gridElement' }, index))] }), (products.length === 0 && !isLoading) && (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { children: "We couldn't find any products matching your search." }), isLoading ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { children: "Loading..." })) : (hasMore && (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: 'globalButton', onClick: () => loadMore(), children: "Load more" }))] }));
 }
 
 __webpack_async_result__();
@@ -27958,9 +28027,9 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1362);
 /* harmony import */ var react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7420);
 /* harmony import */ var react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9255);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__]);
-_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6618);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_5__]);
+_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_5__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
@@ -27970,7 +28039,7 @@ _Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__ = (__webpack_async_
 function HeroBlock() {
     const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
     const [isLoad, setIsLoad] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
-    const { setFiltersOptions } = (0,_Context_FiltersContextProvider__WEBPACK_IMPORTED_MODULE_5__/* .useFilters */ .R)();
+    const { setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_5__/* .useProductsAndFilters */ .u)();
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _heroBlock_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.heroBlock, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _heroBlock_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.heroBlockLeft, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { children: "The furniture brand for the future, with timeless designs" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _heroBlock_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.heroBlockLeftBottom, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: '/allProducts', className: 'globalLink', onClick: () => setFiltersOptions({
                                     filters: { productType: [], category: [], designers: [], priceFilters: [] },
                                     sorting: '',
@@ -29818,58 +29887,6 @@ function ProductListing({ productType, category, designer, sorting, excludeId, t
     return ((0,jsx_runtime.jsx)(ProductListingEmblaCarousel, { options: options, slides: productCards, title: title, searchParams: params }));
 }
 
-
-/***/ }),
-
-/***/ 9255:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   B: () => (/* binding */ FiltersProvider),
-/* harmony export */   R: () => (/* binding */ useFilters)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6540);
-
-
-// Получаем все существующие в базе данных поля: все типы продуктов, все категории, все дизайнеры
-async function fetchAllFiltersOptionsFields() {
-    const url = "https://avion-online-store-server.onrender.com/api/" + 'filtersOptions' || 0;
-    const response = await fetch(url);
-    const filtersOptionsFields = await response.json();
-    return filtersOptionsFields;
-}
-const { allProductTypes, allCategories, allDesigners } = await fetchAllFiltersOptionsFields();
-// Раздаем значение контекста отсюда
-const FiltersContext = (0,react__WEBPACK_IMPORTED_MODULE_1__.createContext)(undefined);
-function useFilters() {
-    const context = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(FiltersContext);
-    if (!context) {
-        throw new Error("useFilters must be used inside FiltersProvider");
-    }
-    return context;
-}
-// Компонент провайдер
-function FiltersProvider({ children }) {
-    const filterContextValue = {
-        productType: allProductTypes,
-        designers: allDesigners,
-        categories: allCategories,
-        priceFilters: ['0 - 100', '101 - 250', '251+'],
-        sorting: ['Price: Low to High', 'Price: High to Low', 'Newest', 'Best sellers'],
-    };
-    const initialOptions = {
-        filters: { productType: [], category: [], designers: [], priceFilters: [] },
-        sorting: '',
-        search: ''
-    };
-    const [filtersOptions, setFiltersOptions] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(initialOptions);
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(FiltersContext.Provider, { value: { filterContext: filterContextValue, filtersOptions, setFiltersOptions }, children: children }));
-}
-
-__webpack_async_result__();
-} catch(e) { __webpack_async_result__(e); } }, 1);
 
 /***/ }),
 

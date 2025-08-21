@@ -4,7 +4,6 @@
   justify-content: center;
   gap: 15px;
   padding-top: 20px;
-  padding-inline: 10px;
   
 
   button{
@@ -13,16 +12,16 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
-    padding: 14px 24px 14px 32px;
-    width: 150px;
     height: 50px;
-    background-color: var(--lightGrayBackground);
-    color: var(--darkFontColor);
+
   }
 }
 
-.resetButton{
+div>.resetButton{
   display: none;
+  margin-top: 10px;
+  height: 30px;
+  width: 100%;
 }
 
 
@@ -44,13 +43,9 @@
     transform: rotate(180deg);
   }
 
-  .resetButton{
-    display: initial;
-    background-color: var(--lightGrayBackground);
-    margin-top: 10px;
-    height: 30px;
-    width: calc(100% - 20px);
-    margin-inline: auto;
+  div>.resetButton{
+    display: flex;
+
   }
 
 }

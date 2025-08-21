@@ -15,25 +15,24 @@ export default function MainProductCard({product, variation}: Props): React.JSX.
 
   const [isLoad, setIsLoad] = useState(false);  
 
-
   const aspectRatio = product?.aspectRatio || '4/5';
-  const image = product?.image || "/";
   const name = product?.name || '';
   const price = product?.price ? product?.price + ' $' : '' ;
-  const frameClass = aspectRatio === '8/5' ? styles[variation + 'Wide'] : styles[variation]
+  const frameClass = aspectRatio === '8/5' ? styles[variation + 'Wide'] : styles[variation];
 
 return (
       <li 
         className={`${frameClass} ${ variation === 'listingElement' ? 'embla__slide' : '' }`}>
         <Link className={`${styles.productCard}`} to={`/${product?._id || ''}`} >
           <div className={`${aspectRatio === '4/5' ? styles.imgFrameSmall : styles.imgFrameWide} ${styles.imgFrame}`}>
-            <img 
-              src={`${image}`} 
-              alt="" 
-              loading="lazy"
-              onLoad={() => setIsLoad(true)}
-              style={isLoad ? {visibility: 'visible'} : {visibility: 'hidden'} } 
-            />
+            {product &&  <img 
+                src={`${product.image}`} 
+                alt="" 
+                loading="lazy"
+                onLoad={() => setIsLoad(true)}
+                style={isLoad ? {visibility: 'visible'} : {visibility: 'hidden'} } 
+              />
+            }
             <ClipLoader 
               color={'#2a254b'}
               size={40}

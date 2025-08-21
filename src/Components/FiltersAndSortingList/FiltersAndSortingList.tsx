@@ -18,7 +18,7 @@ export default function FiltersAndSortingList({
 
   return (
       <div className={`${styles.filtersAndSortingList} ${(showOptions.filters || showOptions.sorting) ? styles.active : '' }`}>
-        <button onClick={resetFilters} className='globalButton' style={{height: "30px"}}>Reset</button>
+        <button onClick={resetFilters} className='globalLink' style={{height: "30px"}}>Reset Filters</button>
         <ProductsSorting showOptions={showOptions} setShowOptions={setShowOptions} />
         <ProductsFiltersLayout showOptions={showOptions} setShowOptions={setShowOptions} />
       </div>

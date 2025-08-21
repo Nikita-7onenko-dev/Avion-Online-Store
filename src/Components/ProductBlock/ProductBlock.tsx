@@ -32,7 +32,6 @@ export default function ProductBlock({productData}: Props): React.JSX.Element {
   const isWideImage = productData?.aspectRatio === '8/5';
 
   const data = {
-    image: productData?.image || '/',
     name: productData?.name || '',
     description: productData?.description || '',
     price: productData?.price ? productData?.price + ' $' : '' ,
@@ -49,13 +48,14 @@ export default function ProductBlock({productData}: Props): React.JSX.Element {
         className={`${styles.productBlockImageWrapper} ${isWideImage ? styles.wideImageWrapper : styles.smallImageWrapper}`}
         ref={productImageRef}
       >
-        <img 
-          src={data.image} 
-          alt={data.name}
-          loading='lazy' 
-          onLoad={() => setIsLoad(true)}
-          style={isLoad ? {visibility: 'visible'} : {visibility: 'hidden'} }   
-        />
+        { productData && <img 
+            src={productData.image} 
+            alt={data.name}
+            loading='lazy' 
+            onLoad={() => setIsLoad(true)}
+            style={isLoad ? {visibility: 'visible'} : {visibility: 'hidden'} }   
+          />
+        }
         <ClipLoader 
           color={'#2a254b'}
           size={80}

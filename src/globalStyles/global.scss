@@ -15,18 +15,42 @@ body{
 
 .active{
   color: #6c63ff !important;
-  border-bottom: 2px solid #6c63ff;
+  border-bottom: 2px solid #6c63ff !important;
+}
+
+a, button{
+  display: inline-block;
+  transition: background-color 0.2s ease;
+}
+
+*button:active, *a:active{
+  transform: scale(0.96);
 }
 
 .globalLink{
   color: var(--darkFontColor);
-  background: var(--lightGrayBackground);
+  background-color: var(--lightGrayBackground);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 14px 32px;
   width: fit-content;
   height: 47px;
+
+  // &:hover {
+  //   background: #e0e0ffbc;
+  // }
+
+  // &:active {
+  //   background: #d6d6ffbc;
+  // }
+    &:hover {
+    background: #dcefffbc;
+  }
+
+  &:active {
+    background: #c8e6ffbc;
+  }
 }
 
 .globalButton{
@@ -38,6 +62,14 @@ body{
   justify-content: center;
   align-items: center;
   min-width: 98px;
+
+  &:hover {
+    background-color: #3a3a5f;
+  }
+
+  &:active {
+    background-color: #2a2a4a;
+  }
 }
 
 .embla {
@@ -62,6 +94,36 @@ body{
 
 a{
   color: var(--darkFontColor);
+}
+
+@media screen and (max-width:800px) {
+  .globalButton{
+    &:active{
+      background-color: var(--darkBackgroundColor);
+      color: #fff;
+    }
+    &:hover{
+      background-color: var(--darkBackgroundColor);
+      color: #fff;
+    }
+    -webkit-tap-highlight-color: #40407a8b;
+  }
+
+  .globalLink{
+    &:active{
+      background-color: var(--lightGrayBackground);
+    }
+    &:hover{
+      background-color: var(--lightGrayBackground);
+    }
+
+    // -webkit-tap-highlight-color: #d6d6ffbc;
+    -webkit-tap-highlight-color: #c8e6ffbc;
+  }
+
+  *a{
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 @media screen and (max-width: 400px) {

@@ -26,7 +26,7 @@ export default function AllProductsPage(): React.JSX.Element {
     if(searchParams.size > 0) {
       setFiltersOptions(filterOptions);
     }  
-  }, [searchParams])
+  }, [searchParams.toString(), location])
 
   return (
     <>

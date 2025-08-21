@@ -50,7 +50,7 @@ export default function ShoppingCart(): React.JSX.Element {
             <td colSpan={3}>Taxes and shipping are calculated at checkout</td>
           </tr>
           <tr>
-            <td colSpan={3}><Link to='/' className='globalLink'>Go to checkout</Link></td>
+            <td colSpan={3}><Link to='/' className='globalButton'>Go to checkout</Link></td>
           </tr>
         </tfoot>
       </table>

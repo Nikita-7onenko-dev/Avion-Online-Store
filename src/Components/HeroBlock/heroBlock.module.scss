@@ -26,6 +26,15 @@
     color: var(--whiteFontColor);
     background-color: var(--lightBackgroundColor);
     font-size: 14px;
+    -webkit-tap-highlight-color: #5e5a7753;
+
+    &:hover{
+      background-color: #8a869f;
+    }
+
+    &:active{
+      background-color: #5e5a77;
+    }
   }
 
   h3{

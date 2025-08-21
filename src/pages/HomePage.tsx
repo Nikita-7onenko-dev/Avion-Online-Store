@@ -4,9 +4,19 @@ import Features from "@/Components/Features/Features";
 import HeroBlock from "@/Components/HeroBlock/HeroBlock";
 import ProductListing from "@/Components/ProductsListing/ProductsListing";
 
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function HomePage(): React.JSX.Element {
 
+  const location = useLocation()
+
+  useEffect(() => {
+
+    if(location.state?.scrollToTop) {
+      window.scrollTo(0,0)
+    }
+  })
 
   return (
     <>

@@ -27,7 +27,7 @@ export default function ContactsHeroBlock({ref}: Props): React.JSX.Element {
             <h3>Contact us</h3>
             <p>Have a question or request? Use the feedback form or any contact details below</p>
           </div>
-          <button className='globalButton' onClick={scrollToFeedbackForm}>Use feedback form</button>
+          <button className='globalLink' onClick={scrollToFeedbackForm}>Use feedback form</button>
         </div>
         <img 
           src={`${base}/img/ContactsHeroBlock.jpg`}

@@ -25,6 +25,7 @@ export default function FiltersControls({
       <div className={styles.filtersControls}>
         <button
           onClick={showFiltersClick}
+          className='globalLink'
         >
           Filters
           <svg className={`${showOptions.filters && styles.svgRotate}`}  width="17" height="16" viewBox="0 0 17 16" fill="none">
@@ -34,6 +35,7 @@ export default function FiltersControls({
         </button>
         <button
           onClick={showSortingClick}
+          className='globalLink'
         >
           Sorting
           <svg className={`${showOptions.sorting && styles.svgRotate}`}  width="17" height="16" viewBox="0 0 17 16" fill="none">
@@ -43,7 +45,7 @@ export default function FiltersControls({
         </button>
       </div>
         {children}
-        <button className={styles.resetButton} onClick={resetFilters}>Reset Filters</button>
+      <button className={`${styles.resetButton} globalLink`} onClick={resetFilters}>Reset Filters</button>
     </>
   )
 }

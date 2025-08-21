@@ -6,14 +6,20 @@
   color: var(--darkFontColor);
   max-height: 100%;
   user-select: none;
+  transition: background-color 0.2s linear;
+  
+  &:hover{
+  background-color: var(--lightGrayBackground);
+  transform: none;
+}
 
   p{
-    font-size: 18px;
-    min-height: 18px;
+    font-size: 17px;
+    min-height: 17px;
   }
   p:last-child{
-    font-size: 16px;
-    min-width: 16px;
+    font-size: 15px;
+    min-width: 15px;
   }
 }
 
@@ -59,4 +65,11 @@
 .gridElementWide{
   grid-column: span 2;
   padding-inline: 5px;
+}
+
+
+@media screen and (max-width:800px) {
+  .productCard:hover{
+    background-color: #fff;
+  }
 }

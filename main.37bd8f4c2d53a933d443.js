@@ -140,7 +140,7 @@ function ShoppingCart() {
         return ((0,jsx_runtime.jsx)("div", { className: shoppingCart_module.shoppingCartBlock, children: (0,jsx_runtime.jsx)("h2", { children: "Your cart is empty" }) }));
     }
     const addedProductsList = cart.map(product => ((0,jsx_runtime.jsxs)("tr", { children: [(0,jsx_runtime.jsx)("td", { children: (0,jsx_runtime.jsx)(ShoppingCartProductCard, { product: product, quantity: getProductQuantity(product._id) }) }), (0,jsx_runtime.jsx)("td", { children: (0,jsx_runtime.jsx)(QuantityInput/* default */.A, { quantity: getProductQuantity(product._id), productId: product._id }) }), (0,jsx_runtime.jsxs)("td", { style: { whiteSpace: 'nowrap' }, children: [product.price * getProductQuantity(product._id), " $"] })] }, product._id)));
-    return ((0,jsx_runtime.jsxs)("div", { className: shoppingCart_module.shoppingCartBlock, children: [(0,jsx_runtime.jsx)("h2", { children: "Your shopping cart" }), (0,jsx_runtime.jsxs)("table", { children: [(0,jsx_runtime.jsx)("thead", { children: (0,jsx_runtime.jsxs)("tr", { children: [(0,jsx_runtime.jsx)("th", { children: "Product" }), (0,jsx_runtime.jsx)("th", { children: "Quantity" }), (0,jsx_runtime.jsx)("th", { children: "Total" })] }) }), (0,jsx_runtime.jsx)("tbody", { children: addedProductsList }), (0,jsx_runtime.jsxs)("tfoot", { children: [(0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsxs)("th", { colSpan: 3, children: ["Subtotal ", (0,jsx_runtime.jsxs)("span", { children: [getCartTotalSum(cart), " $"] }, getCartTotalSum(cart))] }) }), (0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsx)("td", { colSpan: 3, children: "Taxes and shipping are calculated at checkout" }) }), (0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsx)("td", { colSpan: 3, children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/', className: 'globalLink', children: "Go to checkout" }) }) })] })] })] }));
+    return ((0,jsx_runtime.jsxs)("div", { className: shoppingCart_module.shoppingCartBlock, children: [(0,jsx_runtime.jsx)("h2", { children: "Your shopping cart" }), (0,jsx_runtime.jsxs)("table", { children: [(0,jsx_runtime.jsx)("thead", { children: (0,jsx_runtime.jsxs)("tr", { children: [(0,jsx_runtime.jsx)("th", { children: "Product" }), (0,jsx_runtime.jsx)("th", { children: "Quantity" }), (0,jsx_runtime.jsx)("th", { children: "Total" })] }) }), (0,jsx_runtime.jsx)("tbody", { children: addedProductsList }), (0,jsx_runtime.jsxs)("tfoot", { children: [(0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsxs)("th", { colSpan: 3, children: ["Subtotal ", (0,jsx_runtime.jsxs)("span", { children: [getCartTotalSum(cart), " $"] }, getCartTotalSum(cart))] }) }), (0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsx)("td", { colSpan: 3, children: "Taxes and shipping are calculated at checkout" }) }), (0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsx)("td", { colSpan: 3, children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/', className: 'globalButton', children: "Go to checkout" }) }) })] })] })] }));
 }
 
 
@@ -25833,7 +25833,7 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Pro
 
 
 function FiltersAndSortingList({ showOptions, setShowOptions, resetFilters }) {
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: `${_filtersAndSortingList_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.filtersAndSortingList} ${(showOptions.filters || showOptions.sorting) ? _filtersAndSortingList_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.active : ''}`, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { onClick: resetFilters, className: 'globalButton', style: { height: "30px" }, children: "Reset" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ProductsSorting_ProductsSorting__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, { showOptions: showOptions, setShowOptions: setShowOptions }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ProductsFiltersLayout_ProductsFiltersLayout__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { showOptions: showOptions, setShowOptions: setShowOptions })] }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: `${_filtersAndSortingList_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.filtersAndSortingList} ${(showOptions.filters || showOptions.sorting) ? _filtersAndSortingList_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.active : ''}`, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { onClick: resetFilters, className: 'globalLink', style: { height: "30px" }, children: "Reset Filters" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ProductsSorting_ProductsSorting__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, { showOptions: showOptions, setShowOptions: setShowOptions }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ProductsFiltersLayout_ProductsFiltersLayout__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { showOptions: showOptions, setShowOptions: setShowOptions })] }));
 }
 
 __webpack_async_result__();
@@ -26074,7 +26074,7 @@ function ContactsHeroBlock({ ref }) {
             block: 'end'
         });
     }
-    return ((0,jsx_runtime.jsxs)("div", { className: contactsHeroBlock_module.contactsHeroBlock, children: [(0,jsx_runtime.jsxs)("div", { className: contactsHeroBlock_module.bannerTextBlock, children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("h3", { children: "Contact us" }), (0,jsx_runtime.jsx)("p", { children: "Have a question or request? Use the feedback form or any contact details below" })] }), (0,jsx_runtime.jsx)("button", { className: 'globalButton', onClick: scrollToFeedbackForm, children: "Use feedback form" })] }), (0,jsx_runtime.jsx)("img", { src: `${base}/img/ContactsHeroBlock.jpg`, onLoad: () => setIsLoad(true), loading: 'lazy', style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#fff', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }));
+    return ((0,jsx_runtime.jsxs)("div", { className: contactsHeroBlock_module.contactsHeroBlock, children: [(0,jsx_runtime.jsxs)("div", { className: contactsHeroBlock_module.bannerTextBlock, children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("h3", { children: "Contact us" }), (0,jsx_runtime.jsx)("p", { children: "Have a question or request? Use the feedback form or any contact details below" })] }), (0,jsx_runtime.jsx)("button", { className: 'globalLink', onClick: scrollToFeedbackForm, children: "Use feedback form" })] }), (0,jsx_runtime.jsx)("img", { src: `${base}/img/ContactsHeroBlock.jpg`, onLoad: () => setIsLoad(true), loading: 'lazy', style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#fff', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }));
 }
 
 ;// ./src/Components/FeedbackForm/feedbackForm.module.scss
@@ -26660,6 +26660,8 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _Components_Features_Features__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6335);
 /* harmony import */ var _Components_HeroBlock_HeroBlock__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8878);
 /* harmony import */ var _Components_ProductsListing_ProductsListing__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9100);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(6540);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(1362);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_AboutBlock_AboutBlock__WEBPACK_IMPORTED_MODULE_1__, _Components_HeroBlock_HeroBlock__WEBPACK_IMPORTED_MODULE_4__]);
 ([_Components_AboutBlock_AboutBlock__WEBPACK_IMPORTED_MODULE_1__, _Components_HeroBlock_HeroBlock__WEBPACK_IMPORTED_MODULE_4__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
@@ -26668,7 +26670,15 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Com
 
 
 
+
+
 function HomePage() {
+    const location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__/* .useLocation */ .zy)();
+    (0,react__WEBPACK_IMPORTED_MODULE_6__.useEffect)(() => {
+        if (location.state?.scrollToTop) {
+            window.scrollTo(0, 0);
+        }
+    });
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_HeroBlock_HeroBlock__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_Features_Features__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_ProductsListing_ProductsListing__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, { category: 'Ceramics', sorting: "Newest", title: 'New Ceramics' }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_ProductsListing_ProductsListing__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, { sorting: "Best sellers", title: 'Our popular products' }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_CtaBlock_CtaBlock__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_AboutBlock_AboutBlock__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A, { withLink: true, linkLabel: "Get in touch", linkHref: "/contacts", imgSrc: "/img/AboutBlockImage.jpg", title: "From a studio in London to a global brand with over 400 outlets", paragraph: "When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market.", anotherParagraph: "Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community." })] }));
 }
 
@@ -26781,7 +26791,7 @@ function FooterNavigation() {
                                 filters: { productType: [], category: [], designers: [], priceFilters: [] },
                                 sorting: '',
                                 search: ''
-                            }), state: { scrollToTop: true }, children: "All products" }) })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", { className: _footerNavigation_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.categoryUl, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h4", { children: "Categories" }) }), categoryListItems] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h4", { children: "Our company" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: "/about", state: { scrollToTop: true }, children: "About us" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: "", children: "Vacancies" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: "/contacts", state: { scrollToTop: true }, children: "Contact us" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: "", children: "Privacy" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: "", children: "Returns policy" }) })] })] }));
+                            }), state: { scrollToTop: true }, children: "All products" }) })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", { className: _footerNavigation_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.categoryUl, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h4", { children: "Categories" }) }), categoryListItems] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h4", { children: "Our company" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: "/about", state: { scrollToTop: true }, children: "About us" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: "", state: { scrollToTop: true }, children: "Vacancies" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: "/contacts", state: { scrollToTop: true }, children: "Contact us" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: "", state: { scrollToTop: true }, children: "Privacy" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: "", state: { scrollToTop: true }, children: "Returns policy" }) })] })] }));
 }
 
 __webpack_async_result__();
@@ -26836,14 +26846,17 @@ __webpack_require__.d(__webpack_exports__, {
 
 // EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
 var jsx_runtime = __webpack_require__(4848);
+// EXTERNAL MODULE: ./node_modules/react-router/dist/development/chunk-EF7DTUVF.mjs
+var chunk_EF7DTUVF = __webpack_require__(1362);
 ;// ./src/Components/CompanyInfo/companyInfo.module.scss
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const companyInfo_module = ({"address":"jptZwb"});
 ;// ./src/Components/CompanyInfo/CompanyInfo.tsx
 
 
+
 function CompanyInfo() {
-    return ((0,jsx_runtime.jsxs)("address", { className: companyInfo_module.address, children: [(0,jsx_runtime.jsx)("h4", { children: "Avion" }), "21 New York Street", (0,jsx_runtime.jsx)("br", {}), "New York City", (0,jsx_runtime.jsx)("br", {}), "United States of America", (0,jsx_runtime.jsx)("br", {}), "432 34"] }));
+    return ((0,jsx_runtime.jsxs)("address", { className: companyInfo_module.address, children: [(0,jsx_runtime.jsx)("h4", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: "/", state: { scrollToTop: true }, children: "Avion" }) }), "21 New York Street", (0,jsx_runtime.jsx)("br", {}), "New York City", (0,jsx_runtime.jsx)("br", {}), "United States of America", (0,jsx_runtime.jsx)("br", {}), "432 34"] }));
 }
 
 
@@ -27365,7 +27378,6 @@ function ProductBlock({ productData }) {
     }, [pathname]);
     const isWideImage = productData?.aspectRatio === '8/5';
     const data = {
-        image: productData?.image || '/',
         name: productData?.name || '',
         description: productData?.description || '',
         price: productData?.price ? productData?.price + ' $' : '',
@@ -27375,7 +27387,7 @@ function ProductBlock({ productData }) {
         height: productData?.height || null,
         depth: productData?.depth || null,
     };
-    return ((0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productBlock} ${isWideImage ? productBlock_module.productBlockWide : ''}`, children: [(0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productBlockImageWrapper} ${isWideImage ? productBlock_module.wideImageWrapper : productBlock_module.smallImageWrapper}`, ref: productImageRef, children: [(0,jsx_runtime.jsx)("img", { src: data.image, alt: data.name, loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#2a254b', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productDescriptionBlock} ${isWideImage ?
+    return ((0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productBlock} ${isWideImage ? productBlock_module.productBlockWide : ''}`, children: [(0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productBlockImageWrapper} ${isWideImage ? productBlock_module.wideImageWrapper : productBlock_module.smallImageWrapper}`, ref: productImageRef, children: [productData && (0,jsx_runtime.jsx)("img", { src: productData.image, alt: data.name, loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#2a254b', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productDescriptionBlock} ${isWideImage ?
                     productBlock_module.productDescriptionSmall : productBlock_module.productDescriptionWide}`, children: [(0,jsx_runtime.jsx)(ProductTitle, { name: data.name, price: data.price }), (0,jsx_runtime.jsx)(ProductDescription, { description: data.description, features: data.features, designer: data.designer }), (0,jsx_runtime.jsx)(ProductDimensionsTable, { height: data.height, width: data.width, depth: data.depth }), productData && (0,jsx_runtime.jsx)(AddToCartBar, { product: productData })] })] }));
 }
 
@@ -27494,11 +27506,10 @@ const base = (/* unused pure expression or super */ null && ("https://nikita-7on
 function MainProductCard({ product, variation }) {
     const [isLoad, setIsLoad] = (0,react.useState)(false);
     const aspectRatio = product?.aspectRatio || '4/5';
-    const image = product?.image || "/";
     const name = product?.name || '';
     const price = product?.price ? product?.price + ' $' : '';
     const frameClass = aspectRatio === '8/5' ? mainProductCard_module[variation + 'Wide'] : mainProductCard_module[variation];
-    return ((0,jsx_runtime.jsx)("li", { className: `${frameClass} ${variation === 'listingElement' ? 'embla__slide' : ''}`, children: (0,jsx_runtime.jsxs)(chunk_EF7DTUVF/* Link */.N_, { className: `${mainProductCard_module.productCard}`, to: `/${product?._id || ''}`, children: [(0,jsx_runtime.jsxs)("div", { className: `${aspectRatio === '4/5' ? mainProductCard_module.imgFrameSmall : mainProductCard_module.imgFrameWide} ${mainProductCard_module.imgFrame}`, children: [(0,jsx_runtime.jsx)("img", { src: `${image}`, alt: "", loading: "lazy", onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#2a254b', size: 40, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsx)("p", { style: product ? {} : { backgroundColor: "#f4f4ffbc" }, children: name }), (0,jsx_runtime.jsx)("p", { style: product ? {} : { backgroundColor: "#f4f4ffbc" }, children: price })] }) }));
+    return ((0,jsx_runtime.jsx)("li", { className: `${frameClass} ${variation === 'listingElement' ? 'embla__slide' : ''}`, children: (0,jsx_runtime.jsxs)(chunk_EF7DTUVF/* Link */.N_, { className: `${mainProductCard_module.productCard}`, to: `/${product?._id || ''}`, children: [(0,jsx_runtime.jsxs)("div", { className: `${aspectRatio === '4/5' ? mainProductCard_module.imgFrameSmall : mainProductCard_module.imgFrameWide} ${mainProductCard_module.imgFrame}`, children: [product && (0,jsx_runtime.jsx)("img", { src: `${product.image}`, alt: "", loading: "lazy", onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#2a254b', size: 40, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsx)("p", { style: product ? {} : { backgroundColor: "#f4f4ffbc" }, children: name }), (0,jsx_runtime.jsx)("p", { style: product ? {} : { backgroundColor: "#f4f4ffbc" }, children: price })] }) }));
 }
 
 
@@ -27664,7 +27675,7 @@ function AllProductsPage() {
         if (searchParams.size > 0) {
             setFiltersOptions(filterOptions);
         }
-    }, [searchParams]);
+    }, [searchParams.toString(), location]);
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: _allProductsPage_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.allProductsBanner, style: { backgroundImage: `url('${base}/img/allProductsBanner.jpg')` }, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: title }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _allProductsPage_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.allProductsBlock, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_ProductsFiltersBar_ProductsFiltersAndSortingBar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_AllProductsGrid_AllProductsGrid__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {})] })] }));
 }
 
@@ -29880,7 +29891,7 @@ var jsx_runtime = __webpack_require__(4848);
 
 
 function FiltersControls({ children, showFiltersClick, showSortingClick, showOptions, resetFilters }) {
-    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsxs)("div", { className: filtersControls_module.filtersControls, children: [(0,jsx_runtime.jsxs)("button", { onClick: showFiltersClick, children: ["Filters", (0,jsx_runtime.jsxs)("svg", { className: `${showOptions.filters && filtersControls_module.svgRotate}`, width: "17", height: "16", viewBox: "0 0 17 16", fill: "none", children: [(0,jsx_runtime.jsx)("rect", { width: "16", height: "16", transform: "scale(1.5)" }), (0,jsx_runtime.jsx)("path", { d: "M12.5 6L8.5 11L4.5 6H12.5Z", fill: "#2A254B" })] })] }), (0,jsx_runtime.jsxs)("button", { onClick: showSortingClick, children: ["Sorting", (0,jsx_runtime.jsxs)("svg", { className: `${showOptions.sorting && filtersControls_module.svgRotate}`, width: "17", height: "16", viewBox: "0 0 17 16", fill: "none", children: [(0,jsx_runtime.jsx)("rect", { width: "16", height: "16", transform: "scale(1.5)" }), (0,jsx_runtime.jsx)("path", { d: "M12.5 6L8.5 11L4.5 6H12.5Z", fill: "#2A254B" })] })] })] }), children, (0,jsx_runtime.jsx)("button", { className: filtersControls_module.resetButton, onClick: resetFilters, children: "Reset Filters" })] }));
+    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsxs)("div", { className: filtersControls_module.filtersControls, children: [(0,jsx_runtime.jsxs)("button", { onClick: showFiltersClick, className: 'globalLink', children: ["Filters", (0,jsx_runtime.jsxs)("svg", { className: `${showOptions.filters && filtersControls_module.svgRotate}`, width: "17", height: "16", viewBox: "0 0 17 16", fill: "none", children: [(0,jsx_runtime.jsx)("rect", { width: "16", height: "16", transform: "scale(1.5)" }), (0,jsx_runtime.jsx)("path", { d: "M12.5 6L8.5 11L4.5 6H12.5Z", fill: "#2A254B" })] })] }), (0,jsx_runtime.jsxs)("button", { onClick: showSortingClick, className: 'globalLink', children: ["Sorting", (0,jsx_runtime.jsxs)("svg", { className: `${showOptions.sorting && filtersControls_module.svgRotate}`, width: "17", height: "16", viewBox: "0 0 17 16", fill: "none", children: [(0,jsx_runtime.jsx)("rect", { width: "16", height: "16", transform: "scale(1.5)" }), (0,jsx_runtime.jsx)("path", { d: "M12.5 6L8.5 11L4.5 6H12.5Z", fill: "#2A254B" })] })] })] }), children, (0,jsx_runtime.jsx)("button", { className: `${filtersControls_module.resetButton} globalLink`, onClick: resetFilters, children: "Reset Filters" })] }));
 }
 
 

@@ -1,7 +1,7 @@
 import styles from './productsSorting.module.scss';
 
 import { ShowFilterOptionsType } from '@/types/ShowFilterOptionsType';
-import { useFilters } from '@/Context/FiltersContextProvider';
+import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
 
 type Props = {
   showOptions: ShowFilterOptionsType;
@@ -10,9 +10,9 @@ type Props = {
 
 export default function ProductsSorting({showOptions, setShowOptions}: Props): React.JSX.Element {
 
-  const {sorting} = useFilters().filterContext;
+  const {sorting} = useProductsAndFilters().filterContext;
 
-  const {filtersOptions, setFiltersOptions} = useFilters();
+  const {filtersOptions, setFiltersOptions} = useProductsAndFilters();
 
     function toggleFieldset() {
       if(document.body.offsetWidth < 500) return;

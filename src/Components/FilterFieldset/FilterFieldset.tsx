@@ -3,7 +3,7 @@ import styles from './filterFieldset.module.scss'
 import { ShowFilterOptionsType } from '@/types/ShowFilterOptionsType';
 import { FiltersOptionsType } from '@/types/FiltersOptionsType';
 
-import { useFilters } from '@/Context/FiltersContextProvider';
+import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
 
 type Props = {
   filter: 'productType' | 'priceFilters' | 'designers';
@@ -30,8 +30,8 @@ export default function FilterFieldset({
     }))
   }
 
-  const filterNames = useFilters().filterContext[filter];
-  const { filtersOptions } = useFilters()
+  const filterNames = useProductsAndFilters().filterContext[filter];
+  const { filtersOptions } = useProductsAndFilters()
 
   
   const filterItems = filterNames.map(filterName => (

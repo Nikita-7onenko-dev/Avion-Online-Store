@@ -3,7 +3,7 @@ import styles from './productsFiltersLayout.module.scss';
 import FilterFieldset from '../FilterFieldset/FilterFieldset';
 
 import { useNavigate } from 'react-router-dom';
-import { useFilters } from '@/Context/FiltersContextProvider';
+import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
 
 import {FiltersOptionsType} from '@/types/FiltersOptionsType';
 import {ShowFilterOptionsType} from '@/types/ShowFilterOptionsType'
@@ -19,7 +19,7 @@ export default function ProductsFiltersLayout({showOptions, setShowOptions}: Pro
 
   const navigate = useNavigate();
 
-  const {filtersOptions, setFiltersOptions} = useFilters();
+  const {filtersOptions, setFiltersOptions} = useProductsAndFilters();
 
   function onChange(e: React.ChangeEvent<HTMLInputElement>) {
     const {name, value, checked} = e.target;

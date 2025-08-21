@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 import styles from './burgerMenuNav.module.scss'
-import { useFilters } from '@/Context/FiltersContextProvider'
+import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider'
 
 export default function BurgerMenuNav(): React.JSX.Element {
 
-  const {filterContext, setFiltersOptions} = useFilters();
+  const {filterContext, setFiltersOptions} = useProductsAndFilters();
 
   const productTypeLinkItems = filterContext.productType.map(productType => {
     return (

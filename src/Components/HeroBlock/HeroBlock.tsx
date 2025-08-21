@@ -4,7 +4,7 @@ import styles from './heroBlock.module.scss';
 import { Link } from 'react-router-dom';
 
 import ClipLoader from 'react-spinners/ClipLoader';
-import { useFilters } from '@/Context/FiltersContextProvider';
+import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
 
 
 
@@ -13,7 +13,7 @@ export default function HeroBlock(): React.JSX.Element {
   const base = process.env.PUBLIC_URL;
 
   const [isLoad, setIsLoad] = useState(false);
-  const {setFiltersOptions} = useFilters();
+  const {setFiltersOptions} = useProductsAndFilters();
 
   return (
     <div className={styles.heroBlock}>

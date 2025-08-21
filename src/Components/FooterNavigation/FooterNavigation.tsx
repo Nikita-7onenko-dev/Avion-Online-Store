@@ -1,4 +1,4 @@
-import { useFilters } from '@/Context/FiltersContextProvider'
+import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider'
 import styles from './footerNavigation.module.scss'
 
 import { Link } from 'react-router-dom'
@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 export default function FooterNavigation(): React.JSX.Element {
 
-  const {filterContext, setFiltersOptions} = useFilters();
+  const {filterContext, setFiltersOptions} = useProductsAndFilters();
 
   const categoryListItems = filterContext.categories.map( category => (
       <li key={category}>

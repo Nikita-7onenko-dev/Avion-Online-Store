@@ -1,10 +1,10 @@
-import { useFilters } from '@/Context/FiltersContextProvider';
+import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
 import styles from './headerNavigationBar.module.scss'
 import { NavLink, useSearchParams} from 'react-router-dom';
 
 export default function HeaderNavigationBar(): React.JSX.Element {
 
-  const {filterContext, setFiltersOptions} = useFilters();
+  const {filterContext, setFiltersOptions} = useProductsAndFilters();
   const [searchParams] = useSearchParams();
   const currentProductType = searchParams.get('productType');
 

@@ -8,7 +8,7 @@ import ShoppingCart from '../../pages/ShoppingCart/ShoppingCart';
 
 import { Route, Routes } from 'react-router-dom';
 
-import { FiltersProvider } from '@/Context/FiltersContextProvider';
+import {ProductsAndFiltersProvider} from '@/Context/FiltersAndProductsContextProvider';
 import { CartProvider } from '@/Context/CartContext';
 import ContactsPage from '@/pages/ContactsPage';
 
@@ -17,7 +17,7 @@ export default function App(): React.JSX.Element {
   
   return (
     <CartProvider> 
-      <FiltersProvider>
+      <ProductsAndFiltersProvider>
         <Header />
         <main>
           <Routes>
@@ -30,7 +30,7 @@ export default function App(): React.JSX.Element {
           </Routes>
         </main>
         <Footer />
-      </FiltersProvider>
+      </ProductsAndFiltersProvider>
     </CartProvider>
   )
 }

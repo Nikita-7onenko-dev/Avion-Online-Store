@@ -2,7 +2,7 @@ import FiltersAndSortingList from '../FiltersAndSortingList/FiltersAndSortingLis
 import FiltersControls from '../FiltersControls/FiltersControls';
 
 import { ShowFilterOptionsType } from '@/types/ShowFilterOptionsType';
-import { useFilters } from '@/Context/FiltersContextProvider';
+import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ export default function ProductFiltersBar(): React.JSX.Element {
     designers: true
   });
 
-  const { setFiltersOptions } = useFilters()
+  const { setFiltersOptions } = useProductsAndFilters()
 
   const navigate = useNavigate()
 

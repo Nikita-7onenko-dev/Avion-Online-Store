@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { useState } from 'react';
 import  ClipLoader  from 'react-spinners/ClipLoader';
-import { useFilters } from '@/Context/FiltersContextProvider';
+import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
 
 
 type BaseProps = {
@@ -45,7 +45,7 @@ export default function AboutBlock({
   const spinnerColor = variation === 'highlighted' ? '#fff' : '#2a254b';
 
 
-  const { setFiltersOptions } = useFilters();
+  const { setFiltersOptions } = useProductsAndFilters();
 
   return (
     <div className={`${styles.aboutBlock} ${variation && styles[variation]}`}>

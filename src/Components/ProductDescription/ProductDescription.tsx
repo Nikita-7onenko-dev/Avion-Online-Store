@@ -12,8 +12,6 @@ export default function ProductDescription({description, features, designer}: Pr
 
   const {setFiltersOptions} = useProductsAndFilters();
 
-
-
   let featuresList;
 
   if(features) {

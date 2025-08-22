@@ -9,10 +9,17 @@ export default function BurgerMenuNav(): React.JSX.Element {
   const productTypeLinkItems = filterContext.productType.map(productType => {
     return (
       <li key={productType}>
-        <Link to={{
+        <Link 
+          to={{
           pathname: '/allProducts',
-          search: `?productType=${productType}`
-        }}>{productType}</Link>
+        }}
+        onClick={() => setFiltersOptions({
+          filters: { productType: [productType], category: [], designers: [], priceFilters: [] },
+          sorting: '',
+          search: ''
+        })}
+      >
+      {productType}</Link>
       </li>
     )
   })

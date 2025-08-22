@@ -6,6 +6,7 @@ import MainProductCard from "../MainProductCard/MainProductCard";
 import fetchAllProducts from "@/utils/fetchAllProducts";
 import { useEffect, useState } from "react";
 import { ProductType } from "@/types/ProductType";
+import { FiltersOptionsType } from "@/types/FiltersOptionsType";
 
 type Filters = {
   productType: string;
@@ -36,16 +37,20 @@ export default function ProductListing
 
   const [products, setProducts] = useState<ProductType[] | null>(null);
 
-  let filters = {
-    productType: productType ? [productType] : [],
-    category: category ? [category] : [],
-    designers: designer ? [designer] : [],
-    priceFilters: []
+  const filterOptions: FiltersOptionsType = {
+    filters:{
+      productType: productType ? [productType] : [],
+      category: category ? [category] : [],
+      designers: designer ? [designer] : [],
+      priceFilters: []
+    },
+      sorting: sorting || '',
+      search: '',
   }
 
   const params = new URLSearchParams({
-    filters: JSON.stringify(filters),
-    sorting: sorting || '',
+    filters: JSON.stringify(filterOptions.filters),
+    sorting: filterOptions.sorting,
     limit: "8"
   }).toString();
 
@@ -69,6 +74,6 @@ export default function ProductListing
   const options: EmblaOptionsType = {dragFree: true}
 
   return (
-    <ProductListingEmblaCarousel options={options} slides={productCards} title={title} searchParams={params} />
+    <ProductListingEmblaCarousel options={options} slides={productCards} title={title} filterOptions={filterOptions} />
   )
 }

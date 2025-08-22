@@ -2,6 +2,7 @@ import { createContext, useContext, useState, ReactNode, Dispatch, SetStateActio
 import { FiltersOptionsType } from "@/types/FiltersOptionsType";
 import { ProductType } from "@/types/ProductType";
 import fetchAllProducts from "@/utils/fetchAllProducts";
+import getAllProductsTitle from "@/utils/getAllProductsTitle";
 
 export type FilterContextType = {
   productType: string[];
@@ -21,6 +22,7 @@ type FiltersContextObj = {
   alreadyLoaded: number;
   isLoading: boolean;
   loadMore: () => void;
+  title: string;
 
 };
 
@@ -60,7 +62,7 @@ export  function ProductsAndFiltersProvider({ children }: { children: ReactNode 
     designers: allDesigners,
     categories: allCategories,
     priceFilters: ['0 - 100', '101 - 250', '251+'],
-    sorting: ['Price: Low to High', 'Price: High to Low', 'Newest', 'Best sellers'],
+    sorting: ['Price: Low to High', 'Price: High to Low', 'New arrivals', 'Best sellers'],
   };
 
   const initialOptions: FiltersOptionsType = {
@@ -78,6 +80,9 @@ export  function ProductsAndFiltersProvider({ children }: { children: ReactNode 
   const [hasMore, setHasMore] = useState<boolean>(false);
   const [alreadyLoaded, setAlreadyLoaded] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  // Формируем заголовок для страницы с продуктами
+  let title = getAllProductsTitle(filtersOptions);
 
   let ignore = false;
   const pageSize = 5;
@@ -102,7 +107,7 @@ export  function ProductsAndFiltersProvider({ children }: { children: ReactNode 
   // Слушаем filterOptions
   useEffect(() => {
     setProducts([]);
-    setAlreadyLoaded(0);
+    setAlreadyLoaded(0);  
     
   },[filtersOptions])
 
@@ -135,7 +140,8 @@ export  function ProductsAndFiltersProvider({ children }: { children: ReactNode 
       hasMore,
       alreadyLoaded,
       isLoading,
-      loadMore
+      loadMore,
+      title
     }}>
       {children}
     </ProductsAndFiltersContext.Provider>

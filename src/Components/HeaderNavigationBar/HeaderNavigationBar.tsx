@@ -16,6 +16,13 @@ export default function HeaderNavigationBar(): React.JSX.Element {
           search:`productType=${productType}`
         }}
         className={ () => productType === currentProductType ? 'active' : ''}
+        onClick={() => {
+          setFiltersOptions({
+              filters: { productType: [productType], category: [], designers: [], priceFilters: [] },
+              sorting: '',
+              search: ''
+            })
+        }}
       >
         {productType}
       </NavLink>

@@ -16,9 +16,32 @@ export default function FooterNavigation(): React.JSX.Element {
             search: `category=${category}`
           }}
           state={{scrollToTop: true}}
+          onClick={() => {
+            setFiltersOptions({
+                filters: { productType: [], category: [category], designers: [], priceFilters: [] },
+                sorting: '',
+                search: ''
+              })
+          }}
         > {category}
         </Link>
       </li>
+  ));
+
+  const sortingListItems = ['New arrivals', 'Best sellers'].map(sorting => (
+    <li key={sorting}>
+      <Link 
+        to="/allProducts"
+        onClick={() => setFiltersOptions({
+          filters: { productType: [], category: [], designers: [], priceFilters: [] },
+          sorting,
+          search: ''
+        })}
+        state={{ scrollToTop: true }}
+      >
+        {sorting}
+      </Link>
+    </li>
   ));
 
 
@@ -26,29 +49,11 @@ export default function FooterNavigation(): React.JSX.Element {
     <nav  className={styles.navigation}>
       <ul>
         <li><h4>Menu</h4></li>
+        {sortingListItems}
         <li>
           <Link 
             to={{
               pathname: '/allProducts',
-              search: 'sorting=Newest'
-            }}
-            state={{scrollToTop: true}}
-          >New arrivals</Link>
-        </li>
-        <li>
-          <Link 
-            to={{
-              pathname: '/allProducts',
-              search: 'sorting=Best sellers'
-            }}
-            state={{scrollToTop: true}}
-          >Best sellers</Link>
-        </li>
-        <li>
-          <Link 
-            to={{
-              pathname: '/allProducts',
-              search: ''
             }}
             state={{scrollToTop: true}}
             >Recently viewed

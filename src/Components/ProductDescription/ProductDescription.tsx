@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './productDescription.module.scss'
+import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
 
 type Props = {
   description: string;
@@ -8,6 +9,10 @@ type Props = {
 }
 
 export default function ProductDescription({description, features, designer}: Props): React.JSX.Element {
+
+  const {setFiltersOptions} = useProductsAndFilters();
+
+
 
   let featuresList;
 
@@ -26,8 +31,12 @@ export default function ProductDescription({description, features, designer}: Pr
           <Link 
             to={{
               pathname: '/allProducts',
-              search: `designers=${designer}`
             }}
+            onClick={() => setFiltersOptions({
+              filters: { productType: [], category: [], designers: [designer], priceFilters: [] },
+              sorting: '',
+              search: ''
+            })}
             state={{scrollToTop: true}}  
           >
           {designer}

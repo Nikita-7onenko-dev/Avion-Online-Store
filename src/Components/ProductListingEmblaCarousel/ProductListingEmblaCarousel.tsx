@@ -3,18 +3,25 @@ import { EmblaOptionsType } from "embla-carousel"
 
 import styles from './productsListingEmblaCar.module.scss'
 import { Link } from "react-router-dom";
+import { FiltersOptionsType } from "@/types/FiltersOptionsType";
+import { useProductsAndFilters } from "@/Context/FiltersAndProductsContextProvider";
 
 type Props = {
   slides: React.ReactNode[];  
   options?: EmblaOptionsType;
   title: string;
-  searchParams: string;
+  filterOptions: FiltersOptionsType;
 }
 
-export default function ProductListingEmblaCarousel({slides, options, title, searchParams}: Props) {
+export default function ProductListingEmblaCarousel({slides, options, title, filterOptions}: Props) {
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(options)
+  const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
+  const {setFiltersOptions} = useProductsAndFilters();
+
+  function followTheLink() {
+    setFiltersOptions(filterOptions)
+  }
   
 
   return (
@@ -23,10 +30,10 @@ export default function ProductListingEmblaCarousel({slides, options, title, sea
         <div className="embla" ref={emblaRef}>
           <ul className="embla__container">{slides}</ul>
           <Link 
+            onClick={followTheLink}
             className={`${styles.link} globalLink`}
             to={{
               pathname: '/allProducts',
-              search: searchParams,
             }}
             state={{scrollToTop: true}}  
           > 

@@ -1,7 +1,6 @@
 import styles from './AllProductsGrid.module.scss';
 
 import MainProductCard from '../MainProductCard/MainProductCard';
-
 import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
 
 

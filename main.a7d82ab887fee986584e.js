@@ -25777,6 +25777,17 @@ __webpack_async_result__();
 
 /***/ }),
 
+/***/ 1552:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"productBlockDescription":"iWhR3X"});
+
+/***/ }),
+
 /***/ 1606:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -26660,6 +26671,64 @@ __webpack_async_result__();
 
 /***/ }),
 
+/***/ 4712:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (/* binding */ ProductBlock)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
+/* harmony import */ var _productBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5374);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6540);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1362);
+/* harmony import */ var react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7420);
+/* harmony import */ var react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _AddToCartBar_AddToCartBar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4987);
+/* harmony import */ var _ProductDimensionsTable_ProductDimensionsTable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(6003);
+/* harmony import */ var _ProductTitle_ProductTitle__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(5590);
+/* harmony import */ var _ProductDescription_ProductDescription__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(5742);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_ProductDescription_ProductDescription__WEBPACK_IMPORTED_MODULE_8__]);
+_ProductDescription_ProductDescription__WEBPACK_IMPORTED_MODULE_8__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
+
+
+
+
+
+
+
+function ProductBlock({ productData }) {
+    const productImageRef = (0,react__WEBPACK_IMPORTED_MODULE_2__.useRef)(null);
+    const pathname = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .useLocation */ .zy)();
+    const [isLoad, setIsLoad] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(false);
+    (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+        productImageRef.current?.scrollIntoView({
+            behavior: 'instant',
+            block: 'start',
+        });
+    }, [pathname]);
+    const isWideImage = productData?.aspectRatio === '8/5';
+    const data = {
+        name: productData?.name || '',
+        description: productData?.description || '',
+        price: productData?.price ? productData?.price + ' $' : '',
+        features: productData?.features || null,
+        designer: productData?.designer || '',
+        width: productData?.width || null,
+        height: productData?.height || null,
+        depth: productData?.depth || null,
+    };
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: `${_productBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productBlock} ${isWideImage ? _productBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productBlockWide : ''}`, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: `${_productBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productBlockImageWrapper} ${isWideImage ? _productBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.wideImageWrapper : _productBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.smallImageWrapper}`, ref: productImageRef, children: [productData && (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: productData.image, alt: data.name, loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4___default()), { color: '#2a254b', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: `${_productBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productDescriptionBlock} ${isWideImage ?
+                    _productBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productDescriptionSmall : _productBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.productDescriptionWide}`, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ProductTitle_ProductTitle__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A, { name: data.name, price: data.price }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ProductDescription_ProductDescription__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .A, { description: data.description, features: data.features, designer: data.designer }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ProductDimensionsTable_ProductDimensionsTable__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A, { height: data.height, width: data.width, depth: data.depth }), productData && (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_AddToCartBar_AddToCartBar__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, { product: productData })] })] }));
+}
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
 /***/ 4732:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -26712,6 +26781,41 @@ function AboutPage() {
 
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
+/***/ 4987:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (/* binding */ AddToCartBar)
+});
+
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(4848);
+;// ./src/Components/AddToCartBar/addToCartBar.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const addToCartBar_module = ({"addToCartBar":"ICmedr"});
+// EXTERNAL MODULE: ./src/Components/QuantityInput/QuantityInput.tsx + 1 modules
+var QuantityInput = __webpack_require__(9601);
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(6540);
+// EXTERNAL MODULE: ./src/Context/CartContext.tsx
+var CartContext = __webpack_require__(5783);
+;// ./src/Components/AddToCartBar/AddToCartBar.tsx
+
+
+
+
+
+function AddToCartBar({ product }) {
+    const { addToCart } = (0,CartContext/* default */.A)();
+    const [quantity, setQuantity] = (0,react.useState)(1);
+    return ((0,jsx_runtime.jsxs)("div", { className: addToCartBar_module.addToCartBar, children: [(0,jsx_runtime.jsxs)("label", { children: ["Amount:", (0,jsx_runtime.jsx)(QuantityInput/* default */.A, { quantity: quantity, setQuantity: setQuantity, productId: product._id })] }), (0,jsx_runtime.jsx)("button", { onClick: () => addToCart(product, quantity), className: 'globalButton', children: "Add to cart" })] }));
+}
+
 
 /***/ }),
 
@@ -26850,6 +26954,41 @@ function CompanyInfo() {
 
 /***/ }),
 
+/***/ 5374:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"productBlock":"XiEC3m","productBlockImageWrapper":"hLuetc","productDescriptionBlock":"wruFoF","smallImageWrapper":"QCMtPN","productDescriptionWide":"yloOgo","wideImageWrapper":"xjmcAV","productDescriptionSmall":"auqN31","productBlockWide":"XGhwyo"});
+
+/***/ }),
+
+/***/ 5590:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (/* binding */ ProductTitle)
+});
+
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(4848);
+;// ./src/Components/ProductTitle/productTitle.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const productTitle_module = ({"productTitle":"Ts7Evs"});
+;// ./src/Components/ProductTitle/ProductTitle.tsx
+
+
+function ProductTitle({ name, price }) {
+    return ((0,jsx_runtime.jsxs)("div", { className: productTitle_module.productTitle, children: [(0,jsx_runtime.jsx)("h2", { children: name }), (0,jsx_runtime.jsx)("span", { children: price })] }));
+}
+
+
+/***/ }),
+
 /***/ 5644:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -26858,6 +26997,44 @@ function CompanyInfo() {
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"productGridBlock":"gVBi0u","productGrid":"oQXug7"});
+
+/***/ }),
+
+/***/ 5742:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (/* binding */ ProductDescription)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1362);
+/* harmony import */ var _productDescription_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1552);
+/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6618);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__]);
+_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
+
+
+function ProductDescription({ description, features, designer }) {
+    const { setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__/* .useProductsAndFilters */ .u)();
+    let featuresList;
+    if (features) {
+        featuresList = features.map(feature => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: feature }, feature)));
+    }
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _productDescription_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.productBlockDescription, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { children: "Product description:" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", { children: description }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", { children: ["Designer: ", designer &&
+                        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__/* .Link */ .N_, { to: {
+                                pathname: '/allProducts',
+                            }, onClick: () => setFiltersOptions({
+                                filters: { productType: [], category: [], designers: [designer], priceFilters: [] },
+                                sorting: '',
+                                search: ''
+                            }), state: { scrollToTop: true }, children: designer })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("ul", { children: features && featuresList })] }));
+}
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
 
 /***/ }),
 
@@ -26949,6 +27126,30 @@ function useCartContext() {
     if (!cartData)
         throw new Error('useCartContext must be used inside CartContextProvider');
     return cartData;
+}
+
+
+/***/ }),
+
+/***/ 6003:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (/* binding */ ProductDimensionsTable)
+});
+
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(4848);
+;// ./src/Components/ProductDimensionsTable/productDimensionsTable.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const productDimensionsTable_module = ({"productDimensionsTable":"ttp_mq"});
+;// ./src/Components/ProductDimensionsTable/ProductDimensionsTable.tsx
+
+
+function ProductDimensionsTable({ height, width, depth }) {
+    return ((0,jsx_runtime.jsxs)("div", { className: productDimensionsTable_module.productDimensionsTable, children: [(0,jsx_runtime.jsx)("h3", { children: "Dimensions" }), (0,jsx_runtime.jsxs)("table", { children: [(0,jsx_runtime.jsx)("thead", { children: (0,jsx_runtime.jsxs)("tr", { children: [(0,jsx_runtime.jsx)("th", { children: "Height" }), (0,jsx_runtime.jsx)("th", { children: "Width" }), (0,jsx_runtime.jsx)("th", { children: "Depth" })] }) }), (0,jsx_runtime.jsx)("tbody", { children: (0,jsx_runtime.jsxs)("tr", { children: [(0,jsx_runtime.jsx)("td", { children: height && height }), (0,jsx_runtime.jsx)("td", { children: width && width }), (0,jsx_runtime.jsx)("td", { children: depth && depth })] }) })] })] }));
 }
 
 
@@ -27285,123 +27486,6 @@ if (true) {
   module.exports = __webpack_require__(9869);
 } else // removed by dead control flow
 {}
-
-
-/***/ }),
-
-/***/ 6555:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  A: () => (/* binding */ ProductBlock)
-});
-
-// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(4848);
-;// ./src/Components/ProductBlock/productBlock.module.scss
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const productBlock_module = ({"productBlock":"XiEC3m","productBlockImageWrapper":"hLuetc","productDescriptionBlock":"wruFoF","smallImageWrapper":"QCMtPN","productDescriptionWide":"yloOgo","wideImageWrapper":"xjmcAV","productDescriptionSmall":"auqN31","productBlockWide":"XGhwyo"});
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(6540);
-// EXTERNAL MODULE: ./node_modules/react-router/dist/development/chunk-EF7DTUVF.mjs
-var chunk_EF7DTUVF = __webpack_require__(1362);
-// EXTERNAL MODULE: ./node_modules/react-spinners/ClipLoader.js
-var ClipLoader = __webpack_require__(7420);
-var ClipLoader_default = /*#__PURE__*/__webpack_require__.n(ClipLoader);
-;// ./src/Components/AddToCartBar/addToCartBar.module.scss
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const addToCartBar_module = ({"addToCartBar":"ICmedr"});
-// EXTERNAL MODULE: ./src/Components/QuantityInput/QuantityInput.tsx + 1 modules
-var QuantityInput = __webpack_require__(9601);
-// EXTERNAL MODULE: ./src/Context/CartContext.tsx
-var CartContext = __webpack_require__(5783);
-;// ./src/Components/AddToCartBar/AddToCartBar.tsx
-
-
-
-
-
-function AddToCartBar({ product }) {
-    const { addToCart } = (0,CartContext/* default */.A)();
-    const [quantity, setQuantity] = (0,react.useState)(1);
-    return ((0,jsx_runtime.jsxs)("div", { className: addToCartBar_module.addToCartBar, children: [(0,jsx_runtime.jsxs)("label", { children: ["Amount:", (0,jsx_runtime.jsx)(QuantityInput/* default */.A, { quantity: quantity, setQuantity: setQuantity, productId: product._id })] }), (0,jsx_runtime.jsx)("button", { onClick: () => addToCart(product, quantity), className: 'globalButton', children: "Add to cart" })] }));
-}
-
-;// ./src/Components/ProductDimensionsTable/productDimensionsTable.module.scss
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const productDimensionsTable_module = ({"productDimensionsTable":"ttp_mq"});
-;// ./src/Components/ProductDimensionsTable/ProductDimensionsTable.tsx
-
-
-function ProductDimensionsTable({ height, width, depth }) {
-    return ((0,jsx_runtime.jsxs)("div", { className: productDimensionsTable_module.productDimensionsTable, children: [(0,jsx_runtime.jsx)("h3", { children: "Dimensions" }), (0,jsx_runtime.jsxs)("table", { children: [(0,jsx_runtime.jsx)("thead", { children: (0,jsx_runtime.jsxs)("tr", { children: [(0,jsx_runtime.jsx)("th", { children: "Height" }), (0,jsx_runtime.jsx)("th", { children: "Width" }), (0,jsx_runtime.jsx)("th", { children: "Depth" })] }) }), (0,jsx_runtime.jsx)("tbody", { children: (0,jsx_runtime.jsxs)("tr", { children: [(0,jsx_runtime.jsx)("td", { children: height && height }), (0,jsx_runtime.jsx)("td", { children: width && width }), (0,jsx_runtime.jsx)("td", { children: depth && depth })] }) })] })] }));
-}
-
-;// ./src/Components/ProductTitle/productTitle.module.scss
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const productTitle_module = ({"productTitle":"Ts7Evs"});
-;// ./src/Components/ProductTitle/ProductTitle.tsx
-
-
-function ProductTitle({ name, price }) {
-    return ((0,jsx_runtime.jsxs)("div", { className: productTitle_module.productTitle, children: [(0,jsx_runtime.jsx)("h2", { children: name }), (0,jsx_runtime.jsx)("span", { children: price })] }));
-}
-
-;// ./src/Components/ProductDescription/productDescription.module.scss
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const productDescription_module = ({"productBlockDescription":"iWhR3X"});
-;// ./src/Components/ProductDescription/ProductDescription.tsx
-
-
-
-function ProductDescription({ description, features, designer }) {
-    let featuresList;
-    if (features) {
-        featuresList = features.map(feature => ((0,jsx_runtime.jsx)("li", { children: feature }, feature)));
-    }
-    return ((0,jsx_runtime.jsxs)("div", { className: productDescription_module.productBlockDescription, children: [(0,jsx_runtime.jsx)("h3", { children: "Product description:" }), (0,jsx_runtime.jsx)("p", { children: description }), (0,jsx_runtime.jsxs)("p", { children: ["Designer: ", designer &&
-                        (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: {
-                                pathname: '/allProducts',
-                                search: `designers=${designer}`
-                            }, state: { scrollToTop: true }, children: designer })] }), (0,jsx_runtime.jsx)("ul", { children: features && featuresList })] }));
-}
-
-;// ./src/Components/ProductBlock/ProductBlock.tsx
-
-
-
-
-
-
-
-
-
-function ProductBlock({ productData }) {
-    const productImageRef = (0,react.useRef)(null);
-    const pathname = (0,chunk_EF7DTUVF/* useLocation */.zy)();
-    const [isLoad, setIsLoad] = (0,react.useState)(false);
-    (0,react.useEffect)(() => {
-        productImageRef.current?.scrollIntoView({
-            behavior: 'instant',
-            block: 'start',
-        });
-    }, [pathname]);
-    const isWideImage = productData?.aspectRatio === '8/5';
-    const data = {
-        name: productData?.name || '',
-        description: productData?.description || '',
-        price: productData?.price ? productData?.price + ' $' : '',
-        features: productData?.features || null,
-        designer: productData?.designer || '',
-        width: productData?.width || null,
-        height: productData?.height || null,
-        depth: productData?.depth || null,
-    };
-    return ((0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productBlock} ${isWideImage ? productBlock_module.productBlockWide : ''}`, children: [(0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productBlockImageWrapper} ${isWideImage ? productBlock_module.wideImageWrapper : productBlock_module.smallImageWrapper}`, ref: productImageRef, children: [productData && (0,jsx_runtime.jsx)("img", { src: productData.image, alt: data.name, loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#2a254b', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productDescriptionBlock} ${isWideImage ?
-                    productBlock_module.productDescriptionSmall : productBlock_module.productDescriptionWide}`, children: [(0,jsx_runtime.jsx)(ProductTitle, { name: data.name, price: data.price }), (0,jsx_runtime.jsx)(ProductDescription, { description: data.description, features: data.features, designer: data.designer }), (0,jsx_runtime.jsx)(ProductDimensionsTable, { height: data.height, width: data.width, depth: data.depth }), productData && (0,jsx_runtime.jsx)(AddToCartBar, { product: productData })] })] }));
-}
 
 
 /***/ }),
@@ -29751,15 +29835,15 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */   A: () => (/* binding */ ProductPage)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
-/* harmony import */ var _Components_ProductBlock_ProductBlock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6555);
+/* harmony import */ var _Components_ProductBlock_ProductBlock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4712);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1362);
 /* harmony import */ var _Components_ProductsListing_ProductsListing__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7466);
 /* harmony import */ var _Components_Features_Features__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6335);
 /* harmony import */ var _Components_CtaBlock_CtaBlock__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8753);
 /* harmony import */ var _utils_fetchOneProduct__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8897);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(6540);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_ProductsListing_ProductsListing__WEBPACK_IMPORTED_MODULE_3__]);
-_Components_ProductsListing_ProductsListing__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_ProductBlock_ProductBlock__WEBPACK_IMPORTED_MODULE_1__, _Components_ProductsListing_ProductsListing__WEBPACK_IMPORTED_MODULE_3__]);
+([_Components_ProductBlock_ProductBlock__WEBPACK_IMPORTED_MODULE_1__, _Components_ProductsListing_ProductsListing__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 

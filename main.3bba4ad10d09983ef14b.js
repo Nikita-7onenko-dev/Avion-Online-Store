@@ -25853,8 +25853,11 @@ function BurgerMenuNav() {
     const productTypeLinkItems = filterContext.productType.map(productType => {
         return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__/* .Link */ .N_, { to: {
                     pathname: '/allProducts',
-                    search: `?productType=${productType}`
-                }, children: productType }) }, productType));
+                }, onClick: () => setFiltersOptions({
+                    filters: { productType: [productType], category: [], designers: [], priceFilters: [] },
+                    sorting: '',
+                    search: ''
+                }), children: productType }) }, productType));
     });
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", { className: _burgerMenuNav_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.burgerMenuNavList, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__/* .Link */ .N_, { to: '/allProducts', onClick: () => setFiltersOptions({
                         filters: { productType: [], category: [], designers: [], priceFilters: [] },

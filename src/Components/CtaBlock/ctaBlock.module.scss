@@ -19,7 +19,7 @@
     width: 100%;
     
     h3{
-      font-size: clamp(20px, 6vw, 36px);
+      font-size: var(--fontSizeL);
       font-family: ClashDisplay;
     }
 

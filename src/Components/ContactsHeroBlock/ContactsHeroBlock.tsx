@@ -29,17 +29,19 @@ export default function ContactsHeroBlock({ref}: Props): React.JSX.Element {
           </div>
           <button className='globalLink' onClick={scrollToFeedbackForm}>Use feedback form</button>
         </div>
-        <img 
-          src={`${base}/img/ContactsHeroBlock.jpg`}
-          onLoad={() => setIsLoad(true)}
-          loading='lazy'
-          style={isLoad ? {visibility: 'visible'} : {visibility: 'hidden'} } 
-          />
+        <div className={`${styles.imageWrapper} ${isLoad ? '' : styles.imageWrapperLoading}`}>
+          <img 
+            src={`${base}/img/ContactsHeroBlock.jpg`}
+            onLoad={() => setIsLoad(true)}
+            loading='lazy'
+            style={isLoad ? {visibility: 'visible'} : {visibility: 'hidden', width: '0px'} } 
+            />
           <ClipLoader 
             color={'#fff'}
             size={80}
-            cssOverride={isLoad ? {display: 'none'} : {display: 'inline-block', position: 'absolute'} } 
-          />
+            cssOverride={isLoad ? {display: 'none'} : {display: 'inline-block'} } 
+          />  
+        </div>
       </div>
 )
 }

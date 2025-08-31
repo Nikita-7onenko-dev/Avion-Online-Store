@@ -1,0 +1,69 @@
+
+.profileHatBanner{
+  height: 60px;
+  background: linear-gradient(90deg, #3a3468, #2a254b);   
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  h2{
+    font-size: var(--fontSizeM);
+    margin-top: 20px;
+    padding-right: var(--paddingInline);
+    color: #fff;
+  }
+}
+
+.profileHat{
+  padding-inline: var(--paddingInline);
+  padding-block: 10px;
+  background-color: var(--lightGrayBackground);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  box-shadow: 0px 0px 14px 0px #00000042
+}
+
+.avatar{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin-bottom: 5px ;
+
+  svg{
+    width: 90px;
+    height: 90px;
+  }
+
+  h2{
+    font-size: var(--fontSizeM);
+  }
+  p{
+    font-size: var(--fontSizeXS);
+    color: var(--lightFontColor);
+  }
+}
+
+.controls{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap-reverse;
+
+  button{
+    border: 2px solid var(--borderGray);
+    border-radius: 5px;
+    height: 30px;
+    min-width: 90px;
+    flex-grow: 1;
+
+    &:hover{
+      background-color: #c5d0f53c;
+    }
+
+    &:active{
+      background-color: #107ccf3c;
+    }
+  }
+}

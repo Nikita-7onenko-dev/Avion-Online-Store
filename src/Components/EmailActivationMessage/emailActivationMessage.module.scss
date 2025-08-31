@@ -1,0 +1,13 @@
+.activationMessage{
+  max-width: 450px;
+  box-shadow: 0 0 20px 4px var(--borderGray);
+  border-radius: 5px;
+  padding-inline: var(--paddingInline);
+  padding-block: 50px;
+
+  p{
+    font-size: var(--fontSizeM);
+    color: var(--darkFontColor);
+    line-height: 130%;
+  }
+}

@@ -11,8 +11,12 @@ const base = process.env.PUBLIC_URL;
 
 export default function AllProductsPage(): React.JSX.Element {
 
-  const { title } = useProductsAndFilters();
-  const location = useLocation()
+  const { title, setShouldFetchProducts } = useProductsAndFilters();
+  const location = useLocation();
+
+  useEffect(() => {
+    setShouldFetchProducts(true);
+  }, [])
 
   useEffect(() => {
     if(location.state?.scrollToTop) {

@@ -17,3 +17,10 @@
     line-height: 150%;
   }
 }
+
+
+@media screen and (max-width: 650px) {
+  .featureCard{
+    max-width: none;
+  }
+}

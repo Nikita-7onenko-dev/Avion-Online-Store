@@ -1,3 +1,4 @@
+import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
 import styles from './searchForm.module.scss'
 
 import { useRef, useState } from "react";
@@ -10,9 +11,12 @@ export default function SearchForm(): React.JSX.Element {
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
+  const {setFiltersOptions} = useProductsAndFilters();
+
   function onSearchButtonClick(e: React.MouseEvent<HTMLButtonElement>) {
     if(isShowInput && query) {
-      navigate(`/allProducts?search=${query}`);
+      setFiltersOptions(prev => ({...prev, search: query}));
+      navigate('/allProducts');
     } else if(!isShowInput) {
       setIsShowInput(true);
     }
@@ -29,7 +33,8 @@ export default function SearchForm(): React.JSX.Element {
   function submitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if(isShowInput && query) {
-      navigate(`/allProducts?search=${query}`)
+      setFiltersOptions(prev => ({...prev, search: query}));
+      navigate('/allProducts')
     }
   }
 

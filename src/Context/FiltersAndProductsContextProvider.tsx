@@ -23,6 +23,7 @@ type FiltersContextObj = {
   isLoading: boolean;
   loadMore: () => void;
   title: string;
+  setShouldFetchProducts: Dispatch<SetStateAction<boolean>>;
 
 };
 
@@ -81,6 +82,8 @@ export  function ProductsAndFiltersProvider({ children }: { children: ReactNode 
   const [alreadyLoaded, setAlreadyLoaded] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  const [shouldFetchProducts, setShouldFetchProducts] = useState<boolean>(false)
+
   // Формируем заголовок для страницы с продуктами
   let title = getAllProductsTitle(filtersOptions);
 
@@ -121,14 +124,14 @@ export  function ProductsAndFiltersProvider({ children }: { children: ReactNode 
       limit: pageSize.toString()
     });
 
-    if(!ignore) {
+    if(!ignore && shouldFetchProducts) {
       fetchProducts(searchParams);
     }
 
     return () => {
       ignore = true;
     }
-  }, [alreadyLoaded, filtersOptions])
+  }, [alreadyLoaded, filtersOptions, shouldFetchProducts])
 
 
   return (
@@ -141,7 +144,8 @@ export  function ProductsAndFiltersProvider({ children }: { children: ReactNode 
       alreadyLoaded,
       isLoading,
       loadMore,
-      title
+      title,
+      setShouldFetchProducts
     }}>
       {children}
     </ProductsAndFiltersContext.Provider>

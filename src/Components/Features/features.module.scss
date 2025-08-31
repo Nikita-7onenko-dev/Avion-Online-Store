@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
   padding-block: 60px 0px;
   padding-inline: var(--paddingInline);
 
@@ -24,17 +24,20 @@
 }
 
 
-@media screen and (max-width: 850px) {
-
-  .featuresBlock{
-    h3{
-      text-align: left;
-    }
-  }
+@media screen and (max-width: 940px) {
 
   .featuresCardsContainer{
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 30px;
   }
   
+}
+
+@media screen and (max-width: 650px) {
+
+  .featuresCardsContainer{
+    justify-content: start;
+    display: block;
+    margin-inline: auto;
+  }
 }

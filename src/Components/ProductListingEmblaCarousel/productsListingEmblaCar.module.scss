@@ -1,7 +1,7 @@
 
 .productsListingContainer{
   padding-inline: var(--paddingInline);
-  padding-block: 70px 0px;
+  padding-block: 50px 0px;
 
  
   h3{
@@ -11,14 +11,9 @@
   }
 
   ul{
-    /* Сбрасываем padding для списка за счет отрицательного margin и выравниваем конец списка с помощью padding */
-    // margin-inline:clamp(-100px, -5vw, -20px);
-    // padding-inline: clamp(20px, 5vw, 100px);
     margin-block: 35px;
-    // display: flex;
     gap: 20px;
-    // overflow-x: scroll;
-    // overflow-y: hidden;
+
   }
 
   .link{

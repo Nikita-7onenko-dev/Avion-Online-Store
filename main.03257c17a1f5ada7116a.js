@@ -29415,12 +29415,12 @@ var ClipLoader = __webpack_require__(769);
 var userSessionContext = __webpack_require__(9875);
 ;// ./src/Components/EmailActivationMessage/emailActivationMessage.module.scss
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const emailActivationMessage_module = ({"activationMessage":"zrD5Mt"});
+/* harmony default export */ const emailActivationMessage_module = ({"container":"IYslPp","activationMessage":"zrD5Mt"});
 ;// ./src/Components/EmailActivationMessage/EmailActivationMessage.tsx
 
 
 function EmailActivationMessage() {
-    return ((0,jsx_runtime.jsx)("div", { className: emailActivationMessage_module.activationMessage, children: (0,jsx_runtime.jsx)("p", { children: "We have sent an activation link to your email. Please check your inbox and follow the link" }) }));
+    return ((0,jsx_runtime.jsx)("div", { className: emailActivationMessage_module.container, children: (0,jsx_runtime.jsx)("div", { className: emailActivationMessage_module.activationMessage, children: (0,jsx_runtime.jsx)("p", { children: "We have sent an activation link to your email. Please check your inbox and follow the link" }) }) }));
 }
 
 ;// ./src/Components/ProfileSettingsForm/profileSettingsForm.module.scss

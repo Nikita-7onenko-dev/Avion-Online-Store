@@ -7,7 +7,7 @@ type User = {
   username: string;
   phone?: string;
   isActivated: boolean;
-  role: "User" | "Admin";
+  role: "Customer" | "Admin";
   accessToken: string;
 
   firstName?: string;
@@ -35,8 +35,9 @@ type JWTPayload = {
 type UserSessionContextType = {
   userData: User | null;
   // refreshTimerIdRef: React.RefObject<NodeJS.Timeout | null>;
-  postUser: (userData: LoginUserType | RegisterUserType) => Promise<null | User>;
+  postUser: (userData: LoginUserType | RegisterUserType) => Promise<void>;
   logout: () => void;
+  updateUser: (newUserData: Partial<User>) => Promise<void>;
   isLoading: boolean;
 }
 
@@ -142,7 +143,7 @@ export function UserSessionContextProvider({children}: {children: React.ReactNod
   }
 
   // Запрос на логин или регистрацию
-  async function postUser(userData: LoginUserType | RegisterUserType): Promise<User | null> {
+  async function postUser(userData: LoginUserType | RegisterUserType): Promise<void> {
     setIsLoading(true);
     let url;
 
@@ -151,7 +152,7 @@ export function UserSessionContextProvider({children}: {children: React.ReactNod
     } else {
       url = process.env.API_URL + 'login/' || "https://avion-online-store-server.onrender.com/api/login/";
     }
-    console.log(url)
+    
     try{
       const response = await fetch(url, {
         method: "POST",
@@ -166,16 +167,43 @@ export function UserSessionContextProvider({children}: {children: React.ReactNod
         setUserData(userData)
       }
     } catch(err) {
-      console.log(err)
+      console.log(err);
+      setUserData(null);
     } finally {
       setIsLoading(false)
     }
-    return null;
+  }
+
+  // Обновление данных пользователя
+  async function updateUser(newUserData: Partial<User>): Promise<void> {
+    setIsLoading(true);
+
+    let url = process.env.API_URL + 'updateUser/' || "https://avion-online-store-server.onrender.com/api/updateUser/";
+
+    try{
+      const response = await fetch(url, {
+        method: "PUT",
+        body: JSON.stringify(newUserData),
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${userData?.accessToken}`
+        },
+      })
+      if(response.ok) {
+        const userData: User = await response.json();
+        setUserData(userData);
+      }
+    } catch(err) {
+      console.log(err)
+      // setUserData(null);
+    } finally {
+      setIsLoading(false)
+    }
 
   }
 
   return (
-    <UserDataContext.Provider value={{userData, isLoading, postUser, logout}}>
+    <UserDataContext.Provider value={{userData, isLoading, postUser, logout, updateUser}}>
       {children}
     </UserDataContext.Provider>
   )

@@ -9,13 +9,13 @@ import ProfileInfoFields from '../ProfileInfoFields/ProfileInfoFields';
 
 export default function ProfileSettingsForm() {
 
-  const {userData} = useUserSessionContext();
+  const {userData, updateUser} = useUserSessionContext();
 
   const fieldNames = [
     "firstName", "lastName", "username",
     "oldPassword", "password", "confirmPassword",
     "phone", "email", "country", "city"
-  ];
+  ] as const;
 
   const initFormData = Object.fromEntries(
     fieldNames.map(f => [f, userData?.[f as keyof typeof userData] || ""])
@@ -23,7 +23,7 @@ export default function ProfileSettingsForm() {
 
   const initErrorFields = Object.fromEntries(
     fieldNames.map(f => [f, ""])
-  )
+  ) as Record<keyof typeof fieldNames, string>
   
   const [edit, setEdit] = useState(false);
 
@@ -47,6 +47,21 @@ export default function ProfileSettingsForm() {
 
   function submitChanges() {
 
+    for(let err in errors) {
+      if(errors[err].length) {
+        return;
+      }
+    }
+    
+    const updateData = Object.fromEntries(
+      Object.entries(formData).filter(([k, v]) => {
+        if(k === 'password' || k === 'confirmPassword' || k === 'oldPassword') {
+          return v;
+        } else return true  
+      })
+    );
+
+    updateUser(updateData);
   }
 
   function editButtonClick() {
@@ -79,7 +94,7 @@ export default function ProfileSettingsForm() {
           <ProfileInfoFields edit={edit} errors={errors} formData={formData} changeHandler={changeHandler} variation='Contacts' />
         </div>
       </div>
-      {edit && <button type='button' className='globalButton'>Save changes</button>}
+      {edit && <button type='button' className='globalButton' onClick={submitChanges}>Save changes</button>}
       </section>
     </form>
   )

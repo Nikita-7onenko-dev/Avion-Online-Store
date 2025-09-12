@@ -2,85 +2,14 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 296:
+/***/ 82:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  A: () => (/* binding */ HeaderTop)
-});
-
-// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(4848);
-;// ./src/Components/HeaderTop/headerTop.module.scss
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const headerTop_module = ({"headerTop":"QKu86m","cartLink":"T38roS","quantityLabel":"GUZs9M","title":"XJT8W2","iconLayoutRight":"DfBgTO","iconLayoutLeft":"c9NsMO","burgerButton":"seGHCO"});
-;// ./src/Components/SearchForm/searchForm.module.scss
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const searchForm_module = ({"searchForm":"jgLxgx","clearButton":"v07iJJ","active":"RzRObi"});
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(6540);
-// EXTERNAL MODULE: ./node_modules/react-router/dist/development/chunk-EF7DTUVF.mjs
-var chunk_EF7DTUVF = __webpack_require__(1362);
-;// ./src/Components/SearchForm/SearchForm.tsx
-
-
-
-
-function SearchForm() {
-    const [isShowInput, setIsShowInput] = (0,react.useState)(false);
-    const [query, setQuery] = (0,react.useState)('');
-    const inputRef = (0,react.useRef)(null);
-    const navigate = (0,chunk_EF7DTUVF/* useNavigate */.Zp)();
-    function onSearchButtonClick(e) {
-        if (isShowInput && query) {
-            navigate(`/allProducts?search=${query}`);
-        }
-        else if (!isShowInput) {
-            setIsShowInput(true);
-        }
-    }
-    function onTransitionEnd() {
-        if (isShowInput) {
-            inputRef.current?.focus();
-        }
-        else {
-            inputRef.current?.blur();
-        }
-    }
-    function submitHandler(e) {
-        e.preventDefault();
-        if (isShowInput && query) {
-            navigate(`/allProducts?search=${query}`);
-        }
-    }
-    function blurHandler(e) {
-        setIsShowInput(false);
-    }
-    function clearQueryButtonClick(e) {
-        e.preventDefault();
-        setQuery('');
-    }
-    return ((0,jsx_runtime.jsxs)("form", { className: `${searchForm_module.searchForm} ${isShowInput ? searchForm_module.active : ''}`, onSubmit: submitHandler, onTransitionEnd: onTransitionEnd, children: [(0,jsx_runtime.jsx)("button", { type: "button", onMouseDown: onSearchButtonClick, children: (0,jsx_runtime.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,jsx_runtime.jsx)("rect", { width: "16", height: "16", fill: "white" }), (0,jsx_runtime.jsx)("path", { fill: "#2A254B", d: "M14.5001 13.7929L10.7241 10.0169C11.6314 8.92758 12.0839 7.53038 11.9873 6.11596C11.8908 4.70153 11.2526 3.37879 10.2057 2.42288C9.15867 1.46698 7.78347 0.951515 6.36612 0.983723C4.94877 1.01593 3.5984 1.59333 2.59593 2.59581C1.59345 3.59828 1.01605 4.94865 0.983845 6.366C0.951637 7.78335 1.4671 9.15855 2.423 10.2055C3.37891 11.2525 4.70165 11.8907 6.11608 11.9872C7.5305 12.0838 8.9277 11.6313 10.017 10.7239L13.7931 14.5L14.5001 13.7929ZM2.00012 6.5C2.00012 5.60998 2.26404 4.73995 2.75851 3.99993C3.25297 3.25991 3.95578 2.68313 4.77804 2.34254C5.60031 2.00194 6.50511 1.91283 7.37802 2.08646C8.25094 2.2601 9.05276 2.68868 9.6821 3.31802C10.3114 3.94735 10.74 4.74918 10.9137 5.62209C11.0873 6.495 10.9982 7.3998 10.6576 8.22207C10.317 9.04434 9.7402 9.74714 9.00018 10.2416C8.26016 10.7361 7.39013 11 6.50012 11C5.30705 10.9987 4.16323 10.5241 3.3196 9.68052C2.47597 8.83689 2.00144 7.69306 2.00012 6.5Z" })] }) }), (0,jsx_runtime.jsx)("input", { type: "search", onBlur: blurHandler, onChange: (e) => setQuery(e.target.value), ref: inputRef, value: query }), query && isShowInput && ((0,jsx_runtime.jsx)("button", { className: searchForm_module.clearButton, type: 'button', onMouseDown: clearQueryButtonClick, children: (0,jsx_runtime.jsxs)("svg", { fill: "#2A254B", width: "16px", height: "16px", viewBox: "0 0 56.00 56.00", stroke: "#2A254B", children: [(0,jsx_runtime.jsx)("g", { id: "SVGRepo_bgCarrier", strokeWidth: "0" }), (0,jsx_runtime.jsx)("g", { id: "SVGRepo_tracerCarrier", strokeLinecap: "round", strokeLinejoin: "round", stroke: "#CCCCCC", strokeWidth: "0.33599999999999997" }), (0,jsx_runtime.jsx)("g", { id: "SVGRepo_iconCarrier", children: (0,jsx_runtime.jsx)("path", { d: "M 10.0234 43.0234 C 9.2266 43.8203 9.2031 45.1797 10.0234 45.9766 C 10.8438 46.7734 12.1797 46.7734 13.0000 45.9766 L 28.0000 30.9766 L 43.0000 45.9766 C 43.7969 46.7734 45.1563 46.7969 45.9766 45.9766 C 46.7734 45.1562 46.7734 43.8203 45.9766 43.0234 L 30.9531 28.0000 L 45.9766 13.0000 C 46.7734 12.2031 46.7969 10.8437 45.9766 10.0469 C 45.1328 9.2266 43.7969 9.2266 43.0000 10.0469 L 28.0000 25.0469 L 13.0000 10.0469 C 12.1797 9.2266 10.8203 9.2031 10.0234 10.0469 C 9.2266 10.8672 9.2266 12.2031 10.0234 13.0000 L 25.0234 28.0000 Z" }) })] }) }))] }));
-}
-
-// EXTERNAL MODULE: ./src/Context/CartContext.tsx
-var CartContext = __webpack_require__(5783);
-;// ./src/Components/HeaderTop/HeaderTop.tsx
-
-
-
-
-
-function HeaderTop({ isOpenBurger, setIsOpenBurger }) {
-    const { cart } = (0,CartContext/* default */.A)();
-    const quantity = cart.length;
-    const isShowCart = cart.length > 0;
-    return ((0,jsx_runtime.jsxs)("div", { className: headerTop_module.headerTop, children: [(0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/', className: headerTop_module.title, children: (0,jsx_runtime.jsx)("h2", { children: "Avion" }) }), (0,jsx_runtime.jsxs)("div", { className: headerTop_module.iconLayoutLeft, children: [isShowCart &&
-                        (0,jsx_runtime.jsxs)(chunk_EF7DTUVF/* Link */.N_, { to: '/shoppingCart', className: headerTop_module.cartLink, children: [(0,jsx_runtime.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,jsx_runtime.jsx)("rect", { width: "16", height: "16", fill: "white" }), (0,jsx_runtime.jsx)("path", { d: "M5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15Z", fill: "#2A254B" }), (0,jsx_runtime.jsx)("path", { d: "M12 15C12.5523 15 13 14.5523 13 14C13 13.4477 12.5523 13 12 13C11.4477 13 11 13.4477 11 14C11 14.5523 11.4477 15 12 15Z", fill: "#2A254B" }), (0,jsx_runtime.jsx)("path", { d: "M14 3.50001H2.91L2.5 1.40001C2.47662 1.28537 2.41379 1.18256 2.32243 1.10947C2.23107 1.03639 2.11697 0.997651 2 1.00001H0V2.00001H1.59L3.5 11.6C3.52338 11.7146 3.58621 11.8175 3.67757 11.8905C3.76893 11.9636 3.88303 12.0024 4 12H13V11H4.41L4 9.00001H13C13.1156 9.00284 13.2286 8.96552 13.3197 8.89441C13.4109 8.8233 13.4746 8.7228 13.5 8.61001L14.5 4.11001C14.5168 4.03582 14.5164 3.95879 14.4989 3.88478C14.4814 3.81076 14.4472 3.74172 14.399 3.6829C14.3508 3.62407 14.2898 3.57703 14.2206 3.54534C14.1515 3.51364 14.076 3.49814 14 3.50001ZM12.6 8.00001H3.81L3.11 4.50001H13.375L12.6 8.00001Z", fill: "#2A254B" })] }), (0,jsx_runtime.jsx)("span", { className: headerTop_module.quantityLabel, children: quantity })] }), (0,jsx_runtime.jsx)(SearchForm, {})] }), (0,jsx_runtime.jsxs)("div", { className: headerTop_module.iconLayoutRight, children: [(0,jsx_runtime.jsxs)(chunk_EF7DTUVF/* Link */.N_, { to: '/shoppingCart', className: headerTop_module.cartLink, children: [(0,jsx_runtime.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,jsx_runtime.jsx)("rect", { width: "16", height: "16", fill: "white" }), (0,jsx_runtime.jsx)("path", { d: "M5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15Z", fill: "#2A254B" }), (0,jsx_runtime.jsx)("path", { d: "M12 15C12.5523 15 13 14.5523 13 14C13 13.4477 12.5523 13 12 13C11.4477 13 11 13.4477 11 14C11 14.5523 11.4477 15 12 15Z", fill: "#2A254B" }), (0,jsx_runtime.jsx)("path", { d: "M14 3.50001H2.91L2.5 1.40001C2.47662 1.28537 2.41379 1.18256 2.32243 1.10947C2.23107 1.03639 2.11697 0.997651 2 1.00001H0V2.00001H1.59L3.5 11.6C3.52338 11.7146 3.58621 11.8175 3.67757 11.8905C3.76893 11.9636 3.88303 12.0024 4 12H13V11H4.41L4 9.00001H13C13.1156 9.00284 13.2286 8.96552 13.3197 8.89441C13.4109 8.8233 13.4746 8.7228 13.5 8.61001L14.5 4.11001C14.5168 4.03582 14.5164 3.95879 14.4989 3.88478C14.4814 3.81076 14.4472 3.74172 14.399 3.6829C14.3508 3.62407 14.2898 3.57703 14.2206 3.54534C14.1515 3.51364 14.076 3.49814 14 3.50001ZM12.6 8.00001H3.81L3.11 4.50001H13.375L12.6 8.00001Z", fill: "#2A254B" })] }), isShowCart && (0,jsx_runtime.jsx)("span", { className: headerTop_module.quantityLabel, children: quantity })] }), (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/', children: (0,jsx_runtime.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,jsx_runtime.jsx)("rect", { width: "16", height: "16", fill: "white" }), (0,jsx_runtime.jsx)("path", { d: "M8 4C7.50555 4 7.0222 4.14662 6.61108 4.42133C6.19995 4.69603 5.87952 5.08648 5.6903 5.54329C5.50108 6.00011 5.45158 6.50277 5.54804 6.98773C5.6445 7.47268 5.88261 7.91814 6.23224 8.26777C6.58187 8.6174 7.02733 8.8555 7.51228 8.95196C7.99723 9.04843 8.4999 8.99892 8.95671 8.8097C9.41353 8.62048 9.80397 8.30005 10.0787 7.88893C10.3534 7.4778 10.5 6.99445 10.5 6.5C10.5 5.83696 10.2366 5.20107 9.76777 4.73223C9.29893 4.26339 8.66304 4 8 4ZM8 8C7.70333 8 7.41332 7.91203 7.16665 7.7472C6.91997 7.58238 6.72772 7.34811 6.61418 7.07403C6.50065 6.79994 6.47095 6.49834 6.52882 6.20736C6.5867 5.91639 6.72956 5.64912 6.93934 5.43934C7.14912 5.22956 7.4164 5.0867 7.70737 5.02882C7.99834 4.97094 8.29994 5.00065 8.57403 5.11418C8.84812 5.22771 9.08239 5.41997 9.24721 5.66664C9.41203 5.91332 9.5 6.20333 9.5 6.5C9.49955 6.89769 9.34137 7.27896 9.06017 7.56016C8.77896 7.84137 8.39769 7.99955 8 8Z", fill: "#2A254B" }), (0,jsx_runtime.jsx)("path", { d: "M8 1C6.61553 1 5.26216 1.41054 4.11101 2.17971C2.95987 2.94888 2.06266 4.04213 1.53285 5.32122C1.00303 6.6003 0.86441 8.00776 1.13451 9.36563C1.4046 10.7235 2.07129 11.9708 3.05026 12.9497C4.02922 13.9287 5.2765 14.5954 6.63437 14.8655C7.99224 15.1356 9.3997 14.997 10.6788 14.4672C11.9579 13.9373 13.0511 13.0401 13.8203 11.889C14.5895 10.7378 15 9.38447 15 8C14.9979 6.14413 14.2597 4.36486 12.9474 3.05256C11.6351 1.74026 9.85588 1.00209 8 1ZM5 13.1882V12.5C5.00044 12.1023 5.15862 11.721 5.43983 11.4398C5.72104 11.1586 6.10231 11.0004 6.5 11H9.5C9.89769 11.0004 10.279 11.1586 10.5602 11.4398C10.8414 11.721 10.9996 12.1023 11 12.5V13.1882C10.0896 13.7199 9.05426 14 8 14C6.94574 14 5.91042 13.7199 5 13.1882ZM11.9963 12.4629C11.9863 11.807 11.7191 11.1813 11.2521 10.7206C10.7852 10.2599 10.156 10.0011 9.5 10H6.5C5.84405 10.0011 5.2148 10.2599 4.74786 10.7206C4.28093 11.1813 4.01369 11.807 4.00375 12.4629C3.09703 11.6533 2.45762 10.5873 2.17017 9.40623C1.88272 8.22513 1.9608 6.98457 2.39407 5.84883C2.82734 4.71309 3.59536 3.73573 4.59644 3.04618C5.59751 2.35663 6.78442 1.98741 8 1.98741C9.21558 1.98741 10.4025 2.35663 11.4036 3.04618C12.4046 3.73573 13.1727 4.71309 13.6059 5.84883C14.0392 6.98457 14.1173 8.22513 13.8298 9.40623C13.5424 10.5873 12.903 11.6533 11.9963 12.4629Z", fill: "#2A254B" })] }) })] }), (0,jsx_runtime.jsx)("button", { className: headerTop_module.burgerButton, onClick: () => setIsOpenBurger(prev => !prev), children: isOpenBurger ? ((0,jsx_runtime.jsx)("svg", { viewBox: "0 0 448 512", children: (0,jsx_runtime.jsx)("path", { fill: "#2A254B", d: "M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" }) })) : ((0,jsx_runtime.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,jsx_runtime.jsx)("rect", { width: "16", height: "16", fill: "white" }), (0,jsx_runtime.jsx)("path", { d: "M14 3H2V4H14V3Z", fill: "#2A254B" }), (0,jsx_runtime.jsx)("path", { d: "M14 12H2V13H14V12Z", fill: "#2A254B" }), (0,jsx_runtime.jsx)("path", { d: "M14 6H2V7H14V6Z", fill: "#2A254B" }), (0,jsx_runtime.jsx)("path", { d: "M14 9H2V10H14V9Z", fill: "#2A254B" })] })) })] }));
-}
-
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"searchForm":"jgLxgx","clearButton":"v07iJJ","active":"RzRObi"});
 
 /***/ }),
 
@@ -194,6 +123,140 @@ function AboutBlock({ variation, imgSrc, title, paragraph, anotherParagraph, wit
 
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
+/***/ 769:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (/* binding */ esm_ClipLoader)
+});
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(6540);
+;// ./node_modules/react-spinners/esm/helpers/unitConverter.js
+var cssUnit = {
+    cm: true,
+    mm: true,
+    in: true,
+    px: true,
+    pt: true,
+    pc: true,
+    em: true,
+    ex: true,
+    ch: true,
+    rem: true,
+    vw: true,
+    vh: true,
+    vmin: true,
+    vmax: true,
+    "%": true,
+};
+/**
+ * If size is a number, append px to the value as default unit.
+ * If size is a string, validate against list of valid units.
+ * If unit is valid, return size as is.
+ * If unit is invalid, console warn issue, replace with px as the unit.
+ *
+ * @param {(number | string)} size
+ * @return {LengthObject} LengthObject
+ */
+function parseLengthAndUnit(size) {
+    if (typeof size === "number") {
+        return {
+            value: size,
+            unit: "px",
+        };
+    }
+    var value;
+    var valueString = (size.match(/^[0-9.]*/) || "").toString();
+    if (valueString.includes(".")) {
+        value = parseFloat(valueString);
+    }
+    else {
+        value = parseInt(valueString, 10);
+    }
+    var unit = (size.match(/[^0-9]*$/) || "").toString();
+    if (cssUnit[unit]) {
+        return {
+            value: value,
+            unit: unit,
+        };
+    }
+    console.warn("React Spinners: ".concat(size, " is not a valid css value. Defaulting to ").concat(value, "px."));
+    return {
+        value: value,
+        unit: "px",
+    };
+}
+/**
+ * Take value as an input and return valid css value
+ *
+ * @param {(number | string)} value
+ * @return {string} valid css value
+ */
+function cssValue(value) {
+    var lengthWithunit = parseLengthAndUnit(value);
+    return "".concat(lengthWithunit.value).concat(lengthWithunit.unit);
+}
+
+;// ./node_modules/react-spinners/esm/helpers/animation.js
+var createAnimation = function (loaderName, frames, suffix) {
+    var animationName = "react-spinners-".concat(loaderName, "-").concat(suffix);
+    if (typeof window == "undefined" || !window.document) {
+        return animationName;
+    }
+    var styleEl = document.createElement("style");
+    document.head.appendChild(styleEl);
+    var styleSheet = styleEl.sheet;
+    var keyFrames = "\n    @keyframes ".concat(animationName, " {\n      ").concat(frames, "\n    }\n  ");
+    if (styleSheet) {
+        styleSheet.insertRule(keyFrames, 0);
+    }
+    return animationName;
+};
+
+;// ./node_modules/react-spinners/esm/ClipLoader.js
+"use client";
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var clip = createAnimation("ClipLoader", "0% {transform: rotate(0deg) scale(1)} 50% {transform: rotate(180deg) scale(0.8)} 100% {transform: rotate(360deg) scale(1)}", "clip");
+function ClipLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 35 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
+    var style = __assign({ background: "transparent !important", width: cssValue(size), height: cssValue(size), borderRadius: "100%", border: "2px solid", borderTopColor: color, borderBottomColor: "transparent", borderLeftColor: color, borderRightColor: color, display: "inline-block", animation: "".concat(clip, " ").concat(0.75 / speedMultiplier, "s 0s infinite linear"), animationFillMode: "both" }, cssOverride);
+    if (!loading) {
+        return null;
+    }
+    return react.createElement("span", __assign({ style: style }, additionalprops));
+}
+/* harmony default export */ const esm_ClipLoader = (ClipLoader);
+
 
 /***/ }),
 
@@ -322,12 +385,16 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4863);
 /* harmony import */ var _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7592);
 /* harmony import */ var _pages_ShoppingCart_ShoppingCart__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(335);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(1362);
-/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(6618);
-/* harmony import */ var _Context_CartContext__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(5783);
-/* harmony import */ var _pages_ContactsPage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(2008);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _Footer_Footer__WEBPACK_IMPORTED_MODULE_3__, _pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__, _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_9__]);
-([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _Footer_Footer__WEBPACK_IMPORTED_MODULE_3__, _pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__, _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_9__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _pages_ContactsPage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(9746);
+/* harmony import */ var _pages_UserPage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(7317);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(1362);
+/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(6618);
+/* harmony import */ var _Context_CartContext__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(5783);
+/* harmony import */ var _Context_userSessionContext__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(9875);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _Footer_Footer__WEBPACK_IMPORTED_MODULE_3__, _pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__, _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_11__]);
+([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _Footer_Footer__WEBPACK_IMPORTED_MODULE_3__, _pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__, _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_11__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
+
 
 
 
@@ -341,7 +408,7 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Com
 
 
 function App() {
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Context_CartContext__WEBPACK_IMPORTED_MODULE_10__/* .CartProvider */ .e, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_9__/* .ProductsAndFiltersProvider */ .y, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Routes */ .BV, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_HomePage__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/about', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/shoppingCart', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ShoppingCart_ShoppingCart__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/allProducts', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/:id', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__/* .Route */ .qh, { path: '/contacts', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ContactsPage__WEBPACK_IMPORTED_MODULE_11__/* ["default"] */ .A, {}) })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Footer_Footer__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {})] }) }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Context_userSessionContext__WEBPACK_IMPORTED_MODULE_13__/* .UserSessionContextProvider */ .q, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Context_CartContext__WEBPACK_IMPORTED_MODULE_12__/* .CartProvider */ .e, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_11__/* .ProductsAndFiltersProvider */ .y, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Routes */ .BV, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_HomePage__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/about', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/shoppingCart', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ShoppingCart_ShoppingCart__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/allProducts', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/:id', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/contacts', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ContactsPage__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/profile', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_UserPage__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .A, {}) })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Footer_Footer__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {})] }) }) }));
 }
 
 __webpack_async_result__();
@@ -25715,13 +25782,13 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
 /* harmony import */ var _header_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6604);
-/* harmony import */ var _HeaderTop_HeaderTop__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(296);
+/* harmony import */ var _HeaderTop_HeaderTop__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3054);
 /* harmony import */ var _HeaderNavigationBar_HeaderNavigationBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1606);
 /* harmony import */ var _BurgerMenu_BurgerMenu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2056);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6540);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(1362);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_HeaderNavigationBar_HeaderNavigationBar__WEBPACK_IMPORTED_MODULE_3__, _BurgerMenu_BurgerMenu__WEBPACK_IMPORTED_MODULE_4__]);
-([_HeaderNavigationBar_HeaderNavigationBar__WEBPACK_IMPORTED_MODULE_3__, _BurgerMenu_BurgerMenu__WEBPACK_IMPORTED_MODULE_4__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_HeaderTop_HeaderTop__WEBPACK_IMPORTED_MODULE_2__, _HeaderNavigationBar_HeaderNavigationBar__WEBPACK_IMPORTED_MODULE_3__, _BurgerMenu_BurgerMenu__WEBPACK_IMPORTED_MODULE_4__]);
+([_HeaderTop_HeaderTop__WEBPACK_IMPORTED_MODULE_2__, _HeaderNavigationBar_HeaderNavigationBar__WEBPACK_IMPORTED_MODULE_3__, _BurgerMenu_BurgerMenu__WEBPACK_IMPORTED_MODULE_4__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
@@ -25892,7 +25959,7 @@ var chunk_EF7DTUVF = __webpack_require__(1362);
 
 
 function BurgerMenuFooter() {
-    return ((0,jsx_runtime.jsxs)("div", { className: burgerMenuFooter_module.iconLayout, children: [(0,jsx_runtime.jsxs)(chunk_EF7DTUVF/* Link */.N_, { to: '/', className: burgerMenuFooter_module.burgerMenuItem, children: [(0,jsx_runtime.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,jsx_runtime.jsx)("rect", { width: "16", height: "16", fill: "#2A254B" }), (0,jsx_runtime.jsx)("path", { d: "M8 4C7.50555 4 7.0222 4.14662 6.61108 4.42133C6.19995 4.69603 5.87952 5.08648 5.6903 5.54329C5.50108 6.00011 5.45158 6.50277 5.54804 6.98773C5.6445 7.47268 5.88261 7.91814 6.23224 8.26777C6.58187 8.6174 7.02733 8.8555 7.51228 8.95196C7.99723 9.04843 8.4999 8.99892 8.95671 8.8097C9.41353 8.62048 9.80397 8.30005 10.0787 7.88893C10.3534 7.4778 10.5 6.99445 10.5 6.5C10.5 5.83696 10.2366 5.20107 9.76777 4.73223C9.29893 4.26339 8.66304 4 8 4ZM8 8C7.70333 8 7.41332 7.91203 7.16665 7.7472C6.91997 7.58238 6.72772 7.34811 6.61418 7.07403C6.50065 6.79994 6.47095 6.49834 6.52882 6.20736C6.5867 5.91639 6.72956 5.64912 6.93934 5.43934C7.14912 5.22956 7.4164 5.0867 7.70737 5.02882C7.99834 4.97094 8.29994 5.00065 8.57403 5.11418C8.84812 5.22771 9.08239 5.41997 9.24721 5.66664C9.41203 5.91332 9.5 6.20333 9.5 6.5C9.49955 6.89769 9.34137 7.27896 9.06017 7.56016C8.77896 7.84137 8.39769 7.99955 8 8Z", fill: "white" }), (0,jsx_runtime.jsx)("path", { d: "M8 1C6.61553 1 5.26216 1.41054 4.11101 2.17971C2.95987 2.94888 2.06266 4.04213 1.53285 5.32122C1.00303 6.6003 0.86441 8.00776 1.13451 9.36563C1.4046 10.7235 2.07129 11.9708 3.05026 12.9497C4.02922 13.9287 5.2765 14.5954 6.63437 14.8655C7.99224 15.1356 9.3997 14.997 10.6788 14.4672C11.9579 13.9373 13.0511 13.0401 13.8203 11.889C14.5895 10.7378 15 9.38447 15 8C14.9979 6.14413 14.2597 4.36486 12.9474 3.05256C11.6351 1.74026 9.85588 1.00209 8 1ZM5 13.1882V12.5C5.00044 12.1023 5.15862 11.721 5.43983 11.4398C5.72104 11.1586 6.10231 11.0004 6.5 11H9.5C9.89769 11.0004 10.279 11.1586 10.5602 11.4398C10.8414 11.721 10.9996 12.1023 11 12.5V13.1882C10.0896 13.7199 9.05426 14 8 14C6.94574 14 5.91042 13.7199 5 13.1882ZM11.9963 12.4629C11.9863 11.807 11.7191 11.1813 11.2521 10.7206C10.7852 10.2599 10.156 10.0011 9.5 10H6.5C5.84405 10.0011 5.2148 10.2599 4.74786 10.7206C4.28093 11.1813 4.01369 11.807 4.00375 12.4629C3.09703 11.6533 2.45762 10.5873 2.17017 9.40623C1.88272 8.22513 1.9608 6.98457 2.39407 5.84883C2.82734 4.71309 3.59536 3.73573 4.59644 3.04618C5.59751 2.35663 6.78442 1.98741 8 1.98741C9.21558 1.98741 10.4025 2.35663 11.4036 3.04618C12.4046 3.73573 13.1727 4.71309 13.6059 5.84883C14.0392 6.98457 14.1173 8.22513 13.8298 9.40623C13.5424 10.5873 12.903 11.6533 11.9963 12.4629Z", fill: "white" })] }), "Profile"] }), (0,jsx_runtime.jsxs)(chunk_EF7DTUVF/* Link */.N_, { to: '/shoppingCart', className: burgerMenuFooter_module.burgerMenuItem, children: [(0,jsx_runtime.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,jsx_runtime.jsx)("rect", { width: "16", height: "16", fill: "#2A254B" }), (0,jsx_runtime.jsx)("path", { d: "M5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15Z", fill: "white" }), (0,jsx_runtime.jsx)("path", { d: "M12 15C12.5523 15 13 14.5523 13 14C13 13.4477 12.5523 13 12 13C11.4477 13 11 13.4477 11 14C11 14.5523 11.4477 15 12 15Z", fill: "white" }), (0,jsx_runtime.jsx)("path", { d: "M14 3.50001H2.91L2.5 1.40001C2.47662 1.28537 2.41379 1.18256 2.32243 1.10947C2.23107 1.03639 2.11697 0.997651 2 1.00001H0V2.00001H1.59L3.5 11.6C3.52338 11.7146 3.58621 11.8175 3.67757 11.8905C3.76893 11.9636 3.88303 12.0024 4 12H13V11H4.41L4 9.00001H13C13.1156 9.00284 13.2286 8.96552 13.3197 8.89441C13.4109 8.8233 13.4746 8.7228 13.5 8.61001L14.5 4.11001C14.5168 4.03582 14.5164 3.95879 14.4989 3.88478C14.4814 3.81076 14.4472 3.74172 14.399 3.6829C14.3508 3.62407 14.2898 3.57703 14.2206 3.54534C14.1515 3.51364 14.076 3.49814 14 3.50001ZM12.6 8.00001H3.81L3.11 4.50001H13.375L12.6 8.00001Z", fill: "white" })] }), "Cart"] })] }));
+    return ((0,jsx_runtime.jsxs)("div", { className: burgerMenuFooter_module.iconLayout, children: [(0,jsx_runtime.jsxs)(chunk_EF7DTUVF/* Link */.N_, { to: '/profile', className: burgerMenuFooter_module.burgerMenuItem, children: [(0,jsx_runtime.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,jsx_runtime.jsx)("rect", { width: "16", height: "16", fill: "#2A254B" }), (0,jsx_runtime.jsx)("path", { d: "M8 4C7.50555 4 7.0222 4.14662 6.61108 4.42133C6.19995 4.69603 5.87952 5.08648 5.6903 5.54329C5.50108 6.00011 5.45158 6.50277 5.54804 6.98773C5.6445 7.47268 5.88261 7.91814 6.23224 8.26777C6.58187 8.6174 7.02733 8.8555 7.51228 8.95196C7.99723 9.04843 8.4999 8.99892 8.95671 8.8097C9.41353 8.62048 9.80397 8.30005 10.0787 7.88893C10.3534 7.4778 10.5 6.99445 10.5 6.5C10.5 5.83696 10.2366 5.20107 9.76777 4.73223C9.29893 4.26339 8.66304 4 8 4ZM8 8C7.70333 8 7.41332 7.91203 7.16665 7.7472C6.91997 7.58238 6.72772 7.34811 6.61418 7.07403C6.50065 6.79994 6.47095 6.49834 6.52882 6.20736C6.5867 5.91639 6.72956 5.64912 6.93934 5.43934C7.14912 5.22956 7.4164 5.0867 7.70737 5.02882C7.99834 4.97094 8.29994 5.00065 8.57403 5.11418C8.84812 5.22771 9.08239 5.41997 9.24721 5.66664C9.41203 5.91332 9.5 6.20333 9.5 6.5C9.49955 6.89769 9.34137 7.27896 9.06017 7.56016C8.77896 7.84137 8.39769 7.99955 8 8Z", fill: "white" }), (0,jsx_runtime.jsx)("path", { d: "M8 1C6.61553 1 5.26216 1.41054 4.11101 2.17971C2.95987 2.94888 2.06266 4.04213 1.53285 5.32122C1.00303 6.6003 0.86441 8.00776 1.13451 9.36563C1.4046 10.7235 2.07129 11.9708 3.05026 12.9497C4.02922 13.9287 5.2765 14.5954 6.63437 14.8655C7.99224 15.1356 9.3997 14.997 10.6788 14.4672C11.9579 13.9373 13.0511 13.0401 13.8203 11.889C14.5895 10.7378 15 9.38447 15 8C14.9979 6.14413 14.2597 4.36486 12.9474 3.05256C11.6351 1.74026 9.85588 1.00209 8 1ZM5 13.1882V12.5C5.00044 12.1023 5.15862 11.721 5.43983 11.4398C5.72104 11.1586 6.10231 11.0004 6.5 11H9.5C9.89769 11.0004 10.279 11.1586 10.5602 11.4398C10.8414 11.721 10.9996 12.1023 11 12.5V13.1882C10.0896 13.7199 9.05426 14 8 14C6.94574 14 5.91042 13.7199 5 13.1882ZM11.9963 12.4629C11.9863 11.807 11.7191 11.1813 11.2521 10.7206C10.7852 10.2599 10.156 10.0011 9.5 10H6.5C5.84405 10.0011 5.2148 10.2599 4.74786 10.7206C4.28093 11.1813 4.01369 11.807 4.00375 12.4629C3.09703 11.6533 2.45762 10.5873 2.17017 9.40623C1.88272 8.22513 1.9608 6.98457 2.39407 5.84883C2.82734 4.71309 3.59536 3.73573 4.59644 3.04618C5.59751 2.35663 6.78442 1.98741 8 1.98741C9.21558 1.98741 10.4025 2.35663 11.4036 3.04618C12.4046 3.73573 13.1727 4.71309 13.6059 5.84883C14.0392 6.98457 14.1173 8.22513 13.8298 9.40623C13.5424 10.5873 12.903 11.6533 11.9963 12.4629Z", fill: "white" })] }), "Profile"] }), (0,jsx_runtime.jsxs)(chunk_EF7DTUVF/* Link */.N_, { to: '/shoppingCart', className: burgerMenuFooter_module.burgerMenuItem, children: [(0,jsx_runtime.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,jsx_runtime.jsx)("rect", { width: "16", height: "16", fill: "#2A254B" }), (0,jsx_runtime.jsx)("path", { d: "M5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15Z", fill: "white" }), (0,jsx_runtime.jsx)("path", { d: "M12 15C12.5523 15 13 14.5523 13 14C13 13.4477 12.5523 13 12 13C11.4477 13 11 13.4477 11 14C11 14.5523 11.4477 15 12 15Z", fill: "white" }), (0,jsx_runtime.jsx)("path", { d: "M14 3.50001H2.91L2.5 1.40001C2.47662 1.28537 2.41379 1.18256 2.32243 1.10947C2.23107 1.03639 2.11697 0.997651 2 1.00001H0V2.00001H1.59L3.5 11.6C3.52338 11.7146 3.58621 11.8175 3.67757 11.8905C3.76893 11.9636 3.88303 12.0024 4 12H13V11H4.41L4 9.00001H13C13.1156 9.00284 13.2286 8.96552 13.3197 8.89441C13.4109 8.8233 13.4746 8.7228 13.5 8.61001L14.5 4.11001C14.5168 4.03582 14.5164 3.95879 14.4989 3.88478C14.4814 3.81076 14.4472 3.74172 14.399 3.6829C14.3508 3.62407 14.2898 3.57703 14.2206 3.54534C14.1515 3.51364 14.076 3.49814 14 3.50001ZM12.6 8.00001H3.81L3.11 4.50001H13.375L12.6 8.00001Z", fill: "white" })] }), "Cart"] })] }));
 }
 
 
@@ -25984,206 +26051,6 @@ function cssValue(value) {
 
 /***/ }),
 
-/***/ 2008:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  A: () => (/* binding */ ContactsPage)
-});
-
-// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(4848);
-// EXTERNAL MODULE: ./src/Components/SocialLinks/SocialLinks.tsx + 1 modules
-var SocialLinks = __webpack_require__(6306);
-;// ./src/Components/ContactsBlock/contactsBlock.module.scss
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const contactsBlock_module = ({"contactsBlock":"Fd3FC5","contacts":"ZHQgyx","map":"PyGP9q"});
-;// ./src/Components/ContactsBlock/ContactsBlock.tsx
-
-
-
-function ContactsBlock() {
-    return ((0,jsx_runtime.jsxs)("div", { className: contactsBlock_module.contactsBlock, children: [(0,jsx_runtime.jsxs)("address", { className: contactsBlock_module.contacts, children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("h4", { children: "Address" }), (0,jsx_runtime.jsxs)("p", { children: ["21 New York Street", (0,jsx_runtime.jsx)("br", {}), "New York City", (0,jsx_runtime.jsx)("br", {}), "United States of America", (0,jsx_runtime.jsx)("br", {}), "432 34"] })] }), (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("h4", { children: "Phone" }), (0,jsx_runtime.jsx)("a", { href: "tel:+1234567890", children: "+1 (234) 567-890" }), (0,jsx_runtime.jsx)("a", { href: "tel:+1234567891", children: "+1 (234) 567-891" })] }), (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("h4", { children: "Email" }), (0,jsx_runtime.jsx)("a", { href: "mailto:mail@avion.com", children: "mail@avion.com" })] }), (0,jsx_runtime.jsx)(SocialLinks/* default */.A, { color: "#2a254b" })] }), (0,jsx_runtime.jsx)("div", { className: contactsBlock_module.map, children: (0,jsx_runtime.jsx)("iframe", { width: "100%", height: "100%", src: "https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Century%2021%20NYC%2022%20Cortlandt%20St,%20Manhattan,%20NY%2010007,%20United%20States+(Avion)&t=&z=14&ie=UTF8&iwloc=B&output=embed" }) })] }));
-}
-
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(6540);
-;// ./src/Components/ContactsHeroBlock/contactsHeroBlock.module.scss
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const contactsHeroBlock_module = ({"contactsHeroBlock":"nDpmNA","bannerTextBlock":"uglhxg"});
-// EXTERNAL MODULE: ./node_modules/react-spinners/ClipLoader.js
-var ClipLoader = __webpack_require__(7420);
-var ClipLoader_default = /*#__PURE__*/__webpack_require__.n(ClipLoader);
-;// ./src/Components/ContactsHeroBlock/ContactsHeroBlock.tsx
-
-
-
-
-function ContactsHeroBlock({ ref }) {
-    const [isLoad, setIsLoad] = (0,react.useState)(false);
-    const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
-    function scrollToFeedbackForm() {
-        ref.current?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'end'
-        });
-    }
-    return ((0,jsx_runtime.jsxs)("div", { className: contactsHeroBlock_module.contactsHeroBlock, children: [(0,jsx_runtime.jsxs)("div", { className: contactsHeroBlock_module.bannerTextBlock, children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("h3", { children: "Contact us" }), (0,jsx_runtime.jsx)("p", { children: "Have a question or request? Use the feedback form or any contact details below" })] }), (0,jsx_runtime.jsx)("button", { className: 'globalLink', onClick: scrollToFeedbackForm, children: "Use feedback form" })] }), (0,jsx_runtime.jsx)("img", { src: `${base}/img/ContactsHeroBlock.jpg`, onLoad: () => setIsLoad(true), loading: 'lazy', style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#fff', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }));
-}
-
-;// ./src/Components/FeedbackForm/feedbackForm.module.scss
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const feedbackForm_module = ({"feedbackFormContainer":"mGkwC2","imageWrapper":"W08WEU","feedbackForm":"T9fk_i"});
-;// ./node_modules/react-spinners/esm/helpers/unitConverter.js
-var cssUnit = {
-    cm: true,
-    mm: true,
-    in: true,
-    px: true,
-    pt: true,
-    pc: true,
-    em: true,
-    ex: true,
-    ch: true,
-    rem: true,
-    vw: true,
-    vh: true,
-    vmin: true,
-    vmax: true,
-    "%": true,
-};
-/**
- * If size is a number, append px to the value as default unit.
- * If size is a string, validate against list of valid units.
- * If unit is valid, return size as is.
- * If unit is invalid, console warn issue, replace with px as the unit.
- *
- * @param {(number | string)} size
- * @return {LengthObject} LengthObject
- */
-function parseLengthAndUnit(size) {
-    if (typeof size === "number") {
-        return {
-            value: size,
-            unit: "px",
-        };
-    }
-    var value;
-    var valueString = (size.match(/^[0-9.]*/) || "").toString();
-    if (valueString.includes(".")) {
-        value = parseFloat(valueString);
-    }
-    else {
-        value = parseInt(valueString, 10);
-    }
-    var unit = (size.match(/[^0-9]*$/) || "").toString();
-    if (cssUnit[unit]) {
-        return {
-            value: value,
-            unit: unit,
-        };
-    }
-    console.warn("React Spinners: ".concat(size, " is not a valid css value. Defaulting to ").concat(value, "px."));
-    return {
-        value: value,
-        unit: "px",
-    };
-}
-/**
- * Take value as an input and return valid css value
- *
- * @param {(number | string)} value
- * @return {string} valid css value
- */
-function cssValue(value) {
-    var lengthWithunit = parseLengthAndUnit(value);
-    return "".concat(lengthWithunit.value).concat(lengthWithunit.unit);
-}
-
-;// ./node_modules/react-spinners/esm/helpers/animation.js
-var createAnimation = function (loaderName, frames, suffix) {
-    var animationName = "react-spinners-".concat(loaderName, "-").concat(suffix);
-    if (typeof window == "undefined" || !window.document) {
-        return animationName;
-    }
-    var styleEl = document.createElement("style");
-    document.head.appendChild(styleEl);
-    var styleSheet = styleEl.sheet;
-    var keyFrames = "\n    @keyframes ".concat(animationName, " {\n      ").concat(frames, "\n    }\n  ");
-    if (styleSheet) {
-        styleSheet.insertRule(keyFrames, 0);
-    }
-    return animationName;
-};
-
-;// ./node_modules/react-spinners/esm/ClipLoader.js
-"use client";
-var __assign = (undefined && undefined.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __rest = (undefined && undefined.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
-
-
-
-var clip = createAnimation("ClipLoader", "0% {transform: rotate(0deg) scale(1)} 50% {transform: rotate(180deg) scale(0.8)} 100% {transform: rotate(360deg) scale(1)}", "clip");
-function ClipLoader_ClipLoader(_a) {
-    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 35 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
-    var style = __assign({ background: "transparent !important", width: cssValue(size), height: cssValue(size), borderRadius: "100%", border: "2px solid", borderTopColor: color, borderBottomColor: "transparent", borderLeftColor: color, borderRightColor: color, display: "inline-block", animation: "".concat(clip, " ").concat(0.75 / speedMultiplier, "s 0s infinite linear"), animationFillMode: "both" }, cssOverride);
-    if (!loading) {
-        return null;
-    }
-    return react.createElement("span", __assign({ style: style }, additionalprops));
-}
-/* harmony default export */ const esm_ClipLoader = (ClipLoader_ClipLoader);
-
-;// ./src/Components/FeedbackForm/FeedbackForm.tsx
-
-
-
-
-function FeedbackForm({ ref }) {
-    const [isLoad, setIsLoad] = (0,react.useState)(false);
-    const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
-    return ((0,jsx_runtime.jsxs)("div", { className: feedbackForm_module.feedbackFormContainer, children: [(0,jsx_runtime.jsxs)("div", { className: feedbackForm_module.imageWrapper, children: [(0,jsx_runtime.jsx)("img", { src: `${base}/img/feedbackForm2.webp`, alt: "", loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)(esm_ClipLoader, { color: '#2a254b', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsxs)("form", { action: "/submit-form", className: feedbackForm_module.feedbackForm, ref: ref, children: [(0,jsx_runtime.jsx)("h3", { children: "Feedback form" }), (0,jsx_runtime.jsxs)("fieldset", { children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "name", children: "Name:" }), (0,jsx_runtime.jsx)("input", { type: "text", id: "name", name: "name", placeholder: "Enter your name", required: true })] }), (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "email", children: "Email:" }), (0,jsx_runtime.jsx)("input", { type: "email", id: "email", name: "email", placeholder: "Enter your email", required: true })] })] }), (0,jsx_runtime.jsxs)("fieldset", { children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "subject", children: "Subject:" }), (0,jsx_runtime.jsx)("input", { type: "subject", id: "subject", name: "subject", placeholder: "Subject of your message" })] }), (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "message", children: "Message:" }), (0,jsx_runtime.jsx)("textarea", { id: "message", name: "message", placeholder: "Type your message here..." })] })] }), (0,jsx_runtime.jsx)("button", { type: "button", className: 'globalButton', children: "Send" })] })] }));
-}
-
-;// ./src/pages/ContactsPage.tsx
-
-
-
-
-
-function ContactsPage() {
-    (0,react.useEffect)(() => {
-        window.scrollTo(0, 0);
-    }, []);
-    const scrollRef = (0,react.useRef)(null);
-    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)(ContactsHeroBlock, { ref: scrollRef }), (0,jsx_runtime.jsx)(ContactsBlock, {}), (0,jsx_runtime.jsx)(FeedbackForm, { ref: scrollRef })] }));
-}
-
-
-/***/ }),
-
 /***/ 2056:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -26195,14 +26062,83 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _burgerMenu_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7486);
 /* harmony import */ var _BurgerMenuNav_BurgerMenuNav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1654);
 /* harmony import */ var _BurgerMenuFooter_BurgerMenuFooter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1662);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(961);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_BurgerMenuNav_BurgerMenuNav__WEBPACK_IMPORTED_MODULE_2__]);
 _BurgerMenuNav_BurgerMenuNav__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
 
+
 function BurgerMenu({ isOpen }) {
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("nav", { className: `${_burgerMenu_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.burgerMenu} ${isOpen ? _burgerMenu_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.open : ''}`, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_BurgerMenuNav_BurgerMenuNav__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_BurgerMenuFooter_BurgerMenuFooter__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {})] }));
+    const overlay = document.getElementById('overlay');
+    if (!overlay)
+        throw new Error('No overlay container found');
+    return (0,react_dom__WEBPACK_IMPORTED_MODULE_4__.createPortal)((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("nav", { className: `${_burgerMenu_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.burgerMenu} ${isOpen ? _burgerMenu_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.open : ''}`, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_BurgerMenuNav_BurgerMenuNav__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_BurgerMenuFooter_BurgerMenuFooter__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {})] }), overlay);
+}
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
+/***/ 2944:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (/* binding */ SearchForm)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
+/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6618);
+/* harmony import */ var _searchForm_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(82);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6540);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1362);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__]);
+_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
+
+
+
+function SearchForm() {
+    const [isShowInput, setIsShowInput] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
+    const [query, setQuery] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)('');
+    const inputRef = (0,react__WEBPACK_IMPORTED_MODULE_3__.useRef)(null);
+    const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__/* .useNavigate */ .Zp)();
+    const { setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__/* .useProductsAndFilters */ .u)();
+    function onSearchButtonClick(e) {
+        if (isShowInput && query) {
+            setFiltersOptions(prev => ({ ...prev, search: query }));
+            navigate('/allProducts');
+        }
+        else if (!isShowInput) {
+            setIsShowInput(true);
+        }
+    }
+    function onTransitionEnd() {
+        if (isShowInput) {
+            inputRef.current?.focus();
+        }
+        else {
+            inputRef.current?.blur();
+        }
+    }
+    function submitHandler(e) {
+        e.preventDefault();
+        if (isShowInput && query) {
+            setFiltersOptions(prev => ({ ...prev, search: query }));
+            navigate('/allProducts');
+        }
+    }
+    function blurHandler(e) {
+        setIsShowInput(false);
+    }
+    function clearQueryButtonClick(e) {
+        e.preventDefault();
+        setQuery('');
+    }
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", { className: `${_searchForm_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.searchForm} ${isShowInput ? _searchForm_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.active : ''}`, onSubmit: submitHandler, onTransitionEnd: onTransitionEnd, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { type: "button", onMouseDown: onSearchButtonClick, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("rect", { width: "16", height: "16", fill: "white" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { fill: "#2A254B", d: "M14.5001 13.7929L10.7241 10.0169C11.6314 8.92758 12.0839 7.53038 11.9873 6.11596C11.8908 4.70153 11.2526 3.37879 10.2057 2.42288C9.15867 1.46698 7.78347 0.951515 6.36612 0.983723C4.94877 1.01593 3.5984 1.59333 2.59593 2.59581C1.59345 3.59828 1.01605 4.94865 0.983845 6.366C0.951637 7.78335 1.4671 9.15855 2.423 10.2055C3.37891 11.2525 4.70165 11.8907 6.11608 11.9872C7.5305 12.0838 8.9277 11.6313 10.017 10.7239L13.7931 14.5L14.5001 13.7929ZM2.00012 6.5C2.00012 5.60998 2.26404 4.73995 2.75851 3.99993C3.25297 3.25991 3.95578 2.68313 4.77804 2.34254C5.60031 2.00194 6.50511 1.91283 7.37802 2.08646C8.25094 2.2601 9.05276 2.68868 9.6821 3.31802C10.3114 3.94735 10.74 4.74918 10.9137 5.62209C11.0873 6.495 10.9982 7.3998 10.6576 8.22207C10.317 9.04434 9.7402 9.74714 9.00018 10.2416C8.26016 10.7361 7.39013 11 6.50012 11C5.30705 10.9987 4.16323 10.5241 3.3196 9.68052C2.47597 8.83689 2.00144 7.69306 2.00012 6.5Z" })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { type: "search", onBlur: blurHandler, onChange: (e) => setQuery(e.target.value), ref: inputRef, value: query }), query && isShowInput && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: _searchForm_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.clearButton, type: 'button', onMouseDown: clearQueryButtonClick, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { fill: "#2A254B", width: "16px", height: "16px", viewBox: "0 0 56.00 56.00", stroke: "#2A254B", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("g", { id: "SVGRepo_bgCarrier", strokeWidth: "0" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("g", { id: "SVGRepo_tracerCarrier", strokeLinecap: "round", strokeLinejoin: "round", stroke: "#CCCCCC", strokeWidth: "0.33599999999999997" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("g", { id: "SVGRepo_iconCarrier", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M 10.0234 43.0234 C 9.2266 43.8203 9.2031 45.1797 10.0234 45.9766 C 10.8438 46.7734 12.1797 46.7734 13.0000 45.9766 L 28.0000 30.9766 L 43.0000 45.9766 C 43.7969 46.7734 45.1563 46.7969 45.9766 45.9766 C 46.7734 45.1562 46.7734 43.8203 45.9766 43.0234 L 30.9531 28.0000 L 45.9766 13.0000 C 46.7734 12.2031 46.7969 10.8437 45.9766 10.0469 C 45.1328 9.2266 43.7969 9.2266 43.0000 10.0469 L 28.0000 25.0469 L 13.0000 10.0469 C 12.1797 9.2266 10.8203 9.2031 10.0234 10.0469 C 9.2266 10.8672 9.2266 12.2031 10.0234 13.0000 L 25.0234 28.0000 Z" }) })] }) }))] }));
 }
 
 __webpack_async_result__();
@@ -26238,6 +26174,38 @@ function FilterFieldset({ filter, title, showOptions, setShowOptions, onChange }
     const { filtersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__/* .useProductsAndFilters */ .u)();
     const filterItems = filterNames.map(filterName => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", { className: filtersOptions.filters[filter].includes(filterName) ? _filterFieldset_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.activeLabel : '', children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { type: "checkbox", checked: filtersOptions.filters[filter].includes(filterName), value: filterName, name: filter, onChange: onChange }), filterName] }, filterName)));
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("fieldset", { className: `${showOptions[filter] ? '' : _filterFieldset_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.hiddenFieldset} ${_filterFieldset_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.filterFieldset}`, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("legend", { className: filtersOptions.filters[filter].length > 0 ? _filterFieldset_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.activeLegend : '', onClick: () => toggleFieldset(), children: title }), filterItems] }));
+}
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
+/***/ 3054:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (/* binding */ HeaderTop)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
+/* harmony import */ var _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7516);
+/* harmony import */ var _Components_SearchForm_SearchForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2944);
+/* harmony import */ var _Context_CartContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5783);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1362);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_SearchForm_SearchForm__WEBPACK_IMPORTED_MODULE_2__]);
+_Components_SearchForm_SearchForm__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
+
+
+
+function HeaderTop({ isOpenBurger, setIsOpenBurger }) {
+    const { cart } = (0,_Context_CartContext__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)();
+    const quantity = cart.length;
+    const isShowCart = cart.length > 0;
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.headerTop, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__/* .Link */ .N_, { to: '/', className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.title, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: "Avion" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.iconLayoutLeft, children: [isShowCart &&
+                        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__/* .Link */ .N_, { to: '/shoppingCart', className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.cartLink, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("rect", { width: "16", height: "16", fill: "white" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15Z", fill: "#2A254B" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M12 15C12.5523 15 13 14.5523 13 14C13 13.4477 12.5523 13 12 13C11.4477 13 11 13.4477 11 14C11 14.5523 11.4477 15 12 15Z", fill: "#2A254B" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M14 3.50001H2.91L2.5 1.40001C2.47662 1.28537 2.41379 1.18256 2.32243 1.10947C2.23107 1.03639 2.11697 0.997651 2 1.00001H0V2.00001H1.59L3.5 11.6C3.52338 11.7146 3.58621 11.8175 3.67757 11.8905C3.76893 11.9636 3.88303 12.0024 4 12H13V11H4.41L4 9.00001H13C13.1156 9.00284 13.2286 8.96552 13.3197 8.89441C13.4109 8.8233 13.4746 8.7228 13.5 8.61001L14.5 4.11001C14.5168 4.03582 14.5164 3.95879 14.4989 3.88478C14.4814 3.81076 14.4472 3.74172 14.399 3.6829C14.3508 3.62407 14.2898 3.57703 14.2206 3.54534C14.1515 3.51364 14.076 3.49814 14 3.50001ZM12.6 8.00001H3.81L3.11 4.50001H13.375L12.6 8.00001Z", fill: "#2A254B" })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.quantityLabel, children: quantity })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_SearchForm_SearchForm__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {})] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.iconLayoutRight, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__/* .Link */ .N_, { to: '/shoppingCart', className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.cartLink, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("rect", { width: "16", height: "16", fill: "white" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15Z", fill: "#2A254B" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M12 15C12.5523 15 13 14.5523 13 14C13 13.4477 12.5523 13 12 13C11.4477 13 11 13.4477 11 14C11 14.5523 11.4477 15 12 15Z", fill: "#2A254B" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M14 3.50001H2.91L2.5 1.40001C2.47662 1.28537 2.41379 1.18256 2.32243 1.10947C2.23107 1.03639 2.11697 0.997651 2 1.00001H0V2.00001H1.59L3.5 11.6C3.52338 11.7146 3.58621 11.8175 3.67757 11.8905C3.76893 11.9636 3.88303 12.0024 4 12H13V11H4.41L4 9.00001H13C13.1156 9.00284 13.2286 8.96552 13.3197 8.89441C13.4109 8.8233 13.4746 8.7228 13.5 8.61001L14.5 4.11001C14.5168 4.03582 14.5164 3.95879 14.4989 3.88478C14.4814 3.81076 14.4472 3.74172 14.399 3.6829C14.3508 3.62407 14.2898 3.57703 14.2206 3.54534C14.1515 3.51364 14.076 3.49814 14 3.50001ZM12.6 8.00001H3.81L3.11 4.50001H13.375L12.6 8.00001Z", fill: "#2A254B" })] }), isShowCart && (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.quantityLabel, children: quantity })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__/* .Link */ .N_, { to: '/profile', children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("rect", { width: "16", height: "16", fill: "white" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M8 4C7.50555 4 7.0222 4.14662 6.61108 4.42133C6.19995 4.69603 5.87952 5.08648 5.6903 5.54329C5.50108 6.00011 5.45158 6.50277 5.54804 6.98773C5.6445 7.47268 5.88261 7.91814 6.23224 8.26777C6.58187 8.6174 7.02733 8.8555 7.51228 8.95196C7.99723 9.04843 8.4999 8.99892 8.95671 8.8097C9.41353 8.62048 9.80397 8.30005 10.0787 7.88893C10.3534 7.4778 10.5 6.99445 10.5 6.5C10.5 5.83696 10.2366 5.20107 9.76777 4.73223C9.29893 4.26339 8.66304 4 8 4ZM8 8C7.70333 8 7.41332 7.91203 7.16665 7.7472C6.91997 7.58238 6.72772 7.34811 6.61418 7.07403C6.50065 6.79994 6.47095 6.49834 6.52882 6.20736C6.5867 5.91639 6.72956 5.64912 6.93934 5.43934C7.14912 5.22956 7.4164 5.0867 7.70737 5.02882C7.99834 4.97094 8.29994 5.00065 8.57403 5.11418C8.84812 5.22771 9.08239 5.41997 9.24721 5.66664C9.41203 5.91332 9.5 6.20333 9.5 6.5C9.49955 6.89769 9.34137 7.27896 9.06017 7.56016C8.77896 7.84137 8.39769 7.99955 8 8Z", fill: "#2A254B" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M8 1C6.61553 1 5.26216 1.41054 4.11101 2.17971C2.95987 2.94888 2.06266 4.04213 1.53285 5.32122C1.00303 6.6003 0.86441 8.00776 1.13451 9.36563C1.4046 10.7235 2.07129 11.9708 3.05026 12.9497C4.02922 13.9287 5.2765 14.5954 6.63437 14.8655C7.99224 15.1356 9.3997 14.997 10.6788 14.4672C11.9579 13.9373 13.0511 13.0401 13.8203 11.889C14.5895 10.7378 15 9.38447 15 8C14.9979 6.14413 14.2597 4.36486 12.9474 3.05256C11.6351 1.74026 9.85588 1.00209 8 1ZM5 13.1882V12.5C5.00044 12.1023 5.15862 11.721 5.43983 11.4398C5.72104 11.1586 6.10231 11.0004 6.5 11H9.5C9.89769 11.0004 10.279 11.1586 10.5602 11.4398C10.8414 11.721 10.9996 12.1023 11 12.5V13.1882C10.0896 13.7199 9.05426 14 8 14C6.94574 14 5.91042 13.7199 5 13.1882ZM11.9963 12.4629C11.9863 11.807 11.7191 11.1813 11.2521 10.7206C10.7852 10.2599 10.156 10.0011 9.5 10H6.5C5.84405 10.0011 5.2148 10.2599 4.74786 10.7206C4.28093 11.1813 4.01369 11.807 4.00375 12.4629C3.09703 11.6533 2.45762 10.5873 2.17017 9.40623C1.88272 8.22513 1.9608 6.98457 2.39407 5.84883C2.82734 4.71309 3.59536 3.73573 4.59644 3.04618C5.59751 2.35663 6.78442 1.98741 8 1.98741C9.21558 1.98741 10.4025 2.35663 11.4036 3.04618C12.4046 3.73573 13.1727 4.71309 13.6059 5.84883C14.0392 6.98457 14.1173 8.22513 13.8298 9.40623C13.5424 10.5873 12.903 11.6533 11.9963 12.4629Z", fill: "#2A254B" })] }) })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.burgerButton, onClick: () => setIsOpenBurger(prev => !prev), children: isOpenBurger ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { viewBox: "0 0 448 512", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { fill: "#2A254B", d: "M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" }) })) : ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("rect", { width: "16", height: "16", fill: "white" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M14 3H2V4H14V3Z", fill: "#2A254B" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M14 12H2V13H14V12Z", fill: "#2A254B" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M14 6H2V7H14V6Z", fill: "#2A254B" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M14 9H2V10H14V9Z", fill: "#2A254B" })] })) })] }));
 }
 
 __webpack_async_result__();
@@ -27559,6 +27527,7 @@ function ProductsAndFiltersProvider({ children }) {
     const [hasMore, setHasMore] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
     const [alreadyLoaded, setAlreadyLoaded] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0);
     const [isLoading, setIsLoading] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true);
+    const [shouldFetchProducts, setShouldFetchProducts] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
     // Формируем заголовок для страницы с продуктами
     let title = (0,_utils_getAllProductsTitle__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)(filtersOptions);
     let ignore = false;
@@ -27591,13 +27560,13 @@ function ProductsAndFiltersProvider({ children }) {
             alreadyLoaded: alreadyLoaded.toString(),
             limit: pageSize.toString()
         });
-        if (!ignore) {
+        if (!ignore && shouldFetchProducts) {
             fetchProducts(searchParams);
         }
         return () => {
             ignore = true;
         };
-    }, [alreadyLoaded, filtersOptions]);
+    }, [alreadyLoaded, filtersOptions, shouldFetchProducts]);
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(ProductsAndFiltersContext.Provider, { value: {
             filterContext,
             filtersOptions,
@@ -27607,7 +27576,8 @@ function ProductsAndFiltersProvider({ children }) {
             alreadyLoaded,
             isLoading,
             loadMore,
-            title
+            title,
+            setShouldFetchProducts
         }, children: children }));
 }
 
@@ -29426,6 +29396,402 @@ __webpack_async_result__();
 
 /***/ }),
 
+/***/ 7317:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (/* binding */ UserPage)
+});
+
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(4848);
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(6540);
+// EXTERNAL MODULE: ./node_modules/react-spinners/esm/ClipLoader.js + 2 modules
+var ClipLoader = __webpack_require__(769);
+// EXTERNAL MODULE: ./src/Context/userSessionContext.tsx + 1 modules
+var userSessionContext = __webpack_require__(9875);
+;// ./src/Components/EmailActivationMessage/emailActivationMessage.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const emailActivationMessage_module = ({"activationMessage":"zrD5Mt"});
+;// ./src/Components/EmailActivationMessage/EmailActivationMessage.tsx
+
+
+function EmailActivationMessage() {
+    return ((0,jsx_runtime.jsx)("div", { className: emailActivationMessage_module.activationMessage, children: (0,jsx_runtime.jsx)("p", { children: "We have sent an activation link to your email. Please check your inbox and follow the link" }) }));
+}
+
+;// ./src/Components/ProfileSettingsForm/profileSettingsForm.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const profileSettingsForm_module = ({"profileForm":"uP8UbY","formTitle":"hekziV","profileInfo":"ul9lo7"});
+;// ./src/utils/formDataValidator.ts
+const formDataValidator = {
+    name(value) {
+        const nameRegex = /^[A-Za-zÀ-žА-Яа-яЁё]+(?:[-\s][A-Za-zÀ-žА-Яа-яЁё]+)*$/;
+        if (!value)
+            return '';
+        else if (!nameRegex.test(value))
+            return 'Invalid name format';
+        else if (value.length < 2 || value.length > 33)
+            return 'Name must be 2-33 chars';
+        return '';
+    },
+    username(value) {
+        const nameRegex = /^[A-Za-zА-Яа-яЁё\s-]+$/;
+        if (!value)
+            return 'Field must be filled';
+        else if (value.length < 2 || value.length > 33)
+            return 'Name must be 2-33 chars';
+        else if (!nameRegex.test(value))
+            return 'Name can contain only letters, spaces and dashes';
+        else
+            return '';
+    },
+    email(value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!value)
+            return 'Field must be filled';
+        else if (!emailRegex.test(value))
+            return 'Invalid email format';
+        else
+            return '';
+    },
+    oldPassword(value) {
+        if (!value)
+            return 'Field must be filled';
+        else if (value.length < 6)
+            return 'Password must be at least 6 characters long';
+        return '';
+    },
+    password(value, formData) {
+        if (!formData)
+            return '';
+        if (!value)
+            return 'Field must be filled';
+        else if (value.length < 6)
+            return 'Password must be at least 6 characters long';
+        else if ('confirmPassword' in formData && (value !== formData.confirmPassword))
+            return 'Passwords do not match';
+        return '';
+    },
+    confirmPassword(value, formData) {
+        if (!formData)
+            return '';
+        if (!value)
+            return 'Field must be filled';
+        else if (value.length < 6)
+            return 'Password must be at least 6 characters long';
+        else if ('password' in formData && (value !== formData.password))
+            return 'Passwords do not match';
+        return '';
+    },
+    phone(value) {
+        const phoneRegex = /^\+?[0-9 ]*$/;
+        if (!value)
+            return '';
+        else if (!phoneRegex.test(value))
+            return 'Invalid phone number format';
+        const digitsCount = value.replace(/\D/g, '').length;
+        if (digitsCount < 8 || digitsCount > 15)
+            return 'Phone number must be 8-15 digits long';
+        return '';
+    },
+    location(value) {
+        const locationRegex = /^[A-Za-zÀ-ž\s-]+$/;
+        if (!value)
+            return '';
+        else if (!locationRegex.test(value))
+            return 'Invalid location format';
+        else if (value.length < 2 || value.length > 35)
+            return 'Location must be 2-35 chars long';
+        return '';
+    }
+};
+
+;// ./src/utils/passwordGroupValidator.ts
+function passwordGroupValidator(formData, validator) {
+    const { oldPassword, password, confirmPassword } = formData;
+    if (!oldPassword && !password && !confirmPassword) {
+        return { oldPassword: "", password: "", confirmPassword: "" };
+    }
+    return {
+        oldPassword: validator.oldPassword(oldPassword, formData),
+        password: validator.password(password, formData),
+        confirmPassword: validator.confirmPassword(confirmPassword, formData)
+    };
+}
+
+;// ./src/Components/ProfileInfoFields/profileInfoFields.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const profileInfoFields_module = ({"errorField":"il43j7","checkbox":"W5KE3F"});
+;// ./src/data/profileInfoFieldsDictionary.ts
+const profileInfoFieldsDictionary = {
+    Personal: [
+        {
+            label: 'User name',
+            name: 'username',
+            type: 'text',
+            field: 'username'
+        },
+        {
+            label: 'First name',
+            name: 'firstName',
+            type: 'text',
+            field: 'firstName',
+            dataMethod: 'name'
+        },
+        {
+            label: 'Last name',
+            name: 'lastName',
+            type: 'text',
+            field: 'lastName',
+            dataMethod: 'name'
+        }
+    ],
+    Contacts: [
+        {
+            label: 'Email',
+            name: 'email',
+            type: 'email',
+            field: 'email'
+        },
+        {
+            label: 'Phone',
+            name: 'phone',
+            type: 'tel',
+            field: 'phone',
+        },
+        {
+            label: 'Country',
+            name: 'country',
+            type: 'text',
+            field: 'country',
+            dataMethod: 'location'
+        },
+        {
+            label: 'City',
+            name: 'city',
+            type: 'text',
+            field: 'city',
+            dataMethod: 'location'
+        },
+    ],
+    Passwords: [
+        {
+            label: 'Old password',
+            name: 'oldPassword',
+        },
+        {
+            label: 'New password',
+            name: 'password',
+        },
+        {
+            label: 'Confirm new password',
+            name: 'confirmPassword',
+        }
+    ]
+};
+
+;// ./src/Components/ProfileInfoFields/ProfileInfoFields.tsx
+
+
+
+
+function ProfileInfoFields({ edit, errors, formData, changeHandler, variation }) {
+    let infoItems;
+    const [showPassword, setShowPassword] = (0,react.useState)(false);
+    if (variation === 'Personal' || variation === 'Contacts') {
+        infoItems = profileInfoFieldsDictionary[variation].map(field => ((0,jsx_runtime.jsxs)("label", { children: [(0,jsx_runtime.jsx)("span", { children: field.label }), edit ?
+                    (0,jsx_runtime.jsx)("input", { className: errors[field.field] ? profileInfoFields_module.errorField : '', value: formData?.[field.field], onChange: changeHandler, name: field.name, type: field.type, "data-method": field.dataMethod && field.dataMethod }) :
+                    (0,jsx_runtime.jsx)("p", { children: formData?.[field.field] })] }, field.label)));
+    }
+    else if (variation === 'Passwords') {
+        infoItems = profileInfoFieldsDictionary[variation].map(field => ((0,jsx_runtime.jsxs)("label", { children: [(0,jsx_runtime.jsx)("span", { children: field.label }), (0,jsx_runtime.jsx)("input", { className: errors[field.name] ? profileInfoFields_module.errorField : '', onChange: changeHandler, name: field.name, type: showPassword ? "text" : "password" })] }, field.label)));
+        return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [infoItems, (0,jsx_runtime.jsxs)("label", { className: profileInfoFields_module.checkbox, children: [(0,jsx_runtime.jsx)("input", { onChange: () => setShowPassword(prev => !prev), type: "checkbox" }), "Show password"] }, 'checkBox')] }));
+    }
+    return ((0,jsx_runtime.jsx)(jsx_runtime.Fragment, { children: infoItems }));
+}
+
+;// ./src/Components/ProfileSettingsForm/ProfileSettingsForm.tsx
+
+
+
+
+
+
+
+function ProfileSettingsForm() {
+    const { userData, updateUser } = (0,userSessionContext/* useUserSessionContext */.u)();
+    const fieldNames = [
+        "firstName", "lastName", "username",
+        "oldPassword", "password", "confirmPassword",
+        "phone", "email", "country", "city"
+    ];
+    const initFormData = Object.fromEntries(fieldNames.map(f => [f, userData?.[f] || ""]));
+    const initErrorFields = Object.fromEntries(fieldNames.map(f => [f, ""]));
+    const [edit, setEdit] = (0,react.useState)(false);
+    const [formData, setFormData] = (0,react.useState)(initFormData);
+    const [errors, setErrors] = (0,react.useState)(initErrorFields);
+    function changeHandler(e) {
+        const { name, value, dataset } = e.target;
+        const method = dataset.method || name;
+        const newFormData = { ...formData, [name]: value };
+        setFormData(newFormData);
+        if (name === 'password' || name === 'confirmPassword' || name === 'oldPassword') {
+            setErrors(prev => ({
+                ...prev,
+                ...passwordGroupValidator(newFormData, formDataValidator)
+            }));
+        }
+        else {
+            setErrors(prev => ({ ...prev, [name]: formDataValidator[method](value, newFormData) }));
+        }
+    }
+    function submitChanges() {
+        for (let err in errors) {
+            if (errors[err].length) {
+                return;
+            }
+        }
+        const updateData = Object.fromEntries(Object.entries(formData).filter(([k, v]) => {
+            if (k === 'password' || k === 'confirmPassword' || k === 'oldPassword') {
+                return v;
+            }
+            else
+                return true;
+        }));
+        updateUser(updateData);
+    }
+    function editButtonClick() {
+        if (edit) {
+            setFormData(initFormData);
+            setErrors(initErrorFields);
+            setEdit(false);
+        }
+        else {
+            setEdit(true);
+        }
+    }
+    return ((0,jsx_runtime.jsx)("form", { className: profileSettingsForm_module.profileForm, children: (0,jsx_runtime.jsxs)("section", { children: [(0,jsx_runtime.jsxs)("div", { className: profileSettingsForm_module.formTitle, children: [(0,jsx_runtime.jsx)("h2", { children: "Profile info" }), (0,jsx_runtime.jsx)("button", { onClick: editButtonClick, className: 'globalButton', type: 'button', children: edit ? "Cancel" : "Edit" })] }), (0,jsx_runtime.jsxs)("div", { className: profileSettingsForm_module.profileInfo, children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)(ProfileInfoFields, { edit: edit, errors: errors, formData: formData, changeHandler: changeHandler, variation: 'Personal' }), edit &&
+                                    (0,jsx_runtime.jsx)(ProfileInfoFields, { edit: edit, errors: errors, formData: formData, changeHandler: changeHandler, variation: 'Passwords' })] }), (0,jsx_runtime.jsx)("div", { children: (0,jsx_runtime.jsx)(ProfileInfoFields, { edit: edit, errors: errors, formData: formData, changeHandler: changeHandler, variation: 'Contacts' }) })] }), edit && (0,jsx_runtime.jsx)("button", { type: 'button', className: 'globalButton', onClick: submitChanges, children: "Save changes" })] }) }));
+}
+
+;// ./src/Components/ProfileHat/profileHat.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const profileHat_module = ({"profileHatBanner":"ePVvXj","profileHat":"qUhSQC","avatar":"yBEPe7","controls":"DFbanZ"});
+;// ./src/Components/ProfileHat/ProfileHat.tsx
+
+
+
+function ProfileHat() {
+    const { userData, logout } = (0,userSessionContext/* useUserSessionContext */.u)();
+    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)("div", { className: profileHat_module.profileHatBanner, children: (0,jsx_runtime.jsxs)("h2", { children: ["Welcome ", userData?.username] }) }), (0,jsx_runtime.jsxs)("section", { className: profileHat_module.profileHat, children: [(0,jsx_runtime.jsxs)("figure", { className: profileHat_module.avatar, children: [(0,jsx_runtime.jsxs)("svg", { width: "80px", height: "80px", viewBox: "0 0 24 24", fill: "none", stroke: "#2a254b", children: [(0,jsx_runtime.jsx)("g", { strokeWidth: "0" }), (0,jsx_runtime.jsx)("g", { id: "SVGRepo_tracerCarrier", strokeLinecap: "round", strokeLinejoin: "round", stroke: "#000000", strokeWidth: "0.288" }), (0,jsx_runtime.jsxs)("g", { id: "SVGRepo_iconCarrier", children: [(0,jsx_runtime.jsx)("path", { d: "M12.12 12.78C12.05 12.77 11.96 12.77 11.88 12.78C10.12 12.72 8.71997 11.28 8.71997 9.50998C8.71997 7.69998 10.18 6.22998 12 6.22998C13.81 6.22998 15.28 7.69998 15.28 9.50998C15.27 11.28 13.88 12.72 12.12 12.78Z", stroke: "#2a254b", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,jsx_runtime.jsx)("path", { d: "M18.74 19.3801C16.96 21.0101 14.6 22.0001 12 22.0001C9.40001 22.0001 7.04001 21.0101 5.26001 19.3801C5.36001 18.4401 5.96001 17.5201 7.03001 16.8001C9.77001 14.9801 14.25 14.9801 16.97 16.8001C18.04 17.5201 18.64 18.4401 18.74 19.3801Z", stroke: "#2a254b", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,jsx_runtime.jsx)("path", { d: "M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z", stroke: "#2a254b", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] })] }), (0,jsx_runtime.jsxs)("figcaption", { children: [(0,jsx_runtime.jsx)("h2", { children: userData?.username }), (0,jsx_runtime.jsx)("p", { children: userData?.role })] })] }), (0,jsx_runtime.jsxs)("nav", { className: profileHat_module.controls, children: [(0,jsx_runtime.jsx)("button", { children: "Info" }), (0,jsx_runtime.jsx)("button", { children: "Orders" }), (0,jsx_runtime.jsx)("button", { onClick: logout, children: "Logout" })] })] })] }));
+}
+
+;// ./src/Components/ProfileBlock/ProfileBlock.tsx
+
+
+
+function ProfileBlock() {
+    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)(ProfileHat, {}), (0,jsx_runtime.jsx)(ProfileSettingsForm, {})] }));
+}
+
+;// ./src/Components/AuthForm/registerForm.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const registerForm_module = ({"registerFormBlock":"BlU_7S","errorField":"gwV3HC"});
+;// ./src/Components/AuthForm/AuthForm.tsx
+
+
+
+
+
+const placeHolders = {
+    username: 'Your name',
+    email: 'Your email',
+    password: 'Password',
+    confirmPassword: 'Confirm password'
+};
+function AuthForm({ variation, setSwitchForm }) {
+    const { postUser } = (0,userSessionContext/* useUserSessionContext */.u)();
+    const isSignUp = variation === 'Sign up';
+    const initFormDataFields = isSignUp ? {
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+    } : {
+        email: '',
+        password: '',
+    };
+    const [formData, setFormData] = (0,react.useState)(initFormDataFields);
+    const [errors, setErrors] = (0,react.useState)(initFormDataFields);
+    const [showPassword, setShowPassword] = (0,react.useState)(false);
+    function sendFormData() {
+        const newErrorData = {};
+        for (const key in formData) {
+            const value = formData[key] || '';
+            newErrorData[key] = formDataValidator[key](value, formData);
+        }
+        setErrors(newErrorData);
+        const hasErrors = Object.values(newErrorData).some(err => !!err);
+        if (hasErrors)
+            return;
+        postUser(formData);
+    }
+    function changeHandler(e) {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newFormData = { ...formData, [field]: value };
+        setFormData(newFormData);
+        if (field === 'password' || field === 'confirmPassword') {
+            setErrors(prev => ({
+                ...prev,
+                'password': formDataValidator.password(newFormData.password, newFormData),
+                'confirmPassword': formDataValidator.confirmPassword(newFormData.confirmPassword ?? '', newFormData)
+            }));
+        }
+        else {
+            setErrors(prev => ({ ...prev, [field]: formDataValidator[field](value, newFormData) }));
+        }
+    }
+    const formInputs = Object.keys(formData).map(field => {
+        return ((0,jsx_runtime.jsx)("input", { className: errors[field] ? registerForm_module.errorField : '', type: (field === 'password' || field === 'confirmPassword') ? (showPassword ? 'text' : 'password') : field, name: field, value: formData[field], onChange: changeHandler, placeholder: placeHolders[field], autoComplete: "AutoFill" }, field));
+    });
+    const switchButtonLabel = isSignUp ? 'Log in' : 'Sign up';
+    const question = isSignUp ? "Already have an account?" : "Don't have an account?";
+    return ((0,jsx_runtime.jsx)("div", { className: registerForm_module.registerFormBlock, children: (0,jsx_runtime.jsxs)("form", { onSubmit: () => sendFormData(), children: [(0,jsx_runtime.jsx)("h2", { children: variation }), formInputs, (0,jsx_runtime.jsxs)("label", { children: [(0,jsx_runtime.jsx)("input", { type: "checkbox", onChange: () => setShowPassword(prev => !prev) }), "Show password"] }), (0,jsx_runtime.jsx)("button", { type: "button", className: "globalButton", onClick: sendFormData, children: variation }), (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("p", { children: question }), (0,jsx_runtime.jsx)("button", { type: "button", className: "globalButton", onClick: () => setSwitchForm(prev => !prev), children: switchButtonLabel })] })] }) }));
+}
+
+;// ./src/pages/UserPage.tsx
+
+
+
+
+
+
+
+function UserPage() {
+    const [switchForm, setSwitchForm] = (0,react.useState)(true);
+    const { userData, isLoading } = (0,userSessionContext/* useUserSessionContext */.u)();
+    (0,react.useEffect)(() => {
+        console.log('effect: ', userData);
+    }, [userData]);
+    if (isLoading)
+        return ((0,jsx_runtime.jsx)("div", { style: { height: '70vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }, children: (0,jsx_runtime.jsx)(ClipLoader/* default */.A, { size: 100 }) }));
+    return (userData ?
+        !userData.isActivated ?
+            (0,jsx_runtime.jsx)(EmailActivationMessage, {})
+            : (0,jsx_runtime.jsx)(ProfileBlock, {})
+        : (switchForm
+            ? (0,jsx_runtime.jsx)(AuthForm, { setSwitchForm: setSwitchForm, variation: "Sign up" }, 'Sign up')
+            : (0,jsx_runtime.jsx)(AuthForm, { setSwitchForm: setSwitchForm, variation: "Log in" }, 'Log in')));
+}
+
+
+/***/ }),
+
 /***/ 7339:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -29624,6 +29990,17 @@ __webpack_async_result__();
 
 /***/ }),
 
+/***/ 7516:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"headerTop":"QKu86m","cartLink":"T38roS","quantityLabel":"GUZs9M","title":"XJT8W2","iconLayoutRight":"DfBgTO","iconLayoutLeft":"c9NsMO","burgerButton":"seGHCO"});
+
+/***/ }),
+
 /***/ 7572:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -29671,8 +30048,11 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Com
 
 const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
 function AllProductsPage() {
-    const { title } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_6__/* .useProductsAndFilters */ .u)();
+    const { title, setShouldFetchProducts } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_6__/* .useProductsAndFilters */ .u)();
     const location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__/* .useLocation */ .zy)();
+    (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)(() => {
+        setShouldFetchProducts(true);
+    }, []);
     (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)(() => {
         if (location.state?.scrollToTop) {
             window.scrollTo(0, 0);
@@ -30157,6 +30537,88 @@ function jsxProd(type, config, maybeKey) {
 exports.Fragment = REACT_FRAGMENT_TYPE;
 exports.jsx = jsxProd;
 exports.jsxs = jsxProd;
+
+
+/***/ }),
+
+/***/ 9746:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (/* binding */ ContactsPage)
+});
+
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(4848);
+// EXTERNAL MODULE: ./src/Components/SocialLinks/SocialLinks.tsx + 1 modules
+var SocialLinks = __webpack_require__(6306);
+;// ./src/Components/ContactsBlock/contactsBlock.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const contactsBlock_module = ({"contactsBlock":"Fd3FC5","contacts":"ZHQgyx","map":"PyGP9q"});
+;// ./src/Components/ContactsBlock/ContactsBlock.tsx
+
+
+
+function ContactsBlock() {
+    return ((0,jsx_runtime.jsxs)("div", { className: contactsBlock_module.contactsBlock, children: [(0,jsx_runtime.jsxs)("address", { className: contactsBlock_module.contacts, children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("h4", { children: "Address" }), (0,jsx_runtime.jsxs)("p", { children: ["21 New York Street", (0,jsx_runtime.jsx)("br", {}), "New York City", (0,jsx_runtime.jsx)("br", {}), "United States of America", (0,jsx_runtime.jsx)("br", {}), "432 34"] })] }), (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("h4", { children: "Phone" }), (0,jsx_runtime.jsx)("a", { href: "tel:+1234567890", children: "+1 (234) 567-890" }), (0,jsx_runtime.jsx)("a", { href: "tel:+1234567891", children: "+1 (234) 567-891" })] }), (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("h4", { children: "Email" }), (0,jsx_runtime.jsx)("a", { href: "mailto:mail@avion.com", children: "mail@avion.com" })] }), (0,jsx_runtime.jsx)(SocialLinks/* default */.A, { color: "#2a254b" })] }), (0,jsx_runtime.jsx)("div", { className: contactsBlock_module.map, children: (0,jsx_runtime.jsx)("iframe", { width: "100%", height: "100%", src: "https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Century%2021%20NYC%2022%20Cortlandt%20St,%20Manhattan,%20NY%2010007,%20United%20States+(Avion)&t=&z=14&ie=UTF8&iwloc=B&output=embed" }) })] }));
+}
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(6540);
+;// ./src/Components/ContactsHeroBlock/contactsHeroBlock.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const contactsHeroBlock_module = ({"contactsHeroBlock":"nDpmNA","imageWrapperLoading":"VYTQYh","imageWrapper":"EXumEA","bannerTextBlock":"uglhxg"});
+// EXTERNAL MODULE: ./node_modules/react-spinners/ClipLoader.js
+var ClipLoader = __webpack_require__(7420);
+var ClipLoader_default = /*#__PURE__*/__webpack_require__.n(ClipLoader);
+;// ./src/Components/ContactsHeroBlock/ContactsHeroBlock.tsx
+
+
+
+
+function ContactsHeroBlock({ ref }) {
+    const [isLoad, setIsLoad] = (0,react.useState)(false);
+    const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
+    function scrollToFeedbackForm() {
+        ref.current?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'end'
+        });
+    }
+    return ((0,jsx_runtime.jsxs)("div", { className: contactsHeroBlock_module.contactsHeroBlock, children: [(0,jsx_runtime.jsxs)("div", { className: contactsHeroBlock_module.bannerTextBlock, children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("h3", { children: "Contact us" }), (0,jsx_runtime.jsx)("p", { children: "Have a question or request? Use the feedback form or any contact details below" })] }), (0,jsx_runtime.jsx)("button", { className: 'globalLink', onClick: scrollToFeedbackForm, children: "Use feedback form" })] }), (0,jsx_runtime.jsxs)("div", { className: `${contactsHeroBlock_module.imageWrapper} ${isLoad ? '' : contactsHeroBlock_module.imageWrapperLoading}`, children: [(0,jsx_runtime.jsx)("img", { src: `${base}/img/ContactsHeroBlock.jpg`, onLoad: () => setIsLoad(true), loading: 'lazy', style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden', width: '0px' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#fff', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block' } })] })] }));
+}
+
+;// ./src/Components/FeedbackForm/feedbackForm.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const feedbackForm_module = ({"feedbackFormContainer":"mGkwC2","imageWrapper":"W08WEU","feedbackForm":"T9fk_i"});
+// EXTERNAL MODULE: ./node_modules/react-spinners/esm/ClipLoader.js + 2 modules
+var esm_ClipLoader = __webpack_require__(769);
+;// ./src/Components/FeedbackForm/FeedbackForm.tsx
+
+
+
+
+function FeedbackForm({ ref }) {
+    const [isLoad, setIsLoad] = (0,react.useState)(false);
+    const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
+    return ((0,jsx_runtime.jsxs)("div", { className: feedbackForm_module.feedbackFormContainer, children: [(0,jsx_runtime.jsxs)("div", { className: feedbackForm_module.imageWrapper, children: [(0,jsx_runtime.jsx)("img", { src: `${base}/img/feedbackForm2.webp`, alt: "", loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)(esm_ClipLoader/* default */.A, { color: '#2a254b', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsxs)("form", { action: "/submit-form", className: feedbackForm_module.feedbackForm, ref: ref, children: [(0,jsx_runtime.jsx)("h3", { children: "Feedback form" }), (0,jsx_runtime.jsxs)("fieldset", { children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "name", children: "Name:" }), (0,jsx_runtime.jsx)("input", { type: "text", id: "name", name: "name", placeholder: "Enter your name", required: true })] }), (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "email", children: "Email:" }), (0,jsx_runtime.jsx)("input", { type: "email", id: "email", name: "email", placeholder: "Enter your email", required: true })] })] }), (0,jsx_runtime.jsxs)("fieldset", { children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "subject", children: "Subject:" }), (0,jsx_runtime.jsx)("input", { type: "subject", id: "subject", name: "subject", placeholder: "Subject of your message" })] }), (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "message", children: "Message:" }), (0,jsx_runtime.jsx)("textarea", { id: "message", name: "message", placeholder: "Type your message here..." })] })] }), (0,jsx_runtime.jsx)("button", { type: "button", className: 'globalButton', children: "Send" })] })] }));
+}
+
+;// ./src/pages/ContactsPage.tsx
+
+
+
+
+
+function ContactsPage() {
+    (0,react.useEffect)(() => {
+        window.scrollTo(0, 0);
+    }, []);
+    const scrollRef = (0,react.useRef)(null);
+    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)(ContactsHeroBlock, { ref: scrollRef }), (0,jsx_runtime.jsx)(ContactsBlock, {}), (0,jsx_runtime.jsx)(FeedbackForm, { ref: scrollRef })] }));
+}
 
 
 /***/ }),
@@ -30710,6 +31172,236 @@ exports.useTransition = function () {
   return ReactSharedInternals.H.useTransition();
 };
 exports.version = "19.1.0";
+
+
+/***/ }),
+
+/***/ 9875:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  q: () => (/* binding */ UserSessionContextProvider),
+  u: () => (/* binding */ useUserSessionContext)
+});
+
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(4848);
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(6540);
+;// ./node_modules/jwt-decode/build/esm/index.js
+class InvalidTokenError extends Error {
+}
+InvalidTokenError.prototype.name = "InvalidTokenError";
+function b64DecodeUnicode(str) {
+    return decodeURIComponent(atob(str).replace(/(.)/g, (m, p) => {
+        let code = p.charCodeAt(0).toString(16).toUpperCase();
+        if (code.length < 2) {
+            code = "0" + code;
+        }
+        return "%" + code;
+    }));
+}
+function base64UrlDecode(str) {
+    let output = str.replace(/-/g, "+").replace(/_/g, "/");
+    switch (output.length % 4) {
+        case 0:
+            break;
+        case 2:
+            output += "==";
+            break;
+        case 3:
+            output += "=";
+            break;
+        default:
+            throw new Error("base64 string is not of the correct length");
+    }
+    try {
+        return b64DecodeUnicode(output);
+    }
+    catch (err) {
+        return atob(output);
+    }
+}
+function jwtDecode(token, options) {
+    if (typeof token !== "string") {
+        throw new InvalidTokenError("Invalid token specified: must be a string");
+    }
+    options || (options = {});
+    const pos = options.header === true ? 0 : 1;
+    const part = token.split(".")[pos];
+    if (typeof part !== "string") {
+        throw new InvalidTokenError(`Invalid token specified: missing part #${pos + 1}`);
+    }
+    let decoded;
+    try {
+        decoded = base64UrlDecode(part);
+    }
+    catch (e) {
+        throw new InvalidTokenError(`Invalid token specified: invalid base64 for part #${pos + 1} (${e.message})`);
+    }
+    try {
+        return JSON.parse(decoded);
+    }
+    catch (e) {
+        throw new InvalidTokenError(`Invalid token specified: invalid json for part #${pos + 1} (${e.message})`);
+    }
+}
+
+;// ./src/Context/userSessionContext.tsx
+
+
+
+const UserDataContext = (0,react.createContext)(null);
+// Раздаем контекст
+function useUserSessionContext() {
+    const userSessionContext = (0,react.useContext)(UserDataContext);
+    if (!userSessionContext)
+        throw new Error('useUserSessionContext must be used inside provider');
+    return userSessionContext;
+}
+function UserSessionContextProvider({ children }) {
+    const [userData, setUserData] = (0,react.useState)(null);
+    const [isLoading, setIsLoading] = (0,react.useState)(true);
+    const refreshTimerIdRef = (0,react.useRef)(null);
+    (0,react.useEffect)(() => {
+        // Инициализация сессии
+        async function initFetchRefreshUserData() {
+            try {
+                const userData = await fetchRefreshUserData();
+                console.log(userData);
+                if (userData) {
+                    // Парсим JWT
+                    const payload = jwtDecode(userData.accessToken);
+                    const now = Date.now() / 1000;
+                    const ttl = Math.max((payload.exp - now - 60) * 1000, 0);
+                    // Ставим рефреш на таймаут
+                    refreshTimerIdRef.current = setTimeout(initFetchRefreshUserData, ttl);
+                    // Устанавливаем данные пользователя
+                    setUserData(userData);
+                }
+            }
+            catch (err) {
+                console.log(err);
+                refreshTimerIdRef.current = setTimeout(initFetchRefreshUserData, 30 * 1000);
+            }
+        }
+        initFetchRefreshUserData();
+        return () => {
+            if (refreshTimerIdRef.current) {
+                clearTimeout(refreshTimerIdRef.current);
+            }
+        };
+    }, []);
+    // Запрос на обновление токенов 
+    async function fetchRefreshUserData() {
+        setIsLoading(true);
+        const url = "https://avion-online-store-server.onrender.com/api/" + 'refresh/' || 0;
+        try {
+            const response = await fetch(url, {
+                credentials: 'include'
+            });
+            if (response.ok) {
+                const userData = await response.json();
+                return userData;
+            }
+        }
+        catch (err) {
+            console.log(err);
+        }
+        finally {
+            setIsLoading(false);
+        }
+        return null;
+    }
+    async function logout() {
+        setIsLoading(true);
+        const url = "https://avion-online-store-server.onrender.com/api/" + 'logout/' || 0;
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                credentials: 'include',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            if (response.ok) {
+                // Снимаем рефреш с таймаута
+                if (refreshTimerIdRef.current) {
+                    clearTimeout(refreshTimerIdRef.current);
+                }
+                // Удаляем данные пользователя
+                setUserData(null);
+            }
+        }
+        catch (err) {
+            console.log(err);
+        }
+        finally {
+            setIsLoading(false);
+        }
+    }
+    // Запрос на логин или регистрацию
+    async function postUser(userData) {
+        setIsLoading(true);
+        let url;
+        if ("username" in userData) {
+            url = "https://avion-online-store-server.onrender.com/api/" + 'register/' || 0;
+        }
+        else {
+            url = "https://avion-online-store-server.onrender.com/api/" + 'login/' || 0;
+        }
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                credentials: 'include',
+                body: JSON.stringify(userData),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            if (response.ok) {
+                const userData = await response.json();
+                setUserData(userData);
+            }
+        }
+        catch (err) {
+            console.log(err);
+            setUserData(null);
+        }
+        finally {
+            setIsLoading(false);
+        }
+    }
+    // Обновление данных пользователя
+    async function updateUser(newUserData) {
+        setIsLoading(true);
+        let url = "https://avion-online-store-server.onrender.com/api/" + 'updateUser/' || 0;
+        try {
+            const response = await fetch(url, {
+                method: "PUT",
+                body: JSON.stringify(newUserData),
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${userData?.accessToken}`
+                },
+            });
+            if (response.ok) {
+                const userData = await response.json();
+                setUserData(userData);
+            }
+        }
+        catch (err) {
+            console.log(err);
+            // setUserData(null);
+        }
+        finally {
+            setIsLoading(false);
+        }
+    }
+    return ((0,jsx_runtime.jsx)(UserDataContext.Provider, { value: { userData, isLoading, postUser, logout, updateUser }, children: children }));
+}
 
 
 /***/ }),

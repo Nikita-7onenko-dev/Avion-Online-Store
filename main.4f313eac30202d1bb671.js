@@ -69,7 +69,7 @@ function ShoppingCart() {
         return ((0,jsx_runtime.jsx)("div", { className: shoppingCart_module.shoppingCartBlock, children: (0,jsx_runtime.jsx)("h2", { children: "Your cart is empty" }) }));
     }
     const addedProductsList = cart.map(product => ((0,jsx_runtime.jsxs)("tr", { children: [(0,jsx_runtime.jsx)("td", { children: (0,jsx_runtime.jsx)(ShoppingCartProductCard, { product: product, quantity: getProductQuantity(product._id) }) }), (0,jsx_runtime.jsx)("td", { children: (0,jsx_runtime.jsx)(QuantityInput/* default */.A, { quantity: getProductQuantity(product._id), productId: product._id }) }), (0,jsx_runtime.jsxs)("td", { style: { whiteSpace: 'nowrap' }, children: [product.price * getProductQuantity(product._id), " $"] })] }, product._id)));
-    return ((0,jsx_runtime.jsxs)("div", { className: shoppingCart_module.shoppingCartBlock, children: [(0,jsx_runtime.jsx)("h2", { children: "Your shopping cart" }), (0,jsx_runtime.jsxs)("table", { children: [(0,jsx_runtime.jsx)("thead", { children: (0,jsx_runtime.jsxs)("tr", { children: [(0,jsx_runtime.jsx)("th", { children: "Product" }), (0,jsx_runtime.jsx)("th", { children: "Quantity" }), (0,jsx_runtime.jsx)("th", { children: "Total" })] }) }), (0,jsx_runtime.jsx)("tbody", { children: addedProductsList }), (0,jsx_runtime.jsxs)("tfoot", { children: [(0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsxs)("th", { colSpan: 3, children: ["Subtotal ", (0,jsx_runtime.jsxs)("span", { children: [getCartTotalSum(cart), " $"] }, getCartTotalSum(cart))] }) }), (0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsx)("td", { colSpan: 3, children: "Taxes and shipping are calculated at checkout" }) }), (0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsx)("td", { colSpan: 3, children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/', className: 'globalButton', children: "Go to checkout" }) }) })] })] })] }));
+    return ((0,jsx_runtime.jsxs)("div", { className: shoppingCart_module.shoppingCartBlock, children: [(0,jsx_runtime.jsx)("h2", { children: "Your shopping cart" }), (0,jsx_runtime.jsxs)("table", { children: [(0,jsx_runtime.jsx)("thead", { children: (0,jsx_runtime.jsxs)("tr", { children: [(0,jsx_runtime.jsx)("th", { children: "Product" }), (0,jsx_runtime.jsx)("th", { children: "Quantity" }), (0,jsx_runtime.jsx)("th", { children: "Total" })] }) }), (0,jsx_runtime.jsx)("tbody", { children: addedProductsList }), (0,jsx_runtime.jsxs)("tfoot", { children: [(0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsxs)("th", { colSpan: 3, children: ["Subtotal ", (0,jsx_runtime.jsxs)("span", { children: [getCartTotalSum(cart), " $"] }, getCartTotalSum(cart))] }) }), (0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsx)("td", { colSpan: 3, children: "Taxes and shipping are calculated at checkout" }) }), (0,jsx_runtime.jsx)("tr", { children: (0,jsx_runtime.jsx)("td", { colSpan: 3, children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/checkout', className: 'globalButton', children: "Go to checkout" }) }) })] })] })] }));
 }
 
 
@@ -260,6 +260,176 @@ function ClipLoader(_a) {
 
 /***/ }),
 
+/***/ 883:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (/* binding */ CheckoutPage)
+});
+
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(4848);
+;// ./src/Components/CheckoutPage/checkoutPage.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const checkoutPage_module = ({"checkoutContainer":"dHMSIH","checkoutForm":"EF8UbO","message":"B8bXdM","textInput":"HKm15y","errorField":"IKpRFI"});
+// EXTERNAL MODULE: ./src/Context/CartContext.tsx
+var CartContext = __webpack_require__(5783);
+// EXTERNAL MODULE: ./src/Context/userSessionContext.tsx + 1 modules
+var userSessionContext = __webpack_require__(9875);
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(6540);
+// EXTERNAL MODULE: ./src/utils/formDataValidator.ts
+var formDataValidator = __webpack_require__(5194);
+;// ./src/data/checkoutFieldsDictionary.ts
+const contactsAndDeliveryFieldsDictionary = [
+    {
+        label: 'Email',
+        name: 'email',
+        type: 'email',
+    },
+    {
+        label: 'Phone',
+        name: 'phone',
+        type: 'text',
+    },
+    {
+        label: 'First name',
+        name: 'firstName',
+        type: 'text',
+        dataMethod: 'name'
+    },
+    {
+        label: 'Last name',
+        name: 'lastName',
+        type: 'text',
+        dataMethod: 'name'
+    },
+    {
+        label: 'Country',
+        name: 'country',
+        type: 'text',
+        dataMethod: 'location'
+    },
+    {
+        label: 'City',
+        name: 'city',
+        type: 'text',
+        dataMethod: 'location'
+    },
+    {
+        label: 'Address',
+        name: 'address',
+        type: 'text',
+        dataMethod: 'location'
+    },
+];
+const shippingMethodsDictionary = [
+    {
+        name: 'shippingMethod',
+        value: 'Standard delivery'
+    },
+    {
+        name: 'shippingMethod',
+        value: 'Pickup'
+    },
+];
+const paymentOptionsDictionary = [
+    {
+        name: 'payment',
+        value: 'Credit Card'
+    },
+    {
+        name: 'payment',
+        value: 'PayPal'
+    },
+    {
+        name: 'payment',
+        value: 'Cash on delivery'
+    }
+];
+
+// EXTERNAL MODULE: ./node_modules/react-router/dist/development/chunk-EF7DTUVF.mjs
+var chunk_EF7DTUVF = __webpack_require__(1362);
+;// ./src/Components/CheckoutPage/CheckoutPage.tsx
+
+
+
+
+
+
+
+
+const fieldNames = [
+    'email', 'phone', 'firstName', 'lastName', 'country', 'city', 'address', 'shippingMethod', 'payment'
+];
+function CheckoutPage() {
+    (0,react.useEffect)(() => {
+        window.scrollTo(0, 0);
+    }, []);
+    const { userData } = (0,userSessionContext/* useUserSessionContext */.u)();
+    const { cart, clearCart } = (0,CartContext/* default */.A)();
+    const [isShowMessage, setIsShowMessage] = (0,react.useState)(false);
+    const contactsAndDeliverySectionRef = (0,react.useRef)(null);
+    const initFormData = Object.fromEntries(fieldNames.map(f => [f, userData?.[f] || ""]));
+    initFormData.shippingMethod = 'Standard delivery';
+    initFormData.payment = 'Credit card';
+    const initErrorFields = Object.fromEntries(fieldNames.map(f => [f, ""]));
+    const [formData, setFormData] = (0,react.useState)(initFormData);
+    const [errors, setErrors] = (0,react.useState)(initErrorFields);
+    function inputChangeHandler(e) {
+        const { name, value, dataset } = e.target;
+        const method = dataset.method || name;
+        const newFormData = { ...formData, [name]: value };
+        setFormData(newFormData);
+        setErrors(prev => ({
+            ...prev,
+            [name]: formDataValidator/* formDataValidator */.p[method](value, newFormData, true)
+        }));
+    }
+    function placeOrder() {
+        const newErrorData = { ...errors };
+        for (const key in formData) {
+            const value = formData[key];
+            if (!value) {
+                newErrorData[key] = 'Field must be filled';
+            }
+            else {
+                newErrorData[key] = '';
+            }
+        }
+        const hasErrors = Object.values(newErrorData).some(err => err);
+        setErrors(newErrorData);
+        if (hasErrors) {
+            contactsAndDeliverySectionRef.current?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            return;
+        }
+        const order = {
+            ...formData,
+            date: new Date().toISOString(),
+            orderDetails: cart.map(product => ({
+                productName: product.name,
+                productId: product._id,
+                quantity: product.quantity
+            }))
+        };
+        console.log(order);
+        clearCart();
+        setIsShowMessage(true);
+    }
+    const contactsAndDeliveryFields = contactsAndDeliveryFieldsDictionary.map(field => ((0,jsx_runtime.jsx)("input", { className: errors[field.name] ? checkoutPage_module.errorField : '', onChange: inputChangeHandler, name: field.name, type: field.type, value: formData[field.name], "data-method": field.dataMethod && field.dataMethod, placeholder: field.label }, field.name)));
+    const shippingMethodOptionsItems = shippingMethodsDictionary.map((field, index) => ((0,jsx_runtime.jsxs)("label", { children: [(0,jsx_runtime.jsx)("input", { type: "radio", value: field.value, name: field.name, onChange: (e) => setFormData({ ...formData, [e.target.name]: e.target.value }), defaultChecked: index === 0 }), (0,jsx_runtime.jsx)("span", { children: field.value })] }, field.value)));
+    const paymentOptionsItems = paymentOptionsDictionary.map((field, index) => ((0,jsx_runtime.jsxs)("label", { children: [(0,jsx_runtime.jsx)("input", { type: "radio", value: field.value, name: field.name, onChange: (e) => setFormData({ ...formData, [e.target.name]: e.target.value }), defaultChecked: index === 0 }), (0,jsx_runtime.jsx)("span", { children: field.value })] }, field.value)));
+    return ((0,jsx_runtime.jsx)("div", { className: checkoutPage_module.checkoutContainer, children: isShowMessage ? ((0,jsx_runtime.jsxs)("div", { className: checkoutPage_module.message, children: [(0,jsx_runtime.jsx)("h2", { children: "Thank you for your order! \uD83C\uDF89" }), (0,jsx_runtime.jsxs)("p", { children: ["Your order has been successfully placed. ", (0,jsx_runtime.jsx)("br", {}), "Order number: #12345"] }), (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/', className: 'globalLink', children: "Return to Home " })] })) : ((0,jsx_runtime.jsxs)("form", { className: checkoutPage_module.checkoutForm, children: [(0,jsx_runtime.jsxs)("section", { ref: contactsAndDeliverySectionRef, children: [(0,jsx_runtime.jsx)("p", { children: "Contacts and delivery information" }), contactsAndDeliveryFields] }), (0,jsx_runtime.jsxs)("section", { children: [(0,jsx_runtime.jsx)("p", { children: "Shipping method" }), shippingMethodOptionsItems] }), (0,jsx_runtime.jsxs)("section", { children: [(0,jsx_runtime.jsx)("p", { children: "Payment" }), paymentOptionsItems] }), (0,jsx_runtime.jsx)("button", { type: 'button', className: 'globalButton', onClick: placeOrder, children: "Place order" })] })) }));
+}
+
+
+/***/ }),
+
 /***/ 902:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -386,11 +556,12 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7592);
 /* harmony import */ var _pages_ShoppingCart_ShoppingCart__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(335);
 /* harmony import */ var _pages_ContactsPage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(9746);
-/* harmony import */ var _pages_UserPage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(7317);
+/* harmony import */ var _pages_UserPage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(6726);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(1362);
 /* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(6618);
 /* harmony import */ var _Context_CartContext__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(5783);
 /* harmony import */ var _Context_userSessionContext__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(9875);
+/* harmony import */ var _CheckoutPage_CheckoutPage__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(883);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _Footer_Footer__WEBPACK_IMPORTED_MODULE_3__, _pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__, _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_11__]);
 ([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _Footer_Footer__WEBPACK_IMPORTED_MODULE_3__, _pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__, _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_11__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
@@ -407,8 +578,9 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Com
 
 
 
+
 function App() {
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Context_userSessionContext__WEBPACK_IMPORTED_MODULE_13__/* .UserSessionContextProvider */ .q, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Context_CartContext__WEBPACK_IMPORTED_MODULE_12__/* .CartProvider */ .e, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_11__/* .ProductsAndFiltersProvider */ .y, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Routes */ .BV, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_HomePage__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/about', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/shoppingCart', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ShoppingCart_ShoppingCart__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/allProducts', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/:id', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/contacts', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ContactsPage__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/profile', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_UserPage__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .A, {}) })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Footer_Footer__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {})] }) }) }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Context_userSessionContext__WEBPACK_IMPORTED_MODULE_13__/* .UserSessionContextProvider */ .q, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Context_CartContext__WEBPACK_IMPORTED_MODULE_12__/* .CartProvider */ .e, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_11__/* .ProductsAndFiltersProvider */ .y, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Routes */ .BV, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_HomePage__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/about', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/shoppingCart', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ShoppingCart_ShoppingCart__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/allProducts', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/:id', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/contacts', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ContactsPage__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/profile', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_UserPage__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/checkout', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_CheckoutPage_CheckoutPage__WEBPACK_IMPORTED_MODULE_14__/* ["default"] */ .A, {}) })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Footer_Footer__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {})] }) }) }));
 }
 
 __webpack_async_result__();
@@ -26812,6 +26984,98 @@ function AddToCartBar({ product }) {
 
 /***/ }),
 
+/***/ 5194:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   p: () => (/* binding */ formDataValidator)
+/* harmony export */ });
+const formDataValidator = {
+    name(value, isStrict) {
+        const nameRegex = /^[A-Za-zÀ-žА-Яа-яЁё]+(?:[-\s][A-Za-zÀ-žА-Яа-яЁё]+)*$/;
+        if (!value)
+            return isStrict ? 'Field must be filled' : '';
+        else if (!nameRegex.test(value))
+            return 'Invalid name format';
+        else if (value.length < 2 || value.length > 33)
+            return 'Name must be 2-33 chars';
+        return '';
+    },
+    username(value) {
+        const nameRegex = /^[A-Za-zА-Яа-яЁё\s-]+$/;
+        if (!value)
+            return 'Field must be filled';
+        else if (value.length < 2 || value.length > 33)
+            return 'Name must be 2-33 chars';
+        else if (!nameRegex.test(value))
+            return 'Name can contain only letters, spaces and dashes';
+        else
+            return '';
+    },
+    email(value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!value)
+            return 'Field must be filled';
+        else if (!emailRegex.test(value))
+            return 'Invalid email format';
+        else
+            return '';
+    },
+    oldPassword(value) {
+        if (!value)
+            return 'Field must be filled';
+        else if (value.length < 6)
+            return 'Password must be at least 6 characters long';
+        return '';
+    },
+    password(value, formData) {
+        if (!formData)
+            return '';
+        if (!value)
+            return 'Field must be filled';
+        else if (value.length < 6)
+            return 'Password must be at least 6 characters long';
+        else if ('confirmPassword' in formData && (value !== formData.confirmPassword))
+            return 'Passwords do not match';
+        return '';
+    },
+    confirmPassword(value, formData) {
+        if (!formData)
+            return '';
+        if (!value)
+            return 'Field must be filled';
+        else if (value.length < 6)
+            return 'Password must be at least 6 characters long';
+        else if ('password' in formData && (value !== formData.password))
+            return 'Passwords do not match';
+        return '';
+    },
+    phone(value, isStrict) {
+        const phoneRegex = /^\+?[0-9 ]*$/;
+        if (!value)
+            return isStrict ? 'Field must be filled' : '';
+        else if (!phoneRegex.test(value))
+            return 'Invalid phone number format';
+        const digitsCount = value.replace(/\D/g, '').length;
+        if (digitsCount < 8 || digitsCount > 15)
+            return 'Phone number must be 8-15 digits long';
+        return '';
+    },
+    location(value, isStrict) {
+        const locationRegex = /^[A-Za-zÀ-ž\s-]+$/;
+        if (!value)
+            return isStrict ? 'Field must be filled' : '';
+        else if (!locationRegex.test(value))
+            return 'Invalid location format';
+        else if (value.length < 2 || value.length > 75)
+            return 'Location must be 2-75 chars long';
+        return '';
+    }
+};
+
+
+/***/ }),
+
 /***/ 5334:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -29353,50 +29617,7 @@ useEmblaCarousel.globalOptions = undefined;
 
 /***/ }),
 
-/***/ 6886:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   A: () => (/* binding */ ProductsSorting)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
-/* harmony import */ var _productsSorting_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3140);
-/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6618);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__]);
-_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
-
-
-
-function ProductsSorting({ showOptions, setShowOptions }) {
-    const { sorting } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__/* .useProductsAndFilters */ .u)().filterContext;
-    const { filtersOptions, setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__/* .useProductsAndFilters */ .u)();
-    function toggleFieldset() {
-        if (document.body.offsetWidth < 500)
-            return;
-        setShowOptions(prev => ({
-            ...prev,
-            sortingFieldset: !prev.sortingFieldset,
-        }));
-    }
-    function onChange(e) {
-        const { name, value } = e.target;
-        setFiltersOptions(prev => {
-            return { ...prev,
-                [name]: value
-            };
-        });
-    }
-    const sortingItems = sorting.map(sorting => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", { className: filtersOptions.sorting === sorting ? _productsSorting_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.activeLabel : '', children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { type: "radio", name: "sorting", checked: filtersOptions.sorting === sorting, value: sorting, onChange: onChange }), sorting] }, sorting)));
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: `${_productsSorting_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.sorting} ${showOptions.sorting ? '' : _productsSorting_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.hidden}`, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("fieldset", { className: showOptions.sortingFieldset ? '' : _productsSorting_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.hiddenFieldset, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("legend", { className: filtersOptions.sorting ? _productsSorting_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.activeLegend : '', onClick: toggleFieldset, children: "Sorting" }), sortingItems] }) }));
-}
-
-__webpack_async_result__();
-} catch(e) { __webpack_async_result__(e); } });
-
-/***/ }),
-
-/***/ 7317:
+/***/ 6726:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
@@ -29426,90 +29647,8 @@ function EmailActivationMessage() {
 ;// ./src/Components/ProfileSettingsForm/profileSettingsForm.module.scss
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const profileSettingsForm_module = ({"profileForm":"uP8UbY","formTitle":"hekziV","profileInfo":"ul9lo7"});
-;// ./src/utils/formDataValidator.ts
-const formDataValidator = {
-    name(value) {
-        const nameRegex = /^[A-Za-zÀ-žА-Яа-яЁё]+(?:[-\s][A-Za-zÀ-žА-Яа-яЁё]+)*$/;
-        if (!value)
-            return '';
-        else if (!nameRegex.test(value))
-            return 'Invalid name format';
-        else if (value.length < 2 || value.length > 33)
-            return 'Name must be 2-33 chars';
-        return '';
-    },
-    username(value) {
-        const nameRegex = /^[A-Za-zА-Яа-яЁё\s-]+$/;
-        if (!value)
-            return 'Field must be filled';
-        else if (value.length < 2 || value.length > 33)
-            return 'Name must be 2-33 chars';
-        else if (!nameRegex.test(value))
-            return 'Name can contain only letters, spaces and dashes';
-        else
-            return '';
-    },
-    email(value) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!value)
-            return 'Field must be filled';
-        else if (!emailRegex.test(value))
-            return 'Invalid email format';
-        else
-            return '';
-    },
-    oldPassword(value) {
-        if (!value)
-            return 'Field must be filled';
-        else if (value.length < 6)
-            return 'Password must be at least 6 characters long';
-        return '';
-    },
-    password(value, formData) {
-        if (!formData)
-            return '';
-        if (!value)
-            return 'Field must be filled';
-        else if (value.length < 6)
-            return 'Password must be at least 6 characters long';
-        else if ('confirmPassword' in formData && (value !== formData.confirmPassword))
-            return 'Passwords do not match';
-        return '';
-    },
-    confirmPassword(value, formData) {
-        if (!formData)
-            return '';
-        if (!value)
-            return 'Field must be filled';
-        else if (value.length < 6)
-            return 'Password must be at least 6 characters long';
-        else if ('password' in formData && (value !== formData.password))
-            return 'Passwords do not match';
-        return '';
-    },
-    phone(value) {
-        const phoneRegex = /^\+?[0-9 ]*$/;
-        if (!value)
-            return '';
-        else if (!phoneRegex.test(value))
-            return 'Invalid phone number format';
-        const digitsCount = value.replace(/\D/g, '').length;
-        if (digitsCount < 8 || digitsCount > 15)
-            return 'Phone number must be 8-15 digits long';
-        return '';
-    },
-    location(value) {
-        const locationRegex = /^[A-Za-zÀ-ž\s-]+$/;
-        if (!value)
-            return '';
-        else if (!locationRegex.test(value))
-            return 'Invalid location format';
-        else if (value.length < 2 || value.length > 35)
-            return 'Location must be 2-35 chars long';
-        return '';
-    }
-};
-
+// EXTERNAL MODULE: ./src/utils/formDataValidator.ts
+var formDataValidator = __webpack_require__(5194);
 ;// ./src/utils/passwordGroupValidator.ts
 function passwordGroupValidator(formData, validator) {
     const { oldPassword, password, confirmPassword } = formData;
@@ -29642,11 +29781,11 @@ function ProfileSettingsForm() {
         if (name === 'password' || name === 'confirmPassword' || name === 'oldPassword') {
             setErrors(prev => ({
                 ...prev,
-                ...passwordGroupValidator(newFormData, formDataValidator)
+                ...passwordGroupValidator(newFormData, formDataValidator/* formDataValidator */.p)
             }));
         }
         else {
-            setErrors(prev => ({ ...prev, [name]: formDataValidator[method](value, newFormData) }));
+            setErrors(prev => ({ ...prev, [name]: formDataValidator/* formDataValidator */.p[method](value, newFormData) }));
         }
     }
     function submitChanges() {
@@ -29732,7 +29871,7 @@ function AuthForm({ variation, setSwitchForm }) {
         const newErrorData = {};
         for (const key in formData) {
             const value = formData[key] || '';
-            newErrorData[key] = formDataValidator[key](value, formData);
+            newErrorData[key] = formDataValidator/* formDataValidator */.p[key](value, formData);
         }
         setErrors(newErrorData);
         const hasErrors = Object.values(newErrorData).some(err => !!err);
@@ -29748,12 +29887,12 @@ function AuthForm({ variation, setSwitchForm }) {
         if (field === 'password' || field === 'confirmPassword') {
             setErrors(prev => ({
                 ...prev,
-                'password': formDataValidator.password(newFormData.password, newFormData),
-                'confirmPassword': formDataValidator.confirmPassword(newFormData.confirmPassword ?? '', newFormData)
+                'password': formDataValidator/* formDataValidator */.p.password(newFormData.password, newFormData),
+                'confirmPassword': formDataValidator/* formDataValidator */.p.confirmPassword(newFormData.confirmPassword ?? '', newFormData)
             }));
         }
         else {
-            setErrors(prev => ({ ...prev, [field]: formDataValidator[field](value, newFormData) }));
+            setErrors(prev => ({ ...prev, [field]: formDataValidator/* formDataValidator */.p[field](value, newFormData) }));
         }
     }
     const formInputs = Object.keys(formData).map(field => {
@@ -29776,7 +29915,6 @@ function UserPage() {
     const [switchForm, setSwitchForm] = (0,react.useState)(true);
     const { userData, isLoading } = (0,userSessionContext/* useUserSessionContext */.u)();
     (0,react.useEffect)(() => {
-        console.log('effect: ', userData);
     }, [userData]);
     if (isLoading)
         return ((0,jsx_runtime.jsx)("div", { style: { height: '70vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }, children: (0,jsx_runtime.jsx)(ClipLoader/* default */.A, { size: 100 }) }));
@@ -29789,6 +29927,49 @@ function UserPage() {
             : (0,jsx_runtime.jsx)(AuthForm, { setSwitchForm: setSwitchForm, variation: "Log in" }, 'Log in')));
 }
 
+
+/***/ }),
+
+/***/ 6886:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (/* binding */ ProductsSorting)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
+/* harmony import */ var _productsSorting_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3140);
+/* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6618);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__]);
+_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
+
+function ProductsSorting({ showOptions, setShowOptions }) {
+    const { sorting } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__/* .useProductsAndFilters */ .u)().filterContext;
+    const { filtersOptions, setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__/* .useProductsAndFilters */ .u)();
+    function toggleFieldset() {
+        if (document.body.offsetWidth < 500)
+            return;
+        setShowOptions(prev => ({
+            ...prev,
+            sortingFieldset: !prev.sortingFieldset,
+        }));
+    }
+    function onChange(e) {
+        const { name, value } = e.target;
+        setFiltersOptions(prev => {
+            return { ...prev,
+                [name]: value
+            };
+        });
+    }
+    const sortingItems = sorting.map(sorting => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", { className: filtersOptions.sorting === sorting ? _productsSorting_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.activeLabel : '', children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { type: "radio", name: "sorting", checked: filtersOptions.sorting === sorting, value: sorting, onChange: onChange }), sorting] }, sorting)));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: `${_productsSorting_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.sorting} ${showOptions.sorting ? '' : _productsSorting_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.hidden}`, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("fieldset", { className: showOptions.sortingFieldset ? '' : _productsSorting_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.hiddenFieldset, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("legend", { className: filtersOptions.sorting ? _productsSorting_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.activeLegend : '', onClick: toggleFieldset, children: "Sorting" }), sortingItems] }) }));
+}
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
 
 /***/ }),
 

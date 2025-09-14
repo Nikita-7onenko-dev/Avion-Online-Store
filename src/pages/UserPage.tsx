@@ -12,7 +12,7 @@ export default function UserPage(): React.JSX.Element {
   const {userData, isLoading} = useUserSessionContext();
 
   useEffect(() => {
-    console.log('effect: ', userData)
+    
   }, [userData])
 
   if(isLoading) return (

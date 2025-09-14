@@ -33,5 +33,19 @@ footer{
   .footerTop{
     flex-direction: column;
   }
+}
 
+
+@media screen and (max-width: 520px) {
+  .footerLeft{
+    div{
+
+      h4{
+        text-align: right;
+      }
+      ul{
+        justify-content: flex-end;
+      }
+    }
+  }
 }

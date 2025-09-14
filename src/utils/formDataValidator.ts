@@ -13,11 +13,11 @@ type FormData = {
     city?: string;
 }
 
-export const formDataValidator: Record<string, (value: string, formData?: FormData) => string> = {
+export const formDataValidator: Record<string, (value: string, formData?: FormData, isStrict?:boolean) => string> = {
 
-  name(value) {
+  name(value, isStrict) {
     const nameRegex = /^[A-Za-zÀ-žА-Яа-яЁё]+(?:[-\s][A-Za-zÀ-žА-Яа-яЁё]+)*$/;
-    if(!value) return '';
+    if(!value) return isStrict ? 'Field must be filled' : '';
     else if(!nameRegex.test(value)) return 'Invalid name format';
     else if(value.length < 2 || value.length > 33) return 'Name must be 2-33 chars';
     return '';
@@ -60,20 +60,20 @@ export const formDataValidator: Record<string, (value: string, formData?: FormDa
     return '';
   },
 
-  phone(value) {
+  phone(value, isStrict) {
     const phoneRegex = /^\+?[0-9 ]*$/;
-    if(!value) return '';
+    if(!value) return isStrict ? 'Field must be filled' : '';
     else if(!phoneRegex.test(value)) return 'Invalid phone number format'
     const digitsCount = value.replace(/\D/g, '').length;
     if (digitsCount < 8 || digitsCount > 15) return 'Phone number must be 8-15 digits long';
     return '';
   },
 
-  location(value) {
+  location(value, isStrict) {
     const locationRegex = /^[A-Za-zÀ-ž\s-]+$/;
-    if(!value) return '';
+    if(!value) return isStrict ? 'Field must be filled' : '';
     else if(!locationRegex.test(value)) return 'Invalid location format';
-    else if(value.length < 2 || value.length > 35) return 'Location must be 2-35 chars long';
+    else if(value.length < 2 || value.length > 75) return 'Location must be 2-75 chars long';
     return '';
   }
 

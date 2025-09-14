@@ -1,0 +1,85 @@
+.checkoutContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 50px;
+  padding-inline: var(--paddingInline);
+}
+
+.checkoutForm, .message{
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  box-shadow: 0 0 20px 4px var(--borderGray);
+  border-radius: 5px;
+  padding: 25px;
+  max-width: 750px;
+  flex-grow: 1;
+  
+  section{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    span{
+      padding-left: 10px;
+      font-size: var(--fontSizeS);
+    }
+
+    input{
+      background-color: var(--lightGrayBackground);
+      padding: 10px;
+      border: var(--borderGray) 1px solid;
+      border-radius: 5px;
+      font-size: var(--fontSizeXS);
+      // width: 100%;
+    }
+
+    p{
+      font-size: var(--fontSizeM);
+      // padding-left: 10px;
+      // margin-bottom: 10px;
+    }
+    
+    label:not(.textInput){
+      padding-left: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+  }
+
+  button{
+    align-self: flex-end;
+  }
+}
+
+.textInput{
+  width: 100%;
+  // display: flex;
+  // flex-direction: column;
+  // gap: 10px
+}
+
+.errorField{
+  box-shadow: inset 0px 0px 3px 0px rgb(211, 54, 54);
+}
+
+
+.message{
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  gap: 40px;
+  margin-block: clamp(40px, 10vw, 100px);
+
+  h2{
+    font-size: var(--fontSizeL);
+  }
+
+  p{
+    line-height: 150%;
+    font-size: var(--fontSizeS);
+  }
+  
+}

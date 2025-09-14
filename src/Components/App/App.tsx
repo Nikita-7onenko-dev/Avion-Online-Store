@@ -13,6 +13,7 @@ import { Route, Routes } from 'react-router-dom';
 import {ProductsAndFiltersProvider} from '@/Context/FiltersAndProductsContextProvider';
 import { CartProvider } from '@/Context/CartContext';
 import { UserSessionContextProvider } from '@/Context/userSessionContext';
+import CheckoutPage from '../CheckoutPage/CheckoutPage';
 
 
 
@@ -32,6 +33,7 @@ export default function App(): React.JSX.Element {
               <Route path='/:id' element={<ProductPage />} />
               <Route path='/contacts' element={<ContactsPage />} />
               <Route path='/profile' element={<UserPage/>} />
+              <Route path='/checkout' element={<CheckoutPage />} />
             </Routes>
           </main>
           <Footer />

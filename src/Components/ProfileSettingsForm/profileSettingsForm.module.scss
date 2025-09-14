@@ -3,16 +3,12 @@
   margin-inline: var(--paddingInline);
   padding: 20px;
   border-radius: 5px;
-  background-color: var(--lightGrayBackground);
+  // background-color: var(--lightGrayBackground);
   display: flex;
   flex-direction: column;
   gap: 35px;
   // width: fit-content;
-  box-shadow: 0px 0px 17px 0px #00000042;
-
-  h2{
-    font-family: ClashDisplay;
-  }
+  box-shadow: 0 0 20px 4px var(--borderGray);
 
   section{
     display: flex;
@@ -20,7 +16,7 @@
     gap: 25px;
     
     >button{
-      align-self: flex-start;
+      align-self: flex-end;
     }
   }
 }
@@ -85,6 +81,7 @@
       font-size: var(--fontSizeS);
       width: 100%;
       color: inherit;
+      background-color: var(--lightGrayBackground);
     }
   }
 }

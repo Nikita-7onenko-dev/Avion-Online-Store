@@ -57,7 +57,7 @@ export default function ProfileSettingsForm() {
       Object.entries(formData).filter(([k, v]) => {
         if(k === 'password' || k === 'confirmPassword' || k === 'oldPassword') {
           return v;
-        } else return true  
+        } else return true;
       })
     );
 

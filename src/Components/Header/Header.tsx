@@ -13,27 +13,30 @@ export default function Header(): React.JSX.Element {
 
   useEffect(() => {
     if(isOpenBurger) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
-  }, [isOpenBurger])
-  
+  }, [isOpenBurger]);
+
+
   useEffect(() => {
-    setIsOpenBurger(false)    
-  }, [pageUrl])
+    if(isOpenBurger) {
+      setIsOpenBurger(false);
+    }
+  }, [pageUrl]);
+  
 
   return (
-    <>
-      <header 
-        className={styles.header}
-        style={isOpenBurger ? {position:'sticky'} : {position: 'static'}}
-      >
+      <header className={styles.header}>
         <HeaderTop isOpenBurger={isOpenBurger} setIsOpenBurger={setIsOpenBurger}/>
         <HeaderNavigationBar />
         <BurgerMenu isOpen={isOpenBurger}/>
-        
       </header>
-    </>
   )
 }

@@ -22,7 +22,7 @@ export default function HomePage(): React.JSX.Element {
     <>
       <HeroBlock />
       <Features />
-      <ProductListing category='Ceramics' sorting="Newest" title='New Ceramics' />
+      <ProductListing category='Ceramics' sorting="New arrivals" title='New Ceramics' />
       <ProductListing sorting="Best sellers" title='Our popular products' />
       <CtaBlock />
       <AboutBlock

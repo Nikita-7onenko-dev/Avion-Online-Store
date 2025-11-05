@@ -13,7 +13,7 @@ export default function HeaderTop( {isOpenBurger, setIsOpenBurger}: Props): Reac
 
   const {cart} = useCartContext();
   const quantity = cart.length;
-  const isShowCart = cart.length > 0;
+  const isShowCart = quantity > 0;
 
   return (
     <div className={styles.headerTop}>

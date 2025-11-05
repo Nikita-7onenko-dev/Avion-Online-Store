@@ -12,7 +12,7 @@ type Filters = {
   productType: string;
   category: string;
   designer: string;
-  sorting: "Price: Low to High" | "Price: High to Low" | "Newest" | "Best sellers";
+  sorting: "Price: Low to High" | "Price: High to Low" | "New arrivals" | "Best sellers";
 }
 
 type RestProps = {

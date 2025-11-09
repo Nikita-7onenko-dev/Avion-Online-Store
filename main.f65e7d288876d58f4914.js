@@ -115,7 +115,7 @@ function AboutBlock({ variation, imgSrc, title, paragraph, anotherParagraph, wit
     const { setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_5__/* .useProductsAndFilters */ .u)();
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: `${_aboutBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.aboutBlock} ${variation && _aboutBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A[variation]}`, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _aboutBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.aboutBlockText, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _aboutBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.aboutBlockTextTop, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { children: title }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", { children: paragraph }), anotherParagraph && (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", { children: anotherParagraph })] }), withLink &&
                         (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__/* .Link */ .N_, { onClick: () => setFiltersOptions({
-                                filters: { productType: [], category: [], designers: [], priceFilters: [] },
+                                filters: { productTypes: [], category: [], designers: [], priceFilters: [] },
                                 sorting: '',
                                 search: ''
                             }), to: linkHref, state: { scrollToTop: true }, className: 'globalLink', children: linkLabel })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _aboutBlock_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.imageWrapper, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: `${base}${imgSrc}`, alt: "", loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4___default()), { color: spinnerColor, size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] })] }));
@@ -256,6 +256,25 @@ function ClipLoader(_a) {
     return react.createElement("span", __assign({ style: style }, additionalprops));
 }
 /* harmony default export */ const esm_ClipLoader = (ClipLoader);
+
+
+/***/ }),
+
+/***/ 807:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   M: () => (/* binding */ store)
+/* harmony export */ });
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3816);
+/* harmony import */ var _slices_metaSlice_UIdictionary___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7944);
+
+
+const store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__/* .configureStore */ .U1)({
+    reducer: {
+        meta: _slices_metaSlice_UIdictionary___WEBPACK_IMPORTED_MODULE_1__/* .metaReducer */ .i
+    },
+});
 
 
 /***/ }),
@@ -468,7 +487,7 @@ function ProductsFiltersLayout({ showOptions, setShowOptions }) {
             };
         });
     }
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: `${_productsFiltersLayout_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.filtersWrapper} ${showOptions.filters ? '' : _productsFiltersLayout_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.hidden}`, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_FilterFieldset_FilterFieldset__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { filter: 'productType', title: 'Product Type', showOptions: showOptions, setShowOptions: setShowOptions, filterOptions: filtersOptions, onChange: onChange }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_FilterFieldset_FilterFieldset__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { filter: 'priceFilters', title: 'Price Filters', showOptions: showOptions, setShowOptions: setShowOptions, filterOptions: filtersOptions, onChange: onChange }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_FilterFieldset_FilterFieldset__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { filter: 'designers', title: 'Designers', showOptions: showOptions, setShowOptions: setShowOptions, filterOptions: filtersOptions, onChange: onChange })] }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: `${_productsFiltersLayout_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.filtersWrapper} ${showOptions.filters ? '' : _productsFiltersLayout_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.hidden}`, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_FilterFieldset_FilterFieldset__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { filter: 'productTypes', title: 'Product Type', showOptions: showOptions, setShowOptions: setShowOptions, filterOptions: filtersOptions, onChange: onChange }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_FilterFieldset_FilterFieldset__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { filter: 'priceFilters', title: 'Price Filters', showOptions: showOptions, setShowOptions: setShowOptions, filterOptions: filtersOptions, onChange: onChange }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_FilterFieldset_FilterFieldset__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { filter: 'designers', title: 'Designers', showOptions: showOptions, setShowOptions: setShowOptions, filterOptions: filtersOptions, onChange: onChange })] }));
 }
 
 __webpack_async_result__();
@@ -562,6 +581,8 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _Context_CartContext__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(5783);
 /* harmony import */ var _Context_userSessionContext__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(9875);
 /* harmony import */ var _CheckoutPage_CheckoutPage__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(883);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(1468);
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(807);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _Footer_Footer__WEBPACK_IMPORTED_MODULE_3__, _pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__, _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_11__]);
 ([_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__, _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__, _Footer_Footer__WEBPACK_IMPORTED_MODULE_3__, _pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__, _pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__, _pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__, _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_11__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
@@ -579,8 +600,10 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Com
 
 
 
+
+
 function App() {
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Context_userSessionContext__WEBPACK_IMPORTED_MODULE_13__/* .UserSessionContextProvider */ .q, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Context_CartContext__WEBPACK_IMPORTED_MODULE_12__/* .CartProvider */ .e, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_11__/* .ProductsAndFiltersProvider */ .y, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Routes */ .BV, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_HomePage__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/about', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/shoppingCart', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ShoppingCart_ShoppingCart__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/allProducts', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/:id', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/contacts', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ContactsPage__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/profile', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_UserPage__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/checkout', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_CheckoutPage_CheckoutPage__WEBPACK_IMPORTED_MODULE_14__/* ["default"] */ .A, {}) })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Footer_Footer__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {})] }) }) }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Context_userSessionContext__WEBPACK_IMPORTED_MODULE_13__/* .UserSessionContextProvider */ .q, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Context_CartContext__WEBPACK_IMPORTED_MODULE_12__/* .CartProvider */ .e, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_11__/* .ProductsAndFiltersProvider */ .y, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_redux__WEBPACK_IMPORTED_MODULE_15__/* .Provider */ .Kq, { store: _store_store__WEBPACK_IMPORTED_MODULE_16__/* .store */ .M, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_Header_Header__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Routes */ .BV, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_HomePage__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/about', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_AboutPage__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/shoppingCart', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ShoppingCart_ShoppingCart__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/allProducts', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_AllProductsPage_AllProductsPage__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/:id', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ProductPage__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/contacts', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_ContactsPage__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/profile', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_pages_UserPage__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .A, {}) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__/* .Route */ .qh, { path: '/checkout', element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_CheckoutPage_CheckoutPage__WEBPACK_IMPORTED_MODULE_14__/* ["default"] */ .A, {}) })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Footer_Footer__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {})] }) }) }) }));
 }
 
 __webpack_async_result__();
@@ -25973,6 +25996,10 @@ function Header() {
     const pageUrl = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__/* .useLocation */ .zy)();
     (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)(() => {
         if (isOpenBurger) {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
             document.body.style.overflow = 'hidden';
         }
         else {
@@ -25980,13 +26007,994 @@ function Header() {
         }
     }, [isOpenBurger]);
     (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)(() => {
-        setIsOpenBurger(false);
+        if (isOpenBurger) {
+            setIsOpenBurger(false);
+        }
     }, [pageUrl]);
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("header", { className: _header_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.header, style: isOpenBurger ? { position: 'sticky' } : { position: 'static' }, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_HeaderTop_HeaderTop__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { isOpenBurger: isOpenBurger, setIsOpenBurger: setIsOpenBurger }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_HeaderNavigationBar_HeaderNavigationBar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_BurgerMenu_BurgerMenu__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A, { isOpen: isOpenBurger })] }) }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("header", { className: _header_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.header, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_HeaderTop_HeaderTop__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, { isOpenBurger: isOpenBurger, setIsOpenBurger: setIsOpenBurger }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_HeaderNavigationBar_HeaderNavigationBar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_BurgerMenu_BurgerMenu__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A, { isOpen: isOpenBurger })] }));
 }
 
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
+/***/ 1468:
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Kq: () => (/* binding */ Provider_default),
+/* harmony export */   d4: () => (/* binding */ useSelector),
+/* harmony export */   wA: () => (/* binding */ useDispatch)
+/* harmony export */ });
+/* unused harmony exports ReactReduxContext, batch, connect, createDispatchHook, createSelectorHook, createStoreHook, shallowEqual, useStore */
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6540);
+/* harmony import */ var use_sync_external_store_with_selector_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8418);
+// src/utils/react.ts
+
+
+// src/utils/react-is.ts
+var IS_REACT_19 = /* @__PURE__ */ (/* unused pure expression or super */ null && (React.version.startsWith("19")));
+var REACT_ELEMENT_TYPE = /* @__PURE__ */ (/* unused pure expression or super */ null && (Symbol.for(
+  IS_REACT_19 ? "react.transitional.element" : "react.element"
+)));
+var REACT_PORTAL_TYPE = /* @__PURE__ */ (/* unused pure expression or super */ null && (Symbol.for("react.portal")));
+var REACT_FRAGMENT_TYPE = /* @__PURE__ */ (/* unused pure expression or super */ null && (Symbol.for("react.fragment")));
+var REACT_STRICT_MODE_TYPE = /* @__PURE__ */ (/* unused pure expression or super */ null && (Symbol.for("react.strict_mode")));
+var REACT_PROFILER_TYPE = /* @__PURE__ */ (/* unused pure expression or super */ null && (Symbol.for("react.profiler")));
+var REACT_CONSUMER_TYPE = /* @__PURE__ */ (/* unused pure expression or super */ null && (Symbol.for("react.consumer")));
+var REACT_CONTEXT_TYPE = /* @__PURE__ */ (/* unused pure expression or super */ null && (Symbol.for("react.context")));
+var REACT_FORWARD_REF_TYPE = /* @__PURE__ */ Symbol.for("react.forward_ref");
+var REACT_SUSPENSE_TYPE = /* @__PURE__ */ (/* unused pure expression or super */ null && (Symbol.for("react.suspense")));
+var REACT_SUSPENSE_LIST_TYPE = /* @__PURE__ */ (/* unused pure expression or super */ null && (Symbol.for(
+  "react.suspense_list"
+)));
+var REACT_MEMO_TYPE = /* @__PURE__ */ Symbol.for("react.memo");
+var REACT_LAZY_TYPE = /* @__PURE__ */ (/* unused pure expression or super */ null && (Symbol.for("react.lazy")));
+var REACT_OFFSCREEN_TYPE = /* @__PURE__ */ (/* unused pure expression or super */ null && (Symbol.for("react.offscreen")));
+var REACT_CLIENT_REFERENCE = /* @__PURE__ */ (/* unused pure expression or super */ null && (Symbol.for(
+  "react.client.reference"
+)));
+var ForwardRef = REACT_FORWARD_REF_TYPE;
+var Memo = REACT_MEMO_TYPE;
+function isValidElementType(type) {
+  return typeof type === "string" || typeof type === "function" || type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || type === REACT_OFFSCREEN_TYPE || typeof type === "object" && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_CONSUMER_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_CLIENT_REFERENCE || type.getModuleId !== void 0) ? true : false;
+}
+function typeOf(object) {
+  if (typeof object === "object" && object !== null) {
+    const { $$typeof } = object;
+    switch ($$typeof) {
+      case REACT_ELEMENT_TYPE:
+        switch (object = object.type, object) {
+          case REACT_FRAGMENT_TYPE:
+          case REACT_PROFILER_TYPE:
+          case REACT_STRICT_MODE_TYPE:
+          case REACT_SUSPENSE_TYPE:
+          case REACT_SUSPENSE_LIST_TYPE:
+            return object;
+          default:
+            switch (object = object && object.$$typeof, object) {
+              case REACT_CONTEXT_TYPE:
+              case REACT_FORWARD_REF_TYPE:
+              case REACT_LAZY_TYPE:
+              case REACT_MEMO_TYPE:
+                return object;
+              case REACT_CONSUMER_TYPE:
+                return object;
+              default:
+                return $$typeof;
+            }
+        }
+      case REACT_PORTAL_TYPE:
+        return $$typeof;
+    }
+  }
+}
+function isContextConsumer(object) {
+  return IS_REACT_19 ? typeOf(object) === REACT_CONSUMER_TYPE : typeOf(object) === REACT_CONTEXT_TYPE;
+}
+function isMemo(object) {
+  return typeOf(object) === REACT_MEMO_TYPE;
+}
+
+// src/utils/warning.ts
+function warning(message) {
+  if (typeof console !== "undefined" && typeof console.error === "function") {
+    console.error(message);
+  }
+  try {
+    throw new Error(message);
+  } catch (e) {
+  }
+}
+
+// src/connect/verifySubselectors.ts
+function verify(selector, methodName) {
+  if (!selector) {
+    throw new Error(`Unexpected value for ${methodName} in connect.`);
+  } else if (methodName === "mapStateToProps" || methodName === "mapDispatchToProps") {
+    if (!Object.prototype.hasOwnProperty.call(selector, "dependsOnOwnProps")) {
+      warning(
+        `The selector for ${methodName} of connect did not specify a value for dependsOnOwnProps.`
+      );
+    }
+  }
+}
+function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps) {
+  verify(mapStateToProps, "mapStateToProps");
+  verify(mapDispatchToProps, "mapDispatchToProps");
+  verify(mergeProps, "mergeProps");
+}
+
+// src/connect/selectorFactory.ts
+function pureFinalPropsSelectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, {
+  areStatesEqual,
+  areOwnPropsEqual,
+  areStatePropsEqual
+}) {
+  let hasRunAtLeastOnce = false;
+  let state;
+  let ownProps;
+  let stateProps;
+  let dispatchProps;
+  let mergedProps;
+  function handleFirstCall(firstState, firstOwnProps) {
+    state = firstState;
+    ownProps = firstOwnProps;
+    stateProps = mapStateToProps(state, ownProps);
+    dispatchProps = mapDispatchToProps(dispatch, ownProps);
+    mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+    hasRunAtLeastOnce = true;
+    return mergedProps;
+  }
+  function handleNewPropsAndNewState() {
+    stateProps = mapStateToProps(state, ownProps);
+    if (mapDispatchToProps.dependsOnOwnProps)
+      dispatchProps = mapDispatchToProps(dispatch, ownProps);
+    mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+    return mergedProps;
+  }
+  function handleNewProps() {
+    if (mapStateToProps.dependsOnOwnProps)
+      stateProps = mapStateToProps(state, ownProps);
+    if (mapDispatchToProps.dependsOnOwnProps)
+      dispatchProps = mapDispatchToProps(dispatch, ownProps);
+    mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+    return mergedProps;
+  }
+  function handleNewState() {
+    const nextStateProps = mapStateToProps(state, ownProps);
+    const statePropsChanged = !areStatePropsEqual(nextStateProps, stateProps);
+    stateProps = nextStateProps;
+    if (statePropsChanged)
+      mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+    return mergedProps;
+  }
+  function handleSubsequentCalls(nextState, nextOwnProps) {
+    const propsChanged = !areOwnPropsEqual(nextOwnProps, ownProps);
+    const stateChanged = !areStatesEqual(
+      nextState,
+      state,
+      nextOwnProps,
+      ownProps
+    );
+    state = nextState;
+    ownProps = nextOwnProps;
+    if (propsChanged && stateChanged) return handleNewPropsAndNewState();
+    if (propsChanged) return handleNewProps();
+    if (stateChanged) return handleNewState();
+    return mergedProps;
+  }
+  return function pureFinalPropsSelector(nextState, nextOwnProps) {
+    return hasRunAtLeastOnce ? handleSubsequentCalls(nextState, nextOwnProps) : handleFirstCall(nextState, nextOwnProps);
+  };
+}
+function finalPropsSelectorFactory(dispatch, {
+  initMapStateToProps,
+  initMapDispatchToProps,
+  initMergeProps,
+  ...options
+}) {
+  const mapStateToProps = initMapStateToProps(dispatch, options);
+  const mapDispatchToProps = initMapDispatchToProps(dispatch, options);
+  const mergeProps = initMergeProps(dispatch, options);
+  if (false) // removed by dead control flow
+{}
+  return pureFinalPropsSelectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, options);
+}
+
+// src/utils/bindActionCreators.ts
+function bindActionCreators(actionCreators, dispatch) {
+  const boundActionCreators = {};
+  for (const key in actionCreators) {
+    const actionCreator = actionCreators[key];
+    if (typeof actionCreator === "function") {
+      boundActionCreators[key] = (...args) => dispatch(actionCreator(...args));
+    }
+  }
+  return boundActionCreators;
+}
+
+// src/utils/isPlainObject.ts
+function isPlainObject(obj) {
+  if (typeof obj !== "object" || obj === null) return false;
+  const proto = Object.getPrototypeOf(obj);
+  if (proto === null) return true;
+  let baseProto = proto;
+  while (Object.getPrototypeOf(baseProto) !== null) {
+    baseProto = Object.getPrototypeOf(baseProto);
+  }
+  return proto === baseProto;
+}
+
+// src/utils/verifyPlainObject.ts
+function verifyPlainObject(value, displayName, methodName) {
+  if (!isPlainObject(value)) {
+    warning(
+      `${methodName}() in ${displayName} must return a plain object. Instead received ${value}.`
+    );
+  }
+}
+
+// src/connect/wrapMapToProps.ts
+function wrapMapToPropsConstant(getConstant) {
+  return function initConstantSelector(dispatch) {
+    const constant = getConstant(dispatch);
+    function constantSelector() {
+      return constant;
+    }
+    constantSelector.dependsOnOwnProps = false;
+    return constantSelector;
+  };
+}
+function getDependsOnOwnProps(mapToProps) {
+  return mapToProps.dependsOnOwnProps ? Boolean(mapToProps.dependsOnOwnProps) : mapToProps.length !== 1;
+}
+function wrapMapToPropsFunc(mapToProps, methodName) {
+  return function initProxySelector(dispatch, { displayName }) {
+    const proxy = function mapToPropsProxy(stateOrDispatch, ownProps) {
+      return proxy.dependsOnOwnProps ? proxy.mapToProps(stateOrDispatch, ownProps) : proxy.mapToProps(stateOrDispatch, void 0);
+    };
+    proxy.dependsOnOwnProps = true;
+    proxy.mapToProps = function detectFactoryAndVerify(stateOrDispatch, ownProps) {
+      proxy.mapToProps = mapToProps;
+      proxy.dependsOnOwnProps = getDependsOnOwnProps(mapToProps);
+      let props = proxy(stateOrDispatch, ownProps);
+      if (typeof props === "function") {
+        proxy.mapToProps = props;
+        proxy.dependsOnOwnProps = getDependsOnOwnProps(props);
+        props = proxy(stateOrDispatch, ownProps);
+      }
+      if (false)
+        // removed by dead control flow
+{}
+      return props;
+    };
+    return proxy;
+  };
+}
+
+// src/connect/invalidArgFactory.ts
+function createInvalidArgFactory(arg, name) {
+  return (dispatch, options) => {
+    throw new Error(
+      `Invalid value of type ${typeof arg} for ${name} argument when connecting component ${options.wrappedComponentName}.`
+    );
+  };
+}
+
+// src/connect/mapDispatchToProps.ts
+function mapDispatchToPropsFactory(mapDispatchToProps) {
+  return mapDispatchToProps && typeof mapDispatchToProps === "object" ? wrapMapToPropsConstant(
+    (dispatch) => (
+      // @ts-ignore
+      bindActionCreators(mapDispatchToProps, dispatch)
+    )
+  ) : !mapDispatchToProps ? wrapMapToPropsConstant((dispatch) => ({
+    dispatch
+  })) : typeof mapDispatchToProps === "function" ? (
+    // @ts-ignore
+    wrapMapToPropsFunc(mapDispatchToProps, "mapDispatchToProps")
+  ) : createInvalidArgFactory(mapDispatchToProps, "mapDispatchToProps");
+}
+
+// src/connect/mapStateToProps.ts
+function mapStateToPropsFactory(mapStateToProps) {
+  return !mapStateToProps ? wrapMapToPropsConstant(() => ({})) : typeof mapStateToProps === "function" ? (
+    // @ts-ignore
+    wrapMapToPropsFunc(mapStateToProps, "mapStateToProps")
+  ) : createInvalidArgFactory(mapStateToProps, "mapStateToProps");
+}
+
+// src/connect/mergeProps.ts
+function defaultMergeProps(stateProps, dispatchProps, ownProps) {
+  return { ...ownProps, ...stateProps, ...dispatchProps };
+}
+function wrapMergePropsFunc(mergeProps) {
+  return function initMergePropsProxy(dispatch, { displayName, areMergedPropsEqual }) {
+    let hasRunOnce = false;
+    let mergedProps;
+    return function mergePropsProxy(stateProps, dispatchProps, ownProps) {
+      const nextMergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+      if (hasRunOnce) {
+        if (!areMergedPropsEqual(nextMergedProps, mergedProps))
+          mergedProps = nextMergedProps;
+      } else {
+        hasRunOnce = true;
+        mergedProps = nextMergedProps;
+        if (false)
+          // removed by dead control flow
+{}
+      }
+      return mergedProps;
+    };
+  };
+}
+function mergePropsFactory(mergeProps) {
+  return !mergeProps ? () => defaultMergeProps : typeof mergeProps === "function" ? wrapMergePropsFunc(mergeProps) : createInvalidArgFactory(mergeProps, "mergeProps");
+}
+
+// src/utils/batch.ts
+function defaultNoopBatch(callback) {
+  callback();
+}
+
+// src/utils/Subscription.ts
+function createListenerCollection() {
+  let first = null;
+  let last = null;
+  return {
+    clear() {
+      first = null;
+      last = null;
+    },
+    notify() {
+      defaultNoopBatch(() => {
+        let listener = first;
+        while (listener) {
+          listener.callback();
+          listener = listener.next;
+        }
+      });
+    },
+    get() {
+      const listeners = [];
+      let listener = first;
+      while (listener) {
+        listeners.push(listener);
+        listener = listener.next;
+      }
+      return listeners;
+    },
+    subscribe(callback) {
+      let isSubscribed = true;
+      const listener = last = {
+        callback,
+        next: null,
+        prev: last
+      };
+      if (listener.prev) {
+        listener.prev.next = listener;
+      } else {
+        first = listener;
+      }
+      return function unsubscribe() {
+        if (!isSubscribed || first === null) return;
+        isSubscribed = false;
+        if (listener.next) {
+          listener.next.prev = listener.prev;
+        } else {
+          last = listener.prev;
+        }
+        if (listener.prev) {
+          listener.prev.next = listener.next;
+        } else {
+          first = listener.next;
+        }
+      };
+    }
+  };
+}
+var nullListeners = {
+  notify() {
+  },
+  get: () => []
+};
+function createSubscription(store, parentSub) {
+  let unsubscribe;
+  let listeners = nullListeners;
+  let subscriptionsAmount = 0;
+  let selfSubscribed = false;
+  function addNestedSub(listener) {
+    trySubscribe();
+    const cleanupListener = listeners.subscribe(listener);
+    let removed = false;
+    return () => {
+      if (!removed) {
+        removed = true;
+        cleanupListener();
+        tryUnsubscribe();
+      }
+    };
+  }
+  function notifyNestedSubs() {
+    listeners.notify();
+  }
+  function handleChangeWrapper() {
+    if (subscription.onStateChange) {
+      subscription.onStateChange();
+    }
+  }
+  function isSubscribed() {
+    return selfSubscribed;
+  }
+  function trySubscribe() {
+    subscriptionsAmount++;
+    if (!unsubscribe) {
+      unsubscribe = parentSub ? parentSub.addNestedSub(handleChangeWrapper) : store.subscribe(handleChangeWrapper);
+      listeners = createListenerCollection();
+    }
+  }
+  function tryUnsubscribe() {
+    subscriptionsAmount--;
+    if (unsubscribe && subscriptionsAmount === 0) {
+      unsubscribe();
+      unsubscribe = void 0;
+      listeners.clear();
+      listeners = nullListeners;
+    }
+  }
+  function trySubscribeSelf() {
+    if (!selfSubscribed) {
+      selfSubscribed = true;
+      trySubscribe();
+    }
+  }
+  function tryUnsubscribeSelf() {
+    if (selfSubscribed) {
+      selfSubscribed = false;
+      tryUnsubscribe();
+    }
+  }
+  const subscription = {
+    addNestedSub,
+    notifyNestedSubs,
+    handleChangeWrapper,
+    isSubscribed,
+    trySubscribe: trySubscribeSelf,
+    tryUnsubscribe: tryUnsubscribeSelf,
+    getListeners: () => listeners
+  };
+  return subscription;
+}
+
+// src/utils/useIsomorphicLayoutEffect.ts
+var canUseDOM = () => !!(typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined");
+var isDOM = /* @__PURE__ */ canUseDOM();
+var isRunningInReactNative = () => typeof navigator !== "undefined" && navigator.product === "ReactNative";
+var isReactNative = /* @__PURE__ */ isRunningInReactNative();
+var getUseIsomorphicLayoutEffect = () => isDOM || isReactNative ? react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect : react__WEBPACK_IMPORTED_MODULE_0__.useEffect;
+var useIsomorphicLayoutEffect = /* @__PURE__ */ getUseIsomorphicLayoutEffect();
+
+// src/utils/shallowEqual.ts
+function is(x, y) {
+  if (x === y) {
+    return x !== 0 || y !== 0 || 1 / x === 1 / y;
+  } else {
+    return x !== x && y !== y;
+  }
+}
+function shallowEqual(objA, objB) {
+  if (is(objA, objB)) return true;
+  if (typeof objA !== "object" || objA === null || typeof objB !== "object" || objB === null) {
+    return false;
+  }
+  const keysA = Object.keys(objA);
+  const keysB = Object.keys(objB);
+  if (keysA.length !== keysB.length) return false;
+  for (let i = 0; i < keysA.length; i++) {
+    if (!Object.prototype.hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// src/utils/hoistStatics.ts
+var REACT_STATICS = {
+  childContextTypes: true,
+  contextType: true,
+  contextTypes: true,
+  defaultProps: true,
+  displayName: true,
+  getDefaultProps: true,
+  getDerivedStateFromError: true,
+  getDerivedStateFromProps: true,
+  mixins: true,
+  propTypes: true,
+  type: true
+};
+var KNOWN_STATICS = {
+  name: true,
+  length: true,
+  prototype: true,
+  caller: true,
+  callee: true,
+  arguments: true,
+  arity: true
+};
+var FORWARD_REF_STATICS = {
+  $$typeof: true,
+  render: true,
+  defaultProps: true,
+  displayName: true,
+  propTypes: true
+};
+var MEMO_STATICS = {
+  $$typeof: true,
+  compare: true,
+  defaultProps: true,
+  displayName: true,
+  propTypes: true,
+  type: true
+};
+var TYPE_STATICS = {
+  [ForwardRef]: FORWARD_REF_STATICS,
+  [Memo]: MEMO_STATICS
+};
+function getStatics(component) {
+  if (isMemo(component)) {
+    return MEMO_STATICS;
+  }
+  return TYPE_STATICS[component["$$typeof"]] || REACT_STATICS;
+}
+var defineProperty = Object.defineProperty;
+var getOwnPropertyNames = Object.getOwnPropertyNames;
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+var getPrototypeOf = Object.getPrototypeOf;
+var objectPrototype = Object.prototype;
+function hoistNonReactStatics(targetComponent, sourceComponent) {
+  if (typeof sourceComponent !== "string") {
+    if (objectPrototype) {
+      const inheritedComponent = getPrototypeOf(sourceComponent);
+      if (inheritedComponent && inheritedComponent !== objectPrototype) {
+        hoistNonReactStatics(targetComponent, inheritedComponent);
+      }
+    }
+    let keys = getOwnPropertyNames(sourceComponent);
+    if (getOwnPropertySymbols) {
+      keys = keys.concat(getOwnPropertySymbols(sourceComponent));
+    }
+    const targetStatics = getStatics(targetComponent);
+    const sourceStatics = getStatics(sourceComponent);
+    for (let i = 0; i < keys.length; ++i) {
+      const key = keys[i];
+      if (!KNOWN_STATICS[key] && !(sourceStatics && sourceStatics[key]) && !(targetStatics && targetStatics[key])) {
+        const descriptor = getOwnPropertyDescriptor(sourceComponent, key);
+        try {
+          defineProperty(targetComponent, key, descriptor);
+        } catch (e) {
+        }
+      }
+    }
+  }
+  return targetComponent;
+}
+
+// src/components/Context.ts
+var ContextKey = /* @__PURE__ */ Symbol.for(`react-redux-context`);
+var gT = typeof globalThis !== "undefined" ? globalThis : (
+  /* fall back to a per-module scope (pre-8.1 behaviour) if `globalThis` is not available */
+  {}
+);
+function getContext() {
+  if (!react__WEBPACK_IMPORTED_MODULE_0__.createContext) return {};
+  const contextMap = gT[ContextKey] ??= /* @__PURE__ */ new Map();
+  let realContext = contextMap.get(react__WEBPACK_IMPORTED_MODULE_0__.createContext);
+  if (!realContext) {
+    realContext = react__WEBPACK_IMPORTED_MODULE_0__.createContext(
+      null
+    );
+    if (false) // removed by dead control flow
+{}
+    contextMap.set(react__WEBPACK_IMPORTED_MODULE_0__.createContext, realContext);
+  }
+  return realContext;
+}
+var ReactReduxContext = /* @__PURE__ */ getContext();
+
+// src/components/connect.tsx
+var NO_SUBSCRIPTION_ARRAY = (/* unused pure expression or super */ null && ([null, null]));
+var stringifyComponent = (Comp) => {
+  try {
+    return JSON.stringify(Comp);
+  } catch (err) {
+    return String(Comp);
+  }
+};
+function useIsomorphicLayoutEffectWithArgs(effectFunc, effectArgs, dependencies) {
+  useIsomorphicLayoutEffect(() => effectFunc(...effectArgs), dependencies);
+}
+function captureWrapperProps(lastWrapperProps, lastChildProps, renderIsScheduled, wrapperProps, childPropsFromStoreUpdate, notifyNestedSubs) {
+  lastWrapperProps.current = wrapperProps;
+  renderIsScheduled.current = false;
+  if (childPropsFromStoreUpdate.current) {
+    childPropsFromStoreUpdate.current = null;
+    notifyNestedSubs();
+  }
+}
+function subscribeUpdates(shouldHandleStateChanges, store, subscription, childPropsSelector, lastWrapperProps, lastChildProps, renderIsScheduled, isMounted, childPropsFromStoreUpdate, notifyNestedSubs, additionalSubscribeListener) {
+  if (!shouldHandleStateChanges) return () => {
+  };
+  let didUnsubscribe = false;
+  let lastThrownError = null;
+  const checkForUpdates = () => {
+    if (didUnsubscribe || !isMounted.current) {
+      return;
+    }
+    const latestStoreState = store.getState();
+    let newChildProps, error;
+    try {
+      newChildProps = childPropsSelector(
+        latestStoreState,
+        lastWrapperProps.current
+      );
+    } catch (e) {
+      error = e;
+      lastThrownError = e;
+    }
+    if (!error) {
+      lastThrownError = null;
+    }
+    if (newChildProps === lastChildProps.current) {
+      if (!renderIsScheduled.current) {
+        notifyNestedSubs();
+      }
+    } else {
+      lastChildProps.current = newChildProps;
+      childPropsFromStoreUpdate.current = newChildProps;
+      renderIsScheduled.current = true;
+      additionalSubscribeListener();
+    }
+  };
+  subscription.onStateChange = checkForUpdates;
+  subscription.trySubscribe();
+  checkForUpdates();
+  const unsubscribeWrapper = () => {
+    didUnsubscribe = true;
+    subscription.tryUnsubscribe();
+    subscription.onStateChange = null;
+    if (lastThrownError) {
+      throw lastThrownError;
+    }
+  };
+  return unsubscribeWrapper;
+}
+function strictEqual(a, b) {
+  return a === b;
+}
+var hasWarnedAboutDeprecatedPureOption = false;
+function connect(mapStateToProps, mapDispatchToProps, mergeProps, {
+  // The `pure` option has been removed, so TS doesn't like us destructuring this to check its existence.
+  // @ts-ignore
+  pure,
+  areStatesEqual = strictEqual,
+  areOwnPropsEqual = shallowEqual,
+  areStatePropsEqual = shallowEqual,
+  areMergedPropsEqual = shallowEqual,
+  // use React's forwardRef to expose a ref of the wrapped component
+  forwardRef = false,
+  // the context consumer to use
+  context = ReactReduxContext
+} = {}) {
+  if (false) // removed by dead control flow
+{}
+  const Context = context;
+  const initMapStateToProps = mapStateToPropsFactory(mapStateToProps);
+  const initMapDispatchToProps = mapDispatchToPropsFactory(mapDispatchToProps);
+  const initMergeProps = mergePropsFactory(mergeProps);
+  const shouldHandleStateChanges = Boolean(mapStateToProps);
+  const wrapWithConnect = (WrappedComponent) => {
+    if (false) // removed by dead control flow
+{}
+    const wrappedComponentName = WrappedComponent.displayName || WrappedComponent.name || "Component";
+    const displayName = `Connect(${wrappedComponentName})`;
+    const selectorFactoryOptions = {
+      shouldHandleStateChanges,
+      displayName,
+      wrappedComponentName,
+      WrappedComponent,
+      // @ts-ignore
+      initMapStateToProps,
+      initMapDispatchToProps,
+      initMergeProps,
+      areStatesEqual,
+      areStatePropsEqual,
+      areOwnPropsEqual,
+      areMergedPropsEqual
+    };
+    function ConnectFunction(props) {
+      const [propsContext, reactReduxForwardedRef, wrapperProps] = React.useMemo(() => {
+        const { reactReduxForwardedRef: reactReduxForwardedRef2, ...wrapperProps2 } = props;
+        return [props.context, reactReduxForwardedRef2, wrapperProps2];
+      }, [props]);
+      const ContextToUse = React.useMemo(() => {
+        let ResultContext = Context;
+        if (propsContext?.Consumer) {
+          if (false) // removed by dead control flow
+{}
+        }
+        return ResultContext;
+      }, [propsContext, Context]);
+      const contextValue = React.useContext(ContextToUse);
+      const didStoreComeFromProps = Boolean(props.store) && Boolean(props.store.getState) && Boolean(props.store.dispatch);
+      const didStoreComeFromContext = Boolean(contextValue) && Boolean(contextValue.store);
+      if (false) // removed by dead control flow
+{}
+      const store = didStoreComeFromProps ? props.store : contextValue.store;
+      const getServerState = didStoreComeFromContext ? contextValue.getServerState : store.getState;
+      const childPropsSelector = React.useMemo(() => {
+        return finalPropsSelectorFactory(store.dispatch, selectorFactoryOptions);
+      }, [store]);
+      const [subscription, notifyNestedSubs] = React.useMemo(() => {
+        if (!shouldHandleStateChanges) return NO_SUBSCRIPTION_ARRAY;
+        const subscription2 = createSubscription(
+          store,
+          didStoreComeFromProps ? void 0 : contextValue.subscription
+        );
+        const notifyNestedSubs2 = subscription2.notifyNestedSubs.bind(subscription2);
+        return [subscription2, notifyNestedSubs2];
+      }, [store, didStoreComeFromProps, contextValue]);
+      const overriddenContextValue = React.useMemo(() => {
+        if (didStoreComeFromProps) {
+          return contextValue;
+        }
+        return {
+          ...contextValue,
+          subscription
+        };
+      }, [didStoreComeFromProps, contextValue, subscription]);
+      const lastChildProps = React.useRef(void 0);
+      const lastWrapperProps = React.useRef(wrapperProps);
+      const childPropsFromStoreUpdate = React.useRef(void 0);
+      const renderIsScheduled = React.useRef(false);
+      const isMounted = React.useRef(false);
+      const latestSubscriptionCallbackError = React.useRef(
+        void 0
+      );
+      useIsomorphicLayoutEffect(() => {
+        isMounted.current = true;
+        return () => {
+          isMounted.current = false;
+        };
+      }, []);
+      const actualChildPropsSelector = React.useMemo(() => {
+        const selector = () => {
+          if (childPropsFromStoreUpdate.current && wrapperProps === lastWrapperProps.current) {
+            return childPropsFromStoreUpdate.current;
+          }
+          return childPropsSelector(store.getState(), wrapperProps);
+        };
+        return selector;
+      }, [store, wrapperProps]);
+      const subscribeForReact = React.useMemo(() => {
+        const subscribe = (reactListener) => {
+          if (!subscription) {
+            return () => {
+            };
+          }
+          return subscribeUpdates(
+            shouldHandleStateChanges,
+            store,
+            subscription,
+            // @ts-ignore
+            childPropsSelector,
+            lastWrapperProps,
+            lastChildProps,
+            renderIsScheduled,
+            isMounted,
+            childPropsFromStoreUpdate,
+            notifyNestedSubs,
+            reactListener
+          );
+        };
+        return subscribe;
+      }, [subscription]);
+      useIsomorphicLayoutEffectWithArgs(captureWrapperProps, [
+        lastWrapperProps,
+        lastChildProps,
+        renderIsScheduled,
+        wrapperProps,
+        childPropsFromStoreUpdate,
+        notifyNestedSubs
+      ]);
+      let actualChildProps;
+      try {
+        actualChildProps = React.useSyncExternalStore(
+          // TODO We're passing through a big wrapper that does a bunch of extra side effects besides subscribing
+          subscribeForReact,
+          // TODO This is incredibly hacky. We've already processed the store update and calculated new child props,
+          // TODO and we're just passing that through so it triggers a re-render for us rather than relying on `uSES`.
+          actualChildPropsSelector,
+          getServerState ? () => childPropsSelector(getServerState(), wrapperProps) : actualChildPropsSelector
+        );
+      } catch (err) {
+        if (latestSubscriptionCallbackError.current) {
+          ;
+          err.message += `
+The error may be correlated with this previous error:
+${latestSubscriptionCallbackError.current.stack}
+
+`;
+        }
+        throw err;
+      }
+      useIsomorphicLayoutEffect(() => {
+        latestSubscriptionCallbackError.current = void 0;
+        childPropsFromStoreUpdate.current = void 0;
+        lastChildProps.current = actualChildProps;
+      });
+      const renderedWrappedComponent = React.useMemo(() => {
+        return (
+          // @ts-ignore
+          /* @__PURE__ */ React.createElement(
+            WrappedComponent,
+            {
+              ...actualChildProps,
+              ref: reactReduxForwardedRef
+            }
+          )
+        );
+      }, [reactReduxForwardedRef, WrappedComponent, actualChildProps]);
+      const renderedChild = React.useMemo(() => {
+        if (shouldHandleStateChanges) {
+          return /* @__PURE__ */ React.createElement(ContextToUse.Provider, { value: overriddenContextValue }, renderedWrappedComponent);
+        }
+        return renderedWrappedComponent;
+      }, [ContextToUse, renderedWrappedComponent, overriddenContextValue]);
+      return renderedChild;
+    }
+    const _Connect = React.memo(ConnectFunction);
+    const Connect = _Connect;
+    Connect.WrappedComponent = WrappedComponent;
+    Connect.displayName = ConnectFunction.displayName = displayName;
+    if (forwardRef) {
+      const _forwarded = React.forwardRef(
+        function forwardConnectRef(props, ref) {
+          return /* @__PURE__ */ React.createElement(Connect, { ...props, reactReduxForwardedRef: ref });
+        }
+      );
+      const forwarded = _forwarded;
+      forwarded.displayName = displayName;
+      forwarded.WrappedComponent = WrappedComponent;
+      return /* @__PURE__ */ hoistNonReactStatics(forwarded, WrappedComponent);
+    }
+    return /* @__PURE__ */ hoistNonReactStatics(Connect, WrappedComponent);
+  };
+  return wrapWithConnect;
+}
+var connect_default = (/* unused pure expression or super */ null && (connect));
+
+// src/components/Provider.tsx
+function Provider(providerProps) {
+  const { children, context, serverState, store } = providerProps;
+  const contextValue = react__WEBPACK_IMPORTED_MODULE_0__.useMemo(() => {
+    const subscription = createSubscription(store);
+    const baseContextValue = {
+      store,
+      subscription,
+      getServerState: serverState ? () => serverState : void 0
+    };
+    if (true) {
+      return baseContextValue;
+    } else // removed by dead control flow
+{}
+  }, [store, serverState]);
+  const previousState = react__WEBPACK_IMPORTED_MODULE_0__.useMemo(() => store.getState(), [store]);
+  useIsomorphicLayoutEffect(() => {
+    const { subscription } = contextValue;
+    subscription.onStateChange = subscription.notifyNestedSubs;
+    subscription.trySubscribe();
+    if (previousState !== store.getState()) {
+      subscription.notifyNestedSubs();
+    }
+    return () => {
+      subscription.tryUnsubscribe();
+      subscription.onStateChange = void 0;
+    };
+  }, [contextValue, previousState]);
+  const Context = context || ReactReduxContext;
+  return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0__.createElement(Context.Provider, { value: contextValue }, children);
+}
+var Provider_default = Provider;
+
+// src/hooks/useReduxContext.ts
+function createReduxContextHook(context = ReactReduxContext) {
+  return function useReduxContext2() {
+    const contextValue = react__WEBPACK_IMPORTED_MODULE_0__.useContext(context);
+    if (false) // removed by dead control flow
+{}
+    return contextValue;
+  };
+}
+var useReduxContext = /* @__PURE__ */ createReduxContextHook();
+
+// src/hooks/useStore.ts
+function createStoreHook(context = ReactReduxContext) {
+  const useReduxContext2 = context === ReactReduxContext ? useReduxContext : (
+    // @ts-ignore
+    createReduxContextHook(context)
+  );
+  const useStore2 = () => {
+    const { store } = useReduxContext2();
+    return store;
+  };
+  Object.assign(useStore2, {
+    withTypes: () => useStore2
+  });
+  return useStore2;
+}
+var useStore = /* @__PURE__ */ createStoreHook();
+
+// src/hooks/useDispatch.ts
+function createDispatchHook(context = ReactReduxContext) {
+  const useStore2 = context === ReactReduxContext ? useStore : createStoreHook(context);
+  const useDispatch2 = () => {
+    const store = useStore2();
+    return store.dispatch;
+  };
+  Object.assign(useDispatch2, {
+    withTypes: () => useDispatch2
+  });
+  return useDispatch2;
+}
+var useDispatch = /* @__PURE__ */ createDispatchHook();
+
+// src/hooks/useSelector.ts
+
+var refEquality = (a, b) => a === b;
+function createSelectorHook(context = ReactReduxContext) {
+  const useReduxContext2 = context === ReactReduxContext ? useReduxContext : createReduxContextHook(context);
+  const useSelector2 = (selector, equalityFnOrOptions = {}) => {
+    const { equalityFn = refEquality } = typeof equalityFnOrOptions === "function" ? { equalityFn: equalityFnOrOptions } : equalityFnOrOptions;
+    if (false) // removed by dead control flow
+{}
+    const reduxContext = useReduxContext2();
+    const { store, subscription, getServerState } = reduxContext;
+    const firstRun = react__WEBPACK_IMPORTED_MODULE_0__.useRef(true);
+    const wrappedSelector = react__WEBPACK_IMPORTED_MODULE_0__.useCallback(
+      {
+        [selector.name](state) {
+          const selected = selector(state);
+          if (false) // removed by dead control flow
+{}
+          return selected;
+        }
+      }[selector.name],
+      [selector]
+    );
+    const selectedState = (0,use_sync_external_store_with_selector_js__WEBPACK_IMPORTED_MODULE_1__.useSyncExternalStoreWithSelector)(
+      subscription.addNestedSub,
+      store.getState,
+      getServerState || store.getState,
+      wrappedSelector,
+      equalityFn
+    );
+    react__WEBPACK_IMPORTED_MODULE_0__.useDebugValue(selectedState);
+    return selectedState;
+  };
+  Object.assign(useSelector2, {
+    withTypes: () => useSelector2
+  });
+  return useSelector2;
+}
+var useSelector = /* @__PURE__ */ createSelectorHook();
+
+// src/exports.ts
+var batch = (/* unused pure expression or super */ null && (defaultNoopBatch));
+
+//# sourceMappingURL=react-redux.mjs.map
 
 /***/ }),
 
@@ -26038,28 +27046,31 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6618);
 /* harmony import */ var _headerNavigationBar_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1860);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1362);
+/* harmony import */ var _hooks_ReduxHooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5713);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__]);
 _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
 
+
 function HeaderNavigationBar() {
-    const { filterContext, setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__/* .useProductsAndFilters */ .u)();
+    const { setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__/* .useProductsAndFilters */ .u)();
     const [searchParams] = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .useSearchParams */ .ok)();
     const currentProductType = searchParams.get('productType');
-    const categoryLinkItems = filterContext.productType.map(productType => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .NavLink */ .k2, { to: {
+    const productTypes = (0,_hooks_ReduxHooks__WEBPACK_IMPORTED_MODULE_4__/* .useAppSelector */ .G)(state => state.meta.productTypes);
+    const categoryLinkItems = productTypes.map(productType => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .NavLink */ .k2, { to: {
                 pathname: '/allProducts',
                 search: `productType=${productType}`
             }, className: () => productType === currentProductType ? 'active' : '', onClick: () => {
                 setFiltersOptions({
-                    filters: { productType: [productType], category: [], designers: [], priceFilters: [] },
+                    filters: { productTypes: [productType], category: [], designers: [], priceFilters: [] },
                     sorting: '',
                     search: ''
                 });
             }, children: productType }) }, productType)));
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("nav", { className: _headerNavigationBar_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.headerNav, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", { className: _headerNavigationBar_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.headerNavigationList, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .NavLink */ .k2, { to: '/allProducts', className: ({ isActive }) => isActive && !currentProductType ? 'active' : '', onClick: () => setFiltersOptions({
-                            filters: { productType: [], category: [], designers: [], priceFilters: [] },
+                            filters: { productTypes: [], category: [], designers: [], priceFilters: [] },
                             sorting: '',
                             search: ''
                         }), children: "All Products" }) }), categoryLinkItems, (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .NavLink */ .k2, { to: '/about', children: "About us" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .NavLink */ .k2, { to: '/contacts', children: "Contacts" }) })] }) }));
@@ -26081,25 +27092,28 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1362);
 /* harmony import */ var _burgerMenuNav_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4732);
 /* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6618);
+/* harmony import */ var _hooks_ReduxHooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5713);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__]);
 _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
 
+
 function BurgerMenuNav() {
-    const { filterContext, setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__/* .useProductsAndFilters */ .u)();
-    const productTypeLinkItems = filterContext.productType.map(productType => {
+    const { setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_3__/* .useProductsAndFilters */ .u)();
+    const productTypes = (0,_hooks_ReduxHooks__WEBPACK_IMPORTED_MODULE_4__/* .useAppSelector */ .G)(state => state.meta.productTypes);
+    const productTypeLinkItems = productTypes.map(productType => {
         return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__/* .Link */ .N_, { to: {
                     pathname: '/allProducts',
                 }, onClick: () => setFiltersOptions({
-                    filters: { productType: [productType], category: [], designers: [], priceFilters: [] },
+                    filters: { productTypes: [productType], category: [], designers: [], priceFilters: [] },
                     sorting: '',
                     search: ''
                 }), children: productType }) }, productType));
     });
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", { className: _burgerMenuNav_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.burgerMenuNavList, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__/* .Link */ .N_, { to: '/allProducts', onClick: () => setFiltersOptions({
-                        filters: { productType: [], category: [], designers: [], priceFilters: [] },
+                        filters: { productTypes: [], category: [], designers: [], priceFilters: [] },
                         sorting: '',
                         search: ''
                     }), children: "All Products" }) }), productTypeLinkItems, (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__/* .Link */ .N_, { to: '/about', children: "About us" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__/* .Link */ .N_, { to: '/contacts', children: "Contacts" }) })] }));
@@ -26328,8 +27342,10 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
 /* harmony import */ var _filterFieldset_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5746);
 /* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6618);
+/* harmony import */ var _hooks_ReduxHooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5713);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__]);
 _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
 
 
 
@@ -26342,7 +27358,8 @@ function FilterFieldset({ filter, title, showOptions, setShowOptions, onChange }
             [filter]: !prev[filter],
         }));
     }
-    const filterNames = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__/* .useProductsAndFilters */ .u)().filterContext[filter];
+    const filtersFields = (0,_hooks_ReduxHooks__WEBPACK_IMPORTED_MODULE_3__/* .useAppSelector */ .G)(state => state.meta);
+    const filterNames = filtersFields[filter];
     const { filtersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__/* .useProductsAndFilters */ .u)();
     const filterItems = filterNames.map(filterName => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", { className: filtersOptions.filters[filter].includes(filterName) ? _filterFieldset_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.activeLabel : '', children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { type: "checkbox", checked: filtersOptions.filters[filter].includes(filterName), value: filterName, name: filter, onChange: onChange }), filterName] }, filterName)));
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("fieldset", { className: `${showOptions[filter] ? '' : _filterFieldset_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.hiddenFieldset} ${_filterFieldset_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.filterFieldset}`, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("legend", { className: filtersOptions.filters[filter].length > 0 ? _filterFieldset_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.activeLegend : '', onClick: () => toggleFieldset(), children: title }), filterItems] }));
@@ -26375,7 +27392,7 @@ _Components_SearchForm_SearchForm__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_asyn
 function HeaderTop({ isOpenBurger, setIsOpenBurger }) {
     const { cart } = (0,_Context_CartContext__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)();
     const quantity = cart.length;
-    const isShowCart = cart.length > 0;
+    const isShowCart = quantity > 0;
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.headerTop, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__/* .Link */ .N_, { to: '/', className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.title, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: "Avion" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.iconLayoutLeft, children: [isShowCart &&
                         (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__/* .Link */ .N_, { to: '/shoppingCart', className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.cartLink, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("rect", { width: "16", height: "16", fill: "white" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15Z", fill: "#2A254B" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M12 15C12.5523 15 13 14.5523 13 14C13 13.4477 12.5523 13 12 13C11.4477 13 11 13.4477 11 14C11 14.5523 11.4477 15 12 15Z", fill: "#2A254B" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M14 3.50001H2.91L2.5 1.40001C2.47662 1.28537 2.41379 1.18256 2.32243 1.10947C2.23107 1.03639 2.11697 0.997651 2 1.00001H0V2.00001H1.59L3.5 11.6C3.52338 11.7146 3.58621 11.8175 3.67757 11.8905C3.76893 11.9636 3.88303 12.0024 4 12H13V11H4.41L4 9.00001H13C13.1156 9.00284 13.2286 8.96552 13.3197 8.89441C13.4109 8.8233 13.4746 8.7228 13.5 8.61001L14.5 4.11001C14.5168 4.03582 14.5164 3.95879 14.4989 3.88478C14.4814 3.81076 14.4472 3.74172 14.399 3.6829C14.3508 3.62407 14.2898 3.57703 14.2206 3.54534C14.1515 3.51364 14.076 3.49814 14 3.50001ZM12.6 8.00001H3.81L3.11 4.50001H13.375L12.6 8.00001Z", fill: "#2A254B" })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.quantityLabel, children: quantity })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_SearchForm_SearchForm__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {})] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.iconLayoutRight, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__/* .Link */ .N_, { to: '/shoppingCart', className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.cartLink, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("rect", { width: "16", height: "16", fill: "white" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15Z", fill: "#2A254B" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M12 15C12.5523 15 13 14.5523 13 14C13 13.4477 12.5523 13 12 13C11.4477 13 11 13.4477 11 14C11 14.5523 11.4477 15 12 15Z", fill: "#2A254B" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M14 3.50001H2.91L2.5 1.40001C2.47662 1.28537 2.41379 1.18256 2.32243 1.10947C2.23107 1.03639 2.11697 0.997651 2 1.00001H0V2.00001H1.59L3.5 11.6C3.52338 11.7146 3.58621 11.8175 3.67757 11.8905C3.76893 11.9636 3.88303 12.0024 4 12H13V11H4.41L4 9.00001H13C13.1156 9.00284 13.2286 8.96552 13.3197 8.89441C13.4109 8.8233 13.4746 8.7228 13.5 8.61001L14.5 4.11001C14.5168 4.03582 14.5164 3.95879 14.4989 3.88478C14.4814 3.81076 14.4472 3.74172 14.399 3.6829C14.3508 3.62407 14.2898 3.57703 14.2206 3.54534C14.1515 3.51364 14.076 3.49814 14 3.50001ZM12.6 8.00001H3.81L3.11 4.50001H13.375L12.6 8.00001Z", fill: "#2A254B" })] }), isShowCart && (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.quantityLabel, children: quantity })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__/* .Link */ .N_, { to: '/profile', children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("rect", { width: "16", height: "16", fill: "white" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M8 4C7.50555 4 7.0222 4.14662 6.61108 4.42133C6.19995 4.69603 5.87952 5.08648 5.6903 5.54329C5.50108 6.00011 5.45158 6.50277 5.54804 6.98773C5.6445 7.47268 5.88261 7.91814 6.23224 8.26777C6.58187 8.6174 7.02733 8.8555 7.51228 8.95196C7.99723 9.04843 8.4999 8.99892 8.95671 8.8097C9.41353 8.62048 9.80397 8.30005 10.0787 7.88893C10.3534 7.4778 10.5 6.99445 10.5 6.5C10.5 5.83696 10.2366 5.20107 9.76777 4.73223C9.29893 4.26339 8.66304 4 8 4ZM8 8C7.70333 8 7.41332 7.91203 7.16665 7.7472C6.91997 7.58238 6.72772 7.34811 6.61418 7.07403C6.50065 6.79994 6.47095 6.49834 6.52882 6.20736C6.5867 5.91639 6.72956 5.64912 6.93934 5.43934C7.14912 5.22956 7.4164 5.0867 7.70737 5.02882C7.99834 4.97094 8.29994 5.00065 8.57403 5.11418C8.84812 5.22771 9.08239 5.41997 9.24721 5.66664C9.41203 5.91332 9.5 6.20333 9.5 6.5C9.49955 6.89769 9.34137 7.27896 9.06017 7.56016C8.77896 7.84137 8.39769 7.99955 8 8Z", fill: "#2A254B" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M8 1C6.61553 1 5.26216 1.41054 4.11101 2.17971C2.95987 2.94888 2.06266 4.04213 1.53285 5.32122C1.00303 6.6003 0.86441 8.00776 1.13451 9.36563C1.4046 10.7235 2.07129 11.9708 3.05026 12.9497C4.02922 13.9287 5.2765 14.5954 6.63437 14.8655C7.99224 15.1356 9.3997 14.997 10.6788 14.4672C11.9579 13.9373 13.0511 13.0401 13.8203 11.889C14.5895 10.7378 15 9.38447 15 8C14.9979 6.14413 14.2597 4.36486 12.9474 3.05256C11.6351 1.74026 9.85588 1.00209 8 1ZM5 13.1882V12.5C5.00044 12.1023 5.15862 11.721 5.43983 11.4398C5.72104 11.1586 6.10231 11.0004 6.5 11H9.5C9.89769 11.0004 10.279 11.1586 10.5602 11.4398C10.8414 11.721 10.9996 12.1023 11 12.5V13.1882C10.0896 13.7199 9.05426 14 8 14C6.94574 14 5.91042 13.7199 5 13.1882ZM11.9963 12.4629C11.9863 11.807 11.7191 11.1813 11.2521 10.7206C10.7852 10.2599 10.156 10.0011 9.5 10H6.5C5.84405 10.0011 5.2148 10.2599 4.74786 10.7206C4.28093 11.1813 4.01369 11.807 4.00375 12.4629C3.09703 11.6533 2.45762 10.5873 2.17017 9.40623C1.88272 8.22513 1.9608 6.98457 2.39407 5.84883C2.82734 4.71309 3.59536 3.73573 4.59644 3.04618C5.59751 2.35663 6.78442 1.98741 8 1.98741C9.21558 1.98741 10.4025 2.35663 11.4036 3.04618C12.4046 3.73573 13.1727 4.71309 13.6059 5.84883C14.0392 6.98457 14.1173 8.22513 13.8298 9.40623C13.5424 10.5873 12.903 11.6533 11.9963 12.4629Z", fill: "#2A254B" })] }) })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: _headerTop_module_scss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.burgerButton, onClick: () => setIsOpenBurger(prev => !prev), children: isOpenBurger ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { viewBox: "0 0 448 512", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { fill: "#2A254B", d: "M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" }) })) : ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("rect", { width: "16", height: "16", fill: "white" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M14 3H2V4H14V3Z", fill: "#2A254B" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M14 12H2V13H14V12Z", fill: "#2A254B" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M14 6H2V7H14V6Z", fill: "#2A254B" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M14 9H2V10H14V9Z", fill: "#2A254B" })] })) })] }));
 }
@@ -26408,7 +27425,7 @@ __webpack_async_result__();
 // }
 function getAllProductsTitle(filterOptions) {
     const singleFiltersTitle = [
-        filterOptions.filters.productType.length === 1 ? filterOptions.filters.productType[0] : null,
+        filterOptions.filters.productTypes.length === 1 ? filterOptions.filters.productTypes[0] : null,
         filterOptions.filters.category.length === 1 ? filterOptions.filters.category[0] : null,
         filterOptions.filters.designers.length === 1 ? filterOptions.filters.designers[0] : null,
     ].filter(Boolean);
@@ -26424,6 +27441,3779 @@ function getAllProductsTitle(filterOptions) {
     return title;
 }
 
+
+/***/ }),
+
+/***/ 3390:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Y: () => (/* binding */ AppInitializer)
+/* harmony export */ });
+/* harmony import */ var _hooks_ReduxHooks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5713);
+/* harmony import */ var _store_slices_metaSlice_UIdictionary___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7944);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6540);
+
+
+
+function AppInitializer() {
+    const dispatch = (0,_hooks_ReduxHooks__WEBPACK_IMPORTED_MODULE_0__/* .useAppDispatch */ .j)();
+    (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+        dispatch((0,_store_slices_metaSlice_UIdictionary___WEBPACK_IMPORTED_MODULE_1__/* .fetchMetaData */ .s)());
+    }, [dispatch]);
+    return null;
+}
+
+
+/***/ }),
+
+/***/ 3816:
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  U1: () => (/* binding */ configureStore),
+  zD: () => (/* binding */ createAsyncThunk),
+  Z0: () => (/* binding */ createSlice)
+});
+
+// UNUSED EXPORTS: ReducerType, SHOULD_AUTOBATCH, TaskAbortError, Tuple, __DO_NOT_USE__ActionTypes, addListener, applyMiddleware, asyncThunkCreator, autoBatchEnhancer, bindActionCreators, buildCreateSlice, clearAllListeners, combineReducers, combineSlices, compose, createAction, createActionCreatorInvariantMiddleware, createDraftSafeSelector, createDraftSafeSelectorCreator, createDynamicMiddleware, createEntityAdapter, createImmutableStateInvariantMiddleware, createListenerMiddleware, createNextState, createReducer, createSelector, createSelectorCreator, createSerializableStateInvariantMiddleware, createStore, current, findNonSerializableValue, formatProdErrorMessage, freeze, isAction, isActionCreator, isAllOf, isAnyOf, isAsyncThunkAction, isDraft, isFluxStandardAction, isFulfilled, isImmutableDefault, isPending, isPlain, isPlainObject, isRejected, isRejectedWithValue, legacy_createStore, lruMemoize, miniSerializeError, nanoid, original, prepareAutoBatched, removeListener, unwrapResult, weakMapMemoize
+
+;// ./node_modules/immer/dist/immer.mjs
+// src/utils/env.ts
+var NOTHING = Symbol.for("immer-nothing");
+var DRAFTABLE = Symbol.for("immer-draftable");
+var DRAFT_STATE = Symbol.for("immer-state");
+
+// src/utils/errors.ts
+var errors =  false ? 0 : [];
+function die(error, ...args) {
+  if (false) // removed by dead control flow
+{}
+  throw new Error(
+    `[Immer] minified error nr: ${error}. Full error at: https://bit.ly/3cXEKWf`
+  );
+}
+
+// src/utils/common.ts
+var getPrototypeOf = Object.getPrototypeOf;
+function immer_isDraft(value) {
+  return !!value && !!value[DRAFT_STATE];
+}
+function isDraftable(value) {
+  if (!value)
+    return false;
+  return immer_isPlainObject(value) || Array.isArray(value) || !!value[DRAFTABLE] || !!value.constructor?.[DRAFTABLE] || isMap(value) || isSet(value);
+}
+var objectCtorString = Object.prototype.constructor.toString();
+var cachedCtorStrings = /* @__PURE__ */ new WeakMap();
+function immer_isPlainObject(value) {
+  if (!value || typeof value !== "object")
+    return false;
+  const proto = Object.getPrototypeOf(value);
+  if (proto === null || proto === Object.prototype)
+    return true;
+  const Ctor = Object.hasOwnProperty.call(proto, "constructor") && proto.constructor;
+  if (Ctor === Object)
+    return true;
+  if (typeof Ctor !== "function")
+    return false;
+  let ctorString = cachedCtorStrings.get(Ctor);
+  if (ctorString === void 0) {
+    ctorString = Function.toString.call(Ctor);
+    cachedCtorStrings.set(Ctor, ctorString);
+  }
+  return ctorString === objectCtorString;
+}
+function original(value) {
+  if (!immer_isDraft(value))
+    die(15, value);
+  return value[DRAFT_STATE].base_;
+}
+function each(obj, iter, strict = true) {
+  if (getArchtype(obj) === 0 /* Object */) {
+    const keys = strict ? Reflect.ownKeys(obj) : Object.keys(obj);
+    keys.forEach((key) => {
+      iter(key, obj[key], obj);
+    });
+  } else {
+    obj.forEach((entry, index) => iter(index, entry, obj));
+  }
+}
+function getArchtype(thing) {
+  const state = thing[DRAFT_STATE];
+  return state ? state.type_ : Array.isArray(thing) ? 1 /* Array */ : isMap(thing) ? 2 /* Map */ : isSet(thing) ? 3 /* Set */ : 0 /* Object */;
+}
+function has(thing, prop) {
+  return getArchtype(thing) === 2 /* Map */ ? thing.has(prop) : Object.prototype.hasOwnProperty.call(thing, prop);
+}
+function get(thing, prop) {
+  return getArchtype(thing) === 2 /* Map */ ? thing.get(prop) : thing[prop];
+}
+function set(thing, propOrOldValue, value) {
+  const t = getArchtype(thing);
+  if (t === 2 /* Map */)
+    thing.set(propOrOldValue, value);
+  else if (t === 3 /* Set */) {
+    thing.add(value);
+  } else
+    thing[propOrOldValue] = value;
+}
+function is(x, y) {
+  if (x === y) {
+    return x !== 0 || 1 / x === 1 / y;
+  } else {
+    return x !== x && y !== y;
+  }
+}
+function isMap(target) {
+  return target instanceof Map;
+}
+function isSet(target) {
+  return target instanceof Set;
+}
+function latest(state) {
+  return state.copy_ || state.base_;
+}
+function shallowCopy(base, strict) {
+  if (isMap(base)) {
+    return new Map(base);
+  }
+  if (isSet(base)) {
+    return new Set(base);
+  }
+  if (Array.isArray(base))
+    return Array.prototype.slice.call(base);
+  const isPlain = immer_isPlainObject(base);
+  if (strict === true || strict === "class_only" && !isPlain) {
+    const descriptors = Object.getOwnPropertyDescriptors(base);
+    delete descriptors[DRAFT_STATE];
+    let keys = Reflect.ownKeys(descriptors);
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      const desc = descriptors[key];
+      if (desc.writable === false) {
+        desc.writable = true;
+        desc.configurable = true;
+      }
+      if (desc.get || desc.set)
+        descriptors[key] = {
+          configurable: true,
+          writable: true,
+          // could live with !!desc.set as well here...
+          enumerable: desc.enumerable,
+          value: base[key]
+        };
+    }
+    return Object.create(getPrototypeOf(base), descriptors);
+  } else {
+    const proto = getPrototypeOf(base);
+    if (proto !== null && isPlain) {
+      return { ...base };
+    }
+    const obj = Object.create(proto);
+    return Object.assign(obj, base);
+  }
+}
+function freeze(obj, deep = false) {
+  if (isFrozen(obj) || immer_isDraft(obj) || !isDraftable(obj))
+    return obj;
+  if (getArchtype(obj) > 1) {
+    Object.defineProperties(obj, {
+      set: dontMutateMethodOverride,
+      add: dontMutateMethodOverride,
+      clear: dontMutateMethodOverride,
+      delete: dontMutateMethodOverride
+    });
+  }
+  Object.freeze(obj);
+  if (deep)
+    Object.values(obj).forEach((value) => freeze(value, true));
+  return obj;
+}
+function dontMutateFrozenCollections() {
+  die(2);
+}
+var dontMutateMethodOverride = {
+  value: dontMutateFrozenCollections
+};
+function isFrozen(obj) {
+  if (obj === null || typeof obj !== "object")
+    return true;
+  return Object.isFrozen(obj);
+}
+
+// src/utils/plugins.ts
+var plugins = {};
+function getPlugin(pluginKey) {
+  const plugin = plugins[pluginKey];
+  if (!plugin) {
+    die(0, pluginKey);
+  }
+  return plugin;
+}
+function loadPlugin(pluginKey, implementation) {
+  if (!plugins[pluginKey])
+    plugins[pluginKey] = implementation;
+}
+
+// src/core/scope.ts
+var currentScope;
+function getCurrentScope() {
+  return currentScope;
+}
+function createScope(parent_, immer_) {
+  return {
+    drafts_: [],
+    parent_,
+    immer_,
+    // Whenever the modified draft contains a draft from another scope, we
+    // need to prevent auto-freezing so the unowned draft can be finalized.
+    canAutoFreeze_: true,
+    unfinalizedDrafts_: 0
+  };
+}
+function usePatchesInScope(scope, patchListener) {
+  if (patchListener) {
+    getPlugin("Patches");
+    scope.patches_ = [];
+    scope.inversePatches_ = [];
+    scope.patchListener_ = patchListener;
+  }
+}
+function revokeScope(scope) {
+  leaveScope(scope);
+  scope.drafts_.forEach(revokeDraft);
+  scope.drafts_ = null;
+}
+function leaveScope(scope) {
+  if (scope === currentScope) {
+    currentScope = scope.parent_;
+  }
+}
+function enterScope(immer2) {
+  return currentScope = createScope(currentScope, immer2);
+}
+function revokeDraft(draft) {
+  const state = draft[DRAFT_STATE];
+  if (state.type_ === 0 /* Object */ || state.type_ === 1 /* Array */)
+    state.revoke_();
+  else
+    state.revoked_ = true;
+}
+
+// src/core/finalize.ts
+function processResult(result, scope) {
+  scope.unfinalizedDrafts_ = scope.drafts_.length;
+  const baseDraft = scope.drafts_[0];
+  const isReplaced = result !== void 0 && result !== baseDraft;
+  if (isReplaced) {
+    if (baseDraft[DRAFT_STATE].modified_) {
+      revokeScope(scope);
+      die(4);
+    }
+    if (isDraftable(result)) {
+      result = finalize(scope, result);
+      if (!scope.parent_)
+        maybeFreeze(scope, result);
+    }
+    if (scope.patches_) {
+      getPlugin("Patches").generateReplacementPatches_(
+        baseDraft[DRAFT_STATE].base_,
+        result,
+        scope.patches_,
+        scope.inversePatches_
+      );
+    }
+  } else {
+    result = finalize(scope, baseDraft, []);
+  }
+  revokeScope(scope);
+  if (scope.patches_) {
+    scope.patchListener_(scope.patches_, scope.inversePatches_);
+  }
+  return result !== NOTHING ? result : void 0;
+}
+function finalize(rootScope, value, path) {
+  if (isFrozen(value))
+    return value;
+  const useStrictIteration = rootScope.immer_.shouldUseStrictIteration();
+  const state = value[DRAFT_STATE];
+  if (!state) {
+    each(
+      value,
+      (key, childValue) => finalizeProperty(rootScope, state, value, key, childValue, path),
+      useStrictIteration
+    );
+    return value;
+  }
+  if (state.scope_ !== rootScope)
+    return value;
+  if (!state.modified_) {
+    maybeFreeze(rootScope, state.base_, true);
+    return state.base_;
+  }
+  if (!state.finalized_) {
+    state.finalized_ = true;
+    state.scope_.unfinalizedDrafts_--;
+    const result = state.copy_;
+    let resultEach = result;
+    let isSet2 = false;
+    if (state.type_ === 3 /* Set */) {
+      resultEach = new Set(result);
+      result.clear();
+      isSet2 = true;
+    }
+    each(
+      resultEach,
+      (key, childValue) => finalizeProperty(
+        rootScope,
+        state,
+        result,
+        key,
+        childValue,
+        path,
+        isSet2
+      ),
+      useStrictIteration
+    );
+    maybeFreeze(rootScope, result, false);
+    if (path && rootScope.patches_) {
+      getPlugin("Patches").generatePatches_(
+        state,
+        path,
+        rootScope.patches_,
+        rootScope.inversePatches_
+      );
+    }
+  }
+  return state.copy_;
+}
+function finalizeProperty(rootScope, parentState, targetObject, prop, childValue, rootPath, targetIsSet) {
+  if (childValue == null) {
+    return;
+  }
+  if (typeof childValue !== "object" && !targetIsSet) {
+    return;
+  }
+  const childIsFrozen = isFrozen(childValue);
+  if (childIsFrozen && !targetIsSet) {
+    return;
+  }
+  if (false)
+    // removed by dead control flow
+{}
+  if (immer_isDraft(childValue)) {
+    const path = rootPath && parentState && parentState.type_ !== 3 /* Set */ && // Set objects are atomic since they have no keys.
+    !has(parentState.assigned_, prop) ? rootPath.concat(prop) : void 0;
+    const res = finalize(rootScope, childValue, path);
+    set(targetObject, prop, res);
+    if (immer_isDraft(res)) {
+      rootScope.canAutoFreeze_ = false;
+    } else
+      return;
+  } else if (targetIsSet) {
+    targetObject.add(childValue);
+  }
+  if (isDraftable(childValue) && !childIsFrozen) {
+    if (!rootScope.immer_.autoFreeze_ && rootScope.unfinalizedDrafts_ < 1) {
+      return;
+    }
+    if (parentState && parentState.base_ && parentState.base_[prop] === childValue && childIsFrozen) {
+      return;
+    }
+    finalize(rootScope, childValue);
+    if ((!parentState || !parentState.scope_.parent_) && typeof prop !== "symbol" && (isMap(targetObject) ? targetObject.has(prop) : Object.prototype.propertyIsEnumerable.call(targetObject, prop)))
+      maybeFreeze(rootScope, childValue);
+  }
+}
+function maybeFreeze(scope, value, deep = false) {
+  if (!scope.parent_ && scope.immer_.autoFreeze_ && scope.canAutoFreeze_) {
+    freeze(value, deep);
+  }
+}
+
+// src/core/proxy.ts
+function createProxyProxy(base, parent) {
+  const isArray = Array.isArray(base);
+  const state = {
+    type_: isArray ? 1 /* Array */ : 0 /* Object */,
+    // Track which produce call this is associated with.
+    scope_: parent ? parent.scope_ : getCurrentScope(),
+    // True for both shallow and deep changes.
+    modified_: false,
+    // Used during finalization.
+    finalized_: false,
+    // Track which properties have been assigned (true) or deleted (false).
+    assigned_: {},
+    // The parent draft state.
+    parent_: parent,
+    // The base state.
+    base_: base,
+    // The base proxy.
+    draft_: null,
+    // set below
+    // The base copy with any updated values.
+    copy_: null,
+    // Called by the `produce` function.
+    revoke_: null,
+    isManual_: false
+  };
+  let target = state;
+  let traps = objectTraps;
+  if (isArray) {
+    target = [state];
+    traps = arrayTraps;
+  }
+  const { revoke, proxy } = Proxy.revocable(target, traps);
+  state.draft_ = proxy;
+  state.revoke_ = revoke;
+  return proxy;
+}
+var objectTraps = {
+  get(state, prop) {
+    if (prop === DRAFT_STATE)
+      return state;
+    const source = latest(state);
+    if (!has(source, prop)) {
+      return readPropFromProto(state, source, prop);
+    }
+    const value = source[prop];
+    if (state.finalized_ || !isDraftable(value)) {
+      return value;
+    }
+    if (value === peek(state.base_, prop)) {
+      prepareCopy(state);
+      return state.copy_[prop] = createProxy(value, state);
+    }
+    return value;
+  },
+  has(state, prop) {
+    return prop in latest(state);
+  },
+  ownKeys(state) {
+    return Reflect.ownKeys(latest(state));
+  },
+  set(state, prop, value) {
+    const desc = getDescriptorFromProto(latest(state), prop);
+    if (desc?.set) {
+      desc.set.call(state.draft_, value);
+      return true;
+    }
+    if (!state.modified_) {
+      const current2 = peek(latest(state), prop);
+      const currentState = current2?.[DRAFT_STATE];
+      if (currentState && currentState.base_ === value) {
+        state.copy_[prop] = value;
+        state.assigned_[prop] = false;
+        return true;
+      }
+      if (is(value, current2) && (value !== void 0 || has(state.base_, prop)))
+        return true;
+      prepareCopy(state);
+      markChanged(state);
+    }
+    if (state.copy_[prop] === value && // special case: handle new props with value 'undefined'
+    (value !== void 0 || prop in state.copy_) || // special case: NaN
+    Number.isNaN(value) && Number.isNaN(state.copy_[prop]))
+      return true;
+    state.copy_[prop] = value;
+    state.assigned_[prop] = true;
+    return true;
+  },
+  deleteProperty(state, prop) {
+    if (peek(state.base_, prop) !== void 0 || prop in state.base_) {
+      state.assigned_[prop] = false;
+      prepareCopy(state);
+      markChanged(state);
+    } else {
+      delete state.assigned_[prop];
+    }
+    if (state.copy_) {
+      delete state.copy_[prop];
+    }
+    return true;
+  },
+  // Note: We never coerce `desc.value` into an Immer draft, because we can't make
+  // the same guarantee in ES5 mode.
+  getOwnPropertyDescriptor(state, prop) {
+    const owner = latest(state);
+    const desc = Reflect.getOwnPropertyDescriptor(owner, prop);
+    if (!desc)
+      return desc;
+    return {
+      writable: true,
+      configurable: state.type_ !== 1 /* Array */ || prop !== "length",
+      enumerable: desc.enumerable,
+      value: owner[prop]
+    };
+  },
+  defineProperty() {
+    die(11);
+  },
+  getPrototypeOf(state) {
+    return getPrototypeOf(state.base_);
+  },
+  setPrototypeOf() {
+    die(12);
+  }
+};
+var arrayTraps = {};
+each(objectTraps, (key, fn) => {
+  arrayTraps[key] = function() {
+    arguments[0] = arguments[0][0];
+    return fn.apply(this, arguments);
+  };
+});
+arrayTraps.deleteProperty = function(state, prop) {
+  if (false)
+    // removed by dead control flow
+{}
+  return arrayTraps.set.call(this, state, prop, void 0);
+};
+arrayTraps.set = function(state, prop, value) {
+  if (false)
+    // removed by dead control flow
+{}
+  return objectTraps.set.call(this, state[0], prop, value, state[0]);
+};
+function peek(draft, prop) {
+  const state = draft[DRAFT_STATE];
+  const source = state ? latest(state) : draft;
+  return source[prop];
+}
+function readPropFromProto(state, source, prop) {
+  const desc = getDescriptorFromProto(source, prop);
+  return desc ? `value` in desc ? desc.value : (
+    // This is a very special case, if the prop is a getter defined by the
+    // prototype, we should invoke it with the draft as context!
+    desc.get?.call(state.draft_)
+  ) : void 0;
+}
+function getDescriptorFromProto(source, prop) {
+  if (!(prop in source))
+    return void 0;
+  let proto = getPrototypeOf(source);
+  while (proto) {
+    const desc = Object.getOwnPropertyDescriptor(proto, prop);
+    if (desc)
+      return desc;
+    proto = getPrototypeOf(proto);
+  }
+  return void 0;
+}
+function markChanged(state) {
+  if (!state.modified_) {
+    state.modified_ = true;
+    if (state.parent_) {
+      markChanged(state.parent_);
+    }
+  }
+}
+function prepareCopy(state) {
+  if (!state.copy_) {
+    state.copy_ = shallowCopy(
+      state.base_,
+      state.scope_.immer_.useStrictShallowCopy_
+    );
+  }
+}
+
+// src/core/immerClass.ts
+var Immer2 = class {
+  constructor(config) {
+    this.autoFreeze_ = true;
+    this.useStrictShallowCopy_ = false;
+    this.useStrictIteration_ = true;
+    /**
+     * The `produce` function takes a value and a "recipe function" (whose
+     * return value often depends on the base state). The recipe function is
+     * free to mutate its first argument however it wants. All mutations are
+     * only ever applied to a __copy__ of the base state.
+     *
+     * Pass only a function to create a "curried producer" which relieves you
+     * from passing the recipe function every time.
+     *
+     * Only plain objects and arrays are made mutable. All other objects are
+     * considered uncopyable.
+     *
+     * Note: This function is __bound__ to its `Immer` instance.
+     *
+     * @param {any} base - the initial state
+     * @param {Function} recipe - function that receives a proxy of the base state as first argument and which can be freely modified
+     * @param {Function} patchListener - optional function that will be called with all the patches produced here
+     * @returns {any} a new state, or the initial state if nothing was modified
+     */
+    this.produce = (base, recipe, patchListener) => {
+      if (typeof base === "function" && typeof recipe !== "function") {
+        const defaultBase = recipe;
+        recipe = base;
+        const self = this;
+        return function curriedProduce(base2 = defaultBase, ...args) {
+          return self.produce(base2, (draft) => recipe.call(this, draft, ...args));
+        };
+      }
+      if (typeof recipe !== "function")
+        die(6);
+      if (patchListener !== void 0 && typeof patchListener !== "function")
+        die(7);
+      let result;
+      if (isDraftable(base)) {
+        const scope = enterScope(this);
+        const proxy = createProxy(base, void 0);
+        let hasError = true;
+        try {
+          result = recipe(proxy);
+          hasError = false;
+        } finally {
+          if (hasError)
+            revokeScope(scope);
+          else
+            leaveScope(scope);
+        }
+        usePatchesInScope(scope, patchListener);
+        return processResult(result, scope);
+      } else if (!base || typeof base !== "object") {
+        result = recipe(base);
+        if (result === void 0)
+          result = base;
+        if (result === NOTHING)
+          result = void 0;
+        if (this.autoFreeze_)
+          freeze(result, true);
+        if (patchListener) {
+          const p = [];
+          const ip = [];
+          getPlugin("Patches").generateReplacementPatches_(base, result, p, ip);
+          patchListener(p, ip);
+        }
+        return result;
+      } else
+        die(1, base);
+    };
+    this.produceWithPatches = (base, recipe) => {
+      if (typeof base === "function") {
+        return (state, ...args) => this.produceWithPatches(state, (draft) => base(draft, ...args));
+      }
+      let patches, inversePatches;
+      const result = this.produce(base, recipe, (p, ip) => {
+        patches = p;
+        inversePatches = ip;
+      });
+      return [result, patches, inversePatches];
+    };
+    if (typeof config?.autoFreeze === "boolean")
+      this.setAutoFreeze(config.autoFreeze);
+    if (typeof config?.useStrictShallowCopy === "boolean")
+      this.setUseStrictShallowCopy(config.useStrictShallowCopy);
+    if (typeof config?.useStrictIteration === "boolean")
+      this.setUseStrictIteration(config.useStrictIteration);
+  }
+  createDraft(base) {
+    if (!isDraftable(base))
+      die(8);
+    if (immer_isDraft(base))
+      base = immer_current(base);
+    const scope = enterScope(this);
+    const proxy = createProxy(base, void 0);
+    proxy[DRAFT_STATE].isManual_ = true;
+    leaveScope(scope);
+    return proxy;
+  }
+  finishDraft(draft, patchListener) {
+    const state = draft && draft[DRAFT_STATE];
+    if (!state || !state.isManual_)
+      die(9);
+    const { scope_: scope } = state;
+    usePatchesInScope(scope, patchListener);
+    return processResult(void 0, scope);
+  }
+  /**
+   * Pass true to automatically freeze all copies created by Immer.
+   *
+   * By default, auto-freezing is enabled.
+   */
+  setAutoFreeze(value) {
+    this.autoFreeze_ = value;
+  }
+  /**
+   * Pass true to enable strict shallow copy.
+   *
+   * By default, immer does not copy the object descriptors such as getter, setter and non-enumrable properties.
+   */
+  setUseStrictShallowCopy(value) {
+    this.useStrictShallowCopy_ = value;
+  }
+  /**
+   * Pass false to use faster iteration that skips non-enumerable properties
+   * but still handles symbols for compatibility.
+   *
+   * By default, strict iteration is enabled (includes all own properties).
+   */
+  setUseStrictIteration(value) {
+    this.useStrictIteration_ = value;
+  }
+  shouldUseStrictIteration() {
+    return this.useStrictIteration_;
+  }
+  applyPatches(base, patches) {
+    let i;
+    for (i = patches.length - 1; i >= 0; i--) {
+      const patch = patches[i];
+      if (patch.path.length === 0 && patch.op === "replace") {
+        base = patch.value;
+        break;
+      }
+    }
+    if (i > -1) {
+      patches = patches.slice(i + 1);
+    }
+    const applyPatchesImpl = getPlugin("Patches").applyPatches_;
+    if (immer_isDraft(base)) {
+      return applyPatchesImpl(base, patches);
+    }
+    return this.produce(
+      base,
+      (draft) => applyPatchesImpl(draft, patches)
+    );
+  }
+};
+function createProxy(value, parent) {
+  const draft = isMap(value) ? getPlugin("MapSet").proxyMap_(value, parent) : isSet(value) ? getPlugin("MapSet").proxySet_(value, parent) : createProxyProxy(value, parent);
+  const scope = parent ? parent.scope_ : getCurrentScope();
+  scope.drafts_.push(draft);
+  return draft;
+}
+
+// src/core/current.ts
+function immer_current(value) {
+  if (!immer_isDraft(value))
+    die(10, value);
+  return currentImpl(value);
+}
+function currentImpl(value) {
+  if (!isDraftable(value) || isFrozen(value))
+    return value;
+  const state = value[DRAFT_STATE];
+  let copy;
+  let strict = true;
+  if (state) {
+    if (!state.modified_)
+      return state.base_;
+    state.finalized_ = true;
+    copy = shallowCopy(value, state.scope_.immer_.useStrictShallowCopy_);
+    strict = state.scope_.immer_.shouldUseStrictIteration();
+  } else {
+    copy = shallowCopy(value, true);
+  }
+  each(
+    copy,
+    (key, childValue) => {
+      set(copy, key, currentImpl(childValue));
+    },
+    strict
+  );
+  if (state) {
+    state.finalized_ = false;
+  }
+  return copy;
+}
+
+// src/plugins/patches.ts
+function enablePatches() {
+  const errorOffset = 16;
+  if (false) // removed by dead control flow
+{}
+  const REPLACE = "replace";
+  const ADD = "add";
+  const REMOVE = "remove";
+  function generatePatches_(state, basePath, patches, inversePatches) {
+    switch (state.type_) {
+      case 0 /* Object */:
+      case 2 /* Map */:
+        return generatePatchesFromAssigned(
+          state,
+          basePath,
+          patches,
+          inversePatches
+        );
+      case 1 /* Array */:
+        return generateArrayPatches(state, basePath, patches, inversePatches);
+      case 3 /* Set */:
+        return generateSetPatches(
+          state,
+          basePath,
+          patches,
+          inversePatches
+        );
+    }
+  }
+  function generateArrayPatches(state, basePath, patches, inversePatches) {
+    let { base_, assigned_ } = state;
+    let copy_ = state.copy_;
+    if (copy_.length < base_.length) {
+      ;
+      [base_, copy_] = [copy_, base_];
+      [patches, inversePatches] = [inversePatches, patches];
+    }
+    for (let i = 0; i < base_.length; i++) {
+      if (assigned_[i] && copy_[i] !== base_[i]) {
+        const path = basePath.concat([i]);
+        patches.push({
+          op: REPLACE,
+          path,
+          // Need to maybe clone it, as it can in fact be the original value
+          // due to the base/copy inversion at the start of this function
+          value: clonePatchValueIfNeeded(copy_[i])
+        });
+        inversePatches.push({
+          op: REPLACE,
+          path,
+          value: clonePatchValueIfNeeded(base_[i])
+        });
+      }
+    }
+    for (let i = base_.length; i < copy_.length; i++) {
+      const path = basePath.concat([i]);
+      patches.push({
+        op: ADD,
+        path,
+        // Need to maybe clone it, as it can in fact be the original value
+        // due to the base/copy inversion at the start of this function
+        value: clonePatchValueIfNeeded(copy_[i])
+      });
+    }
+    for (let i = copy_.length - 1; base_.length <= i; --i) {
+      const path = basePath.concat([i]);
+      inversePatches.push({
+        op: REMOVE,
+        path
+      });
+    }
+  }
+  function generatePatchesFromAssigned(state, basePath, patches, inversePatches) {
+    const { base_, copy_ } = state;
+    each(state.assigned_, (key, assignedValue) => {
+      const origValue = get(base_, key);
+      const value = get(copy_, key);
+      const op = !assignedValue ? REMOVE : has(base_, key) ? REPLACE : ADD;
+      if (origValue === value && op === REPLACE)
+        return;
+      const path = basePath.concat(key);
+      patches.push(op === REMOVE ? { op, path } : { op, path, value });
+      inversePatches.push(
+        op === ADD ? { op: REMOVE, path } : op === REMOVE ? { op: ADD, path, value: clonePatchValueIfNeeded(origValue) } : { op: REPLACE, path, value: clonePatchValueIfNeeded(origValue) }
+      );
+    });
+  }
+  function generateSetPatches(state, basePath, patches, inversePatches) {
+    let { base_, copy_ } = state;
+    let i = 0;
+    base_.forEach((value) => {
+      if (!copy_.has(value)) {
+        const path = basePath.concat([i]);
+        patches.push({
+          op: REMOVE,
+          path,
+          value
+        });
+        inversePatches.unshift({
+          op: ADD,
+          path,
+          value
+        });
+      }
+      i++;
+    });
+    i = 0;
+    copy_.forEach((value) => {
+      if (!base_.has(value)) {
+        const path = basePath.concat([i]);
+        patches.push({
+          op: ADD,
+          path,
+          value
+        });
+        inversePatches.unshift({
+          op: REMOVE,
+          path,
+          value
+        });
+      }
+      i++;
+    });
+  }
+  function generateReplacementPatches_(baseValue, replacement, patches, inversePatches) {
+    patches.push({
+      op: REPLACE,
+      path: [],
+      value: replacement === NOTHING ? void 0 : replacement
+    });
+    inversePatches.push({
+      op: REPLACE,
+      path: [],
+      value: baseValue
+    });
+  }
+  function applyPatches_(draft, patches) {
+    patches.forEach((patch) => {
+      const { path, op } = patch;
+      let base = draft;
+      for (let i = 0; i < path.length - 1; i++) {
+        const parentType = getArchtype(base);
+        let p = path[i];
+        if (typeof p !== "string" && typeof p !== "number") {
+          p = "" + p;
+        }
+        if ((parentType === 0 /* Object */ || parentType === 1 /* Array */) && (p === "__proto__" || p === "constructor"))
+          die(errorOffset + 3);
+        if (typeof base === "function" && p === "prototype")
+          die(errorOffset + 3);
+        base = get(base, p);
+        if (typeof base !== "object")
+          die(errorOffset + 2, path.join("/"));
+      }
+      const type = getArchtype(base);
+      const value = deepClonePatchValue(patch.value);
+      const key = path[path.length - 1];
+      switch (op) {
+        case REPLACE:
+          switch (type) {
+            case 2 /* Map */:
+              return base.set(key, value);
+            case 3 /* Set */:
+              die(errorOffset);
+            default:
+              return base[key] = value;
+          }
+        case ADD:
+          switch (type) {
+            case 1 /* Array */:
+              return key === "-" ? base.push(value) : base.splice(key, 0, value);
+            case 2 /* Map */:
+              return base.set(key, value);
+            case 3 /* Set */:
+              return base.add(value);
+            default:
+              return base[key] = value;
+          }
+        case REMOVE:
+          switch (type) {
+            case 1 /* Array */:
+              return base.splice(key, 1);
+            case 2 /* Map */:
+              return base.delete(key);
+            case 3 /* Set */:
+              return base.delete(patch.value);
+            default:
+              return delete base[key];
+          }
+        default:
+          die(errorOffset + 1, op);
+      }
+    });
+    return draft;
+  }
+  function deepClonePatchValue(obj) {
+    if (!isDraftable(obj))
+      return obj;
+    if (Array.isArray(obj))
+      return obj.map(deepClonePatchValue);
+    if (isMap(obj))
+      return new Map(
+        Array.from(obj.entries()).map(([k, v]) => [k, deepClonePatchValue(v)])
+      );
+    if (isSet(obj))
+      return new Set(Array.from(obj).map(deepClonePatchValue));
+    const cloned = Object.create(getPrototypeOf(obj));
+    for (const key in obj)
+      cloned[key] = deepClonePatchValue(obj[key]);
+    if (has(obj, DRAFTABLE))
+      cloned[DRAFTABLE] = obj[DRAFTABLE];
+    return cloned;
+  }
+  function clonePatchValueIfNeeded(obj) {
+    if (immer_isDraft(obj)) {
+      return deepClonePatchValue(obj);
+    } else
+      return obj;
+  }
+  loadPlugin("Patches", {
+    applyPatches_,
+    generatePatches_,
+    generateReplacementPatches_
+  });
+}
+
+// src/plugins/mapset.ts
+function enableMapSet() {
+  class DraftMap extends Map {
+    constructor(target, parent) {
+      super();
+      this[DRAFT_STATE] = {
+        type_: 2 /* Map */,
+        parent_: parent,
+        scope_: parent ? parent.scope_ : getCurrentScope(),
+        modified_: false,
+        finalized_: false,
+        copy_: void 0,
+        assigned_: void 0,
+        base_: target,
+        draft_: this,
+        isManual_: false,
+        revoked_: false
+      };
+    }
+    get size() {
+      return latest(this[DRAFT_STATE]).size;
+    }
+    has(key) {
+      return latest(this[DRAFT_STATE]).has(key);
+    }
+    set(key, value) {
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      if (!latest(state).has(key) || latest(state).get(key) !== value) {
+        prepareMapCopy(state);
+        markChanged(state);
+        state.assigned_.set(key, true);
+        state.copy_.set(key, value);
+        state.assigned_.set(key, true);
+      }
+      return this;
+    }
+    delete(key) {
+      if (!this.has(key)) {
+        return false;
+      }
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      prepareMapCopy(state);
+      markChanged(state);
+      if (state.base_.has(key)) {
+        state.assigned_.set(key, false);
+      } else {
+        state.assigned_.delete(key);
+      }
+      state.copy_.delete(key);
+      return true;
+    }
+    clear() {
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      if (latest(state).size) {
+        prepareMapCopy(state);
+        markChanged(state);
+        state.assigned_ = /* @__PURE__ */ new Map();
+        each(state.base_, (key) => {
+          state.assigned_.set(key, false);
+        });
+        state.copy_.clear();
+      }
+    }
+    forEach(cb, thisArg) {
+      const state = this[DRAFT_STATE];
+      latest(state).forEach((_value, key, _map) => {
+        cb.call(thisArg, this.get(key), key, this);
+      });
+    }
+    get(key) {
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      const value = latest(state).get(key);
+      if (state.finalized_ || !isDraftable(value)) {
+        return value;
+      }
+      if (value !== state.base_.get(key)) {
+        return value;
+      }
+      const draft = createProxy(value, state);
+      prepareMapCopy(state);
+      state.copy_.set(key, draft);
+      return draft;
+    }
+    keys() {
+      return latest(this[DRAFT_STATE]).keys();
+    }
+    values() {
+      const iterator = this.keys();
+      return {
+        [Symbol.iterator]: () => this.values(),
+        next: () => {
+          const r = iterator.next();
+          if (r.done)
+            return r;
+          const value = this.get(r.value);
+          return {
+            done: false,
+            value
+          };
+        }
+      };
+    }
+    entries() {
+      const iterator = this.keys();
+      return {
+        [Symbol.iterator]: () => this.entries(),
+        next: () => {
+          const r = iterator.next();
+          if (r.done)
+            return r;
+          const value = this.get(r.value);
+          return {
+            done: false,
+            value: [r.value, value]
+          };
+        }
+      };
+    }
+    [(DRAFT_STATE, Symbol.iterator)]() {
+      return this.entries();
+    }
+  }
+  function proxyMap_(target, parent) {
+    return new DraftMap(target, parent);
+  }
+  function prepareMapCopy(state) {
+    if (!state.copy_) {
+      state.assigned_ = /* @__PURE__ */ new Map();
+      state.copy_ = new Map(state.base_);
+    }
+  }
+  class DraftSet extends Set {
+    constructor(target, parent) {
+      super();
+      this[DRAFT_STATE] = {
+        type_: 3 /* Set */,
+        parent_: parent,
+        scope_: parent ? parent.scope_ : getCurrentScope(),
+        modified_: false,
+        finalized_: false,
+        copy_: void 0,
+        base_: target,
+        draft_: this,
+        drafts_: /* @__PURE__ */ new Map(),
+        revoked_: false,
+        isManual_: false
+      };
+    }
+    get size() {
+      return latest(this[DRAFT_STATE]).size;
+    }
+    has(value) {
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      if (!state.copy_) {
+        return state.base_.has(value);
+      }
+      if (state.copy_.has(value))
+        return true;
+      if (state.drafts_.has(value) && state.copy_.has(state.drafts_.get(value)))
+        return true;
+      return false;
+    }
+    add(value) {
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      if (!this.has(value)) {
+        prepareSetCopy(state);
+        markChanged(state);
+        state.copy_.add(value);
+      }
+      return this;
+    }
+    delete(value) {
+      if (!this.has(value)) {
+        return false;
+      }
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      prepareSetCopy(state);
+      markChanged(state);
+      return state.copy_.delete(value) || (state.drafts_.has(value) ? state.copy_.delete(state.drafts_.get(value)) : (
+        /* istanbul ignore next */
+        false
+      ));
+    }
+    clear() {
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      if (latest(state).size) {
+        prepareSetCopy(state);
+        markChanged(state);
+        state.copy_.clear();
+      }
+    }
+    values() {
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      prepareSetCopy(state);
+      return state.copy_.values();
+    }
+    entries() {
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      prepareSetCopy(state);
+      return state.copy_.entries();
+    }
+    keys() {
+      return this.values();
+    }
+    [(DRAFT_STATE, Symbol.iterator)]() {
+      return this.values();
+    }
+    forEach(cb, thisArg) {
+      const iterator = this.values();
+      let result = iterator.next();
+      while (!result.done) {
+        cb.call(thisArg, result.value, result.value, this);
+        result = iterator.next();
+      }
+    }
+  }
+  function proxySet_(target, parent) {
+    return new DraftSet(target, parent);
+  }
+  function prepareSetCopy(state) {
+    if (!state.copy_) {
+      state.copy_ = /* @__PURE__ */ new Set();
+      state.base_.forEach((value) => {
+        if (isDraftable(value)) {
+          const draft = createProxy(value, state);
+          state.drafts_.set(value, draft);
+          state.copy_.add(draft);
+        } else {
+          state.copy_.add(value);
+        }
+      });
+    }
+  }
+  function assertUnrevoked(state) {
+    if (state.revoked_)
+      die(3, JSON.stringify(latest(state)));
+  }
+  loadPlugin("MapSet", { proxyMap_, proxySet_ });
+}
+
+// src/immer.ts
+var immer = new Immer2();
+var immer_produce = immer.produce;
+var produceWithPatches = /* @__PURE__ */ (/* unused pure expression or super */ null && (immer.produceWithPatches.bind(
+  immer
+)));
+var setAutoFreeze = /* @__PURE__ */ (/* unused pure expression or super */ null && (immer.setAutoFreeze.bind(immer)));
+var setUseStrictShallowCopy = /* @__PURE__ */ (/* unused pure expression or super */ null && (immer.setUseStrictShallowCopy.bind(
+  immer
+)));
+var setUseStrictIteration = /* @__PURE__ */ immer.setUseStrictIteration.bind(
+  immer
+);
+var applyPatches = /* @__PURE__ */ (/* unused pure expression or super */ null && (immer.applyPatches.bind(immer)));
+var createDraft = /* @__PURE__ */ (/* unused pure expression or super */ null && (immer.createDraft.bind(immer)));
+var finishDraft = /* @__PURE__ */ (/* unused pure expression or super */ null && (immer.finishDraft.bind(immer)));
+function castDraft(value) {
+  return value;
+}
+function castImmutable(value) {
+  return value;
+}
+
+//# sourceMappingURL=immer.mjs.map
+;// ./node_modules/redux/dist/redux.mjs
+// src/utils/formatProdErrorMessage.ts
+function formatProdErrorMessage(code) {
+  return `Minified Redux error #${code}; visit https://redux.js.org/Errors?code=${code} for the full message or use the non-minified dev environment for full errors. `;
+}
+
+// src/utils/symbol-observable.ts
+var $$observable = /* @__PURE__ */ (() => typeof Symbol === "function" && Symbol.observable || "@@observable")();
+var symbol_observable_default = $$observable;
+
+// src/utils/actionTypes.ts
+var randomString = () => Math.random().toString(36).substring(7).split("").join(".");
+var ActionTypes = {
+  INIT: `@@redux/INIT${/* @__PURE__ */ randomString()}`,
+  REPLACE: `@@redux/REPLACE${/* @__PURE__ */ randomString()}`,
+  PROBE_UNKNOWN_ACTION: () => `@@redux/PROBE_UNKNOWN_ACTION${randomString()}`
+};
+var actionTypes_default = ActionTypes;
+
+// src/utils/isPlainObject.ts
+function redux_isPlainObject(obj) {
+  if (typeof obj !== "object" || obj === null)
+    return false;
+  let proto = obj;
+  while (Object.getPrototypeOf(proto) !== null) {
+    proto = Object.getPrototypeOf(proto);
+  }
+  return Object.getPrototypeOf(obj) === proto || Object.getPrototypeOf(obj) === null;
+}
+
+// src/utils/kindOf.ts
+function miniKindOf(val) {
+  if (val === void 0)
+    return "undefined";
+  if (val === null)
+    return "null";
+  const type = typeof val;
+  switch (type) {
+    case "boolean":
+    case "string":
+    case "number":
+    case "symbol":
+    case "function": {
+      return type;
+    }
+  }
+  if (Array.isArray(val))
+    return "array";
+  if (isDate(val))
+    return "date";
+  if (isError(val))
+    return "error";
+  const constructorName = ctorName(val);
+  switch (constructorName) {
+    case "Symbol":
+    case "Promise":
+    case "WeakMap":
+    case "WeakSet":
+    case "Map":
+    case "Set":
+      return constructorName;
+  }
+  return Object.prototype.toString.call(val).slice(8, -1).toLowerCase().replace(/\s/g, "");
+}
+function ctorName(val) {
+  return typeof val.constructor === "function" ? val.constructor.name : null;
+}
+function isError(val) {
+  return val instanceof Error || typeof val.message === "string" && val.constructor && typeof val.constructor.stackTraceLimit === "number";
+}
+function isDate(val) {
+  if (val instanceof Date)
+    return true;
+  return typeof val.toDateString === "function" && typeof val.getDate === "function" && typeof val.setDate === "function";
+}
+function kindOf(val) {
+  let typeOfVal = typeof val;
+  if (false) // removed by dead control flow
+{}
+  return typeOfVal;
+}
+
+// src/createStore.ts
+function createStore(reducer, preloadedState, enhancer) {
+  if (typeof reducer !== "function") {
+    throw new Error( true ? formatProdErrorMessage(2) : 0);
+  }
+  if (typeof preloadedState === "function" && typeof enhancer === "function" || typeof enhancer === "function" && typeof arguments[3] === "function") {
+    throw new Error( true ? formatProdErrorMessage(0) : 0);
+  }
+  if (typeof preloadedState === "function" && typeof enhancer === "undefined") {
+    enhancer = preloadedState;
+    preloadedState = void 0;
+  }
+  if (typeof enhancer !== "undefined") {
+    if (typeof enhancer !== "function") {
+      throw new Error( true ? formatProdErrorMessage(1) : 0);
+    }
+    return enhancer(createStore)(reducer, preloadedState);
+  }
+  let currentReducer = reducer;
+  let currentState = preloadedState;
+  let currentListeners = /* @__PURE__ */ new Map();
+  let nextListeners = currentListeners;
+  let listenerIdCounter = 0;
+  let isDispatching = false;
+  function ensureCanMutateNextListeners() {
+    if (nextListeners === currentListeners) {
+      nextListeners = /* @__PURE__ */ new Map();
+      currentListeners.forEach((listener, key) => {
+        nextListeners.set(key, listener);
+      });
+    }
+  }
+  function getState() {
+    if (isDispatching) {
+      throw new Error( true ? formatProdErrorMessage(3) : 0);
+    }
+    return currentState;
+  }
+  function subscribe(listener) {
+    if (typeof listener !== "function") {
+      throw new Error( true ? formatProdErrorMessage(4) : 0);
+    }
+    if (isDispatching) {
+      throw new Error( true ? formatProdErrorMessage(5) : 0);
+    }
+    let isSubscribed = true;
+    ensureCanMutateNextListeners();
+    const listenerId = listenerIdCounter++;
+    nextListeners.set(listenerId, listener);
+    return function unsubscribe() {
+      if (!isSubscribed) {
+        return;
+      }
+      if (isDispatching) {
+        throw new Error( true ? formatProdErrorMessage(6) : 0);
+      }
+      isSubscribed = false;
+      ensureCanMutateNextListeners();
+      nextListeners.delete(listenerId);
+      currentListeners = null;
+    };
+  }
+  function dispatch(action) {
+    if (!redux_isPlainObject(action)) {
+      throw new Error( true ? formatProdErrorMessage(7) : 0);
+    }
+    if (typeof action.type === "undefined") {
+      throw new Error( true ? formatProdErrorMessage(8) : 0);
+    }
+    if (typeof action.type !== "string") {
+      throw new Error( true ? formatProdErrorMessage(17) : 0);
+    }
+    if (isDispatching) {
+      throw new Error( true ? formatProdErrorMessage(9) : 0);
+    }
+    try {
+      isDispatching = true;
+      currentState = currentReducer(currentState, action);
+    } finally {
+      isDispatching = false;
+    }
+    const listeners = currentListeners = nextListeners;
+    listeners.forEach((listener) => {
+      listener();
+    });
+    return action;
+  }
+  function replaceReducer(nextReducer) {
+    if (typeof nextReducer !== "function") {
+      throw new Error( true ? formatProdErrorMessage(10) : 0);
+    }
+    currentReducer = nextReducer;
+    dispatch({
+      type: actionTypes_default.REPLACE
+    });
+  }
+  function observable() {
+    const outerSubscribe = subscribe;
+    return {
+      /**
+       * The minimal observable subscription method.
+       * @param observer Any object that can be used as an observer.
+       * The observer object should have a `next` method.
+       * @returns An object with an `unsubscribe` method that can
+       * be used to unsubscribe the observable from the store, and prevent further
+       * emission of values from the observable.
+       */
+      subscribe(observer) {
+        if (typeof observer !== "object" || observer === null) {
+          throw new Error( true ? formatProdErrorMessage(11) : 0);
+        }
+        function observeState() {
+          const observerAsObserver = observer;
+          if (observerAsObserver.next) {
+            observerAsObserver.next(getState());
+          }
+        }
+        observeState();
+        const unsubscribe = outerSubscribe(observeState);
+        return {
+          unsubscribe
+        };
+      },
+      [symbol_observable_default]() {
+        return this;
+      }
+    };
+  }
+  dispatch({
+    type: actionTypes_default.INIT
+  });
+  const store = {
+    dispatch,
+    subscribe,
+    getState,
+    replaceReducer,
+    [symbol_observable_default]: observable
+  };
+  return store;
+}
+function legacy_createStore(reducer, preloadedState, enhancer) {
+  return createStore(reducer, preloadedState, enhancer);
+}
+
+// src/utils/warning.ts
+function warning(message) {
+  if (typeof console !== "undefined" && typeof console.error === "function") {
+    console.error(message);
+  }
+  try {
+    throw new Error(message);
+  } catch (e) {
+  }
+}
+
+// src/combineReducers.ts
+function getUnexpectedStateShapeWarningMessage(inputState, reducers, action, unexpectedKeyCache) {
+  const reducerKeys = Object.keys(reducers);
+  const argumentName = action && action.type === actionTypes_default.INIT ? "preloadedState argument passed to createStore" : "previous state received by the reducer";
+  if (reducerKeys.length === 0) {
+    return "Store does not have a valid reducer. Make sure the argument passed to combineReducers is an object whose values are reducers.";
+  }
+  if (!redux_isPlainObject(inputState)) {
+    return `The ${argumentName} has unexpected type of "${kindOf(inputState)}". Expected argument to be an object with the following keys: "${reducerKeys.join('", "')}"`;
+  }
+  const unexpectedKeys = Object.keys(inputState).filter((key) => !reducers.hasOwnProperty(key) && !unexpectedKeyCache[key]);
+  unexpectedKeys.forEach((key) => {
+    unexpectedKeyCache[key] = true;
+  });
+  if (action && action.type === actionTypes_default.REPLACE)
+    return;
+  if (unexpectedKeys.length > 0) {
+    return `Unexpected ${unexpectedKeys.length > 1 ? "keys" : "key"} "${unexpectedKeys.join('", "')}" found in ${argumentName}. Expected to find one of the known reducer keys instead: "${reducerKeys.join('", "')}". Unexpected keys will be ignored.`;
+  }
+}
+function assertReducerShape(reducers) {
+  Object.keys(reducers).forEach((key) => {
+    const reducer = reducers[key];
+    const initialState = reducer(void 0, {
+      type: actionTypes_default.INIT
+    });
+    if (typeof initialState === "undefined") {
+      throw new Error( true ? formatProdErrorMessage(12) : 0);
+    }
+    if (typeof reducer(void 0, {
+      type: actionTypes_default.PROBE_UNKNOWN_ACTION()
+    }) === "undefined") {
+      throw new Error( true ? formatProdErrorMessage(13) : 0);
+    }
+  });
+}
+function combineReducers(reducers) {
+  const reducerKeys = Object.keys(reducers);
+  const finalReducers = {};
+  for (let i = 0; i < reducerKeys.length; i++) {
+    const key = reducerKeys[i];
+    if (false) // removed by dead control flow
+{}
+    if (typeof reducers[key] === "function") {
+      finalReducers[key] = reducers[key];
+    }
+  }
+  const finalReducerKeys = Object.keys(finalReducers);
+  let unexpectedKeyCache;
+  if (false) // removed by dead control flow
+{}
+  let shapeAssertionError;
+  try {
+    assertReducerShape(finalReducers);
+  } catch (e) {
+    shapeAssertionError = e;
+  }
+  return function combination(state = {}, action) {
+    if (shapeAssertionError) {
+      throw shapeAssertionError;
+    }
+    if (false) // removed by dead control flow
+{}
+    let hasChanged = false;
+    const nextState = {};
+    for (let i = 0; i < finalReducerKeys.length; i++) {
+      const key = finalReducerKeys[i];
+      const reducer = finalReducers[key];
+      const previousStateForKey = state[key];
+      const nextStateForKey = reducer(previousStateForKey, action);
+      if (typeof nextStateForKey === "undefined") {
+        const actionType = action && action.type;
+        throw new Error( true ? formatProdErrorMessage(14) : 0);
+      }
+      nextState[key] = nextStateForKey;
+      hasChanged = hasChanged || nextStateForKey !== previousStateForKey;
+    }
+    hasChanged = hasChanged || finalReducerKeys.length !== Object.keys(state).length;
+    return hasChanged ? nextState : state;
+  };
+}
+
+// src/bindActionCreators.ts
+function bindActionCreator(actionCreator, dispatch) {
+  return function(...args) {
+    return dispatch(actionCreator.apply(this, args));
+  };
+}
+function bindActionCreators(actionCreators, dispatch) {
+  if (typeof actionCreators === "function") {
+    return bindActionCreator(actionCreators, dispatch);
+  }
+  if (typeof actionCreators !== "object" || actionCreators === null) {
+    throw new Error( true ? formatProdErrorMessage(16) : 0);
+  }
+  const boundActionCreators = {};
+  for (const key in actionCreators) {
+    const actionCreator = actionCreators[key];
+    if (typeof actionCreator === "function") {
+      boundActionCreators[key] = bindActionCreator(actionCreator, dispatch);
+    }
+  }
+  return boundActionCreators;
+}
+
+// src/compose.ts
+function redux_compose(...funcs) {
+  if (funcs.length === 0) {
+    return (arg) => arg;
+  }
+  if (funcs.length === 1) {
+    return funcs[0];
+  }
+  return funcs.reduce((a, b) => (...args) => a(b(...args)));
+}
+
+// src/applyMiddleware.ts
+function applyMiddleware(...middlewares) {
+  return (createStore2) => (reducer, preloadedState) => {
+    const store = createStore2(reducer, preloadedState);
+    let dispatch = () => {
+      throw new Error( true ? formatProdErrorMessage(15) : 0);
+    };
+    const middlewareAPI = {
+      getState: store.getState,
+      dispatch: (action, ...args) => dispatch(action, ...args)
+    };
+    const chain = middlewares.map((middleware) => middleware(middlewareAPI));
+    dispatch = redux_compose(...chain)(store.dispatch);
+    return {
+      ...store,
+      dispatch
+    };
+  };
+}
+
+// src/utils/isAction.ts
+function redux_isAction(action) {
+  return redux_isPlainObject(action) && "type" in action && typeof action.type === "string";
+}
+
+//# sourceMappingURL=redux.mjs.map
+;// ./node_modules/redux-thunk/dist/redux-thunk.mjs
+// src/index.ts
+function createThunkMiddleware(extraArgument) {
+  const middleware = ({ dispatch, getState }) => (next) => (action) => {
+    if (typeof action === "function") {
+      return action(dispatch, getState, extraArgument);
+    }
+    return next(action);
+  };
+  return middleware;
+}
+var redux_thunk_thunk = createThunkMiddleware();
+var withExtraArgument = createThunkMiddleware;
+
+
+;// ./node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs
+// src/index.ts
+
+
+
+// src/immerImports.ts
+
+
+// src/index.ts
+
+
+// src/reselectImports.ts
+
+
+// src/createDraftSafeSelector.ts
+var createDraftSafeSelectorCreator = (...args) => {
+  const createSelector2 = createSelectorCreator(...args);
+  const createDraftSafeSelector2 = Object.assign((...args2) => {
+    const selector = createSelector2(...args2);
+    const wrappedSelector = (value, ...rest) => selector(isDraft(value) ? current(value) : value, ...rest);
+    Object.assign(wrappedSelector, selector);
+    return wrappedSelector;
+  }, {
+    withTypes: () => createDraftSafeSelector2
+  });
+  return createDraftSafeSelector2;
+};
+var createDraftSafeSelector = /* @__PURE__ */ (/* unused pure expression or super */ null && (createDraftSafeSelectorCreator(weakMapMemoize)));
+
+// src/reduxImports.ts
+
+
+// src/devtoolsExtension.ts
+var composeWithDevTools = typeof window !== "undefined" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : function() {
+  if (arguments.length === 0) return void 0;
+  if (typeof arguments[0] === "object") return redux_compose;
+  return redux_compose.apply(null, arguments);
+};
+var devToolsEnhancer = typeof window !== "undefined" && window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__ : function() {
+  return function(noop3) {
+    return noop3;
+  };
+};
+
+// src/getDefaultMiddleware.ts
+
+
+// src/tsHelpers.ts
+var hasMatchFunction = (v) => {
+  return v && typeof v.match === "function";
+};
+
+// src/createAction.ts
+function createAction(type, prepareAction) {
+  function actionCreator(...args) {
+    if (prepareAction) {
+      let prepared = prepareAction(...args);
+      if (!prepared) {
+        throw new Error( true ? redux_toolkit_modern_formatProdErrorMessage(0) : 0);
+      }
+      return {
+        type,
+        payload: prepared.payload,
+        ..."meta" in prepared && {
+          meta: prepared.meta
+        },
+        ..."error" in prepared && {
+          error: prepared.error
+        }
+      };
+    }
+    return {
+      type,
+      payload: args[0]
+    };
+  }
+  actionCreator.toString = () => `${type}`;
+  actionCreator.type = type;
+  actionCreator.match = (action) => redux_isAction(action) && action.type === type;
+  return actionCreator;
+}
+function isActionCreator(action) {
+  return typeof action === "function" && "type" in action && // hasMatchFunction only wants Matchers but I don't see the point in rewriting it
+  hasMatchFunction(action);
+}
+function isFSA(action) {
+  return isAction(action) && Object.keys(action).every(isValidKey);
+}
+function isValidKey(key) {
+  return ["type", "payload", "error", "meta"].indexOf(key) > -1;
+}
+
+// src/actionCreatorInvariantMiddleware.ts
+function getMessage(type) {
+  const splitType = type ? `${type}`.split("/") : [];
+  const actionName = splitType[splitType.length - 1] || "actionCreator";
+  return `Detected an action creator with type "${type || "unknown"}" being dispatched. 
+Make sure you're calling the action creator before dispatching, i.e. \`dispatch(${actionName}())\` instead of \`dispatch(${actionName})\`. This is necessary even if the action has no payload.`;
+}
+function createActionCreatorInvariantMiddleware(options = {}) {
+  if (true) {
+    return () => (next) => (action) => next(action);
+  }
+  // removed by dead control flow
+{}
+  // removed by dead control flow
+{}
+}
+
+// src/utils.ts
+function getTimeMeasureUtils(maxDelay, fnName) {
+  let elapsed = 0;
+  return {
+    measureTime(fn) {
+      const started = Date.now();
+      try {
+        return fn();
+      } finally {
+        const finished = Date.now();
+        elapsed += finished - started;
+      }
+    },
+    warnIfExceeded() {
+      if (elapsed > maxDelay) {
+        console.warn(`${fnName} took ${elapsed}ms, which is more than the warning threshold of ${maxDelay}ms. 
+If your state or actions are very large, you may want to disable the middleware as it might cause too much of a slowdown in development mode. See https://redux-toolkit.js.org/api/getDefaultMiddleware for instructions.
+It is disabled in production builds, so you don't need to worry about that.`);
+      }
+    }
+  };
+}
+var Tuple = class _Tuple extends Array {
+  constructor(...items) {
+    super(...items);
+    Object.setPrototypeOf(this, _Tuple.prototype);
+  }
+  static get [Symbol.species]() {
+    return _Tuple;
+  }
+  concat(...arr) {
+    return super.concat.apply(this, arr);
+  }
+  prepend(...arr) {
+    if (arr.length === 1 && Array.isArray(arr[0])) {
+      return new _Tuple(...arr[0].concat(this));
+    }
+    return new _Tuple(...arr.concat(this));
+  }
+};
+function freezeDraftable(val) {
+  return isDraftable(val) ? immer_produce(val, () => {
+  }) : val;
+}
+function getOrInsertComputed(map, key, compute) {
+  if (map.has(key)) return map.get(key);
+  return map.set(key, compute(key)).get(key);
+}
+
+// src/immutableStateInvariantMiddleware.ts
+function isImmutableDefault(value) {
+  return typeof value !== "object" || value == null || Object.isFrozen(value);
+}
+function trackForMutations(isImmutable, ignorePaths, obj) {
+  const trackedProperties = trackProperties(isImmutable, ignorePaths, obj);
+  return {
+    detectMutations() {
+      return detectMutations(isImmutable, ignorePaths, trackedProperties, obj);
+    }
+  };
+}
+function trackProperties(isImmutable, ignorePaths = [], obj, path = "", checkedObjects = /* @__PURE__ */ new Set()) {
+  const tracked = {
+    value: obj
+  };
+  if (!isImmutable(obj) && !checkedObjects.has(obj)) {
+    checkedObjects.add(obj);
+    tracked.children = {};
+    for (const key in obj) {
+      const childPath = path ? path + "." + key : key;
+      if (ignorePaths.length && ignorePaths.indexOf(childPath) !== -1) {
+        continue;
+      }
+      tracked.children[key] = trackProperties(isImmutable, ignorePaths, obj[key], childPath);
+    }
+  }
+  return tracked;
+}
+function detectMutations(isImmutable, ignoredPaths = [], trackedProperty, obj, sameParentRef = false, path = "") {
+  const prevObj = trackedProperty ? trackedProperty.value : void 0;
+  const sameRef = prevObj === obj;
+  if (sameParentRef && !sameRef && !Number.isNaN(obj)) {
+    return {
+      wasMutated: true,
+      path
+    };
+  }
+  if (isImmutable(prevObj) || isImmutable(obj)) {
+    return {
+      wasMutated: false
+    };
+  }
+  const keysToDetect = {};
+  for (let key in trackedProperty.children) {
+    keysToDetect[key] = true;
+  }
+  for (let key in obj) {
+    keysToDetect[key] = true;
+  }
+  const hasIgnoredPaths = ignoredPaths.length > 0;
+  for (let key in keysToDetect) {
+    const nestedPath = path ? path + "." + key : key;
+    if (hasIgnoredPaths) {
+      const hasMatches = ignoredPaths.some((ignored) => {
+        if (ignored instanceof RegExp) {
+          return ignored.test(nestedPath);
+        }
+        return nestedPath === ignored;
+      });
+      if (hasMatches) {
+        continue;
+      }
+    }
+    const result = detectMutations(isImmutable, ignoredPaths, trackedProperty.children[key], obj[key], sameRef, nestedPath);
+    if (result.wasMutated) {
+      return result;
+    }
+  }
+  return {
+    wasMutated: false
+  };
+}
+function createImmutableStateInvariantMiddleware(options = {}) {
+  if (true) {
+    return () => (next) => (action) => next(action);
+  } else // removed by dead control flow
+{ var stringify, getSerialize; }
+}
+
+// src/serializableStateInvariantMiddleware.ts
+function isPlain(val) {
+  const type = typeof val;
+  return val == null || type === "string" || type === "boolean" || type === "number" || Array.isArray(val) || isPlainObject(val);
+}
+function findNonSerializableValue(value, path = "", isSerializable = isPlain, getEntries, ignoredPaths = [], cache) {
+  let foundNestedSerializable;
+  if (!isSerializable(value)) {
+    return {
+      keyPath: path || "<root>",
+      value
+    };
+  }
+  if (typeof value !== "object" || value === null) {
+    return false;
+  }
+  if (cache?.has(value)) return false;
+  const entries = getEntries != null ? getEntries(value) : Object.entries(value);
+  const hasIgnoredPaths = ignoredPaths.length > 0;
+  for (const [key, nestedValue] of entries) {
+    const nestedPath = path ? path + "." + key : key;
+    if (hasIgnoredPaths) {
+      const hasMatches = ignoredPaths.some((ignored) => {
+        if (ignored instanceof RegExp) {
+          return ignored.test(nestedPath);
+        }
+        return nestedPath === ignored;
+      });
+      if (hasMatches) {
+        continue;
+      }
+    }
+    if (!isSerializable(nestedValue)) {
+      return {
+        keyPath: nestedPath,
+        value: nestedValue
+      };
+    }
+    if (typeof nestedValue === "object") {
+      foundNestedSerializable = findNonSerializableValue(nestedValue, nestedPath, isSerializable, getEntries, ignoredPaths, cache);
+      if (foundNestedSerializable) {
+        return foundNestedSerializable;
+      }
+    }
+  }
+  if (cache && isNestedFrozen(value)) cache.add(value);
+  return false;
+}
+function isNestedFrozen(value) {
+  if (!Object.isFrozen(value)) return false;
+  for (const nestedValue of Object.values(value)) {
+    if (typeof nestedValue !== "object" || nestedValue === null) continue;
+    if (!isNestedFrozen(nestedValue)) return false;
+  }
+  return true;
+}
+function createSerializableStateInvariantMiddleware(options = {}) {
+  if (true) {
+    return () => (next) => (action) => next(action);
+  } else // removed by dead control flow
+{}
+}
+
+// src/getDefaultMiddleware.ts
+function isBoolean(x) {
+  return typeof x === "boolean";
+}
+var buildGetDefaultMiddleware = () => function getDefaultMiddleware(options) {
+  const {
+    thunk = true,
+    immutableCheck = true,
+    serializableCheck = true,
+    actionCreatorCheck = true
+  } = options ?? {};
+  let middlewareArray = new Tuple();
+  if (thunk) {
+    if (isBoolean(thunk)) {
+      middlewareArray.push(redux_thunk_thunk);
+    } else {
+      middlewareArray.push(withExtraArgument(thunk.extraArgument));
+    }
+  }
+  if (false) // removed by dead control flow
+{}
+  return middlewareArray;
+};
+
+// src/autoBatchEnhancer.ts
+var SHOULD_AUTOBATCH = "RTK_autoBatch";
+var prepareAutoBatched = () => (payload) => ({
+  payload,
+  meta: {
+    [SHOULD_AUTOBATCH]: true
+  }
+});
+var createQueueWithTimer = (timeout) => {
+  return (notify) => {
+    setTimeout(notify, timeout);
+  };
+};
+var autoBatchEnhancer = (options = {
+  type: "raf"
+}) => (next) => (...args) => {
+  const store = next(...args);
+  let notifying = true;
+  let shouldNotifyAtEndOfTick = false;
+  let notificationQueued = false;
+  const listeners = /* @__PURE__ */ new Set();
+  const queueCallback = options.type === "tick" ? queueMicrotask : options.type === "raf" ? (
+    // requestAnimationFrame won't exist in SSR environments. Fall back to a vague approximation just to keep from erroring.
+    typeof window !== "undefined" && window.requestAnimationFrame ? window.requestAnimationFrame : createQueueWithTimer(10)
+  ) : options.type === "callback" ? options.queueNotification : createQueueWithTimer(options.timeout);
+  const notifyListeners = () => {
+    notificationQueued = false;
+    if (shouldNotifyAtEndOfTick) {
+      shouldNotifyAtEndOfTick = false;
+      listeners.forEach((l) => l());
+    }
+  };
+  return Object.assign({}, store, {
+    // Override the base `store.subscribe` method to keep original listeners
+    // from running if we're delaying notifications
+    subscribe(listener2) {
+      const wrappedListener = () => notifying && listener2();
+      const unsubscribe = store.subscribe(wrappedListener);
+      listeners.add(listener2);
+      return () => {
+        unsubscribe();
+        listeners.delete(listener2);
+      };
+    },
+    // Override the base `store.dispatch` method so that we can check actions
+    // for the `shouldAutoBatch` flag and determine if batching is active
+    dispatch(action) {
+      try {
+        notifying = !action?.meta?.[SHOULD_AUTOBATCH];
+        shouldNotifyAtEndOfTick = !notifying;
+        if (shouldNotifyAtEndOfTick) {
+          if (!notificationQueued) {
+            notificationQueued = true;
+            queueCallback(notifyListeners);
+          }
+        }
+        return store.dispatch(action);
+      } finally {
+        notifying = true;
+      }
+    }
+  });
+};
+
+// src/getDefaultEnhancers.ts
+var buildGetDefaultEnhancers = (middlewareEnhancer) => function getDefaultEnhancers(options) {
+  const {
+    autoBatch = true
+  } = options ?? {};
+  let enhancerArray = new Tuple(middlewareEnhancer);
+  if (autoBatch) {
+    enhancerArray.push(autoBatchEnhancer(typeof autoBatch === "object" ? autoBatch : void 0));
+  }
+  return enhancerArray;
+};
+
+// src/configureStore.ts
+function configureStore(options) {
+  const getDefaultMiddleware = buildGetDefaultMiddleware();
+  const {
+    reducer = void 0,
+    middleware,
+    devTools = true,
+    duplicateMiddlewareCheck = true,
+    preloadedState = void 0,
+    enhancers = void 0
+  } = options || {};
+  let rootReducer;
+  if (typeof reducer === "function") {
+    rootReducer = reducer;
+  } else if (redux_isPlainObject(reducer)) {
+    rootReducer = combineReducers(reducer);
+  } else {
+    throw new Error( true ? redux_toolkit_modern_formatProdErrorMessage(1) : 0);
+  }
+  if (false) // removed by dead control flow
+{}
+  let finalMiddleware;
+  if (typeof middleware === "function") {
+    finalMiddleware = middleware(getDefaultMiddleware);
+    if (false) // removed by dead control flow
+{}
+  } else {
+    finalMiddleware = getDefaultMiddleware();
+  }
+  if (false) // removed by dead control flow
+{}
+  if (false) // removed by dead control flow
+{}
+  let finalCompose = redux_compose;
+  if (devTools) {
+    finalCompose = composeWithDevTools({
+      // Enable capture of stack traces for dispatched Redux actions
+      trace: "production" !== "production",
+      ...typeof devTools === "object" && devTools
+    });
+  }
+  const middlewareEnhancer = applyMiddleware(...finalMiddleware);
+  const getDefaultEnhancers = buildGetDefaultEnhancers(middlewareEnhancer);
+  if (false) // removed by dead control flow
+{}
+  let storeEnhancers = typeof enhancers === "function" ? enhancers(getDefaultEnhancers) : getDefaultEnhancers();
+  if (false) // removed by dead control flow
+{}
+  if (false) // removed by dead control flow
+{}
+  if (false) // removed by dead control flow
+{}
+  const composedEnhancer = finalCompose(...storeEnhancers);
+  return createStore(rootReducer, preloadedState, composedEnhancer);
+}
+
+// src/mapBuilders.ts
+function executeReducerBuilderCallback(builderCallback) {
+  const actionsMap = {};
+  const actionMatchers = [];
+  let defaultCaseReducer;
+  const builder = {
+    addCase(typeOrActionCreator, reducer) {
+      if (false) // removed by dead control flow
+{}
+      const type = typeof typeOrActionCreator === "string" ? typeOrActionCreator : typeOrActionCreator.type;
+      if (!type) {
+        throw new Error( true ? redux_toolkit_modern_formatProdErrorMessage(28) : 0);
+      }
+      if (type in actionsMap) {
+        throw new Error( true ? redux_toolkit_modern_formatProdErrorMessage(29) : 0);
+      }
+      actionsMap[type] = reducer;
+      return builder;
+    },
+    addAsyncThunk(asyncThunk, reducers) {
+      if (false) // removed by dead control flow
+{}
+      if (reducers.pending) actionsMap[asyncThunk.pending.type] = reducers.pending;
+      if (reducers.rejected) actionsMap[asyncThunk.rejected.type] = reducers.rejected;
+      if (reducers.fulfilled) actionsMap[asyncThunk.fulfilled.type] = reducers.fulfilled;
+      if (reducers.settled) actionMatchers.push({
+        matcher: asyncThunk.settled,
+        reducer: reducers.settled
+      });
+      return builder;
+    },
+    addMatcher(matcher, reducer) {
+      if (false) // removed by dead control flow
+{}
+      actionMatchers.push({
+        matcher,
+        reducer
+      });
+      return builder;
+    },
+    addDefaultCase(reducer) {
+      if (false) // removed by dead control flow
+{}
+      defaultCaseReducer = reducer;
+      return builder;
+    }
+  };
+  builderCallback(builder);
+  return [actionsMap, actionMatchers, defaultCaseReducer];
+}
+
+// src/createReducer.ts
+setUseStrictIteration(false);
+function isStateFunction(x) {
+  return typeof x === "function";
+}
+function createReducer(initialState, mapOrBuilderCallback) {
+  if (false) // removed by dead control flow
+{}
+  let [actionsMap, finalActionMatchers, finalDefaultCaseReducer] = executeReducerBuilderCallback(mapOrBuilderCallback);
+  let getInitialState;
+  if (isStateFunction(initialState)) {
+    getInitialState = () => freezeDraftable(initialState());
+  } else {
+    const frozenInitialState = freezeDraftable(initialState);
+    getInitialState = () => frozenInitialState;
+  }
+  function reducer(state = getInitialState(), action) {
+    let caseReducers = [actionsMap[action.type], ...finalActionMatchers.filter(({
+      matcher
+    }) => matcher(action)).map(({
+      reducer: reducer2
+    }) => reducer2)];
+    if (caseReducers.filter((cr) => !!cr).length === 0) {
+      caseReducers = [finalDefaultCaseReducer];
+    }
+    return caseReducers.reduce((previousState, caseReducer) => {
+      if (caseReducer) {
+        if (immer_isDraft(previousState)) {
+          const draft = previousState;
+          const result = caseReducer(draft, action);
+          if (result === void 0) {
+            return previousState;
+          }
+          return result;
+        } else if (!isDraftable(previousState)) {
+          const result = caseReducer(previousState, action);
+          if (result === void 0) {
+            if (previousState === null) {
+              return previousState;
+            }
+            throw Error("A case reducer on a non-draftable value must not return undefined");
+          }
+          return result;
+        } else {
+          return immer_produce(previousState, (draft) => {
+            return caseReducer(draft, action);
+          });
+        }
+      }
+      return previousState;
+    }, state);
+  }
+  reducer.getInitialState = getInitialState;
+  return reducer;
+}
+
+// src/matchers.ts
+var matches = (matcher, action) => {
+  if (hasMatchFunction(matcher)) {
+    return matcher.match(action);
+  } else {
+    return matcher(action);
+  }
+};
+function isAnyOf(...matchers) {
+  return (action) => {
+    return matchers.some((matcher) => matches(matcher, action));
+  };
+}
+function isAllOf(...matchers) {
+  return (action) => {
+    return matchers.every((matcher) => matches(matcher, action));
+  };
+}
+function hasExpectedRequestMetadata(action, validStatus) {
+  if (!action || !action.meta) return false;
+  const hasValidRequestId = typeof action.meta.requestId === "string";
+  const hasValidRequestStatus = validStatus.indexOf(action.meta.requestStatus) > -1;
+  return hasValidRequestId && hasValidRequestStatus;
+}
+function isAsyncThunkArray(a) {
+  return typeof a[0] === "function" && "pending" in a[0] && "fulfilled" in a[0] && "rejected" in a[0];
+}
+function isPending(...asyncThunks) {
+  if (asyncThunks.length === 0) {
+    return (action) => hasExpectedRequestMetadata(action, ["pending"]);
+  }
+  if (!isAsyncThunkArray(asyncThunks)) {
+    return isPending()(asyncThunks[0]);
+  }
+  return isAnyOf(...asyncThunks.map((asyncThunk) => asyncThunk.pending));
+}
+function isRejected(...asyncThunks) {
+  if (asyncThunks.length === 0) {
+    return (action) => hasExpectedRequestMetadata(action, ["rejected"]);
+  }
+  if (!isAsyncThunkArray(asyncThunks)) {
+    return isRejected()(asyncThunks[0]);
+  }
+  return isAnyOf(...asyncThunks.map((asyncThunk) => asyncThunk.rejected));
+}
+function isRejectedWithValue(...asyncThunks) {
+  const hasFlag = (action) => {
+    return action && action.meta && action.meta.rejectedWithValue;
+  };
+  if (asyncThunks.length === 0) {
+    return isAllOf(isRejected(...asyncThunks), hasFlag);
+  }
+  if (!isAsyncThunkArray(asyncThunks)) {
+    return isRejectedWithValue()(asyncThunks[0]);
+  }
+  return isAllOf(isRejected(...asyncThunks), hasFlag);
+}
+function isFulfilled(...asyncThunks) {
+  if (asyncThunks.length === 0) {
+    return (action) => hasExpectedRequestMetadata(action, ["fulfilled"]);
+  }
+  if (!isAsyncThunkArray(asyncThunks)) {
+    return isFulfilled()(asyncThunks[0]);
+  }
+  return isAnyOf(...asyncThunks.map((asyncThunk) => asyncThunk.fulfilled));
+}
+function isAsyncThunkAction(...asyncThunks) {
+  if (asyncThunks.length === 0) {
+    return (action) => hasExpectedRequestMetadata(action, ["pending", "fulfilled", "rejected"]);
+  }
+  if (!isAsyncThunkArray(asyncThunks)) {
+    return isAsyncThunkAction()(asyncThunks[0]);
+  }
+  return isAnyOf(...asyncThunks.flatMap((asyncThunk) => [asyncThunk.pending, asyncThunk.rejected, asyncThunk.fulfilled]));
+}
+
+// src/nanoid.ts
+var urlAlphabet = "ModuleSymbhasOwnPr-0123456789ABCDEFGHNRVfgctiUvz_KqYTJkLxpZXIjQW";
+var nanoid = (size = 21) => {
+  let id = "";
+  let i = size;
+  while (i--) {
+    id += urlAlphabet[Math.random() * 64 | 0];
+  }
+  return id;
+};
+
+// src/createAsyncThunk.ts
+var commonProperties = ["name", "message", "stack", "code"];
+var RejectWithValue = class {
+  constructor(payload, meta) {
+    this.payload = payload;
+    this.meta = meta;
+  }
+  /*
+  type-only property to distinguish between RejectWithValue and FulfillWithMeta
+  does not exist at runtime
+  */
+  _type;
+};
+var FulfillWithMeta = class {
+  constructor(payload, meta) {
+    this.payload = payload;
+    this.meta = meta;
+  }
+  /*
+  type-only property to distinguish between RejectWithValue and FulfillWithMeta
+  does not exist at runtime
+  */
+  _type;
+};
+var miniSerializeError = (value) => {
+  if (typeof value === "object" && value !== null) {
+    const simpleError = {};
+    for (const property of commonProperties) {
+      if (typeof value[property] === "string") {
+        simpleError[property] = value[property];
+      }
+    }
+    return simpleError;
+  }
+  return {
+    message: String(value)
+  };
+};
+var externalAbortMessage = "External signal was aborted";
+var createAsyncThunk = /* @__PURE__ */ (() => {
+  function createAsyncThunk2(typePrefix, payloadCreator, options) {
+    const fulfilled = createAction(typePrefix + "/fulfilled", (payload, requestId, arg, meta) => ({
+      payload,
+      meta: {
+        ...meta || {},
+        arg,
+        requestId,
+        requestStatus: "fulfilled"
+      }
+    }));
+    const pending = createAction(typePrefix + "/pending", (requestId, arg, meta) => ({
+      payload: void 0,
+      meta: {
+        ...meta || {},
+        arg,
+        requestId,
+        requestStatus: "pending"
+      }
+    }));
+    const rejected = createAction(typePrefix + "/rejected", (error, requestId, arg, payload, meta) => ({
+      payload,
+      error: (options && options.serializeError || miniSerializeError)(error || "Rejected"),
+      meta: {
+        ...meta || {},
+        arg,
+        requestId,
+        rejectedWithValue: !!payload,
+        requestStatus: "rejected",
+        aborted: error?.name === "AbortError",
+        condition: error?.name === "ConditionError"
+      }
+    }));
+    function actionCreator(arg, {
+      signal
+    } = {}) {
+      return (dispatch, getState, extra) => {
+        const requestId = options?.idGenerator ? options.idGenerator(arg) : nanoid();
+        const abortController = new AbortController();
+        let abortHandler;
+        let abortReason;
+        function abort(reason) {
+          abortReason = reason;
+          abortController.abort();
+        }
+        if (signal) {
+          if (signal.aborted) {
+            abort(externalAbortMessage);
+          } else {
+            signal.addEventListener("abort", () => abort(externalAbortMessage), {
+              once: true
+            });
+          }
+        }
+        const promise = async function() {
+          let finalAction;
+          try {
+            let conditionResult = options?.condition?.(arg, {
+              getState,
+              extra
+            });
+            if (isThenable(conditionResult)) {
+              conditionResult = await conditionResult;
+            }
+            if (conditionResult === false || abortController.signal.aborted) {
+              throw {
+                name: "ConditionError",
+                message: "Aborted due to condition callback returning false."
+              };
+            }
+            const abortedPromise = new Promise((_, reject) => {
+              abortHandler = () => {
+                reject({
+                  name: "AbortError",
+                  message: abortReason || "Aborted"
+                });
+              };
+              abortController.signal.addEventListener("abort", abortHandler);
+            });
+            dispatch(pending(requestId, arg, options?.getPendingMeta?.({
+              requestId,
+              arg
+            }, {
+              getState,
+              extra
+            })));
+            finalAction = await Promise.race([abortedPromise, Promise.resolve(payloadCreator(arg, {
+              dispatch,
+              getState,
+              extra,
+              requestId,
+              signal: abortController.signal,
+              abort,
+              rejectWithValue: (value, meta) => {
+                return new RejectWithValue(value, meta);
+              },
+              fulfillWithValue: (value, meta) => {
+                return new FulfillWithMeta(value, meta);
+              }
+            })).then((result) => {
+              if (result instanceof RejectWithValue) {
+                throw result;
+              }
+              if (result instanceof FulfillWithMeta) {
+                return fulfilled(result.payload, requestId, arg, result.meta);
+              }
+              return fulfilled(result, requestId, arg);
+            })]);
+          } catch (err) {
+            finalAction = err instanceof RejectWithValue ? rejected(null, requestId, arg, err.payload, err.meta) : rejected(err, requestId, arg);
+          } finally {
+            if (abortHandler) {
+              abortController.signal.removeEventListener("abort", abortHandler);
+            }
+          }
+          const skipDispatch = options && !options.dispatchConditionRejection && rejected.match(finalAction) && finalAction.meta.condition;
+          if (!skipDispatch) {
+            dispatch(finalAction);
+          }
+          return finalAction;
+        }();
+        return Object.assign(promise, {
+          abort,
+          requestId,
+          arg,
+          unwrap() {
+            return promise.then(unwrapResult);
+          }
+        });
+      };
+    }
+    return Object.assign(actionCreator, {
+      pending,
+      rejected,
+      fulfilled,
+      settled: isAnyOf(rejected, fulfilled),
+      typePrefix
+    });
+  }
+  createAsyncThunk2.withTypes = () => createAsyncThunk2;
+  return createAsyncThunk2;
+})();
+function unwrapResult(action) {
+  if (action.meta && action.meta.rejectedWithValue) {
+    throw action.payload;
+  }
+  if (action.error) {
+    throw action.error;
+  }
+  return action.payload;
+}
+function isThenable(value) {
+  return value !== null && typeof value === "object" && typeof value.then === "function";
+}
+
+// src/createSlice.ts
+var asyncThunkSymbol = /* @__PURE__ */ Symbol.for("rtk-slice-createasyncthunk");
+var asyncThunkCreator = {
+  [asyncThunkSymbol]: createAsyncThunk
+};
+var ReducerType = /* @__PURE__ */ ((ReducerType2) => {
+  ReducerType2["reducer"] = "reducer";
+  ReducerType2["reducerWithPrepare"] = "reducerWithPrepare";
+  ReducerType2["asyncThunk"] = "asyncThunk";
+  return ReducerType2;
+})(ReducerType || {});
+function getType(slice, actionKey) {
+  return `${slice}/${actionKey}`;
+}
+function buildCreateSlice({
+  creators
+} = {}) {
+  const cAT = creators?.asyncThunk?.[asyncThunkSymbol];
+  return function createSlice2(options) {
+    const {
+      name,
+      reducerPath = name
+    } = options;
+    if (!name) {
+      throw new Error( true ? redux_toolkit_modern_formatProdErrorMessage(11) : 0);
+    }
+    if (typeof process !== "undefined" && "production" === "development") // removed by dead control flow
+{}
+    const reducers = (typeof options.reducers === "function" ? options.reducers(buildReducerCreators()) : options.reducers) || {};
+    const reducerNames = Object.keys(reducers);
+    const context = {
+      sliceCaseReducersByName: {},
+      sliceCaseReducersByType: {},
+      actionCreators: {},
+      sliceMatchers: []
+    };
+    const contextMethods = {
+      addCase(typeOrActionCreator, reducer2) {
+        const type = typeof typeOrActionCreator === "string" ? typeOrActionCreator : typeOrActionCreator.type;
+        if (!type) {
+          throw new Error( true ? redux_toolkit_modern_formatProdErrorMessage(12) : 0);
+        }
+        if (type in context.sliceCaseReducersByType) {
+          throw new Error( true ? redux_toolkit_modern_formatProdErrorMessage(13) : 0);
+        }
+        context.sliceCaseReducersByType[type] = reducer2;
+        return contextMethods;
+      },
+      addMatcher(matcher, reducer2) {
+        context.sliceMatchers.push({
+          matcher,
+          reducer: reducer2
+        });
+        return contextMethods;
+      },
+      exposeAction(name2, actionCreator) {
+        context.actionCreators[name2] = actionCreator;
+        return contextMethods;
+      },
+      exposeCaseReducer(name2, reducer2) {
+        context.sliceCaseReducersByName[name2] = reducer2;
+        return contextMethods;
+      }
+    };
+    reducerNames.forEach((reducerName) => {
+      const reducerDefinition = reducers[reducerName];
+      const reducerDetails = {
+        reducerName,
+        type: getType(name, reducerName),
+        createNotation: typeof options.reducers === "function"
+      };
+      if (isAsyncThunkSliceReducerDefinition(reducerDefinition)) {
+        handleThunkCaseReducerDefinition(reducerDetails, reducerDefinition, contextMethods, cAT);
+      } else {
+        handleNormalReducerDefinition(reducerDetails, reducerDefinition, contextMethods);
+      }
+    });
+    function buildReducer() {
+      if (false) // removed by dead control flow
+{}
+      const [extraReducers = {}, actionMatchers = [], defaultCaseReducer = void 0] = typeof options.extraReducers === "function" ? executeReducerBuilderCallback(options.extraReducers) : [options.extraReducers];
+      const finalCaseReducers = {
+        ...extraReducers,
+        ...context.sliceCaseReducersByType
+      };
+      return createReducer(options.initialState, (builder) => {
+        for (let key in finalCaseReducers) {
+          builder.addCase(key, finalCaseReducers[key]);
+        }
+        for (let sM of context.sliceMatchers) {
+          builder.addMatcher(sM.matcher, sM.reducer);
+        }
+        for (let m of actionMatchers) {
+          builder.addMatcher(m.matcher, m.reducer);
+        }
+        if (defaultCaseReducer) {
+          builder.addDefaultCase(defaultCaseReducer);
+        }
+      });
+    }
+    const selectSelf = (state) => state;
+    const injectedSelectorCache = /* @__PURE__ */ new Map();
+    const injectedStateCache = /* @__PURE__ */ new WeakMap();
+    let _reducer;
+    function reducer(state, action) {
+      if (!_reducer) _reducer = buildReducer();
+      return _reducer(state, action);
+    }
+    function getInitialState() {
+      if (!_reducer) _reducer = buildReducer();
+      return _reducer.getInitialState();
+    }
+    function makeSelectorProps(reducerPath2, injected = false) {
+      function selectSlice(state) {
+        let sliceState = state[reducerPath2];
+        if (typeof sliceState === "undefined") {
+          if (injected) {
+            sliceState = getOrInsertComputed(injectedStateCache, selectSlice, getInitialState);
+          } else if (false) // removed by dead control flow
+{}
+        }
+        return sliceState;
+      }
+      function getSelectors(selectState = selectSelf) {
+        const selectorCache = getOrInsertComputed(injectedSelectorCache, injected, () => /* @__PURE__ */ new WeakMap());
+        return getOrInsertComputed(selectorCache, selectState, () => {
+          const map = {};
+          for (const [name2, selector] of Object.entries(options.selectors ?? {})) {
+            map[name2] = wrapSelector(selector, selectState, () => getOrInsertComputed(injectedStateCache, selectState, getInitialState), injected);
+          }
+          return map;
+        });
+      }
+      return {
+        reducerPath: reducerPath2,
+        getSelectors,
+        get selectors() {
+          return getSelectors(selectSlice);
+        },
+        selectSlice
+      };
+    }
+    const slice = {
+      name,
+      reducer,
+      actions: context.actionCreators,
+      caseReducers: context.sliceCaseReducersByName,
+      getInitialState,
+      ...makeSelectorProps(reducerPath),
+      injectInto(injectable, {
+        reducerPath: pathOpt,
+        ...config
+      } = {}) {
+        const newReducerPath = pathOpt ?? reducerPath;
+        injectable.inject({
+          reducerPath: newReducerPath,
+          reducer
+        }, config);
+        return {
+          ...slice,
+          ...makeSelectorProps(newReducerPath, true)
+        };
+      }
+    };
+    return slice;
+  };
+}
+function wrapSelector(selector, selectState, getInitialState, injected) {
+  function wrapper(rootState, ...args) {
+    let sliceState = selectState(rootState);
+    if (typeof sliceState === "undefined") {
+      if (injected) {
+        sliceState = getInitialState();
+      } else if (false) // removed by dead control flow
+{}
+    }
+    return selector(sliceState, ...args);
+  }
+  wrapper.unwrapped = selector;
+  return wrapper;
+}
+var createSlice = /* @__PURE__ */ buildCreateSlice();
+function buildReducerCreators() {
+  function asyncThunk(payloadCreator, config) {
+    return {
+      _reducerDefinitionType: "asyncThunk" /* asyncThunk */,
+      payloadCreator,
+      ...config
+    };
+  }
+  asyncThunk.withTypes = () => asyncThunk;
+  return {
+    reducer(caseReducer) {
+      return Object.assign({
+        // hack so the wrapping function has the same name as the original
+        // we need to create a wrapper so the `reducerDefinitionType` is not assigned to the original
+        [caseReducer.name](...args) {
+          return caseReducer(...args);
+        }
+      }[caseReducer.name], {
+        _reducerDefinitionType: "reducer" /* reducer */
+      });
+    },
+    preparedReducer(prepare, reducer) {
+      return {
+        _reducerDefinitionType: "reducerWithPrepare" /* reducerWithPrepare */,
+        prepare,
+        reducer
+      };
+    },
+    asyncThunk
+  };
+}
+function handleNormalReducerDefinition({
+  type,
+  reducerName,
+  createNotation
+}, maybeReducerWithPrepare, context) {
+  let caseReducer;
+  let prepareCallback;
+  if ("reducer" in maybeReducerWithPrepare) {
+    if (createNotation && !isCaseReducerWithPrepareDefinition(maybeReducerWithPrepare)) {
+      throw new Error( true ? redux_toolkit_modern_formatProdErrorMessage(17) : 0);
+    }
+    caseReducer = maybeReducerWithPrepare.reducer;
+    prepareCallback = maybeReducerWithPrepare.prepare;
+  } else {
+    caseReducer = maybeReducerWithPrepare;
+  }
+  context.addCase(type, caseReducer).exposeCaseReducer(reducerName, caseReducer).exposeAction(reducerName, prepareCallback ? createAction(type, prepareCallback) : createAction(type));
+}
+function isAsyncThunkSliceReducerDefinition(reducerDefinition) {
+  return reducerDefinition._reducerDefinitionType === "asyncThunk" /* asyncThunk */;
+}
+function isCaseReducerWithPrepareDefinition(reducerDefinition) {
+  return reducerDefinition._reducerDefinitionType === "reducerWithPrepare" /* reducerWithPrepare */;
+}
+function handleThunkCaseReducerDefinition({
+  type,
+  reducerName
+}, reducerDefinition, context, cAT) {
+  if (!cAT) {
+    throw new Error( true ? redux_toolkit_modern_formatProdErrorMessage(18) : 0);
+  }
+  const {
+    payloadCreator,
+    fulfilled,
+    pending,
+    rejected,
+    settled,
+    options
+  } = reducerDefinition;
+  const thunk = cAT(type, payloadCreator, options);
+  context.exposeAction(reducerName, thunk);
+  if (fulfilled) {
+    context.addCase(thunk.fulfilled, fulfilled);
+  }
+  if (pending) {
+    context.addCase(thunk.pending, pending);
+  }
+  if (rejected) {
+    context.addCase(thunk.rejected, rejected);
+  }
+  if (settled) {
+    context.addMatcher(thunk.settled, settled);
+  }
+  context.exposeCaseReducer(reducerName, {
+    fulfilled: fulfilled || noop,
+    pending: pending || noop,
+    rejected: rejected || noop,
+    settled: settled || noop
+  });
+}
+function noop() {
+}
+
+// src/entities/entity_state.ts
+function getInitialEntityState() {
+  return {
+    ids: [],
+    entities: {}
+  };
+}
+function createInitialStateFactory(stateAdapter) {
+  function getInitialState(additionalState = {}, entities) {
+    const state = Object.assign(getInitialEntityState(), additionalState);
+    return entities ? stateAdapter.setAll(state, entities) : state;
+  }
+  return {
+    getInitialState
+  };
+}
+
+// src/entities/state_selectors.ts
+function createSelectorsFactory() {
+  function getSelectors(selectState, options = {}) {
+    const {
+      createSelector: createSelector2 = createDraftSafeSelector
+    } = options;
+    const selectIds = (state) => state.ids;
+    const selectEntities = (state) => state.entities;
+    const selectAll = createSelector2(selectIds, selectEntities, (ids, entities) => ids.map((id) => entities[id]));
+    const selectId = (_, id) => id;
+    const selectById = (entities, id) => entities[id];
+    const selectTotal = createSelector2(selectIds, (ids) => ids.length);
+    if (!selectState) {
+      return {
+        selectIds,
+        selectEntities,
+        selectAll,
+        selectTotal,
+        selectById: createSelector2(selectEntities, selectId, selectById)
+      };
+    }
+    const selectGlobalizedEntities = createSelector2(selectState, selectEntities);
+    return {
+      selectIds: createSelector2(selectState, selectIds),
+      selectEntities: selectGlobalizedEntities,
+      selectAll: createSelector2(selectState, selectAll),
+      selectTotal: createSelector2(selectState, selectTotal),
+      selectById: createSelector2(selectGlobalizedEntities, selectId, selectById)
+    };
+  }
+  return {
+    getSelectors
+  };
+}
+
+// src/entities/state_adapter.ts
+var isDraftTyped = (/* unused pure expression or super */ null && (isDraft));
+function createSingleArgumentStateOperator(mutator) {
+  const operator = createStateOperator((_, state) => mutator(state));
+  return function operation(state) {
+    return operator(state, void 0);
+  };
+}
+function createStateOperator(mutator) {
+  return function operation(state, arg) {
+    function isPayloadActionArgument(arg2) {
+      return isFSA(arg2);
+    }
+    const runMutator = (draft) => {
+      if (isPayloadActionArgument(arg)) {
+        mutator(arg.payload, draft);
+      } else {
+        mutator(arg, draft);
+      }
+    };
+    if (isDraftTyped(state)) {
+      runMutator(state);
+      return state;
+    }
+    return produce(state, runMutator);
+  };
+}
+
+// src/entities/utils.ts
+function selectIdValue(entity, selectId) {
+  const key = selectId(entity);
+  if (false) // removed by dead control flow
+{}
+  return key;
+}
+function ensureEntitiesArray(entities) {
+  if (!Array.isArray(entities)) {
+    entities = Object.values(entities);
+  }
+  return entities;
+}
+function getCurrent(value) {
+  return isDraft(value) ? current(value) : value;
+}
+function splitAddedUpdatedEntities(newEntities, selectId, state) {
+  newEntities = ensureEntitiesArray(newEntities);
+  const existingIdsArray = getCurrent(state.ids);
+  const existingIds = new Set(existingIdsArray);
+  const added = [];
+  const addedIds = /* @__PURE__ */ new Set([]);
+  const updated = [];
+  for (const entity of newEntities) {
+    const id = selectIdValue(entity, selectId);
+    if (existingIds.has(id) || addedIds.has(id)) {
+      updated.push({
+        id,
+        changes: entity
+      });
+    } else {
+      addedIds.add(id);
+      added.push(entity);
+    }
+  }
+  return [added, updated, existingIdsArray];
+}
+
+// src/entities/unsorted_state_adapter.ts
+function createUnsortedStateAdapter(selectId) {
+  function addOneMutably(entity, state) {
+    const key = selectIdValue(entity, selectId);
+    if (key in state.entities) {
+      return;
+    }
+    state.ids.push(key);
+    state.entities[key] = entity;
+  }
+  function addManyMutably(newEntities, state) {
+    newEntities = ensureEntitiesArray(newEntities);
+    for (const entity of newEntities) {
+      addOneMutably(entity, state);
+    }
+  }
+  function setOneMutably(entity, state) {
+    const key = selectIdValue(entity, selectId);
+    if (!(key in state.entities)) {
+      state.ids.push(key);
+    }
+    ;
+    state.entities[key] = entity;
+  }
+  function setManyMutably(newEntities, state) {
+    newEntities = ensureEntitiesArray(newEntities);
+    for (const entity of newEntities) {
+      setOneMutably(entity, state);
+    }
+  }
+  function setAllMutably(newEntities, state) {
+    newEntities = ensureEntitiesArray(newEntities);
+    state.ids = [];
+    state.entities = {};
+    addManyMutably(newEntities, state);
+  }
+  function removeOneMutably(key, state) {
+    return removeManyMutably([key], state);
+  }
+  function removeManyMutably(keys, state) {
+    let didMutate = false;
+    keys.forEach((key) => {
+      if (key in state.entities) {
+        delete state.entities[key];
+        didMutate = true;
+      }
+    });
+    if (didMutate) {
+      state.ids = state.ids.filter((id) => id in state.entities);
+    }
+  }
+  function removeAllMutably(state) {
+    Object.assign(state, {
+      ids: [],
+      entities: {}
+    });
+  }
+  function takeNewKey(keys, update, state) {
+    const original3 = state.entities[update.id];
+    if (original3 === void 0) {
+      return false;
+    }
+    const updated = Object.assign({}, original3, update.changes);
+    const newKey = selectIdValue(updated, selectId);
+    const hasNewKey = newKey !== update.id;
+    if (hasNewKey) {
+      keys[update.id] = newKey;
+      delete state.entities[update.id];
+    }
+    ;
+    state.entities[newKey] = updated;
+    return hasNewKey;
+  }
+  function updateOneMutably(update, state) {
+    return updateManyMutably([update], state);
+  }
+  function updateManyMutably(updates, state) {
+    const newKeys = {};
+    const updatesPerEntity = {};
+    updates.forEach((update) => {
+      if (update.id in state.entities) {
+        updatesPerEntity[update.id] = {
+          id: update.id,
+          // Spreads ignore falsy values, so this works even if there isn't
+          // an existing update already at this key
+          changes: {
+            ...updatesPerEntity[update.id]?.changes,
+            ...update.changes
+          }
+        };
+      }
+    });
+    updates = Object.values(updatesPerEntity);
+    const didMutateEntities = updates.length > 0;
+    if (didMutateEntities) {
+      const didMutateIds = updates.filter((update) => takeNewKey(newKeys, update, state)).length > 0;
+      if (didMutateIds) {
+        state.ids = Object.values(state.entities).map((e) => selectIdValue(e, selectId));
+      }
+    }
+  }
+  function upsertOneMutably(entity, state) {
+    return upsertManyMutably([entity], state);
+  }
+  function upsertManyMutably(newEntities, state) {
+    const [added, updated] = splitAddedUpdatedEntities(newEntities, selectId, state);
+    addManyMutably(added, state);
+    updateManyMutably(updated, state);
+  }
+  return {
+    removeAll: createSingleArgumentStateOperator(removeAllMutably),
+    addOne: createStateOperator(addOneMutably),
+    addMany: createStateOperator(addManyMutably),
+    setOne: createStateOperator(setOneMutably),
+    setMany: createStateOperator(setManyMutably),
+    setAll: createStateOperator(setAllMutably),
+    updateOne: createStateOperator(updateOneMutably),
+    updateMany: createStateOperator(updateManyMutably),
+    upsertOne: createStateOperator(upsertOneMutably),
+    upsertMany: createStateOperator(upsertManyMutably),
+    removeOne: createStateOperator(removeOneMutably),
+    removeMany: createStateOperator(removeManyMutably)
+  };
+}
+
+// src/entities/sorted_state_adapter.ts
+function findInsertIndex(sortedItems, item, comparisonFunction) {
+  let lowIndex = 0;
+  let highIndex = sortedItems.length;
+  while (lowIndex < highIndex) {
+    let middleIndex = lowIndex + highIndex >>> 1;
+    const currentItem = sortedItems[middleIndex];
+    const res = comparisonFunction(item, currentItem);
+    if (res >= 0) {
+      lowIndex = middleIndex + 1;
+    } else {
+      highIndex = middleIndex;
+    }
+  }
+  return lowIndex;
+}
+function insert(sortedItems, item, comparisonFunction) {
+  const insertAtIndex = findInsertIndex(sortedItems, item, comparisonFunction);
+  sortedItems.splice(insertAtIndex, 0, item);
+  return sortedItems;
+}
+function createSortedStateAdapter(selectId, comparer) {
+  const {
+    removeOne,
+    removeMany,
+    removeAll
+  } = createUnsortedStateAdapter(selectId);
+  function addOneMutably(entity, state) {
+    return addManyMutably([entity], state);
+  }
+  function addManyMutably(newEntities, state, existingIds) {
+    newEntities = ensureEntitiesArray(newEntities);
+    const existingKeys = new Set(existingIds ?? getCurrent(state.ids));
+    const addedKeys = /* @__PURE__ */ new Set();
+    const models = newEntities.filter((model) => {
+      const modelId = selectIdValue(model, selectId);
+      const notAdded = !addedKeys.has(modelId);
+      if (notAdded) addedKeys.add(modelId);
+      return !existingKeys.has(modelId) && notAdded;
+    });
+    if (models.length !== 0) {
+      mergeFunction(state, models);
+    }
+  }
+  function setOneMutably(entity, state) {
+    return setManyMutably([entity], state);
+  }
+  function setManyMutably(newEntities, state) {
+    let deduplicatedEntities = {};
+    newEntities = ensureEntitiesArray(newEntities);
+    if (newEntities.length !== 0) {
+      for (const item of newEntities) {
+        const entityId = selectId(item);
+        deduplicatedEntities[entityId] = item;
+        delete state.entities[entityId];
+      }
+      newEntities = ensureEntitiesArray(deduplicatedEntities);
+      mergeFunction(state, newEntities);
+    }
+  }
+  function setAllMutably(newEntities, state) {
+    newEntities = ensureEntitiesArray(newEntities);
+    state.entities = {};
+    state.ids = [];
+    addManyMutably(newEntities, state, []);
+  }
+  function updateOneMutably(update, state) {
+    return updateManyMutably([update], state);
+  }
+  function updateManyMutably(updates, state) {
+    let appliedUpdates = false;
+    let replacedIds = false;
+    for (let update of updates) {
+      const entity = state.entities[update.id];
+      if (!entity) {
+        continue;
+      }
+      appliedUpdates = true;
+      Object.assign(entity, update.changes);
+      const newId = selectId(entity);
+      if (update.id !== newId) {
+        replacedIds = true;
+        delete state.entities[update.id];
+        const oldIndex = state.ids.indexOf(update.id);
+        state.ids[oldIndex] = newId;
+        state.entities[newId] = entity;
+      }
+    }
+    if (appliedUpdates) {
+      mergeFunction(state, [], appliedUpdates, replacedIds);
+    }
+  }
+  function upsertOneMutably(entity, state) {
+    return upsertManyMutably([entity], state);
+  }
+  function upsertManyMutably(newEntities, state) {
+    const [added, updated, existingIdsArray] = splitAddedUpdatedEntities(newEntities, selectId, state);
+    if (added.length) {
+      addManyMutably(added, state, existingIdsArray);
+    }
+    if (updated.length) {
+      updateManyMutably(updated, state);
+    }
+  }
+  function areArraysEqual(a, b) {
+    if (a.length !== b.length) {
+      return false;
+    }
+    for (let i = 0; i < a.length; i++) {
+      if (a[i] === b[i]) {
+        continue;
+      }
+      return false;
+    }
+    return true;
+  }
+  const mergeFunction = (state, addedItems, appliedUpdates, replacedIds) => {
+    const currentEntities = getCurrent(state.entities);
+    const currentIds = getCurrent(state.ids);
+    const stateEntities = state.entities;
+    let ids = currentIds;
+    if (replacedIds) {
+      ids = new Set(currentIds);
+    }
+    let sortedEntities = [];
+    for (const id of ids) {
+      const entity = currentEntities[id];
+      if (entity) {
+        sortedEntities.push(entity);
+      }
+    }
+    const wasPreviouslyEmpty = sortedEntities.length === 0;
+    for (const item of addedItems) {
+      stateEntities[selectId(item)] = item;
+      if (!wasPreviouslyEmpty) {
+        insert(sortedEntities, item, comparer);
+      }
+    }
+    if (wasPreviouslyEmpty) {
+      sortedEntities = addedItems.slice().sort(comparer);
+    } else if (appliedUpdates) {
+      sortedEntities.sort(comparer);
+    }
+    const newSortedIds = sortedEntities.map(selectId);
+    if (!areArraysEqual(currentIds, newSortedIds)) {
+      state.ids = newSortedIds;
+    }
+  };
+  return {
+    removeOne,
+    removeMany,
+    removeAll,
+    addOne: createStateOperator(addOneMutably),
+    updateOne: createStateOperator(updateOneMutably),
+    upsertOne: createStateOperator(upsertOneMutably),
+    setOne: createStateOperator(setOneMutably),
+    setMany: createStateOperator(setManyMutably),
+    setAll: createStateOperator(setAllMutably),
+    addMany: createStateOperator(addManyMutably),
+    updateMany: createStateOperator(updateManyMutably),
+    upsertMany: createStateOperator(upsertManyMutably)
+  };
+}
+
+// src/entities/create_adapter.ts
+function createEntityAdapter(options = {}) {
+  const {
+    selectId,
+    sortComparer
+  } = {
+    sortComparer: false,
+    selectId: (instance) => instance.id,
+    ...options
+  };
+  const stateAdapter = sortComparer ? createSortedStateAdapter(selectId, sortComparer) : createUnsortedStateAdapter(selectId);
+  const stateFactory = createInitialStateFactory(stateAdapter);
+  const selectorsFactory = createSelectorsFactory();
+  return {
+    selectId,
+    sortComparer,
+    ...stateFactory,
+    ...selectorsFactory,
+    ...stateAdapter
+  };
+}
+
+// src/listenerMiddleware/exceptions.ts
+var task = "task";
+var listener = "listener";
+var completed = "completed";
+var cancelled = "cancelled";
+var taskCancelled = (/* unused pure expression or super */ null && (`task-${cancelled}`));
+var taskCompleted = (/* unused pure expression or super */ null && (`task-${completed}`));
+var listenerCancelled = (/* unused pure expression or super */ null && (`${listener}-${cancelled}`));
+var listenerCompleted = (/* unused pure expression or super */ null && (`${listener}-${completed}`));
+var TaskAbortError = class {
+  constructor(code) {
+    this.code = code;
+    this.message = `${task} ${cancelled} (reason: ${code})`;
+  }
+  name = "TaskAbortError";
+  message;
+};
+
+// src/listenerMiddleware/utils.ts
+var assertFunction = (func, expected) => {
+  if (typeof func !== "function") {
+    throw new TypeError( true ? redux_toolkit_modern_formatProdErrorMessage(32) : 0);
+  }
+};
+var noop2 = () => {
+};
+var catchRejection = (promise, onError = noop2) => {
+  promise.catch(onError);
+  return promise;
+};
+var addAbortSignalListener = (abortSignal, callback) => {
+  abortSignal.addEventListener("abort", callback, {
+    once: true
+  });
+  return () => abortSignal.removeEventListener("abort", callback);
+};
+var abortControllerWithReason = (abortController, reason) => {
+  const signal = abortController.signal;
+  if (signal.aborted) {
+    return;
+  }
+  if (!("reason" in signal)) {
+    Object.defineProperty(signal, "reason", {
+      enumerable: true,
+      value: reason,
+      configurable: true,
+      writable: true
+    });
+  }
+  ;
+  abortController.abort(reason);
+};
+
+// src/listenerMiddleware/task.ts
+var validateActive = (signal) => {
+  if (signal.aborted) {
+    const {
+      reason
+    } = signal;
+    throw new TaskAbortError(reason);
+  }
+};
+function raceWithSignal(signal, promise) {
+  let cleanup = noop2;
+  return new Promise((resolve, reject) => {
+    const notifyRejection = () => reject(new TaskAbortError(signal.reason));
+    if (signal.aborted) {
+      notifyRejection();
+      return;
+    }
+    cleanup = addAbortSignalListener(signal, notifyRejection);
+    promise.finally(() => cleanup()).then(resolve, reject);
+  }).finally(() => {
+    cleanup = noop2;
+  });
+}
+var runTask = async (task2, cleanUp) => {
+  try {
+    await Promise.resolve();
+    const value = await task2();
+    return {
+      status: "ok",
+      value
+    };
+  } catch (error) {
+    return {
+      status: error instanceof TaskAbortError ? "cancelled" : "rejected",
+      error
+    };
+  } finally {
+    cleanUp?.();
+  }
+};
+var createPause = (signal) => {
+  return (promise) => {
+    return catchRejection(raceWithSignal(signal, promise).then((output) => {
+      validateActive(signal);
+      return output;
+    }));
+  };
+};
+var createDelay = (signal) => {
+  const pause = createPause(signal);
+  return (timeoutMs) => {
+    return pause(new Promise((resolve) => setTimeout(resolve, timeoutMs)));
+  };
+};
+
+// src/listenerMiddleware/index.ts
+var {
+  assign: redux_toolkit_modern_assign
+} = Object;
+var INTERNAL_NIL_TOKEN = {};
+var alm = "listenerMiddleware";
+var createFork = (parentAbortSignal, parentBlockingPromises) => {
+  const linkControllers = (controller) => addAbortSignalListener(parentAbortSignal, () => abortControllerWithReason(controller, parentAbortSignal.reason));
+  return (taskExecutor, opts) => {
+    assertFunction(taskExecutor, "taskExecutor");
+    const childAbortController = new AbortController();
+    linkControllers(childAbortController);
+    const result = runTask(async () => {
+      validateActive(parentAbortSignal);
+      validateActive(childAbortController.signal);
+      const result2 = await taskExecutor({
+        pause: createPause(childAbortController.signal),
+        delay: createDelay(childAbortController.signal),
+        signal: childAbortController.signal
+      });
+      validateActive(childAbortController.signal);
+      return result2;
+    }, () => abortControllerWithReason(childAbortController, taskCompleted));
+    if (opts?.autoJoin) {
+      parentBlockingPromises.push(result.catch(noop2));
+    }
+    return {
+      result: createPause(parentAbortSignal)(result),
+      cancel() {
+        abortControllerWithReason(childAbortController, taskCancelled);
+      }
+    };
+  };
+};
+var createTakePattern = (startListening, signal) => {
+  const take = async (predicate, timeout) => {
+    validateActive(signal);
+    let unsubscribe = () => {
+    };
+    const tuplePromise = new Promise((resolve, reject) => {
+      let stopListening = startListening({
+        predicate,
+        effect: (action, listenerApi) => {
+          listenerApi.unsubscribe();
+          resolve([action, listenerApi.getState(), listenerApi.getOriginalState()]);
+        }
+      });
+      unsubscribe = () => {
+        stopListening();
+        reject();
+      };
+    });
+    const promises = [tuplePromise];
+    if (timeout != null) {
+      promises.push(new Promise((resolve) => setTimeout(resolve, timeout, null)));
+    }
+    try {
+      const output = await raceWithSignal(signal, Promise.race(promises));
+      validateActive(signal);
+      return output;
+    } finally {
+      unsubscribe();
+    }
+  };
+  return (predicate, timeout) => catchRejection(take(predicate, timeout));
+};
+var getListenerEntryPropsFrom = (options) => {
+  let {
+    type,
+    actionCreator,
+    matcher,
+    predicate,
+    effect
+  } = options;
+  if (type) {
+    predicate = createAction(type).match;
+  } else if (actionCreator) {
+    type = actionCreator.type;
+    predicate = actionCreator.match;
+  } else if (matcher) {
+    predicate = matcher;
+  } else if (predicate) {
+  } else {
+    throw new Error( true ? redux_toolkit_modern_formatProdErrorMessage(21) : 0);
+  }
+  assertFunction(effect, "options.listener");
+  return {
+    predicate,
+    type,
+    effect
+  };
+};
+var createListenerEntry = /* @__PURE__ */ redux_toolkit_modern_assign((options) => {
+  const {
+    type,
+    predicate,
+    effect
+  } = getListenerEntryPropsFrom(options);
+  const entry = {
+    id: nanoid(),
+    effect,
+    type,
+    predicate,
+    pending: /* @__PURE__ */ new Set(),
+    unsubscribe: () => {
+      throw new Error( true ? redux_toolkit_modern_formatProdErrorMessage(22) : 0);
+    }
+  };
+  return entry;
+}, {
+  withTypes: () => createListenerEntry
+});
+var findListenerEntry = (listenerMap, options) => {
+  const {
+    type,
+    effect,
+    predicate
+  } = getListenerEntryPropsFrom(options);
+  return Array.from(listenerMap.values()).find((entry) => {
+    const matchPredicateOrType = typeof type === "string" ? entry.type === type : entry.predicate === predicate;
+    return matchPredicateOrType && entry.effect === effect;
+  });
+};
+var cancelActiveListeners = (entry) => {
+  entry.pending.forEach((controller) => {
+    abortControllerWithReason(controller, listenerCancelled);
+  });
+};
+var createClearListenerMiddleware = (listenerMap, executingListeners) => {
+  return () => {
+    for (const listener2 of executingListeners.keys()) {
+      cancelActiveListeners(listener2);
+    }
+    listenerMap.clear();
+  };
+};
+var safelyNotifyError = (errorHandler, errorToNotify, errorInfo) => {
+  try {
+    errorHandler(errorToNotify, errorInfo);
+  } catch (errorHandlerError) {
+    setTimeout(() => {
+      throw errorHandlerError;
+    }, 0);
+  }
+};
+var addListener = /* @__PURE__ */ redux_toolkit_modern_assign(/* @__PURE__ */ createAction(`${alm}/add`), {
+  withTypes: () => addListener
+});
+var clearAllListeners = /* @__PURE__ */ (/* unused pure expression or super */ null && (createAction(`${alm}/removeAll`)));
+var removeListener = /* @__PURE__ */ redux_toolkit_modern_assign(/* @__PURE__ */ createAction(`${alm}/remove`), {
+  withTypes: () => removeListener
+});
+var defaultErrorHandler = (...args) => {
+  console.error(`${alm}/error`, ...args);
+};
+var createListenerMiddleware = (middlewareOptions = {}) => {
+  const listenerMap = /* @__PURE__ */ new Map();
+  const executingListeners = /* @__PURE__ */ new Map();
+  const trackExecutingListener = (entry) => {
+    const count = executingListeners.get(entry) ?? 0;
+    executingListeners.set(entry, count + 1);
+  };
+  const untrackExecutingListener = (entry) => {
+    const count = executingListeners.get(entry) ?? 1;
+    if (count === 1) {
+      executingListeners.delete(entry);
+    } else {
+      executingListeners.set(entry, count - 1);
+    }
+  };
+  const {
+    extra,
+    onError = defaultErrorHandler
+  } = middlewareOptions;
+  assertFunction(onError, "onError");
+  const insertEntry = (entry) => {
+    entry.unsubscribe = () => listenerMap.delete(entry.id);
+    listenerMap.set(entry.id, entry);
+    return (cancelOptions) => {
+      entry.unsubscribe();
+      if (cancelOptions?.cancelActive) {
+        cancelActiveListeners(entry);
+      }
+    };
+  };
+  const startListening = (options) => {
+    const entry = findListenerEntry(listenerMap, options) ?? createListenerEntry(options);
+    return insertEntry(entry);
+  };
+  redux_toolkit_modern_assign(startListening, {
+    withTypes: () => startListening
+  });
+  const stopListening = (options) => {
+    const entry = findListenerEntry(listenerMap, options);
+    if (entry) {
+      entry.unsubscribe();
+      if (options.cancelActive) {
+        cancelActiveListeners(entry);
+      }
+    }
+    return !!entry;
+  };
+  redux_toolkit_modern_assign(stopListening, {
+    withTypes: () => stopListening
+  });
+  const notifyListener = async (entry, action, api, getOriginalState) => {
+    const internalTaskController = new AbortController();
+    const take = createTakePattern(startListening, internalTaskController.signal);
+    const autoJoinPromises = [];
+    try {
+      entry.pending.add(internalTaskController);
+      trackExecutingListener(entry);
+      await Promise.resolve(entry.effect(
+        action,
+        // Use assign() rather than ... to avoid extra helper functions added to bundle
+        redux_toolkit_modern_assign({}, api, {
+          getOriginalState,
+          condition: (predicate, timeout) => take(predicate, timeout).then(Boolean),
+          take,
+          delay: createDelay(internalTaskController.signal),
+          pause: createPause(internalTaskController.signal),
+          extra,
+          signal: internalTaskController.signal,
+          fork: createFork(internalTaskController.signal, autoJoinPromises),
+          unsubscribe: entry.unsubscribe,
+          subscribe: () => {
+            listenerMap.set(entry.id, entry);
+          },
+          cancelActiveListeners: () => {
+            entry.pending.forEach((controller, _, set) => {
+              if (controller !== internalTaskController) {
+                abortControllerWithReason(controller, listenerCancelled);
+                set.delete(controller);
+              }
+            });
+          },
+          cancel: () => {
+            abortControllerWithReason(internalTaskController, listenerCancelled);
+            entry.pending.delete(internalTaskController);
+          },
+          throwIfCancelled: () => {
+            validateActive(internalTaskController.signal);
+          }
+        })
+      ));
+    } catch (listenerError) {
+      if (!(listenerError instanceof TaskAbortError)) {
+        safelyNotifyError(onError, listenerError, {
+          raisedBy: "effect"
+        });
+      }
+    } finally {
+      await Promise.all(autoJoinPromises);
+      abortControllerWithReason(internalTaskController, listenerCompleted);
+      untrackExecutingListener(entry);
+      entry.pending.delete(internalTaskController);
+    }
+  };
+  const clearListenerMiddleware = createClearListenerMiddleware(listenerMap, executingListeners);
+  const middleware = (api) => (next) => (action) => {
+    if (!isAction(action)) {
+      return next(action);
+    }
+    if (addListener.match(action)) {
+      return startListening(action.payload);
+    }
+    if (clearAllListeners.match(action)) {
+      clearListenerMiddleware();
+      return;
+    }
+    if (removeListener.match(action)) {
+      return stopListening(action.payload);
+    }
+    let originalState = api.getState();
+    const getOriginalState = () => {
+      if (originalState === INTERNAL_NIL_TOKEN) {
+        throw new Error( true ? redux_toolkit_modern_formatProdErrorMessage(23) : 0);
+      }
+      return originalState;
+    };
+    let result;
+    try {
+      result = next(action);
+      if (listenerMap.size > 0) {
+        const currentState = api.getState();
+        const listenerEntries = Array.from(listenerMap.values());
+        for (const entry of listenerEntries) {
+          let runListener = false;
+          try {
+            runListener = entry.predicate(action, currentState, originalState);
+          } catch (predicateError) {
+            runListener = false;
+            safelyNotifyError(onError, predicateError, {
+              raisedBy: "predicate"
+            });
+          }
+          if (!runListener) {
+            continue;
+          }
+          notifyListener(entry, action, api, getOriginalState);
+        }
+      }
+    } finally {
+      originalState = INTERNAL_NIL_TOKEN;
+    }
+    return result;
+  };
+  return {
+    middleware,
+    startListening,
+    stopListening,
+    clearListeners: clearListenerMiddleware
+  };
+};
+
+// src/dynamicMiddleware/index.ts
+var createMiddlewareEntry = (middleware) => ({
+  middleware,
+  applied: /* @__PURE__ */ new Map()
+});
+var matchInstance = (instanceId) => (action) => action?.meta?.instanceId === instanceId;
+var createDynamicMiddleware = () => {
+  const instanceId = nanoid();
+  const middlewareMap = /* @__PURE__ */ new Map();
+  const withMiddleware = Object.assign(createAction("dynamicMiddleware/add", (...middlewares) => ({
+    payload: middlewares,
+    meta: {
+      instanceId
+    }
+  })), {
+    withTypes: () => withMiddleware
+  });
+  const addMiddleware = Object.assign(function addMiddleware2(...middlewares) {
+    middlewares.forEach((middleware2) => {
+      getOrInsertComputed(middlewareMap, middleware2, createMiddlewareEntry);
+    });
+  }, {
+    withTypes: () => addMiddleware
+  });
+  const getFinalMiddleware = (api) => {
+    const appliedMiddleware = Array.from(middlewareMap.values()).map((entry) => getOrInsertComputed(entry.applied, api, entry.middleware));
+    return compose(...appliedMiddleware);
+  };
+  const isWithMiddleware = isAllOf(withMiddleware, matchInstance(instanceId));
+  const middleware = (api) => (next) => (action) => {
+    if (isWithMiddleware(action)) {
+      addMiddleware(...action.payload);
+      return api.dispatch;
+    }
+    return getFinalMiddleware(api)(next)(action);
+  };
+  return {
+    middleware,
+    addMiddleware,
+    withMiddleware,
+    instanceId
+  };
+};
+
+// src/combineSlices.ts
+
+var isSliceLike = (maybeSliceLike) => "reducerPath" in maybeSliceLike && typeof maybeSliceLike.reducerPath === "string";
+var getReducers = (slices) => slices.flatMap((sliceOrMap) => isSliceLike(sliceOrMap) ? [[sliceOrMap.reducerPath, sliceOrMap.reducer]] : Object.entries(sliceOrMap));
+var ORIGINAL_STATE = Symbol.for("rtk-state-proxy-original");
+var isStateProxy = (value) => !!value && !!value[ORIGINAL_STATE];
+var stateProxyMap = /* @__PURE__ */ new WeakMap();
+var createStateProxy = (state, reducerMap, initialStateCache) => getOrInsertComputed(stateProxyMap, state, () => new Proxy(state, {
+  get: (target, prop, receiver) => {
+    if (prop === ORIGINAL_STATE) return target;
+    const result = Reflect.get(target, prop, receiver);
+    if (typeof result === "undefined") {
+      const cached = initialStateCache[prop];
+      if (typeof cached !== "undefined") return cached;
+      const reducer = reducerMap[prop];
+      if (reducer) {
+        const reducerResult = reducer(void 0, {
+          type: nanoid()
+        });
+        if (typeof reducerResult === "undefined") {
+          throw new Error( true ? redux_toolkit_modern_formatProdErrorMessage(24) : 0);
+        }
+        initialStateCache[prop] = reducerResult;
+        return reducerResult;
+      }
+    }
+    return result;
+  }
+}));
+var redux_toolkit_modern_original = (state) => {
+  if (!isStateProxy(state)) {
+    throw new Error( true ? redux_toolkit_modern_formatProdErrorMessage(25) : 0);
+  }
+  return state[ORIGINAL_STATE];
+};
+var emptyObject = {};
+var noopReducer = (state = emptyObject) => state;
+function combineSlices(...slices) {
+  const reducerMap = Object.fromEntries(getReducers(slices));
+  const getReducer = () => Object.keys(reducerMap).length ? combineReducers2(reducerMap) : noopReducer;
+  let reducer = getReducer();
+  function combinedReducer(state, action) {
+    return reducer(state, action);
+  }
+  combinedReducer.withLazyLoadedSlices = () => combinedReducer;
+  const initialStateCache = {};
+  const inject = (slice, config = {}) => {
+    const {
+      reducerPath,
+      reducer: reducerToInject
+    } = slice;
+    const currentReducer = reducerMap[reducerPath];
+    if (!config.overrideExisting && currentReducer && currentReducer !== reducerToInject) {
+      if (typeof process !== "undefined" && "production" === "development") // removed by dead control flow
+{}
+      return combinedReducer;
+    }
+    if (config.overrideExisting && currentReducer !== reducerToInject) {
+      delete initialStateCache[reducerPath];
+    }
+    reducerMap[reducerPath] = reducerToInject;
+    reducer = getReducer();
+    return combinedReducer;
+  };
+  const selector = Object.assign(function makeSelector(selectorFn, selectState) {
+    return function selector2(state, ...args) {
+      return selectorFn(createStateProxy(selectState ? selectState(state, ...args) : state, reducerMap, initialStateCache), ...args);
+    };
+  }, {
+    original: redux_toolkit_modern_original
+  });
+  return Object.assign(combinedReducer, {
+    inject,
+    selector
+  });
+}
+
+// src/formatProdErrorMessage.ts
+function redux_toolkit_modern_formatProdErrorMessage(code) {
+  return `Minified Redux Toolkit error #${code}; visit https://redux-toolkit.js.org/Errors?code=${code} for the full message or use the non-minified dev environment for full errors. `;
+}
+
+//# sourceMappingURL=redux-toolkit.modern.mjs.map
 
 /***/ }),
 
@@ -26806,7 +31596,7 @@ function HomePage() {
             window.scrollTo(0, 0);
         }
     });
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_HeroBlock_HeroBlock__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_Features_Features__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_ProductsListing_ProductsListing__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, { category: 'Ceramics', sorting: "Newest", title: 'New Ceramics' }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_ProductsListing_ProductsListing__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, { sorting: "Best sellers", title: 'Our popular products' }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_CtaBlock_CtaBlock__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_AboutBlock_AboutBlock__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A, { withLink: true, linkLabel: "Get in touch", linkHref: "/contacts", imgSrc: "/img/AboutBlockImage.jpg", title: "From a studio in London to a global brand with over 400 outlets", paragraph: "When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market.", anotherParagraph: "Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community." })] }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_HeroBlock_HeroBlock__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_Features_Features__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_ProductsListing_ProductsListing__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, { category: 'Ceramics', sorting: "New arrivals", title: 'New Ceramics' }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_ProductsListing_ProductsListing__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, { sorting: "Best sellers", title: 'Our popular products' }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_CtaBlock_CtaBlock__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_AboutBlock_AboutBlock__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A, { withLink: true, linkLabel: "Get in touch", linkHref: "/contacts", imgSrc: "/img/AboutBlockImage.jpg", title: "From a studio in London to a global brand with over 400 outlets", paragraph: "When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market.", anotherParagraph: "Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community." })] }));
 }
 
 __webpack_async_result__();
@@ -26984,6 +31774,97 @@ function AddToCartBar({ product }) {
 
 /***/ }),
 
+/***/ 5160:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+/**
+ * @license React
+ * use-sync-external-store-with-selector.production.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+var React = __webpack_require__(6540);
+function is(x, y) {
+  return (x === y && (0 !== x || 1 / x === 1 / y)) || (x !== x && y !== y);
+}
+var objectIs = "function" === typeof Object.is ? Object.is : is,
+  useSyncExternalStore = React.useSyncExternalStore,
+  useRef = React.useRef,
+  useEffect = React.useEffect,
+  useMemo = React.useMemo,
+  useDebugValue = React.useDebugValue;
+exports.useSyncExternalStoreWithSelector = function (
+  subscribe,
+  getSnapshot,
+  getServerSnapshot,
+  selector,
+  isEqual
+) {
+  var instRef = useRef(null);
+  if (null === instRef.current) {
+    var inst = { hasValue: !1, value: null };
+    instRef.current = inst;
+  } else inst = instRef.current;
+  instRef = useMemo(
+    function () {
+      function memoizedSelector(nextSnapshot) {
+        if (!hasMemo) {
+          hasMemo = !0;
+          memoizedSnapshot = nextSnapshot;
+          nextSnapshot = selector(nextSnapshot);
+          if (void 0 !== isEqual && inst.hasValue) {
+            var currentSelection = inst.value;
+            if (isEqual(currentSelection, nextSnapshot))
+              return (memoizedSelection = currentSelection);
+          }
+          return (memoizedSelection = nextSnapshot);
+        }
+        currentSelection = memoizedSelection;
+        if (objectIs(memoizedSnapshot, nextSnapshot)) return currentSelection;
+        var nextSelection = selector(nextSnapshot);
+        if (void 0 !== isEqual && isEqual(currentSelection, nextSelection))
+          return (memoizedSnapshot = nextSnapshot), currentSelection;
+        memoizedSnapshot = nextSnapshot;
+        return (memoizedSelection = nextSelection);
+      }
+      var hasMemo = !1,
+        memoizedSnapshot,
+        memoizedSelection,
+        maybeGetServerSnapshot =
+          void 0 === getServerSnapshot ? null : getServerSnapshot;
+      return [
+        function () {
+          return memoizedSelector(getSnapshot());
+        },
+        null === maybeGetServerSnapshot
+          ? void 0
+          : function () {
+              return memoizedSelector(maybeGetServerSnapshot());
+            }
+      ];
+    },
+    [getSnapshot, getServerSnapshot, selector, isEqual]
+  );
+  var value = useSyncExternalStore(subscribe, instRef[0], instRef[1]);
+  useEffect(
+    function () {
+      inst.hasValue = !0;
+      inst.value = value;
+    },
+    [value]
+  );
+  useDebugValue(value);
+  return value;
+};
+
+
+/***/ }),
+
 /***/ 5194:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -27087,26 +31968,30 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6618);
 /* harmony import */ var _footerNavigation_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7580);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1362);
+/* harmony import */ var _hooks_ReduxHooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5713);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__]);
 _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
 
+// import { state } from '@/store/store';
+
 function FooterNavigation() {
-    const { filterContext, setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__/* .useProductsAndFilters */ .u)();
-    const categoryListItems = filterContext.categories.map(category => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: {
+    const { setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_1__/* .useProductsAndFilters */ .u)();
+    const categories = (0,_hooks_ReduxHooks__WEBPACK_IMPORTED_MODULE_4__/* .useAppSelector */ .G)(state => state.meta.categories);
+    const categoryListItems = categories.map(category => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: {
                 pathname: '/allProducts',
                 search: `category=${category}`
             }, state: { scrollToTop: true }, onClick: () => {
                 setFiltersOptions({
-                    filters: { productType: [], category: [category], designers: [], priceFilters: [] },
+                    filters: { productTypes: [], category: [category], designers: [], priceFilters: [] },
                     sorting: '',
                     search: ''
                 });
             }, children: [" ", category] }) }, category)));
     const sortingListItems = ['New arrivals', 'Best sellers'].map(sorting => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: "/allProducts", onClick: () => setFiltersOptions({
-                filters: { productType: [], category: [], designers: [], priceFilters: [] },
+                filters: { productTypes: [], category: [], designers: [], priceFilters: [] },
                 sorting,
                 search: ''
             }), state: { scrollToTop: true }, children: sorting }) }, sorting)));
@@ -27115,7 +32000,7 @@ function FooterNavigation() {
                             }, state: { scrollToTop: true }, children: "Recently viewed" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: {
                                 pathname: '/allProducts'
                             }, onClick: () => setFiltersOptions({
-                                filters: { productType: [], category: [], designers: [], priceFilters: [] },
+                                filters: { productTypes: [], category: [], designers: [], priceFilters: [] },
                                 sorting: '',
                                 search: ''
                             }), state: { scrollToTop: true }, children: "All products" }) })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", { className: _footerNavigation_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.categoryUl, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h4", { children: "Categories" }) }), categoryListItems] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h4", { children: "Our company" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: "/about", state: { scrollToTop: true }, children: "About us" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: "", state: { scrollToTop: true }, children: "Vacancies" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: "/contacts", state: { scrollToTop: true }, children: "Contact us" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: "", state: { scrollToTop: true }, children: "Privacy" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: "", state: { scrollToTop: true }, children: "Returns policy" }) })] })] }));
@@ -27235,6 +32120,21 @@ function ProductTitle({ name, price }) {
 
 /***/ }),
 
+/***/ 5713:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   G: () => (/* binding */ useAppSelector),
+/* harmony export */   j: () => (/* binding */ useAppDispatch)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1468);
+
+const useAppDispatch = react_redux__WEBPACK_IMPORTED_MODULE_0__/* .useDispatch */ .wA.withTypes();
+const useAppSelector = react_redux__WEBPACK_IMPORTED_MODULE_0__/* .useSelector */ .d4.withTypes();
+
+
+/***/ }),
+
 /***/ 5742:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -27262,7 +32162,7 @@ function ProductDescription({ description, features, designer }) {
                         (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__/* .Link */ .N_, { to: {
                                 pathname: '/allProducts',
                             }, onClick: () => setFiltersOptions({
-                                filters: { productType: [], category: [], designers: [designer], priceFilters: [] },
+                                filters: { productTypes: [], category: [], designers: [designer], priceFilters: [] },
                                 sorting: '',
                                 search: ''
                             }), state: { scrollToTop: true }, children: designer })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("ul", { children: features && featuresList })] }));
@@ -27757,6 +32657,7 @@ async function fetchAllFiltersOptionsFields() {
     const url = "https://avion-online-store-server.onrender.com/api/" + 'filtersOptions' || 0;
     const response = await fetch(url);
     const filtersOptionsFields = await response.json();
+    // console.log(filtersOptionsFields)
     return filtersOptionsFields;
 }
 const { allProductTypes, allCategories, allDesigners } = await fetchAllFiltersOptionsFields();
@@ -27773,15 +32674,15 @@ function useProductsAndFilters() {
 // Компонент провайдер
 function ProductsAndFiltersProvider({ children }) {
     // Фильтры и сортировки
-    const filterContext = {
-        productType: allProductTypes,
-        designers: allDesigners,
-        categories: allCategories,
-        priceFilters: ['0 - 100', '101 - 250', '251+'],
-        sorting: ['Price: Low to High', 'Price: High to Low', 'New arrivals', 'Best sellers'],
-    };
+    // const filterContext: FilterContextType = {
+    //   productType: allProductTypes,
+    //   designers: allDesigners,
+    //   categories: allCategories,
+    //   priceFilters: ['0 - 100', '101 - 250', '251+'],
+    //   sorting: ['Price: Low to High', 'Price: High to Low', 'New arrivals', 'Best sellers'],
+    // };
     const initialOptions = {
-        filters: { productType: [], category: [], designers: [], priceFilters: [] },
+        filters: { productTypes: [], category: [], designers: [], priceFilters: [] },
         sorting: '',
         search: ''
     };
@@ -27832,7 +32733,7 @@ function ProductsAndFiltersProvider({ children }) {
         };
     }, [alreadyLoaded, filtersOptions, shouldFetchProducts]);
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(ProductsAndFiltersContext.Provider, { value: {
-            filterContext,
+            // filterContext,
             filtersOptions,
             setFiltersOptions,
             products,
@@ -29940,13 +34841,15 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4848);
 /* harmony import */ var _productsSorting_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3140);
 /* harmony import */ var _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6618);
+/* harmony import */ var _hooks_ReduxHooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5713);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__]);
 _Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
+
 function ProductsSorting({ showOptions, setShowOptions }) {
-    const { sorting } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__/* .useProductsAndFilters */ .u)().filterContext;
+    const sorting = (0,_hooks_ReduxHooks__WEBPACK_IMPORTED_MODULE_3__/* .useAppSelector */ .G)(state => state.meta.sorting);
     const { filtersOptions, setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_2__/* .useProductsAndFilters */ .u)();
     function toggleFieldset() {
         if (document.body.offsetWidth < 500)
@@ -30125,7 +35028,7 @@ function ProductListing({ productType, category, designer, sorting, excludeId, t
     const [products, setProducts] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)(null);
     const filterOptions = {
         filters: {
-            productType: productType ? [productType] : [],
+            productTypes: productType ? [productType] : [],
             category: category ? [category] : [],
             designers: designer ? [designer] : [],
             priceFilters: []
@@ -30273,7 +35176,7 @@ function ProductFiltersBar() {
         filters: false,
         sorting: false,
         sortingFieldset: true,
-        productType: true,
+        productTypes: true,
         priceFilters: true,
         designers: true
     });
@@ -30297,7 +35200,7 @@ function ProductFiltersBar() {
         navigate('/allProducts');
         setFiltersOptions({
             filters: {
-                productType: [],
+                productTypes: [],
                 category: [],
                 designers: [],
                 priceFilters: [],
@@ -30314,6 +35217,46 @@ __webpack_async_result__();
 
 /***/ }),
 
+/***/ 7944:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   i: () => (/* binding */ metaReducer),
+/* harmony export */   s: () => (/* binding */ fetchMetaData)
+/* harmony export */ });
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3816);
+
+const initialState = {
+    productTypes: [],
+    designers: [],
+    categories: [],
+    priceFilters: ['0 - 100', '101 - 250', '251+'],
+    sorting: ['Price: Low to High', 'Price: High to Low', 'New arrivals', 'Best sellers'],
+};
+const fetchMetaData = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__/* .createAsyncThunk */ .zD)('meta/fetchMetaData', async () => {
+    const url = "https://avion-online-store-server.onrender.com/api/" + 'filtersOptions' || 0;
+    const response = await fetch(url);
+    const filtersOptionsFields = await response.json();
+    return filtersOptionsFields;
+});
+const metaSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__/* .createSlice */ .Z0)({
+    name: 'meta',
+    initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(fetchMetaData.fulfilled, (state, action) => {
+            const { allProductTypes, allCategories, allDesigners } = action.payload;
+            state.productTypes = allProductTypes;
+            state.designers = allDesigners;
+            state.categories = allCategories;
+        });
+    }
+});
+const metaReducer = metaSlice.reducer;
+
+
+/***/ }),
+
 /***/ 8221:
 /***/ ((module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
@@ -30323,6 +35266,9 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _Components_App_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1166);
 /* harmony import */ var _globalStyles_global_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(967);
 /* harmony import */ var _Components_RouterProvider_RouterProvider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8872);
+/* harmony import */ var _Components_AppInitializer_AppInitializer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3390);
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(807);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(1468);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_App_App__WEBPACK_IMPORTED_MODULE_2__]);
 _Components_App_App__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
@@ -30330,9 +35276,12 @@ _Components_App_App__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies
 
 
 
+
+
+
 const container = document.getElementById('root');
 const root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(container);
-root.render((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_RouterProvider_RouterProvider__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_App_App__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {}) }));
+root.render((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_RouterProvider_RouterProvider__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_redux__WEBPACK_IMPORTED_MODULE_7__/* .Provider */ .Kq, { store: _store_store__WEBPACK_IMPORTED_MODULE_6__/* .store */ .M, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_AppInitializer_AppInitializer__WEBPACK_IMPORTED_MODULE_5__/* .AppInitializer */ .Y, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Components_App_App__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A, {})] }) }));
 
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
@@ -30359,6 +35308,19 @@ var jsx_runtime = __webpack_require__(4848);
 function AboutHeroTitle() {
     return ((0,jsx_runtime.jsx)("div", { className: aboutHeroTitle_module.aboutHeroTitle, children: (0,jsx_runtime.jsx)("h2", { children: "A brand built on the love of craftsmanship, quality and outstanding customer service" }) }));
 }
+
+
+/***/ }),
+
+/***/ 8418:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+
+
+if (true) {
+  module.exports = __webpack_require__(5160);
+} else // removed by dead control flow
+{}
 
 
 /***/ }),
@@ -30540,7 +35502,7 @@ function HeroBlock() {
     const [isLoad, setIsLoad] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
     const { setFiltersOptions } = (0,_Context_FiltersAndProductsContextProvider__WEBPACK_IMPORTED_MODULE_5__/* .useProductsAndFilters */ .u)();
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _heroBlock_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.heroBlock, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _heroBlock_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.heroBlockLeft, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { children: "The furniture brand for the future, with timeless designs" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _heroBlock_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.heroBlockLeftBottom, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .Link */ .N_, { to: '/allProducts', className: 'globalLink', onClick: () => setFiltersOptions({
-                                    filters: { productType: [], category: [], designers: [], priceFilters: [] },
+                                    filters: { productTypes: [], category: [], designers: [], priceFilters: [] },
                                     sorting: '',
                                     search: ''
                                 }), state: { scrollToTop: true }, children: "View collection" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", { children: "A new era in eco friendly furniture with Avelon, the French luxury retail brand with nice fonts, tasteful colors and a beautiful way to display things digitally using modern web technologies." })] })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: _heroBlock_module_scss__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.heroBlockImgWrapper, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: `${base}/img/HeroBlock.jpg`, alt: "", loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((react_spinners_ClipLoader__WEBPACK_IMPORTED_MODULE_4___default()), { color: '#fff', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] })] }));

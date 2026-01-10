@@ -1,15 +1,12 @@
 
-import { FiltersOptionsType } from "@/types/FiltersOptionsType";
+import { useAppSelector } from "@/hooks/ReduxHooks";
 
-// function ensureArray(value: string | string[] | null | undefined ) {
-//   if(!value) return [];
-//   return Array.isArray(value) ? value : [value]
-// }
+export default function getAllProductsTitle(): string {
 
-export default function getAllProductsTitle(filterOptions: FiltersOptionsType): string {
+  const filterOptions = useAppSelector(state => state.filtersOptions)
 
   const singleFiltersTitle = [
-    filterOptions.filters.productType.length === 1 ? filterOptions.filters.productType[0] : null,
+    filterOptions.filters.productTypes.length === 1 ? filterOptions.filters.productTypes[0] : null,
     filterOptions.filters.category.length === 1 ? filterOptions.filters.category[0] : null,
     filterOptions.filters.designers.length === 1 ? filterOptions.filters.designers[0] : null,
   ].filter(Boolean);

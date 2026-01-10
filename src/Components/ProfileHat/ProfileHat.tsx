@@ -1,10 +1,11 @@
-import { useUserSessionContext } from '@/Context/userSessionContext'
+import { useLogoutUser, useRefreshUser } from '@/queries/useUserSessionQueries';
 import styles from './profileHat.module.scss'
 
 
 export default function ProfileHat(): React.JSX.Element {
 
-  const {userData, logout} = useUserSessionContext();
+  const { data: userData } = useRefreshUser();
+  const { mutate: logout} = useLogoutUser();
 
   return (
     <>
@@ -30,7 +31,7 @@ export default function ProfileHat(): React.JSX.Element {
         <nav className={styles.controls}>
           <button>Info</button>
           <button>Orders</button>
-          <button onClick={logout} >Logout</button>
+          <button onClick={() => logout()} >Logout</button>
         </nav>
       </section>
     </>

@@ -1,0 +1,31 @@
+.checkoutContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 50px;
+  padding-inline: var(--paddingInline);
+}
+
+.message{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  gap: 40px;
+  margin-block: clamp(40px, 10vw, 100px);
+  box-shadow: 0 0 20px 4px var(--borderGray);
+  border-radius: 5px;
+  padding: 25px;
+  flex-grow: 1;
+
+  h2{
+    font-size: var(--fontSizeL);
+  }
+
+  p{
+    line-height: 150%;
+    font-size: var(--fontSizeS);
+  }
+  
+}

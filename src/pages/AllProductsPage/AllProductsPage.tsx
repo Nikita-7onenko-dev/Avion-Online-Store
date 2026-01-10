@@ -4,25 +4,21 @@ import AllProductsGrid from "@/Components/AllProductsGrid/AllProductsGrid";
 import ProductFiltersBar from '@/Components/ProductsFiltersBar/ProductsFiltersAndSortingBar';
 
 import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
+import { useLayoutEffect } from 'react';
+import getAllProductsTitle from '@/utils/getAllProductsTitle';
 
 const base = process.env.PUBLIC_URL;
 
 export default function AllProductsPage(): React.JSX.Element {
 
-  const { title, setShouldFetchProducts } = useProductsAndFilters();
+  const title  = getAllProductsTitle();
   const location = useLocation();
 
-  useEffect(() => {
-    setShouldFetchProducts(true);
-  }, [])
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     if(location.state?.scrollToTop) {
       window.scrollTo(0,0)
     }
-  }, [location.state]);
+  }, [location.state])
 
   return (
     <>

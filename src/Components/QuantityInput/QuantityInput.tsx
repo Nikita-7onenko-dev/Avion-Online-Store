@@ -1,5 +1,6 @@
-import useCartContext from '@/Context/CartContext';
+import { useAppDispatch } from '@/hooks/ReduxHooks';
 import styles from './quantityInput.module.scss';
+import { changeCartItemQuantity } from '@/store/slices/cartSlice';
 
 type Props = {
   quantity: number;
@@ -9,13 +10,13 @@ type Props = {
  
 export default function QuantityInput({quantity, setQuantity, productId}: Props): React.JSX.Element {
 
-  const {changeCartItemQuantity} = useCartContext()
+  const dispatch = useAppDispatch()
 
   function inc() {
     if(setQuantity) {
       setQuantity(prev => prev + 1)
     } else {
-      changeCartItemQuantity(productId, 'inc')
+      dispatch(changeCartItemQuantity({id: productId, operation: 'inc'}))
     }
   }
 
@@ -23,16 +24,16 @@ export default function QuantityInput({quantity, setQuantity, productId}: Props)
     if(setQuantity) {
       setQuantity(prev => prev - 1)
     } else {
-      changeCartItemQuantity(productId, 'dec')
+      dispatch(changeCartItemQuantity({id: productId, operation: 'dec'}))
     }
   }
 
-  function lit(value: number) {
-    if(value < 1) return;
+  function lit(quantity: number) {
+    if(quantity < 1) return;
     if(setQuantity) {
-      setQuantity(value)
+      setQuantity(quantity)
     } else {
-      changeCartItemQuantity(productId, 'lit', value)
+      dispatch(changeCartItemQuantity({id: productId, operation: 'lit', quantity}))
     }
   } 
 

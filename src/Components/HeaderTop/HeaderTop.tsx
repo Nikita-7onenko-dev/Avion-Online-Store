@@ -1,7 +1,7 @@
 import styles from './headerTop.module.scss'
 
 import SearchForm from '@/Components/SearchForm/SearchForm';
-import useCartContext from '@/Context/CartContext';
+import { useAppSelector } from '@/hooks/ReduxHooks';
 import { Link } from 'react-router-dom';
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 
 export default function HeaderTop( {isOpenBurger, setIsOpenBurger}: Props): React.JSX.Element {
 
-  const {cart} = useCartContext();
+  const cart = useAppSelector( state => state.cart );
   const quantity = cart.length;
   const isShowCart = quantity > 0;
 

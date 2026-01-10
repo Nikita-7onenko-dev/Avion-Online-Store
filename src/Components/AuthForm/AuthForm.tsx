@@ -1,7 +1,8 @@
 import styles from './registerForm.module.scss';
 import { useState } from "react";
-import { useUserSessionContext } from "@/Context/userSessionContext";
 import { formDataValidator } from "@/utils/formDataValidator";
+import { finalFormValidation } from '@/utils/finalFormValidation';
+import { usePostUser } from '@/queries/useUserSessionQueries';
 
 type Props = {
   variation: 'Sign up' | 'Log in';
@@ -9,10 +10,13 @@ type Props = {
 }
 
 type FormDataType = {
-  username?: string;
+  username: string;
   email: string;
   password: string;
-  confirmPassword?: string;
+  confirmPassword: string;
+} | {
+  email: string;
+  password: string;
 }
 
 type ErrorsDataType = Partial<Record<keyof FormDataType, string>>;
@@ -24,9 +28,13 @@ const placeHolders = {
   confirmPassword: 'Confirm password'
 };
 
+const validationRules = {
+  isEmptyFieldsAllowed: false
+}
+
 export default function AuthForm({variation, setSwitchForm}: Props): React.JSX.Element {
 
-  const {postUser} = useUserSessionContext();
+  const { mutate: postUser } = usePostUser();
   const isSignUp = variation === 'Sign up';
 
   const initFormDataFields = isSignUp ? {
@@ -41,37 +49,32 @@ export default function AuthForm({variation, setSwitchForm}: Props): React.JSX.E
 
   const [formData, setFormData] = useState<FormDataType>(initFormDataFields);
   const [errors, setErrors] = useState<ErrorsDataType>(initFormDataFields);
-
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   function sendFormData() {
+    const {newErrorData, hasErrors} = finalFormValidation(formData, errors, validationRules)
 
-    const newErrorData = {} as ErrorsDataType;
+    if(hasErrors) {
+      setErrors(newErrorData);
+      return;
+    };
 
-    for (const key in formData) {
-      const value = formData[key as keyof FormDataType] || '';
-      newErrorData[key as keyof ErrorsDataType] = formDataValidator[key](value, formData)
-    }
-    setErrors(newErrorData)
-    const hasErrors = Object.values(newErrorData).some(err => !!err)
-    if(hasErrors) return;
-    
     postUser(formData)
   }
 
   function changeHandler(e: React.ChangeEvent<HTMLInputElement>) {
-    const field = e.target.name;
-    const value = e.target.value;
+    const { name: field , value } = e.target;
     const newFormData = {...formData, [field]: value};
-    setFormData( newFormData )
-    if(field === 'password' || field === 'confirmPassword') {
+    const isValidatingPasswords = 'confirmPassword' in newFormData && (field === 'password' || field === 'confirmPassword');
+    setFormData( newFormData );
+    if(isValidatingPasswords) {
       setErrors(prev => ({
         ...prev, 
-        'password': formDataValidator.password(newFormData.password, newFormData),
-        'confirmPassword': formDataValidator.confirmPassword(newFormData.confirmPassword ?? '', newFormData)
+        'password': formDataValidator('password', newFormData.password, newFormData, validationRules),
+        'confirmPassword': formDataValidator( 'confirmPassword', newFormData.confirmPassword ?? '', newFormData, validationRules)
       }))
     } else {
-      setErrors(prev => ({...prev, [field]: formDataValidator[field](value, newFormData)}))
+      setErrors(prev => ({...prev, [field]: formDataValidator(field, value, newFormData, validationRules)}))
     }
   }
 

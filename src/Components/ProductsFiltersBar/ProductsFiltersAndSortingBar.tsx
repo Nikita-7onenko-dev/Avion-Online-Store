@@ -2,9 +2,10 @@ import FiltersAndSortingList from '../FiltersAndSortingList/FiltersAndSortingLis
 import FiltersControls from '../FiltersControls/FiltersControls';
 
 import { ShowFilterOptionsType } from '@/types/ShowFilterOptionsType';
-import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '@/hooks/ReduxHooks';
+import { resetFiltersAction } from '@/store/slices/filtersOptionsSlice';
 
 export default function ProductFiltersBar(): React.JSX.Element {
 
@@ -12,12 +13,12 @@ export default function ProductFiltersBar(): React.JSX.Element {
     filters: false,
     sorting: false,
     sortingFieldset: true,
-    productType: true,
+    productTypes: true,
     priceFilters: true,
     designers: true
   });
 
-  const { setFiltersOptions } = useProductsAndFilters()
+  const dispatch = useAppDispatch();
 
   const navigate = useNavigate()
 
@@ -39,16 +40,7 @@ export default function ProductFiltersBar(): React.JSX.Element {
 
   function resetFilters() {
     navigate('/allProducts')
-    setFiltersOptions({
-      filters: {
-        productType: [],
-        category: [],
-        designers: [],
-        priceFilters: [],
-      },
-      sorting: '',
-      search: ''
-    })
+    dispatch(resetFiltersAction())
   }
 
   return (

@@ -2,11 +2,8 @@ import ProductListingEmblaCarousel from "../ProductListingEmblaCarousel/ProductL
 import {EmblaOptionsType} from 'embla-carousel';
 
 import MainProductCard from "../MainProductCard/MainProductCard";
-
-import fetchAllProducts from "@/utils/fetchAllProducts";
-import { useEffect, useState } from "react";
-import { ProductType } from "@/types/ProductType";
 import { FiltersOptionsType } from "@/types/FiltersOptionsType";
+import { useProductsListing } from "@/queries/useProducts";
 
 type Filters = {
   productType: string;
@@ -35,11 +32,9 @@ export default function ProductListing
     title 
   }: AtLeastOneProp & RestProps): React.JSX.Element {
 
-  const [products, setProducts] = useState<ProductType[] | null>(null);
-
-  const filterOptions: FiltersOptionsType = {
+  const filtersOptions: FiltersOptionsType = {
     filters:{
-      productType: productType ? [productType] : [],
+      productTypes: productType ? [productType] : [],
       category: category ? [category] : [],
       designers: designer ? [designer] : [],
       priceFilters: []
@@ -49,31 +44,44 @@ export default function ProductListing
   }
 
   const params = new URLSearchParams({
-    filters: JSON.stringify(filterOptions.filters),
-    sorting: filterOptions.sorting,
+    filters: JSON.stringify(filtersOptions.filters),
+    sorting: filtersOptions.sorting,
     limit: "8"
   }).toString();
 
-  useEffect( () => {
-    const fetchData = async() => {
-      let data = (await fetchAllProducts(params)).products;
-      if(excludeId) {
-        data = data.filter(prod => prod._id !== excludeId);
-      }
-      setProducts(data);
-    }
-    
-    fetchData();
-
-  }, [excludeId])
-
-  const productCards = products ? 
-   ( products.map(product => <MainProductCard key={product._id} product={product} variation="listingElement" /> ) ) :
-   ( [...Array(8).keys()].map(index => <MainProductCard key={index} variation="listingElement" />) )
+  const { isFetching, isError, data } = useProductsListing(params, excludeId);
 
   const options: EmblaOptionsType = {dragFree: true}
 
-  return (
-    <ProductListingEmblaCarousel options={options} slides={productCards} title={title} filterOptions={filterOptions} />
-  )
+
+  if(isFetching) {
+    return (
+      <ProductListingEmblaCarousel 
+        options={options} 
+        slides={[...Array(8).keys()].map(index => <MainProductCard key={index} 
+        variation="listingElement" />)} 
+        title={title} 
+        filtersOptions={filtersOptions} 
+      />
+    )
+  }
+
+  if(isError) {
+    return <div>Ошибка загрузки товаров 😢</div>;
+  }
+
+  if(data?.products.length) {
+    return (
+      <ProductListingEmblaCarousel 
+        options={options} 
+        slides={data.products.map(product => <MainProductCard key={product._id}
+        product={product} 
+        variation="listingElement" /> ) } 
+        title={title} 
+        filtersOptions={filtersOptions} 
+      />
+    )
+  } 
+
+  return <div>Товары не найдены</div>;;
 }

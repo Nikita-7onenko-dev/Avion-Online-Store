@@ -1,12 +1,10 @@
 import styles from './productsFiltersLayout.module.scss';
 
 import FilterFieldset from '../FilterFieldset/FilterFieldset';
-
 import { useNavigate } from 'react-router-dom';
-import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
-
-import {FiltersOptionsType} from '@/types/FiltersOptionsType';
 import {ShowFilterOptionsType} from '@/types/ShowFilterOptionsType'
+import { useAppDispatch } from '@/hooks/ReduxHooks';
+import { toggleFilters } from '@/store/slices/filtersOptionsSlice';
 
 
 type Props = {
@@ -18,37 +16,21 @@ type Props = {
 export default function ProductsFiltersLayout({showOptions, setShowOptions}: Props): React.JSX.Element {
 
   const navigate = useNavigate();
-
-  const {filtersOptions, setFiltersOptions} = useProductsAndFilters();
+  const dispatch = useAppDispatch();
 
   function onChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const {name, value, checked} = e.target;
-
+    const {name, value} = e.target;
+    dispatch(toggleFilters({name: name, value: value}))
     navigate('/allProducts');
-
-    setFiltersOptions(prev => {
-      const prevFilter = prev.filters[name as keyof FiltersOptionsType['filters']] || [];
-      const updated = checked ? [...prevFilter, value] : prevFilter.filter((v: string) => v !== value)
-
-      return {
-        ...prev,
-        filters: {
-          ...prev.filters,
-          category: [],
-          [name]: updated
-        }     
-      }
-    })
   }
 
   return (
     <div className={`${styles.filtersWrapper} ${showOptions.filters ? '' : styles.hidden}`}>
         <FilterFieldset 
-          filter='productType'
+          filter='productTypes'
           title='Product Type'
           showOptions={showOptions}
           setShowOptions={setShowOptions}
-          filterOptions={filtersOptions}
           onChange={onChange}
         />
         <FilterFieldset 
@@ -56,7 +38,6 @@ export default function ProductsFiltersLayout({showOptions, setShowOptions}: Pro
           title='Price Filters'
           showOptions={showOptions}
           setShowOptions={setShowOptions}
-          filterOptions={filtersOptions}
           onChange={onChange}
         />
         <FilterFieldset 
@@ -64,7 +45,6 @@ export default function ProductsFiltersLayout({showOptions, setShowOptions}: Pro
           title='Designers'
           showOptions={showOptions}
           setShowOptions={setShowOptions}
-          filterOptions={filtersOptions}
           onChange={onChange}
         />
     </div>

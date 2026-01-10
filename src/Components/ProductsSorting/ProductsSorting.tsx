@@ -1,7 +1,9 @@
 import styles from './productsSorting.module.scss';
 
 import { ShowFilterOptionsType } from '@/types/ShowFilterOptionsType';
-import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
+import { useAppDispatch, useAppSelector } from '@/hooks/ReduxHooks';
+import { toggleSorting } from '@/store/slices/filtersOptionsSlice';
+import { useMetaData } from '@/queries/useMetaData';
 
 type Props = {
   showOptions: ShowFilterOptionsType;
@@ -10,33 +12,35 @@ type Props = {
 
 export default function ProductsSorting({showOptions, setShowOptions}: Props): React.JSX.Element {
 
-  const {sorting} = useProductsAndFilters().filterContext;
+  const filtersOptions = useAppSelector(state => state.filtersOptions);
+  const dispatch = useAppDispatch();
 
-  const {filtersOptions, setFiltersOptions} = useProductsAndFilters();
+  let sortingItems = null;
+  const { data } = useMetaData();
 
-    function toggleFieldset() {
-      if(document.body.offsetWidth < 500) return;
+  if(data) {
+    const { sorting } = data;
+    
+    sortingItems = sorting.map(sorting => (
+      <label key={sorting} className={filtersOptions.sorting === sorting ? styles.activeLabel : ''}>
+        <input type="radio" name="sorting" checked={filtersOptions.sorting === sorting } value={sorting} onChange={onChange}/>{sorting}
+      </label>
+    ))
+  }
 
-        setShowOptions( prev => ({
-          ...prev,
-          sortingFieldset: !prev.sortingFieldset,
-        }))
-    }
+  function toggleFieldset() {
+    if(document.body.offsetWidth < 500) return;
 
-    function onChange(e: React.ChangeEvent<HTMLInputElement>) {
-      const {name, value} = e.target;
-      setFiltersOptions(prev => {
-        return {...prev,
-          [name]: value
-        }
-      })
-    }
+    setShowOptions( prev => ({
+      ...prev,
+      sortingFieldset: !prev.sortingFieldset,
+    }))
+  }
 
-  const sortingItems = sorting.map(sorting => (
-    <label key={sorting} className={filtersOptions.sorting === sorting ? styles.activeLabel : ''}>
-      <input type="radio" name="sorting" checked={filtersOptions.sorting === sorting } value={sorting} onChange={onChange}/>{sorting}
-    </label>
-  ))
+  function onChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const { value } = e.target;
+    dispatch(toggleSorting(value))
+  }
 
   return (
     <div className={`${styles.sorting} ${showOptions.sorting ? '' : styles.hidden}`}>

@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 import { useState } from 'react';
 import  ClipLoader  from 'react-spinners/ClipLoader';
-import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
+import { useAppDispatch } from '@/hooks/ReduxHooks';
+import { resetFiltersAction } from '@/store/slices/filtersOptionsSlice';
 
 
 type BaseProps = {
@@ -44,8 +45,7 @@ export default function AboutBlock({
   
   const spinnerColor = variation === 'highlighted' ? '#fff' : '#2a254b';
 
-
-  const { setFiltersOptions } = useProductsAndFilters();
+  const dispatch = useAppDispatch()
 
   return (
     <div className={`${styles.aboutBlock} ${variation && styles[variation]}`}>
@@ -58,11 +58,7 @@ export default function AboutBlock({
       {
       withLink && 
         <Link 
-          onClick={ () => setFiltersOptions({
-            filters: { productType: [], category: [], designers: [], priceFilters: [] },
-            sorting: '',
-            search: ''
-          })}
+          onClick={() => dispatch(resetFiltersAction())}
           to={linkHref} 
           state={{scrollToTop: true}} 
           className='globalLink'

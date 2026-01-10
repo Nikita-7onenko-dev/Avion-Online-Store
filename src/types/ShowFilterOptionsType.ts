@@ -2,7 +2,7 @@ export type ShowFilterOptionsType = {
     filters: boolean;
     sorting: boolean;
     sortingFieldset: boolean;
-    productType: boolean;
+    productTypes: boolean;
     priceFilters: boolean;
     designers: boolean;
   };

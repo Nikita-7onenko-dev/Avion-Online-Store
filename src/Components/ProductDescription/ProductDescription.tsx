@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './productDescription.module.scss'
-import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
+import { useAppDispatch } from '@/hooks/ReduxHooks';
+import { setFiltersOptions } from '@/store/slices/filtersOptionsSlice';
 
 type Props = {
   description: string;
@@ -10,7 +11,7 @@ type Props = {
 
 export default function ProductDescription({description, features, designer}: Props): React.JSX.Element {
 
-  const {setFiltersOptions} = useProductsAndFilters();
+  const dispatch = useAppDispatch();
 
   let featuresList;
 
@@ -30,11 +31,13 @@ export default function ProductDescription({description, features, designer}: Pr
             to={{
               pathname: '/allProducts',
             }}
-            onClick={() => setFiltersOptions({
-              filters: { productType: [], category: [], designers: [designer], priceFilters: [] },
-              sorting: '',
-              search: ''
-            })}
+            onClick={() => {
+              dispatch(setFiltersOptions({
+                filters: { productTypes: [], category: [], designers: [designer], priceFilters: [] },
+                sorting: '',
+                search: ''
+              }))
+            }}
             state={{scrollToTop: true}}  
           >
           {designer}

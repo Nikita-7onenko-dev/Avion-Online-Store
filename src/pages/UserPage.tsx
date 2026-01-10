@@ -1,19 +1,15 @@
 import { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
-import { useUserSessionContext } from "@/Context/userSessionContext";
 import EmailActivationMessage from "@/Components/EmailActivationMessage/EmailActivationMessage";
 import ProfileBlock from "@/Components/ProfileBlock/ProfileBlock";
 import AuthForm from "@/Components/AuthForm/AuthForm";
+import { useRefreshUser } from "@/queries/useUserSessionQueries";
 
 
 export default function UserPage(): React.JSX.Element {
 
   const [switchForm, setSwitchForm] = useState<boolean>(true);
-  const {userData, isLoading} = useUserSessionContext();
-
-  useEffect(() => {
-    
-  }, [userData])
+  const {data: userData, isLoading} = useRefreshUser();
 
   if(isLoading) return (
     <div style={{height: '70vh', display:'flex', justifyContent: 'center', alignItems: 'center'}}>
@@ -25,7 +21,7 @@ export default function UserPage(): React.JSX.Element {
     userData ? 
       !userData.isActivated ?
         <EmailActivationMessage />
-        : <ProfileBlock />
+        : <ProfileBlock key={'Profile block'}/>
         : (
           switchForm
             ? <AuthForm key={'Sign up'} setSwitchForm={setSwitchForm} variation="Sign up"/>

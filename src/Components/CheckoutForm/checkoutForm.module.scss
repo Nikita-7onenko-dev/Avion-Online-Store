@@ -1,12 +1,6 @@
-.checkoutContainer{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-block: 50px;
-  padding-inline: var(--paddingInline);
-}
 
-.checkoutForm, .message{
+
+.checkoutForm{
   display: flex;
   flex-direction: column;
   gap: 35px;
@@ -63,23 +57,4 @@
 
 .errorField{
   box-shadow: inset 0px 0px 3px 0px rgb(211, 54, 54);
-}
-
-
-.message{
-  justify-content: center;
-  align-items: center;
-  max-width: 500px;
-  gap: 40px;
-  margin-block: clamp(40px, 10vw, 100px);
-
-  h2{
-    font-size: var(--fontSizeL);
-  }
-
-  p{
-    line-height: 150%;
-    font-size: var(--fontSizeS);
-  }
-  
 }

@@ -1,16 +1,20 @@
+import { formDataValidator } from "./formDataValidator";
 
 export default function passwordGroupValidator(
-  formData: Record<string, string>, 
-  validator: Record<string, (value: string, formData?: Record<string, string>) => string> ) {
+  formData: Record<string, string>) {
     const {oldPassword, password, confirmPassword} = formData;
+
+    const rules = {
+      isEmptyFieldsAllowed: false
+    }
 
     if(!oldPassword && !password && !confirmPassword) {
       return {oldPassword: "", password: "", confirmPassword: ""}
     }
 
     return {
-      oldPassword: validator.oldPassword(oldPassword, formData),
-      password: validator.password(password, formData),
-      confirmPassword: validator.confirmPassword(confirmPassword, formData)
+      oldPassword: formDataValidator('oldPassword',oldPassword, formData, rules),
+      password: formDataValidator('password', password, formData, rules),
+      confirmPassword: formDataValidator('confirmPassword', confirmPassword, formData, rules)
     }
 }

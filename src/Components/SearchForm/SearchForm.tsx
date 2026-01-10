@@ -1,8 +1,9 @@
-import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
 import styles from './searchForm.module.scss'
 
 import { useRef, useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '@/hooks/ReduxHooks';
+import { applySearch } from '@/store/slices/filtersOptionsSlice';
 
 export default function SearchForm(): React.JSX.Element {
 
@@ -10,12 +11,12 @@ export default function SearchForm(): React.JSX.Element {
   const [query, setQuery] = useState<string>('');
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
-  const {setFiltersOptions} = useProductsAndFilters();
 
   function onSearchButtonClick(e: React.MouseEvent<HTMLButtonElement>) {
     if(isShowInput && query) {
-      setFiltersOptions(prev => ({...prev, search: query}));
+      dispatch(applySearch(query))
       navigate('/allProducts');
     } else if(!isShowInput) {
       setIsShowInput(true);
@@ -33,7 +34,7 @@ export default function SearchForm(): React.JSX.Element {
   function submitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if(isShowInput && query) {
-      setFiltersOptions(prev => ({...prev, search: query}));
+      dispatch(applySearch(query))
       navigate('/allProducts')
     }
   }

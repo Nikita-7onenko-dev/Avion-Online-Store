@@ -1,39 +1,44 @@
 import { Link } from 'react-router-dom'
 import styles from './burgerMenuNav.module.scss'
-import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider'
+import { useAppDispatch, useAppSelector } from '@/hooks/ReduxHooks';
+import { resetFiltersAction, setFiltersOptions, toggleFilters } from '@/store/slices/filtersOptionsSlice';
+import { useMetaData } from '@/queries/useMetaData';
 
 export default function BurgerMenuNav(): React.JSX.Element {
 
-  const {filterContext, setFiltersOptions} = useProductsAndFilters();
+  const dispatch = useAppDispatch();
+  const { data } = useMetaData();
+  let productTypeLinkItems = null;
 
-  const productTypeLinkItems = filterContext.productType.map(productType => {
-    return (
+  if(data) {
+    const { productTypes } = data
+
+    productTypeLinkItems = productTypes.map(productType => (
       <li key={productType}>
         <Link 
           to={{
           pathname: '/allProducts',
         }}
-        onClick={() => setFiltersOptions({
-          filters: { productType: [productType], category: [], designers: [], priceFilters: [] },
-          sorting: '',
-          search: ''
-        })}
+        onClick={() => {
+          dispatch(setFiltersOptions({
+            filters: { productTypes: [productType], category: [], designers: [], priceFilters: [] },
+            sorting: '',
+            search: ''
+          }))
+        }}
       >
       {productType}</Link>
       </li>
-    )
-  })
+    ))
+
+  }
 
   return (
       <ul className={styles.burgerMenuNavList}>
         <li>
           <Link 
             to='/allProducts'
-            onClick={() => setFiltersOptions({
-              filters: { productType: [], category: [], designers: [], priceFilters: [] },
-              sorting: '',
-              search: ''
-            })}>All Products</Link>
+            onClick={() => dispatch(resetFiltersAction()) }>All Products</Link>
         </li>
         {productTypeLinkItems}
         <li><Link to='/about'>About us</Link></li>

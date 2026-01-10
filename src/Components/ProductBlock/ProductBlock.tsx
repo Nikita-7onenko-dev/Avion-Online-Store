@@ -12,7 +12,7 @@ import ProductTitle from '../ProductTitle/ProductTitle';
 import ProductDescription from '../ProductDescription/ProductDescription';
 
 type Props = {
-  productData: ProductType | null;
+  productData?: ProductType;
 }
 
 export default function ProductBlock({productData}: Props): React.JSX.Element {

@@ -1,42 +1,50 @@
-import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider'
 import styles from './footerNavigation.module.scss'
-
 import { Link } from 'react-router-dom'
-
+import { useAppDispatch, useAppSelector } from '@/hooks/ReduxHooks';
+import { resetFiltersAction, setFiltersOptions } from '@/store/slices/filtersOptionsSlice';
+import { useMetaData } from '@/queries/useMetaData';
 
 export default function FooterNavigation(): React.JSX.Element {
 
-  const {filterContext, setFiltersOptions} = useProductsAndFilters();
+  const dispatch = useAppDispatch();
+  const { data } = useMetaData();
+  let categoryListItems = null;
+  
+  if(data) {
+    const { categories } = data
 
-  const categoryListItems = filterContext.categories.map( category => (
-      <li key={category}>
-        <Link
-          to={{
-            pathname: '/allProducts',
-            search: `category=${category}`
-          }}
-          state={{scrollToTop: true}}
-          onClick={() => {
-            setFiltersOptions({
-                filters: { productType: [], category: [category], designers: [], priceFilters: [] },
+    categoryListItems = categories.map( category => (
+        <li key={category}>
+          <Link
+            to={{
+              pathname: '/allProducts',
+              search: `category=${category}`
+            }}
+            state={{scrollToTop: true}}
+            onClick={ () => {
+              dispatch(setFiltersOptions({
+                filters: { productTypes: [], category: [category], designers: [], priceFilters: [] },
                 sorting: '',
                 search: ''
-              })
-          }}
-        > {category}
-        </Link>
-      </li>
-  ));
+              }));
+            }}
+          > {category}
+          </Link>
+        </li>
+    ));
+  }
 
   const sortingListItems = ['New arrivals', 'Best sellers'].map(sorting => (
     <li key={sorting}>
       <Link 
         to="/allProducts"
-        onClick={() => setFiltersOptions({
-          filters: { productType: [], category: [], designers: [], priceFilters: [] },
-          sorting,
-          search: ''
-        })}
+        onClick={() => {
+          dispatch(setFiltersOptions({
+            filters: { productTypes: [], category: [], designers: [], priceFilters: [] },
+            sorting: sorting,
+            search: ''
+          }));
+        }}
         state={{ scrollToTop: true }}
       >
         {sorting}
@@ -64,11 +72,7 @@ export default function FooterNavigation(): React.JSX.Element {
             to={{
               pathname: '/allProducts'
             }}
-            onClick={() => setFiltersOptions({
-              filters: { productType: [], category: [], designers: [], priceFilters: [] },
-              sorting: '',
-              search: ''
-            })}
+            onClick={() => dispatch(resetFiltersAction())}
             state={{scrollToTop: true}}
           >All products</Link>
         </li>

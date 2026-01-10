@@ -1,15 +1,17 @@
 import styles from './profileSettingsForm.module.scss';
 import { useState } from 'react';
-import { useUserSessionContext } from '@/Context/userSessionContext';
 
 import { formDataValidator } from '@/utils/formDataValidator';
 import passwordGroupValidator from '@/utils/passwordGroupValidator';
 
 import ProfileInfoFields from '../ProfileInfoFields/ProfileInfoFields';
+import { finalFormValidation } from '@/utils/finalFormValidation';
+import { useRefreshUser, useUpdateUser } from '@/queries/useUserSessionQueries';
 
 export default function ProfileSettingsForm() {
 
-  const {userData, updateUser} = useUserSessionContext();
+  const { data: userData} = useRefreshUser();
+  const { mutate: updateUser } = useUpdateUser();
 
   const fieldNames = [
     "firstName", "lastName", "username",
@@ -19,11 +21,11 @@ export default function ProfileSettingsForm() {
 
   const initFormData = Object.fromEntries(
     fieldNames.map(f => [f, userData?.[f as keyof typeof userData] || ""])
-  ) as Record<string, string>
+  ) as Record<typeof fieldNames[number], string>
 
   const initErrorFields = Object.fromEntries(
     fieldNames.map(f => [f, ""])
-  ) as Record<keyof typeof fieldNames, string>
+  ) as Record<typeof fieldNames[number], string>
   
   const [edit, setEdit] = useState(false);
 
@@ -31,26 +33,26 @@ export default function ProfileSettingsForm() {
   const [errors, setErrors] = useState(initErrorFields);
 
   function changeHandler(e: React.ChangeEvent<HTMLInputElement>) {
-    const {name, value, dataset} = e.target;
-    const method = dataset.method || name;
+    const {name, value} = e.target;
     const newFormData = {...formData, [name]: value};
     setFormData( newFormData )
     if(name === 'password' || name === 'confirmPassword' || name === 'oldPassword') {
       setErrors(prev => ({
         ...prev,
-        ...passwordGroupValidator(newFormData, formDataValidator)
+        ...passwordGroupValidator(newFormData)
       }))
     } else {
-      setErrors( prev => ( {...prev, [name]: formDataValidator[method](value, newFormData)} ) )
+      setErrors( prev => ( {...prev, [name]: formDataValidator(name, value, newFormData, {isEmptyFieldsAllowed: true})} ) )
     }
   }
 
   function submitChanges() {
 
-    for(let err in errors) {
-      if(errors[err].length) {
-        return;
-      }
+    const {hasErrors, newErrorData} = finalFormValidation(formData, errors, {isEmptyFieldsAllowed: true})
+
+    if(hasErrors) {
+      setErrors(newErrorData);
+      return
     }
     
     const updateData = Object.fromEntries(
@@ -86,8 +88,8 @@ export default function ProfileSettingsForm() {
       <div className={styles.profileInfo}>
         <div>
           <ProfileInfoFields edit={edit} errors={errors} formData={formData} changeHandler={changeHandler} variation='Personal' />
-          {edit &&
-            <ProfileInfoFields edit={edit} errors={errors} formData={formData} changeHandler={changeHandler} variation='Passwords' />
+          {
+            edit && <ProfileInfoFields edit={edit} errors={errors} formData={formData} changeHandler={changeHandler} variation='Passwords' />
           }
         </div>
         <div>

@@ -4,7 +4,8 @@ import styles from './heroBlock.module.scss';
 import { Link } from 'react-router-dom';
 
 import ClipLoader from 'react-spinners/ClipLoader';
-import { useProductsAndFilters } from '@/Context/FiltersAndProductsContextProvider';
+import { useAppDispatch } from '@/hooks/ReduxHooks';
+import { resetFiltersAction } from '@/store/slices/filtersOptionsSlice';
 
 
 
@@ -13,7 +14,7 @@ export default function HeroBlock(): React.JSX.Element {
   const base = process.env.PUBLIC_URL;
 
   const [isLoad, setIsLoad] = useState(false);
-  const {setFiltersOptions} = useProductsAndFilters();
+  const dispatch = useAppDispatch()
 
   return (
     <div className={styles.heroBlock}>
@@ -23,11 +24,7 @@ export default function HeroBlock(): React.JSX.Element {
           <Link 
             to='/allProducts' 
             className='globalLink'
-            onClick={() => setFiltersOptions({
-              filters: { productType: [], category: [], designers: [], priceFilters: [] },
-              sorting: '',
-              search: ''
-            })}
+            onClick={() => dispatch(resetFiltersAction())}
             state={{scrollToTop: true}}  
           >View collection</Link>
           <p>

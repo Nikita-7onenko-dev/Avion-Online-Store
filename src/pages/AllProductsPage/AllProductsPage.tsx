@@ -18,7 +18,7 @@ export default function AllProductsPage(): React.JSX.Element {
     if(location.state?.scrollToTop) {
       window.scrollTo(0,0)
     }
-  }, [location.state])
+  }, [location.state]);
 
   return (
     <>

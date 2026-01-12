@@ -11,11 +11,11 @@ export default function ProductPage(): React.JSX.Element {
 
   const {id} = useParams();
 
-  const {data, isError} = useOneProduct(id as string);
+  const {data, isError, error} = useOneProduct(id as string);
 
   return (
     <>
-      <ProductBlock productData={data} />
+      <ProductBlock productData={data} isError={isError} error={error} />
       <ProductListing productType={data?.productType[0] || ''} excludeId={data?._id} title='You might also like' />
       <Features />
       <CtaBlock isWithImage />

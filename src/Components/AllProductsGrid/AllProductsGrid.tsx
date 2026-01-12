@@ -3,6 +3,7 @@ import styles from './AllProductsGrid.module.scss';
 import MainProductCard from '../MainProductCard/MainProductCard';
 import { useAppSelector } from '@/hooks/ReduxHooks';
 import { useProductsIncrementalLoading } from '@/queries/useProducts';
+import { LoadingDots } from '../LoadingDots/LoadingDots';
 
 type ScreenStateType = 'initial-loading' | 'empty' | 'list' | 'error'
 
@@ -22,13 +23,13 @@ export default function AllProductsGrid(): React.JSX.Element {
     filtersOptions.search
   ];
 
-  const { data, hasNextPage, isFetching, isError, fetchNextPage } = useProductsIncrementalLoading(queryKey, filtersOptions, pageSize);
+  const { data, hasNextPage, isFetching, isError, error, fetchNextPage } = useProductsIncrementalLoading(queryKey, filtersOptions, pageSize);
 
   function getScreenState(): ScreenStateType {
-    if(isError) return 'error';
+    if(isError && error) return 'error';
     if(!data && isFetching) return 'initial-loading';
     if(data?.length === 0) return 'empty';
-    return 'list'
+    return 'list';
   }
 
   const isLoadingMore = hasNextPage && isFetching;
@@ -38,11 +39,11 @@ export default function AllProductsGrid(): React.JSX.Element {
   return (
     <div className={styles.productGridBlock} style={hasNextPage ? {} : {paddingBottom: '50px'}}>
 
-      {screenState === 'error' && <span>Error</span>}
+      {screenState === 'error' && <span>{error?.message}</span>}
 
-      {screenState === 'initial-loading' && <span>Loading...</span>}
+      {screenState === 'initial-loading' && <LoadingDots />}
 
-      {screenState === 'empty' && <span>We couldn't find any products matching your search.</span>}
+      {screenState === 'empty' && <span>We couldn't find any products matching your search</span>}
 
       {screenState === 'list' && (
         <>  
@@ -56,8 +57,6 @@ export default function AllProductsGrid(): React.JSX.Element {
           {hasNextPage && <button className='globalButton' onClick={() => fetchNextPage()}>Load more</button>}
         </>
       )}
-
-
 
     </div>
   )

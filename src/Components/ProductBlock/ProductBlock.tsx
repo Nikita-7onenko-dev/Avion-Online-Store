@@ -13,9 +13,11 @@ import ProductDescription from '../ProductDescription/ProductDescription';
 
 type Props = {
   productData?: ProductType;
+  isError: boolean;
+  error: Error | null;
 }
 
-export default function ProductBlock({productData}: Props): React.JSX.Element {
+export default function ProductBlock({productData, isError, error}: Props): React.JSX.Element {
 
   const productImageRef = useRef<HTMLDivElement>(null);
   const pathname = useLocation();
@@ -43,38 +45,49 @@ export default function ProductBlock({productData}: Props): React.JSX.Element {
   }
    
   return (
-    <div className={`${styles.productBlock} ${isWideImage ? styles.productBlockWide : ''}`}>
-      <div 
-        className={`${styles.productBlockImageWrapper} ${isWideImage ? styles.wideImageWrapper : styles.smallImageWrapper}`}
-        ref={productImageRef}
-      >
-        { productData && <img 
-            src={productData.image} 
-            alt={data.name}
-            loading='lazy' 
-            onLoad={() => setIsLoad(true)}
-            style={isLoad ? {visibility: 'visible'} : {visibility: 'hidden'} }   
-          />
+    <div 
+      className={
+        `${styles.productBlock}` 
+        + ` ${isWideImage ? styles.productBlockWide : styles.productBlockTall}`
+        + ` ${isError ? styles.productBlockError : ""}`
+      }
+    >
+      {
+      isError && error
+        ? <span>{error.message}</span>
+        : <>
+          <div 
+            className={styles.productBlockImageWrapper}
+            ref={productImageRef}
+          >
+            { productData && <img 
+                src={productData.image} 
+                alt={data.name}
+                loading='lazy' 
+                onLoad={() => setIsLoad(true)}
+                style={{visibility: isLoad ? 'visible' : 'hidden', aspectRatio: productData.aspectRatio}}   
+              />
+            }
+            <ClipLoader 
+              color={'#2a254b'}
+              size={80}
+              cssOverride={isLoad ? {display: 'none'} : {display: 'inline-block', position: 'absolute'} } 
+            />
+          </div>
+          <div 
+            className={styles.productDescriptionBlock}
+          >
+            <ProductTitle name={data.name} price={data.price}/>
+            <ProductDescription description={data.description} features={data.features} designer={data.designer} />
+            <ProductDimensionsTable
+              height={data.height}
+              width={data.width}
+              depth={data.depth}  
+            />
+            {productData && <AddToCartBar product={productData} />}
+          </div>
+        </>
         }
-        <ClipLoader 
-          color={'#2a254b'}
-          size={80}
-          cssOverride={isLoad ? {display: 'none'} : {display: 'inline-block', position: 'absolute'} } 
-        />
-      </div>
-      <div 
-        className={`${styles.productDescriptionBlock} ${isWideImage ?
-          styles.productDescriptionSmall : styles.productDescriptionWide}`}
-      >
-        <ProductTitle name={data.name} price={data.price}/>
-        <ProductDescription description={data.description} features={data.features} designer={data.designer} />
-        <ProductDimensionsTable
-          height={data.height}
-          width={data.width}
-          depth={data.depth}  
-        />
-        {productData && <AddToCartBar product={productData} />}
-      </div>
     </div>
   )
 }

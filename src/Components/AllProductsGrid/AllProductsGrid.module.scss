@@ -1,5 +1,4 @@
 
-
 .productGridBlock{
   padding-block: 20px;
   flex-grow: 1;
@@ -11,9 +10,9 @@
 
   span{
     display: block;
-    width: fit-content;
+    text-align: center;
+    font-size: var(--fontSizeS);
     color: var(--darkFontColor);
-    margin-inline: auto;
     margin-block: 50px 30px ;
   }
 }

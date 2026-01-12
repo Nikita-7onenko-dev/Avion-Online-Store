@@ -35667,11 +35667,28 @@ function MainProductCard({ product, variation }) {
     return ((0,jsx_runtime.jsx)("li", { className: `${frameClass} ${variation === 'listingElement' ? 'embla__slide' : ''}`, children: (0,jsx_runtime.jsxs)(Link, { className: `${mainProductCard_module.productCard}`, to: `/${product?._id || ''}`, children: [(0,jsx_runtime.jsxs)("div", { className: `${aspectRatio === '4/5' ? mainProductCard_module.imgFrameSmall : mainProductCard_module.imgFrameWide} ${mainProductCard_module.imgFrame}`, children: [product && (0,jsx_runtime.jsx)("img", { src: `${product.image}`, alt: "", loading: "lazy", onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#2a254b', size: 40, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsx)("p", { style: product ? {} : { backgroundColor: "#f4f4ffbc" }, children: name }), (0,jsx_runtime.jsx)("p", { style: product ? {} : { backgroundColor: "#f4f4ffbc" }, children: price })] }) }));
 }
 
+;// ./src/exceptions/ApiError.ts
+class ApiError extends Error {
+    type;
+    constructor(type, message) {
+        super(message);
+        this.type = type;
+        this.name = 'ApiError';
+    }
+}
+
 ;// ./src/api/ProductsService.ts
+
+function handleResponseError(status) {
+    if (status >= 500) {
+        throw new ApiError('server', 'Internal server error. Please try again later');
+    }
+    else {
+        throw new ApiError('unknown', 'Unknown error');
+    }
+}
 class ProductsService {
-    _baseURL =  true
-        ? "https://avion-online-store-server.onrender.com/api/" + 'products/'
-        : 0;
+    _baseURL = `${"https://avion-online-store-server.onrender.com/api/" || 0}products/`;
     async getAllProducts(params) {
         let url = this._baseURL;
         if (params) {
@@ -35679,25 +35696,31 @@ class ProductsService {
         }
         try {
             const response = await fetch(url);
+            if (!response.ok) {
+                handleResponseError(response.status);
+            }
             const productData = await response.json();
-            console.log(productData);
             return productData;
         }
         catch (err) {
-            console.log(err);
-            throw err;
+            if (err instanceof ApiError)
+                throw err;
+            throw new ApiError('network', 'No connection to the server. Please check your internet connection');
         }
     }
     async getOneProduct(id) {
         try {
-            const response = await fetch(this._baseURL + id);
+            const response = await fetch(this._baseURL + id /* + 'ss' */);
+            if (!response.ok) {
+                handleResponseError(response.status);
+            }
             const productData = await response.json();
-            console.log(productData);
             return productData;
         }
         catch (err) {
-            console.log(err);
-            throw err;
+            if (err instanceof ApiError)
+                throw err;
+            throw new ApiError('network', 'No connection to the server. Please check your internet connection');
         }
     }
 }
@@ -36083,7 +36106,7 @@ function Footer() {
 
 ;// ./src/Components/ProductBlock/productBlock.module.scss
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const productBlock_module = ({"productBlock":"XiEC3m","productBlockImageWrapper":"hLuetc","productDescriptionBlock":"wruFoF","smallImageWrapper":"QCMtPN","productDescriptionWide":"yloOgo","wideImageWrapper":"xjmcAV","productDescriptionSmall":"auqN31","productBlockWide":"XGhwyo"});
+/* harmony default export */ const productBlock_module = ({"productBlock":"XiEC3m","productBlockTall":"jKGgO1","productBlockWide":"XGhwyo","productBlockError":"LQINch","productBlockImageWrapper":"hLuetc","productDescriptionBlock":"wruFoF"});
 ;// ./src/Components/AddToCartBar/addToCartBar.module.scss
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const addToCartBar_module = ({"addToCartBar":"ICmedr"});
@@ -36143,7 +36166,7 @@ const cartSlice = createSlice({
             return state.filter(item => item._id !== id);
         },
         clearCart() {
-            return cartSlice_initialState;
+            return [];
         }
     }
 });
@@ -36261,7 +36284,7 @@ function ProductDescription({ description, features, designer }) {
 
 
 
-function ProductBlock({ productData }) {
+function ProductBlock({ productData, isError, error }) {
     const productImageRef = (0,react.useRef)(null);
     const pathname = useLocation();
     const [isLoad, setIsLoad] = (0,react.useState)(false);
@@ -36282,8 +36305,11 @@ function ProductBlock({ productData }) {
         height: productData?.height || null,
         depth: productData?.depth || null,
     };
-    return ((0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productBlock} ${isWideImage ? productBlock_module.productBlockWide : ''}`, children: [(0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productBlockImageWrapper} ${isWideImage ? productBlock_module.wideImageWrapper : productBlock_module.smallImageWrapper}`, ref: productImageRef, children: [productData && (0,jsx_runtime.jsx)("img", { src: productData.image, alt: data.name, loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#2a254b', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsxs)("div", { className: `${productBlock_module.productDescriptionBlock} ${isWideImage ?
-                    productBlock_module.productDescriptionSmall : productBlock_module.productDescriptionWide}`, children: [(0,jsx_runtime.jsx)(ProductTitle, { name: data.name, price: data.price }), (0,jsx_runtime.jsx)(ProductDescription, { description: data.description, features: data.features, designer: data.designer }), (0,jsx_runtime.jsx)(ProductDimensionsTable, { height: data.height, width: data.width, depth: data.depth }), productData && (0,jsx_runtime.jsx)(AddToCartBar, { product: productData })] })] }));
+    return ((0,jsx_runtime.jsx)("div", { className: `${productBlock_module.productBlock}`
+            + ` ${isWideImage ? productBlock_module.productBlockWide : productBlock_module.productBlockTall}`
+            + ` ${isError ? productBlock_module.productBlockError : ""}`, children: isError && error
+            ? (0,jsx_runtime.jsx)("span", { children: error.message })
+            : (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsxs)("div", { className: productBlock_module.productBlockImageWrapper, ref: productImageRef, children: [productData && (0,jsx_runtime.jsx)("img", { src: productData.image, alt: data.name, loading: 'lazy', onLoad: () => setIsLoad(true), style: { visibility: isLoad ? 'visible' : 'hidden', aspectRatio: productData.aspectRatio } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#2a254b', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsxs)("div", { className: productBlock_module.productDescriptionBlock, children: [(0,jsx_runtime.jsx)(ProductTitle, { name: data.name, price: data.price }), (0,jsx_runtime.jsx)(ProductDescription, { description: data.description, features: data.features, designer: data.designer }), (0,jsx_runtime.jsx)(ProductDimensionsTable, { height: data.height, width: data.width, depth: data.depth }), productData && (0,jsx_runtime.jsx)(AddToCartBar, { product: productData })] })] }) }));
 }
 
 ;// ./src/pages/ProductPage.tsx
@@ -36296,8 +36322,8 @@ function ProductBlock({ productData }) {
 
 function ProductPage() {
     const { id } = useParams();
-    const { data, isError } = useOneProduct(id);
-    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)(ProductBlock, { productData: data }), (0,jsx_runtime.jsx)(ProductListing, { productType: data?.productType[0] || '', excludeId: data?._id, title: 'You might also like' }), (0,jsx_runtime.jsx)(Features, {}), (0,jsx_runtime.jsx)(CtaBlock, { isWithImage: true })] }));
+    const { data, isError, error } = useOneProduct(id);
+    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)(ProductBlock, { productData: data, isError: isError, error: error }), (0,jsx_runtime.jsx)(ProductListing, { productType: data?.productType[0] || '', excludeId: data?._id, title: 'You might also like' }), (0,jsx_runtime.jsx)(Features, {}), (0,jsx_runtime.jsx)(CtaBlock, { isWithImage: true })] }));
 }
 
 ;// ./src/Components/AboutHeroTitle/aboutHeroTitle.module.scss
@@ -36330,7 +36356,20 @@ function AboutPage() {
 ;// ./src/Components/AllProductsGrid/AllProductsGrid.module.scss
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const AllProductsGrid_module = ({"productGridBlock":"gVBi0u","productGrid":"oQXug7"});
+;// ./src/Components/LoadingDots/LoadingDots.tsx
+
+
+function LoadingDots() {
+    const [dots, setDots] = (0,react.useState)('');
+    (0,react.useEffect)(() => {
+        const intervalId = setInterval(() => setDots(prev => prev.length >= 3 ? '' : prev + '.'), 500);
+        return () => clearInterval(intervalId);
+    }, []);
+    return ((0,jsx_runtime.jsxs)("span", { style: { fontSize: '20px' }, children: ["Loading", dots] }));
+}
+
 ;// ./src/Components/AllProductsGrid/AllProductsGrid.tsx
+
 
 
 
@@ -36348,9 +36387,9 @@ function AllProductsGrid() {
         filtersOptions.sorting,
         filtersOptions.search
     ];
-    const { data, hasNextPage, isFetching, isError, fetchNextPage } = useProductsIncrementalLoading(queryKey, filtersOptions, pageSize);
+    const { data, hasNextPage, isFetching, isError, error, fetchNextPage } = useProductsIncrementalLoading(queryKey, filtersOptions, pageSize);
     function getScreenState() {
-        if (isError)
+        if (isError && error)
             return 'error';
         if (!data && isFetching)
             return 'initial-loading';
@@ -36360,7 +36399,7 @@ function AllProductsGrid() {
     }
     const isLoadingMore = hasNextPage && isFetching;
     const screenState = getScreenState();
-    return ((0,jsx_runtime.jsxs)("div", { className: AllProductsGrid_module.productGridBlock, style: hasNextPage ? {} : { paddingBottom: '50px' }, children: [screenState === 'error' && (0,jsx_runtime.jsx)("span", { children: "Error" }), screenState === 'initial-loading' && (0,jsx_runtime.jsx)("span", { children: "Loading..." }), screenState === 'empty' && (0,jsx_runtime.jsx)("span", { children: "We couldn't find any products matching your search." }), screenState === 'list' && ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsxs)("ul", { className: AllProductsGrid_module.productGrid, children: [data?.map(product => (0,jsx_runtime.jsx)(MainProductCard, { product: product, variation: 'gridElement' }, product._id)), isLoadingMore && [...Array(pageSize).keys()].map(index => (0,jsx_runtime.jsx)(MainProductCard, { variation: 'gridElement' }, index))] }), hasNextPage && (0,jsx_runtime.jsx)("button", { className: 'globalButton', onClick: () => fetchNextPage(), children: "Load more" })] }))] }));
+    return ((0,jsx_runtime.jsxs)("div", { className: AllProductsGrid_module.productGridBlock, style: hasNextPage ? {} : { paddingBottom: '50px' }, children: [screenState === 'error' && (0,jsx_runtime.jsx)("span", { children: error?.message }), screenState === 'initial-loading' && (0,jsx_runtime.jsx)(LoadingDots, {}), screenState === 'empty' && (0,jsx_runtime.jsx)("span", { children: "We couldn't find any products matching your search" }), screenState === 'list' && ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsxs)("ul", { className: AllProductsGrid_module.productGrid, children: [data?.map(product => (0,jsx_runtime.jsx)(MainProductCard, { product: product, variation: 'gridElement' }, product._id)), isLoadingMore && [...Array(pageSize).keys()].map(index => (0,jsx_runtime.jsx)(MainProductCard, { variation: 'gridElement' }, index))] }), hasNextPage && (0,jsx_runtime.jsx)("button", { className: 'globalButton', onClick: () => fetchNextPage(), children: "Load more" })] }))] }));
 }
 
 ;// ./src/Components/FiltersAndSortingList/filtersAndSortingList.module.scss

@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  width: clamp(300px, 55vw, 50vw);
+  width: clamp(400px, 55vw, 50vw);
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   user-select: none;
 
@@ -17,8 +17,6 @@
     height: 25px;
     width: 25px;
     font-size: 20px;
-
-    border-radius: 50%;
   }
 
   div{
@@ -31,5 +29,11 @@
     flex-shrink: 0;
     width: 25px;
     height: 25px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .toast{
+    width: 100%;
   }
 }

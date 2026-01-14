@@ -4,6 +4,8 @@ import { ShowFilterOptionsType } from '@/types/ShowFilterOptionsType';
 import { useAppDispatch, useAppSelector } from '@/hooks/ReduxHooks';
 import { toggleSorting } from '@/store/slices/filtersOptionsSlice';
 import { useMetaData } from '@/queries/useMetaData';
+import { useEffect } from 'react';
+import { showToastThunk } from '@/store/slices/toastSlice';
 
 type Props = {
   showOptions: ShowFilterOptionsType;
@@ -16,7 +18,16 @@ export default function ProductsSorting({showOptions, setShowOptions}: Props): R
   const dispatch = useAppDispatch();
 
   let sortingItems = null;
-  const { data } = useMetaData();
+  const { data, isError } = useMetaData();
+
+  useEffect(() => {
+    if(isError) {
+      dispatch(showToastThunk({
+        type: 'error',
+        message: 'Loading meta data has failed. Please refresh the page.',
+      }));
+    }
+  }, [isError, dispatch])
 
   if(data) {
     const { sorting } = data;

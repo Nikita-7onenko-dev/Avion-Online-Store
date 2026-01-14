@@ -1,6 +1,6 @@
 import styles from './headerNavigationBar.module.scss'
 import { NavLink, useSearchParams} from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '@/hooks/ReduxHooks';
+import { useAppDispatch } from '@/hooks/ReduxHooks';
 import { resetFiltersAction, setFiltersOptions } from '@/store/slices/filtersOptionsSlice';
 import { useMetaData } from '@/queries/useMetaData';
 
@@ -37,8 +37,7 @@ export default function HeaderNavigationBar(): React.JSX.Element {
       </li>
     ))
   }
-
-
+  
   return (
     <nav className={styles.headerNav}>
       <ul className={styles.headerNavigationList}>

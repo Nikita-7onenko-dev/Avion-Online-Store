@@ -1,14 +1,6 @@
-import { ApiError } from "@/exceptions/ApiError";
+import { ApiError, handleResponseError } from "@/exceptions/ApiError";
 import { ProductType } from "@/types/ProductType";
 import { ProductsDataResponseType } from "@/types/ResponseDataType";
-
-function handleResponseError(status: number): never {
-  if(status >= 500) {
-    throw new ApiError('server', 'Internal server error. Please try again later')
-  } else {
-    throw new ApiError('unknown', 'Unknown error');
-  }
-}
 
 class ProductsService {
 

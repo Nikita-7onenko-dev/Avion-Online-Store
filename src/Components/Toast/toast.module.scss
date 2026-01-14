@@ -1,0 +1,35 @@
+
+
+.toast{
+  background-color: var(--lightBackgroundColor);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: clamp(300px, 55vw, 50vw);
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  user-select: none;
+
+  button{
+    height: 25px;
+    width: 25px;
+    font-size: 20px;
+
+    border-radius: 50%;
+  }
+
+  div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  svg{
+    flex-shrink: 0;
+    width: 25px;
+    height: 25px;
+  }
+}

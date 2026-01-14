@@ -7,10 +7,10 @@ import { createPortal } from 'react-dom';
 type Props = {
   isOpen: boolean;
 }
+const overlay = document.getElementById('overlay');
 
 export default function BurgerMenu({isOpen}: Props): React.JSX.Element {
 
-  const overlay = document.getElementById('overlay');
   if(!overlay) throw new Error('No overlay container found')
 
   return createPortal(

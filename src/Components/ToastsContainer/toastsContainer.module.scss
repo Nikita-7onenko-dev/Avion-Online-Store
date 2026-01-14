@@ -1,0 +1,14 @@
+
+
+.toastContainer{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  margin: clamp(10px, 2vw, 20px);
+  gap: 10px;
+  z-index: 101;
+}

@@ -6,9 +6,16 @@
   align-items: flex-end;
   flex-direction: column;
   position: fixed;
-  left: 0;
-  bottom: 0;
-  margin: clamp(10px, 2vw, 20px);
+  left: clamp(10px, 2vw, 20px);
+  bottom: 10px;
+  width: clamp(400px, 55vw, 50vw);
   gap: 10px;
   z-index: 101;
+}
+
+@media screen and (max-width: 500px) {
+  .toastContainer{
+    width: auto;
+    right: 10px;
+  }
 }

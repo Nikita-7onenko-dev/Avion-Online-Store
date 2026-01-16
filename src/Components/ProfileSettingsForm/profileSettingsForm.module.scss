@@ -3,14 +3,12 @@
   margin-inline: var(--paddingInline);
   padding: 20px;
   border-radius: 5px;
-  // background-color: var(--lightGrayBackground);
   display: flex;
   flex-direction: column;
   gap: 35px;
-  // width: fit-content;
   box-shadow: 0 0 20px 4px var(--borderGray);
 
-  section{
+  >div{
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -43,45 +41,4 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 40px;
-
-  div{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 20px;
-    flex-grow: 1;
-    width: clamp(240px, 48vw - 50px, 280px);
-
-    h2{
-      font-size: var(--fontSizeS);
-      margin-bottom: 5px;
-    }
-
-    label{
-      width: 100%;
-    }
-
-    span{
-      display: inline-block;
-      font-size: var(--fontSizeXS);
-      margin-bottom: 5px;
-      color: var(--lightFontColor);
-    }
-
-    p{
-      font-size: var(--fontSizeS);
-      min-height: calc(var(--fontSizeS) + 18px);
-      padding: 9px 0;
-    }
-
-    input:not(input[type=checkbox]){
-      padding: 5px 10px;
-      border: var(--borderGray) 1px solid;
-      border-radius: 5px;
-      font-size: var(--fontSizeS);
-      width: 100%;
-      color: inherit;
-      background-color: var(--lightGrayBackground);
-    }
-  }
 }

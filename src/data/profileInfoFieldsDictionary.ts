@@ -11,14 +11,12 @@ export const profileInfoFieldsDictionary = {
       name: 'firstName',
       type: 'text',
       field: 'firstName',
-      dataMethod: 'name'
     },
     {
       label: 'Last name',
       name: 'lastName',
       type: 'text',
       field: 'lastName',
-      dataMethod: 'name'
     }
   ],
   Contacts: [ 
@@ -39,14 +37,12 @@ export const profileInfoFieldsDictionary = {
       name: 'country',
       type: 'text',
       field: 'country',
-      dataMethod: 'location'
     },
     {
       label: 'City',
       name: 'city',
       type: 'text',
       field: 'city',
-      dataMethod: 'location'
     },
   ],
   Passwords: [

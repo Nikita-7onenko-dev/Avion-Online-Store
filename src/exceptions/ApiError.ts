@@ -8,11 +8,16 @@ export function handleResponseError(status: number): never {
   }
 }
 
+export function errorCather(err: unknown): never {
+  if(err instanceof ApiError) throw err;
+  throw new ApiError('network', 'Network error. Please check your internet connection');
+}
+
 export class ApiError extends Error {
   type: ApiErrorType;
   constructor(type: ApiErrorType, message: string) {
     super(message);
     this.type = type;
-    this.name = 'ApiError'
+    this.name = 'ApiError';
   }
 }

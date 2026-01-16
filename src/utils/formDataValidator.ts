@@ -16,6 +16,7 @@ export function formDataValidator<T extends Record<string, string>, K = keyof T 
     firstName: validationMethods.name,
     lastName:  validationMethods.name,
     email:     validationMethods.email,
+    oldPassword: validationMethods.oldPassword,
     password:  validationMethods.password,
     confirmPassword: validationMethods.confirmPassword,
     phone:     validationMethods.phone,

@@ -10,6 +10,9 @@ export function finalFormValidation(
 
   for(const key in formData) {
     const value = formData[key as keyof typeof formData];
+    if(rules.isEmptyFieldsAllowed && (key === 'password' || key === 'confirmPassword' || key === 'oldPassword')) {
+      continue
+    }
     newErrorData[key as keyof typeof formData] = formDataValidator(key, value, formData, rules);
   }
 

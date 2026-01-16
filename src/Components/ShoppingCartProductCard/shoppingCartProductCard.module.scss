@@ -102,6 +102,7 @@
 
       div:nth-child(3){
         display: flex;
+        flex-wrap: wrap;
 
         span:nth-child(2) {
           display: initial;

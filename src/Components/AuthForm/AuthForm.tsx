@@ -59,7 +59,7 @@ export default function AuthForm({variation, setSwitchForm}: Props): React.JSX.E
       return;
     };
 
-    postUser(formData)
+    postUser(formData);
   }
 
   function changeHandler(e: React.ChangeEvent<HTMLInputElement>) {
@@ -80,16 +80,18 @@ export default function AuthForm({variation, setSwitchForm}: Props): React.JSX.E
 
   const formInputs = Object.keys(formData).map(field => {
     return (
-      <input 
-        key={field}
-        className={errors[field as keyof ErrorsDataType] ? styles.errorField : ''}
-        type={(field === 'password' || field === 'confirmPassword') ? (showPassword ? 'text' : 'password') : field}
-        name={field}
-        value={formData[field as keyof FormDataType]} 
-        onChange={changeHandler}
-        placeholder={placeHolders[field as keyof FormDataType]}
-        autoComplete="AutoFill"
-      />
+      <div className={styles.inputWrapper} key={field}>
+        {errors[field as keyof ErrorsDataType] && <p>{errors[field as keyof ErrorsDataType]}</p>}
+        <input 
+          className={errors[field as keyof ErrorsDataType] ? styles.errorField : ''}
+          type={(field === 'password' || field === 'confirmPassword') ? (showPassword ? 'text' : 'password') : field}
+          name={field}
+          value={formData[field as keyof FormDataType]} 
+          onChange={changeHandler}
+          placeholder={placeHolders[field as keyof FormDataType]}
+          autoComplete="AutoFill"
+        />
+      </div>
     )
   })
   
@@ -98,12 +100,16 @@ export default function AuthForm({variation, setSwitchForm}: Props): React.JSX.E
  
   return (
     <div className={styles.registerFormBlock}>
-        <form onSubmit={() => sendFormData()}>
+        <form 
+          onSubmit={(e) => {
+            e.preventDefault(); 
+            sendFormData();
+        }}>
           <h2>{variation}</h2>
           {formInputs}
           <label><input type="checkbox" onChange={() => setShowPassword(prev => !prev) } />Show password</label>
-          <button type="button" className="globalButton" onClick={sendFormData}>{variation}</button>
-          <div>
+          <button type="submit" className="globalButton">{variation}</button>
+          <div className={styles.switchFormWrapper}>
             <p>{question}</p>
             <button type="button" className="globalButton" onClick={() => setSwitchForm(prev => !prev)}>{switchButtonLabel}</button>
           </div>

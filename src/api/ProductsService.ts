@@ -1,4 +1,4 @@
-import { ApiError, handleResponseError } from "@/exceptions/ApiError";
+import { ApiError, errorCather, handleResponseError } from "@/exceptions/ApiError";
 import { ProductType } from "@/types/ProductType";
 import { ProductsDataResponseType } from "@/types/ResponseDataType";
 
@@ -25,8 +25,7 @@ class ProductsService {
       return productData;
 
     } catch(err) {
-      if(err instanceof ApiError) throw err;
-      throw new ApiError('network', 'No connection to the server. Please check your internet connection')
+      errorCather(err)
     }
   }
 
@@ -43,10 +42,9 @@ class ProductsService {
       return productData;
 
     } catch(err) {
-      if(err instanceof ApiError)throw err;
-      throw new ApiError('network', 'No connection to the server. Please check your internet connection');
+      errorCather(err)
     }
   } 
 }
 
-export const productsService = new ProductsService()
+export const productsService = new ProductsService();

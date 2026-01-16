@@ -1,6 +1,6 @@
 import { LoginUserType, RegisterUserType, UserDtoType, UserDataType } from "@/types/UserSessionTypes";
 import { tokenService } from "./TokenService";
-
+import { ApiError, errorCather, handleResponseError } from "@/exceptions/ApiError";
 
 class UserSessionService {
 
@@ -11,8 +11,8 @@ class UserSessionService {
 
   setTokenAndRefreshTimer(accessToken: string): void {
     this.timeToRefresh = tokenService.setSession(accessToken);
-    if(this.refreshTimerId) clearTimeout(this.refreshTimerId);
-    this.refreshTimerId = setTimeout(() => this.fetchRefreshUserData, this.timeToRefresh - (1000 * 30));
+    // if(this.refreshTimerId) clearTimeout(this.refreshTimerId);
+    // this.refreshTimerId = setTimeout(() => this.fetchRefreshUserData(), this.timeToRefresh - (1000 * 30));
   }
 
   clearTokenAndRefreshTimer(): void {
@@ -25,6 +25,8 @@ class UserSessionService {
   async fetchRefreshUserData(): Promise<UserDataType | null> {
     const url = this.baseUrl + "refresh/";
     try{
+      if(!this.isAuthorized) return null;
+
       const response = await fetch(url, {
         credentials: 'include'
       });
@@ -38,24 +40,26 @@ class UserSessionService {
         return userData;
       } else if (response.status === 401) {
         this.isAuthorized = false;
+        throw new ApiError('server', 'Unauthorized error');
+      } else {
+        handleResponseError(response.status);
       }
-
     } catch(err) {
-      console.log(err);
-      throw err;
+      errorCather(err);
     }
-
-    return null;
   }
 
   // Запрос на логин или регистрацию
-  async postUser(userData: LoginUserType | RegisterUserType): Promise<UserDataType | null> {
+  async postUser(userData: LoginUserType | RegisterUserType): Promise<UserDataType> {
     let url;
+    let isRegister;
 
     if("username" in userData) {
       url = this.baseUrl + "register/";
+      isRegister = true;
     } else {
       url = this.baseUrl + "login/";
+      isRegister = false;
     }
     
     try{
@@ -74,15 +78,19 @@ class UserSessionService {
         this.isAuthorized = true;
 
         return userData;
+
+      } else if(response.status === 400) {
+        const message = isRegister ? 'This email is already registered' : 'Invalid email or password';
+        throw new ApiError('server', message);
+      } else {
+        handleResponseError(response.status);
       }
     } catch(err) {
-      console.log(err);
-      throw err;
-    } 
-    return null;
+      errorCather(err);
+    }
   }
 
-  async logout(): Promise<null | void> {
+  async logout(): Promise<null> {
     const url = this.baseUrl + "logout/";
 
     try {
@@ -98,15 +106,18 @@ class UserSessionService {
         this.clearTokenAndRefreshTimer();
         this.isAuthorized = false;
         return null;
+      } else if(response.status === 400) {
+        throw new ApiError('server', 'There is no active session');
+      } else {
+        handleResponseError(response.status);
       }
 
     } catch(err) {
-      console.log(err);
-      throw(err)
+      errorCather(err)
     }
   }
 
-  async updateUser(newUserData: Partial<UserDataType>): Promise<UserDataType | null> {
+  async updateUser(newUserData: Partial<UserDataType>): Promise<UserDataType> {
 
     const url = this.baseUrl + "updateUser/";
 
@@ -119,20 +130,24 @@ class UserSessionService {
           "Authorization": `Bearer ${tokenService.getToken()}`
         },
       })
+
       if(response.ok) {
         const userDto: UserDtoType = await response.json();
         const { accessToken, ...userData } = userDto;
         this.setTokenAndRefreshTimer(accessToken);
 
         return userData;
+
       } else if(response.status === 401 && this.isAuthorized) {
         await this.fetchRefreshUserData();
-        this.updateUser(newUserData);
+        return this.updateUser(newUserData);
+
+      } else {
+        handleResponseError(response.status);
       }
     } catch(err) {
-      console.log(err);
+      errorCather(err);
     }
-    return null;
   }
 
 }

@@ -9,6 +9,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { metaDataQueryConfig } from './queries/useMetaData';
 import { useRefreshUserConfig } from './queries/useUserSessionQueries';
 import { ToastsContainer } from './Components/ToastsContainer/ToastsContainer';
+import { ApiError } from './exceptions/ApiError';
 
 const queryClient = new QueryClient({
    defaultOptions: {

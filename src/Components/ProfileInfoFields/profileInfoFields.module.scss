@@ -1,12 +1,59 @@
+.fieldsSection{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+  flex-grow: 1;
+  width: clamp(240px, 48vw - 50px, 280px);
+
+  label{
+    width: 100%;
+  }
+
+  span{
+    display: inline-block;
+    font-size: var(--fontSizeXS);
+    margin-bottom: 5px;
+    color: var(--lightFontColor);
+  }
+}
+
+.infoField{
+  font-size: var(--fontSizeS);
+  min-height: calc(var(--fontSizeS) + 18px);
+  padding: 9px 0;
+}
 
 
-.errorField{
-  box-shadow: inset 0px 0px 3px 0px rgb(211, 54, 54);
+.infoInput{
+  padding: 5px 10px;
+  border: var(--borderGray) 1px solid;
+  border-radius: 5px;
+  font-size: var(--fontSizeS);
+  width: 100%;
+  color: inherit;
+  background-color: var(--lightGrayBackground);
+}
+
+
+.inputWrapper{
+  p{
+    background: #ba1e1e;
+    padding: 5px;
+    color: white;
+    border-radius: 5px 5px 0 0;
+    font-size: 12px;
+  }
 }
 
 .checkbox{
   color: var(--lightFontColor);
   display: flex;
-  align-items: center;
   gap: 10px;
+}
+
+.errorField{
+  box-shadow: inset 0px 0px 3px 0px rgb(211, 54, 54);
+  border-radius: 0 0 5px 5px ;
+  border: none;
 }

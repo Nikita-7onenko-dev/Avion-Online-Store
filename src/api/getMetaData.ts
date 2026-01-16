@@ -1,6 +1,4 @@
-import { ApiError, ApiErrorType, handleResponseError } from "@/exceptions/ApiError";
-import { useAppDispatch } from "@/hooks/ReduxHooks";
-import { showToastThunk } from "@/store/slices/toastSlice";
+import { errorCather, handleResponseError } from "@/exceptions/ApiError";
 
 type MetaResponseType = {
   allProductTypes: string[];
@@ -24,7 +22,6 @@ export async function getMetaData(): Promise<MetaResponseType> {
       return filtersOptionsFields;
 
     } catch(err) {
-      if(err instanceof ApiError) throw err;
-      throw new ApiError('network', 'No connection to the server. Please check your internet connection');
+      errorCather(err)
     }
 }

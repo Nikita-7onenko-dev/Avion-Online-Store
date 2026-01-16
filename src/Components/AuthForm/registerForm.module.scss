@@ -28,6 +28,10 @@
       border: var(--borderGray) 1px solid;
       border-radius: 5px;
       font-size: var(--fontSizeXS);
+
+      &:not([type=checkbox]){
+        width: 100%;
+      }
     }
 
     label{
@@ -35,8 +39,19 @@
       display: flex;
       gap: 10px
     }
+
+    .inputWrapper{
+      p{
+        background: #ba1e1e;
+        padding: 5px;
+        color: white;
+        border-radius: 5px 5px 0 0;
+        // opacity: 0.8;
+        font-size: 12px;
+      }
+    }
     
-    div{
+    .switchFormWrapper{
       display: flex;
       gap: 10px;
       flex-direction: column;
@@ -45,6 +60,8 @@
 
     .errorField{
       box-shadow: inset 0px 0px 3px 0px rgb(211, 54, 54);
+      border-radius: 0 0 5px 5px;
+      border: none;
     }
   }
 }

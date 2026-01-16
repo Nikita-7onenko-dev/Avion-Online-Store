@@ -31787,6 +31787,11 @@ function handleResponseError(status) {
         throw new ApiError('unknown', 'Unknown error');
     }
 }
+function errorCather(err) {
+    if (err instanceof ApiError)
+        throw err;
+    throw new ApiError('network', 'Network error. Please check your internet connection');
+}
 class ApiError extends Error {
     type;
     constructor(type, message) {
@@ -31809,9 +31814,7 @@ async function getMetaData() {
         return filtersOptionsFields;
     }
     catch (err) {
-        if (err instanceof ApiError)
-            throw err;
-        throw new ApiError('network', 'No connection to the server. Please check your internet connection');
+        errorCather(err);
     }
 }
 
@@ -35709,9 +35712,7 @@ class ProductsService {
             return productData;
         }
         catch (err) {
-            if (err instanceof ApiError)
-                throw err;
-            throw new ApiError('network', 'No connection to the server. Please check your internet connection');
+            errorCather(err);
         }
     }
     async getOneProduct(id) {
@@ -35724,9 +35725,7 @@ class ProductsService {
             return productData;
         }
         catch (err) {
-            if (err instanceof ApiError)
-                throw err;
-            throw new ApiError('network', 'No connection to the server. Please check your internet connection');
+            errorCather(err);
         }
     }
 }
@@ -36985,6 +36984,7 @@ function formDataValidator(fieldKey, value, formData, rules) {
         firstName: validationMethods.name,
         lastName: validationMethods.name,
         email: validationMethods.email,
+        oldPassword: validationMethods.oldPassword,
         password: validationMethods.password,
         confirmPassword: validationMethods.confirmPassword,
         phone: validationMethods.phone,
@@ -37001,11 +37001,11 @@ function formDataValidator(fieldKey, value, formData, rules) {
 
 ;// ./src/utils/passwordGroupValidator.ts
 
+const rules = {
+    isEmptyFieldsAllowed: false
+};
 function passwordGroupValidator(formData) {
     const { oldPassword, password, confirmPassword } = formData;
-    const rules = {
-        isEmptyFieldsAllowed: false
-    };
     if (!oldPassword && !password && !confirmPassword) {
         return { oldPassword: "", password: "", confirmPassword: "" };
     }
@@ -37018,7 +37018,7 @@ function passwordGroupValidator(formData) {
 
 ;// ./src/Components/ProfileInfoFields/profileInfoFields.module.scss
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const profileInfoFields_module = ({"errorField":"il43j7","checkbox":"W5KE3F"});
+/* harmony default export */ const profileInfoFields_module = ({"fieldsSection":"m6jcRH","infoField":"v1g_30","infoInput":"DpFUei","inputWrapper":"FXDThb","checkbox":"W5KE3F","errorField":"il43j7"});
 ;// ./src/data/profileInfoFieldsDictionary.ts
 const profileInfoFieldsDictionary = {
     Personal: [
@@ -37033,14 +37033,12 @@ const profileInfoFieldsDictionary = {
             name: 'firstName',
             type: 'text',
             field: 'firstName',
-            dataMethod: 'name'
         },
         {
             label: 'Last name',
             name: 'lastName',
             type: 'text',
             field: 'lastName',
-            dataMethod: 'name'
         }
     ],
     Contacts: [
@@ -37061,14 +37059,12 @@ const profileInfoFieldsDictionary = {
             name: 'country',
             type: 'text',
             field: 'country',
-            dataMethod: 'location'
         },
         {
             label: 'City',
             name: 'city',
             type: 'text',
             field: 'city',
-            dataMethod: 'location'
         },
     ],
     Passwords: [
@@ -37093,18 +37089,16 @@ const profileInfoFieldsDictionary = {
 
 
 function ProfileInfoFields({ edit, errors, formData, changeHandler, variation }) {
-    let infoItems;
+    let infoItems = profileInfoFieldsDictionary[variation].map(field => ((0,jsx_runtime.jsxs)("label", { htmlFor: field.name, className: profileInfoFields_module.inputLabel, children: [(0,jsx_runtime.jsx)("span", { children: field.label }), edit ?
+                (0,jsx_runtime.jsxs)("div", { className: profileInfoFields_module.inputWrapper, children: [errors[field.name] && (0,jsx_runtime.jsx)("p", { children: errors[field.name] }), (0,jsx_runtime.jsx)("input", { id: field.name, className: `${profileInfoFields_module.infoInput} ${errors[field.name] ? profileInfoFields_module.errorField : ''}`, value: formData?.[field.field], onChange: changeHandler, name: field.name, type: field.type })] })
+                : (0,jsx_runtime.jsx)("p", { className: profileInfoFields_module.infoField, children: formData?.[field.field] })] }, field.label)));
     const [showPassword, setShowPassword] = (0,react.useState)(false);
-    if (variation === 'Personal' || variation === 'Contacts') {
-        infoItems = profileInfoFieldsDictionary[variation].map(field => ((0,jsx_runtime.jsxs)("label", { children: [(0,jsx_runtime.jsx)("span", { children: field.label }), edit ?
-                    (0,jsx_runtime.jsx)("input", { className: errors[field.field] ? profileInfoFields_module.errorField : '', value: formData?.[field.field], onChange: changeHandler, name: field.name, type: field.type, "data-method": field.dataMethod && field.dataMethod }) :
-                    (0,jsx_runtime.jsx)("p", { children: formData?.[field.field] })] }, field.label)));
+    if (variation === 'Personal') {
+        let passwordItems = profileInfoFieldsDictionary['Passwords'].map(field => ((0,jsx_runtime.jsxs)("label", { className: profileInfoFields_module.inputLabel, children: [(0,jsx_runtime.jsx)("span", { children: field.label }), (0,jsx_runtime.jsxs)("div", { className: profileInfoFields_module.inputWrapper, children: [errors[field.name] && (0,jsx_runtime.jsx)("p", { children: errors[field.name] }), (0,jsx_runtime.jsx)("input", { className: `${profileInfoFields_module.infoInput} ${errors[field.name] ? profileInfoFields_module.errorField : ''}`, onChange: changeHandler, name: field.name, type: showPassword ? "text" : "password" })] })] }, field.label)));
+        return ((0,jsx_runtime.jsxs)("section", { className: profileInfoFields_module.fieldsSection, children: [infoItems, edit &&
+                    (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [passwordItems, (0,jsx_runtime.jsxs)("label", { htmlFor: 'showPassword', className: profileInfoFields_module.checkbox, children: [(0,jsx_runtime.jsx)("input", { onChange: () => setShowPassword(prev => !prev), id: 'showPassword', type: "checkbox" }), "Show password"] }, 'checkBox')] })] }));
     }
-    else if (variation === 'Passwords') {
-        infoItems = profileInfoFieldsDictionary[variation].map(field => ((0,jsx_runtime.jsxs)("label", { children: [(0,jsx_runtime.jsx)("span", { children: field.label }), (0,jsx_runtime.jsx)("input", { className: errors[field.name] ? profileInfoFields_module.errorField : '', onChange: changeHandler, name: field.name, type: showPassword ? "text" : "password" })] }, field.label)));
-        return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [infoItems, (0,jsx_runtime.jsxs)("label", { className: profileInfoFields_module.checkbox, children: [(0,jsx_runtime.jsx)("input", { onChange: () => setShowPassword(prev => !prev), type: "checkbox" }), "Show password"] }, 'checkBox')] }));
-    }
-    return ((0,jsx_runtime.jsx)(jsx_runtime.Fragment, { children: infoItems }));
+    return ((0,jsx_runtime.jsx)("section", { className: profileInfoFields_module.fieldsSection, children: infoItems }));
 }
 
 ;// ./src/utils/finalFormValidation.ts
@@ -37113,6 +37107,9 @@ function finalFormValidation(formData, errors, rules) {
     const newErrorData = { ...errors };
     for (const key in formData) {
         const value = formData[key];
+        if (rules.isEmptyFieldsAllowed && (key === 'password' || key === 'confirmPassword' || key === 'oldPassword')) {
+            continue;
+        }
         newErrorData[key] = formDataValidator(key, value, formData, rules);
     }
     const hasErrors = Object.values(newErrorData).some(err => err);
@@ -37201,6 +37198,7 @@ const tokenService = new TokenService();
 
 ;// ./src/api/UserSessionService.ts
 
+
 class UserSessionService {
     isAuthorized = true;
     baseUrl = "https://avion-online-store-server.onrender.com/api/" || 0;
@@ -37208,9 +37206,8 @@ class UserSessionService {
     refreshTimerId = null;
     setTokenAndRefreshTimer(accessToken) {
         this.timeToRefresh = tokenService.setSession(accessToken);
-        if (this.refreshTimerId)
-            clearTimeout(this.refreshTimerId);
-        this.refreshTimerId = setTimeout(() => this.fetchRefreshUserData, this.timeToRefresh - (1000 * 30));
+        // if(this.refreshTimerId) clearTimeout(this.refreshTimerId);
+        // this.refreshTimerId = setTimeout(() => this.fetchRefreshUserData(), this.timeToRefresh - (1000 * 30));
     }
     clearTokenAndRefreshTimer() {
         tokenService.clear();
@@ -37222,6 +37219,8 @@ class UserSessionService {
     async fetchRefreshUserData() {
         const url = this.baseUrl + "refresh/";
         try {
+            if (!this.isAuthorized)
+                return null;
             const response = await fetch(url, {
                 credentials: 'include'
             });
@@ -37234,22 +37233,27 @@ class UserSessionService {
             }
             else if (response.status === 401) {
                 this.isAuthorized = false;
+                throw new ApiError('server', 'Unauthorized error');
+            }
+            else {
+                handleResponseError(response.status);
             }
         }
         catch (err) {
-            console.log(err);
-            throw err;
+            errorCather(err);
         }
-        return null;
     }
     // Запрос на логин или регистрацию
     async postUser(userData) {
         let url;
+        let isRegister;
         if ("username" in userData) {
             url = this.baseUrl + "register/";
+            isRegister = true;
         }
         else {
             url = this.baseUrl + "login/";
+            isRegister = false;
         }
         try {
             const response = await fetch(url, {
@@ -37267,12 +37271,17 @@ class UserSessionService {
                 this.isAuthorized = true;
                 return userData;
             }
+            else if (response.status === 400) {
+                const message = isRegister ? 'This email is already registered' : 'Invalid email or password';
+                throw new ApiError('server', message);
+            }
+            else {
+                handleResponseError(response.status);
+            }
         }
         catch (err) {
-            console.log(err);
-            throw err;
+            errorCather(err);
         }
-        return null;
     }
     async logout() {
         const url = this.baseUrl + "logout/";
@@ -37289,10 +37298,15 @@ class UserSessionService {
                 this.isAuthorized = false;
                 return null;
             }
+            else if (response.status === 400) {
+                throw new ApiError('server', 'There is no active session');
+            }
+            else {
+                handleResponseError(response.status);
+            }
         }
         catch (err) {
-            console.log(err);
-            throw (err);
+            errorCather(err);
         }
     }
     async updateUser(newUserData) {
@@ -37314,13 +37328,15 @@ class UserSessionService {
             }
             else if (response.status === 401 && this.isAuthorized) {
                 await this.fetchRefreshUserData();
-                this.updateUser(newUserData);
+                return this.updateUser(newUserData);
+            }
+            else {
+                handleResponseError(response.status);
             }
         }
         catch (err) {
-            console.log(err);
+            errorCather(err);
         }
-        return null;
     }
 }
 const userSessionService = new UserSessionService();
@@ -37783,29 +37799,43 @@ function useMutation(options, queryClient) {
 ;// ./src/queries/useUserSessionQueries.ts
 
 
+
+
+
 const queryKey = ['userSession', 'refresh'];
 const useRefreshUserConfig = {
     queryKey: queryKey,
     queryFn: () => userSessionService.fetchRefreshUserData(),
     staleTime: Infinity,
+    retry: (failureCount, error) => {
+        if (error instanceof ApiError && error.message.includes('Unauthorized'))
+            return false;
+        return failureCount < 3;
+    }
 };
 function useRefreshUser() {
     return useQuery(useRefreshUserConfig);
 }
 function usePostUser() {
     const queryClient = useQueryClient();
+    const dispatch = useAppDispatch();
     return useMutation({
         mutationFn: (formData) => userSessionService.postUser(formData),
         onSuccess: (data) => {
             queryClient.setQueryData(queryKey, data);
         },
         onError: (err) => {
+            dispatch(showToastThunk({
+                type: 'error',
+                message: err.message
+            }));
             console.log('Login/register error: ', err.message);
         }
     });
 }
 function useLogoutUser() {
     const queryClient = useQueryClient();
+    const dispatch = useAppDispatch();
     return useMutation({
         mutationFn: () => userSessionService.logout(),
         onSuccess: () => {
@@ -37813,17 +37843,30 @@ function useLogoutUser() {
             queryClient.removeQueries({ queryKey: ['userSession'], exact: false });
         },
         onError: (err) => {
-            console.log('Logout error: ', err.message);
+            dispatch(showToastThunk({
+                type: 'error',
+                message: `Logout error: ${err.message}`
+            }));
         }
     });
 }
 function useUpdateUser() {
     const queryClient = useQueryClient();
+    const dispatch = useAppDispatch();
     return useMutation({
         mutationFn: (formData) => userSessionService.updateUser(formData),
-        onSuccess: (data) => queryClient.setQueryData(queryKey, data),
+        onSuccess: (data) => {
+            queryClient.setQueryData(queryKey, data);
+            dispatch(showToastThunk({
+                type: 'success',
+                message: 'Data has been updated successfully'
+            }));
+        },
         onError: (err) => {
-            console.log('Update user data error: ', err.message);
+            dispatch(showToastThunk({
+                type: 'error',
+                message: err.message
+            }));
         }
     });
 }
@@ -37837,19 +37880,25 @@ function useUpdateUser() {
 
 
 
+const fieldNames = [
+    "firstName", "lastName", "username",
+    "oldPassword", "password", "confirmPassword",
+    "phone", "email", "country", "city"
+];
+const initErrorFields = Object.fromEntries(fieldNames.map(f => [f, ""]));
 function ProfileSettingsForm() {
     const { data: userData } = useRefreshUser();
     const { mutate: updateUser } = useUpdateUser();
-    const fieldNames = [
-        "firstName", "lastName", "username",
-        "oldPassword", "password", "confirmPassword",
-        "phone", "email", "country", "city"
-    ];
     const initFormData = Object.fromEntries(fieldNames.map(f => [f, userData?.[f] || ""]));
-    const initErrorFields = Object.fromEntries(fieldNames.map(f => [f, ""]));
     const [edit, setEdit] = (0,react.useState)(false);
     const [formData, setFormData] = (0,react.useState)(initFormData);
     const [errors, setErrors] = (0,react.useState)(initErrorFields);
+    (0,react.useEffect)(() => {
+        if (!edit && userData) {
+            setFormData(initFormData);
+            setErrors(initErrorFields);
+        }
+    }, [userData, edit]);
     function changeHandler(e) {
         const { name, value } = e.target;
         const newFormData = { ...formData, [name]: value };
@@ -37865,12 +37914,13 @@ function ProfileSettingsForm() {
         }
     }
     function submitChanges() {
-        const { hasErrors, newErrorData } = finalFormValidation(formData, errors, { isEmptyFieldsAllowed: true });
+        const { hasErrors, newErrorData } = finalFormValidation({ ...formData }, errors, { isEmptyFieldsAllowed: true });
         if (hasErrors) {
             setErrors(newErrorData);
             return;
         }
-        const updateData = Object.fromEntries(Object.entries(formData).filter(([k, v]) => {
+        const updateData = Object.fromEntries(// Очистить от пустых полей
+        Object.entries(formData).filter(([k, v]) => {
             if (k === 'password' || k === 'confirmPassword' || k === 'oldPassword') {
                 return v;
             }
@@ -37878,18 +37928,12 @@ function ProfileSettingsForm() {
                 return true;
         }));
         updateUser(updateData);
+        setEdit(false);
     }
-    function editButtonClick() {
-        if (edit) {
-            setFormData(initFormData);
-            setErrors(initErrorFields);
-            setEdit(false);
-        }
-        else {
-            setEdit(true);
-        }
-    }
-    return ((0,jsx_runtime.jsx)("form", { className: profileSettingsForm_module.profileForm, children: (0,jsx_runtime.jsxs)("section", { children: [(0,jsx_runtime.jsxs)("div", { className: profileSettingsForm_module.formTitle, children: [(0,jsx_runtime.jsx)("h2", { children: "Profile info" }), (0,jsx_runtime.jsx)("button", { onClick: editButtonClick, className: 'globalButton', type: 'button', children: edit ? "Cancel" : "Edit" })] }), (0,jsx_runtime.jsxs)("div", { className: profileSettingsForm_module.profileInfo, children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)(ProfileInfoFields, { edit: edit, errors: errors, formData: formData, changeHandler: changeHandler, variation: 'Personal' }), edit && (0,jsx_runtime.jsx)(ProfileInfoFields, { edit: edit, errors: errors, formData: formData, changeHandler: changeHandler, variation: 'Passwords' })] }), (0,jsx_runtime.jsx)("div", { children: (0,jsx_runtime.jsx)(ProfileInfoFields, { edit: edit, errors: errors, formData: formData, changeHandler: changeHandler, variation: 'Contacts' }) })] }), edit && (0,jsx_runtime.jsx)("button", { type: 'button', className: 'globalButton', onClick: submitChanges, children: "Save changes" })] }) }));
+    return ((0,jsx_runtime.jsx)("form", { className: profileSettingsForm_module.profileForm, onSubmit: (e) => {
+            e.preventDefault();
+            submitChanges();
+        }, children: (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsxs)("div", { className: profileSettingsForm_module.formTitle, children: [(0,jsx_runtime.jsx)("h2", { children: "Profile info" }), (0,jsx_runtime.jsx)("button", { onClick: () => setEdit(prev => !prev), className: 'globalButton', type: 'button', children: edit ? "Cancel" : "Edit" })] }), (0,jsx_runtime.jsxs)("div", { className: profileSettingsForm_module.profileInfo, children: [(0,jsx_runtime.jsx)(ProfileInfoFields, { edit: edit, errors: errors, formData: formData, changeHandler: changeHandler, variation: 'Personal' }), (0,jsx_runtime.jsx)(ProfileInfoFields, { edit: edit, errors: errors, formData: formData, changeHandler: changeHandler, variation: 'Contacts' })] }), edit && (0,jsx_runtime.jsx)("button", { type: 'submit', className: 'globalButton', children: "Save changes" })] }) }));
 }
 
 ;// ./src/Components/ProfileHat/profileHat.module.scss
@@ -37915,7 +37959,7 @@ function ProfileBlock() {
 
 ;// ./src/Components/AuthForm/registerForm.module.scss
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const registerForm_module = ({"registerFormBlock":"BlU_7S","errorField":"gwV3HC"});
+/* harmony default export */ const registerForm_module = ({"registerFormBlock":"BlU_7S","inputWrapper":"bjr9Ws","switchFormWrapper":"_x2bPT","errorField":"gwV3HC"});
 ;// ./src/Components/AuthForm/AuthForm.tsx
 
 
@@ -37973,11 +38017,14 @@ function AuthForm({ variation, setSwitchForm }) {
         }
     }
     const formInputs = Object.keys(formData).map(field => {
-        return ((0,jsx_runtime.jsx)("input", { className: errors[field] ? registerForm_module.errorField : '', type: (field === 'password' || field === 'confirmPassword') ? (showPassword ? 'text' : 'password') : field, name: field, value: formData[field], onChange: changeHandler, placeholder: placeHolders[field], autoComplete: "AutoFill" }, field));
+        return ((0,jsx_runtime.jsxs)("div", { className: registerForm_module.inputWrapper, children: [errors[field] && (0,jsx_runtime.jsx)("p", { children: errors[field] }), (0,jsx_runtime.jsx)("input", { className: errors[field] ? registerForm_module.errorField : '', type: (field === 'password' || field === 'confirmPassword') ? (showPassword ? 'text' : 'password') : field, name: field, value: formData[field], onChange: changeHandler, placeholder: placeHolders[field], autoComplete: "AutoFill" })] }, field));
     });
     const switchButtonLabel = isSignUp ? 'Log in' : 'Sign up';
     const question = isSignUp ? "Already have an account?" : "Don't have an account?";
-    return ((0,jsx_runtime.jsx)("div", { className: registerForm_module.registerFormBlock, children: (0,jsx_runtime.jsxs)("form", { onSubmit: () => sendFormData(), children: [(0,jsx_runtime.jsx)("h2", { children: variation }), formInputs, (0,jsx_runtime.jsxs)("label", { children: [(0,jsx_runtime.jsx)("input", { type: "checkbox", onChange: () => setShowPassword(prev => !prev) }), "Show password"] }), (0,jsx_runtime.jsx)("button", { type: "button", className: "globalButton", onClick: sendFormData, children: variation }), (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("p", { children: question }), (0,jsx_runtime.jsx)("button", { type: "button", className: "globalButton", onClick: () => setSwitchForm(prev => !prev), children: switchButtonLabel })] })] }) }));
+    return ((0,jsx_runtime.jsx)("div", { className: registerForm_module.registerFormBlock, children: (0,jsx_runtime.jsxs)("form", { onSubmit: (e) => {
+                e.preventDefault();
+                sendFormData();
+            }, children: [(0,jsx_runtime.jsx)("h2", { children: variation }), formInputs, (0,jsx_runtime.jsxs)("label", { children: [(0,jsx_runtime.jsx)("input", { type: "checkbox", onChange: () => setShowPassword(prev => !prev) }), "Show password"] }), (0,jsx_runtime.jsx)("button", { type: "submit", className: "globalButton", children: variation }), (0,jsx_runtime.jsxs)("div", { className: registerForm_module.switchFormWrapper, children: [(0,jsx_runtime.jsx)("p", { children: question }), (0,jsx_runtime.jsx)("button", { type: "button", className: "globalButton", onClick: () => setSwitchForm(prev => !prev), children: switchButtonLabel })] })] }) }));
 }
 
 ;// ./src/pages/UserPage.tsx
@@ -38095,7 +38142,7 @@ function CheckoutForm({ formData, errors, setFormData, inputChangeHandler, place
 
 
 
-const fieldNames = [
+const CheckoutPage_fieldNames = [
     'email', 'phone', 'firstName', 'lastName', 'country', 'city', 'address', 'shippingMethod', 'payment'
 ];
 const CheckoutPage_validationRules = {
@@ -38110,10 +38157,10 @@ function CheckoutPage() {
     const dispatch = useAppDispatch();
     const [isShowMessage, setIsShowMessage] = (0,react.useState)(false);
     const contactsAndDeliverySectionRef = (0,react.useRef)(null);
-    const initFormData = Object.fromEntries(fieldNames.map(f => [f, userData?.[f] || ""]));
+    const initFormData = Object.fromEntries(CheckoutPage_fieldNames.map(f => [f, userData?.[f] || ""]));
     initFormData.shippingMethod = 'Standard delivery';
     initFormData.payment = 'Credit card';
-    const initErrorFields = Object.fromEntries(fieldNames.map(f => [f, ""]));
+    const initErrorFields = Object.fromEntries(CheckoutPage_fieldNames.map(f => [f, ""]));
     const [formData, setFormData] = (0,react.useState)(initFormData);
     const [errors, setErrors] = (0,react.useState)(initErrorFields);
     function inputChangeHandler(e) {

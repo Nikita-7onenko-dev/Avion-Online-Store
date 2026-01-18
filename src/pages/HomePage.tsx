@@ -29,7 +29,7 @@ export default function HomePage(): React.JSX.Element {
         withLink
         linkLabel="Get in touch"
         linkHref="/contacts"
-        imgSrc="/img/AboutBlockImage.jpg"
+        imgSrc="/img/AboutBlockImage.webp"
         title="From a studio in London to a global brand with over 400 outlets"
         paragraph="When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market."
         anotherParagraph="Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community."  

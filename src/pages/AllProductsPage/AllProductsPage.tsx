@@ -24,7 +24,7 @@ export default function AllProductsPage(): React.JSX.Element {
     <>
       <div 
         className={styles.allProductsBanner}
-        style={{backgroundImage: `url('${base}/img/allProductsBanner.jpg')`}}  
+        style={{backgroundImage: `url('${base}/img/allProductsBanner.webp')`}}  
       >
       <h2>{title}</h2>
       </div>

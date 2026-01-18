@@ -36,7 +36,7 @@ export default function HeroBlock(): React.JSX.Element {
       </div>
       <div className={styles.heroBlockImgWrapper}>
         <img 
-          src={`${base}/img/HeroBlock.jpg`} 
+          src={`${base}/img/HeroBlock.webp`} 
           alt="" 
           loading='lazy'
           onLoad={() => setIsLoad(true)} 

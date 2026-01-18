@@ -16,14 +16,14 @@ export default function AboutPage(): React.JSX.Element {
     <>
       <AboutHeroTitle />
       <AboutBlock
-        imgSrc="/img/AboutBlockImage.jpg"
+        imgSrc="/img/AboutBlockImage.webp"
         title="From a studio in London to a global brand with over 400 outlets"
         paragraph="When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market."
         anotherParagraph="Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community."  
       />
       <AboutBlock 
         variation="reverse"
-        imgSrc="/img/AboutBlock2.jpg"
+        imgSrc="/img/AboutBlock2.webp"
         title="Our service isn’t just personal, it’s actually hyper personally exquisite"
         paragraph="When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market."
         anotherParagraph="Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community."
@@ -33,7 +33,7 @@ export default function AboutPage(): React.JSX.Element {
         withLink
         linkLabel="View collection"
         linkHref="/allProducts"
-        imgSrc="/img/AboutBlock3.jpg"
+        imgSrc="/img/AboutBlock3.webp"
         title="It started with a small idea"
         paragraph="A global brand with local beginnings, our story began in a small studio in South London in early 2014"
       />  

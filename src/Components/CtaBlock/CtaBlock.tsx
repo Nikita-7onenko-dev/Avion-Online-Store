@@ -18,7 +18,7 @@ export default function CtaBlock({isWithImage}: Props): React.JSX.Element {
     return (
       <div 
         className={`${styles.ctaBlockContainer} ${styles.withImage}`}
-        style={{backgroundImage: `url('${base}/img/Cta.jpg')`}}
+        style={{backgroundImage: `url('${base}/img/Cta.webp')`}}
       >
         <div>
           <h3>Join the club and get the benefits</h3>

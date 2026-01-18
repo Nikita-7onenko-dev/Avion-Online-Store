@@ -31,7 +31,7 @@ export default function ContactsHeroBlock({ref}: Props): React.JSX.Element {
         </div>
         <div className={`${styles.imageWrapper} ${isLoad ? '' : styles.imageWrapperLoading}`}>
           <img 
-            src={`${base}/img/ContactsHeroBlock.jpg`}
+            src={`${base}/img/ContactsHeroBlock.webp`}
             onLoad={() => setIsLoad(true)}
             loading='lazy'
             style={isLoad ? {visibility: 'visible'} : {visibility: 'hidden', width: '0px'} } 

@@ -4,6 +4,7 @@ import EmailActivationMessage from "@/Components/EmailActivationMessage/EmailAct
 import ProfileBlock from "@/Components/ProfileBlock/ProfileBlock";
 import AuthForm from "@/Components/AuthForm/AuthForm";
 import { useRefreshUser } from "@/queries/useUserSessionQueries";
+import { PageLoader } from "@/Components/PageLoader/PageLoader";
 
 
 export default function UserPage(): React.JSX.Element {
@@ -12,9 +13,7 @@ export default function UserPage(): React.JSX.Element {
   const {data: userData, isLoading} = useRefreshUser();
 
   if(isLoading) return (
-    <div style={{height: '70vh', display:'flex', justifyContent: 'center', alignItems: 'center'}}>
-      <ClipLoader size={100}/>
-    </div>
+    <PageLoader />
   )
 
   return (

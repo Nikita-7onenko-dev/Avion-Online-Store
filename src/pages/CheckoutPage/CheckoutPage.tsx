@@ -14,25 +14,9 @@ const fieldNames = [
   'email', 'phone', 'firstName', 'lastName', 'country', 'city', 'address', 'shippingMethod', 'payment'
 ] as const;
 
-type orderDetailsType = {
-  productName: string;
-  productId: string;
-  quantity: number;
-}
-
-type OrderType = {
-  email: string;
-  phone: string;
-  firstName: string;
-  lastName: string;
-  country: string;
-  city: string;
-  address: string;
-  shippingMethod: string;
-  payment: string;
-  date: string;
-  orderDetails: orderDetailsType[];
-}
+const initErrorFields = Object.fromEntries(
+  fieldNames.map(f => [f, ""])
+) as Record<typeof fieldNames[number], string>;
 
 const validationRules = {
   isEmptyFieldsAllowed: false,
@@ -57,10 +41,6 @@ export default function CheckoutPage(): React.JSX.Element {
 
   initFormData.shippingMethod = 'Standard delivery';
   initFormData.payment = 'Credit card';
-
-  const initErrorFields = Object.fromEntries(
-    fieldNames.map(f => [f, ""])
-  ) as Record<typeof fieldNames[number], string>;
 
   const [formData, setFormData] = useState(initFormData);
   const [errors, setErrors] = useState(initErrorFields);

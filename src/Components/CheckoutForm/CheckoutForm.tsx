@@ -23,15 +23,17 @@ export function CheckoutForm({
 }: Props) {
 
   const contactsAndDeliveryFields = contactsAndDeliveryFieldsDictionary.map(field => (
-    <input 
-      key={field.name}
-      className={errors[field.name as keyof typeof errors] ? styles.errorField : ''} 
-      onChange={inputChangeHandler} 
-      name={field.name}
-      type={field.type}
-      value={formData[field.name as keyof typeof formData]}
-      placeholder={field.label}
-    />
+    <div className={styles.inputWrapper} key={field.name} >
+      {errors[field.name as string] && <p>{errors[field.name as string]}</p>}
+      <input 
+        className={`${styles.textInput} ${errors[field.name as keyof typeof errors] ? styles.errorField : ''}`} 
+        onChange={inputChangeHandler} 
+        name={field.name}
+        type={field.type}
+        value={formData[field.name as keyof typeof formData]}
+        placeholder={field.label}
+      />
+    </div>
   ))
 
   const shippingMethodOptionsItems = shippingMethodsDictionary.map( (field, index)=> (
@@ -64,17 +66,17 @@ export function CheckoutForm({
     <form className={styles.checkoutForm}>
       
       <section ref={formRef}>
-        <p>Contacts and delivery information</p>
+        <h3>Contacts and delivery information</h3>
         {contactsAndDeliveryFields}
       </section>
       
       <section>
-        <p>Shipping method</p>
+        <h3>Shipping method</h3>
         {shippingMethodOptionsItems}
       </section>
 
       <section>
-        <p>Payment</p>
+        <h3>Payment</h3>
         {paymentOptionsItems}
       </section>
 

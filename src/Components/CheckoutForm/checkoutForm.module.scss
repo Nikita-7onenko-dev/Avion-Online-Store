@@ -20,27 +20,15 @@
       font-size: var(--fontSizeS);
     }
 
-    input{
-      background-color: var(--lightGrayBackground);
-      padding: 10px;
-      border: var(--borderGray) 1px solid;
-      border-radius: 5px;
-      font-size: var(--fontSizeXS);
-      // width: 100%;
-    }
-
-    p{
+    h3{
       font-size: var(--fontSizeM);
-      // padding-left: 10px;
-      // margin-bottom: 10px;
     }
     
-    label:not(.textInput){
+    label{
       padding-left: 10px;
       display: flex;
       align-items: center;
     }
-
   }
 
   button{
@@ -48,13 +36,27 @@
   }
 }
 
+.inputWrapper{
+  p{
+    background: #ba1e1e;
+    padding: 5px;
+    color: white;
+    border-radius: 5px 5px 0 0;
+    font-size: 12px;
+  }
+}
+
 .textInput{
   width: 100%;
-  // display: flex;
-  // flex-direction: column;
-  // gap: 10px
-}
+  background-color: var(--lightGrayBackground);
+  padding: 10px;
+  border: var(--borderGray) 1px solid;
+  border-radius: 5px;
+  font-size: var(--fontSizeXS);
+  }
 
 .errorField{
   box-shadow: inset 0px 0px 3px 0px rgb(211, 54, 54);
+  border-radius: 0 0 5px 5px ;
+  border: none;
 }

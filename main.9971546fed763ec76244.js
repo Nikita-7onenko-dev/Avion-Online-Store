@@ -35014,7 +35014,7 @@ if (true) {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "main." + {"216":"f7f89b276d5227f89634","726":"493d32f89d80e383acc1","746":"dfd2833caf5b85a6f755","954":"511e4668f9677f12772d"}[chunkId] + ".js";
+/******/ 			return "main." + {"216":"c02b09ad1cb2d2d6b511","726":"493d32f89d80e383acc1","746":"f8b47363de9820c80555","954":"511e4668f9677f12772d"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -35556,7 +35556,7 @@ function CtaBlock({ isWithImage }) {
     if (isWithImage) {
         const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
         document.documentElement.style.setProperty('--checkmark-url', `url('${base}/icons/Checkmark.svg')`);
-        return ((0,jsx_runtime.jsx)("div", { className: `${ctaBlock_module.ctaBlockContainer} ${ctaBlock_module.withImage}`, style: { backgroundImage: `url('${base}/img/Cta.jpg')` }, children: (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("h3", { children: "Join the club and get the benefits" }), (0,jsx_runtime.jsx)("p", { children: "Sign up for our newsletter and receive exclusive offers on new ranges, sales, pop up stores and more" }), (0,jsx_runtime.jsxs)("ul", { children: [(0,jsx_runtime.jsx)("li", { children: "Exclusive offers" }), (0,jsx_runtime.jsx)("li", { children: "Free events" }), (0,jsx_runtime.jsx)("li", { children: "Large discounts" })] }), (0,jsx_runtime.jsx)(SubscribeForm, {})] }) }));
+        return ((0,jsx_runtime.jsx)("div", { className: `${ctaBlock_module.ctaBlockContainer} ${ctaBlock_module.withImage}`, style: { backgroundImage: `url('${base}/img/Cta.webp')` }, children: (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("h3", { children: "Join the club and get the benefits" }), (0,jsx_runtime.jsx)("p", { children: "Sign up for our newsletter and receive exclusive offers on new ranges, sales, pop up stores and more" }), (0,jsx_runtime.jsxs)("ul", { children: [(0,jsx_runtime.jsx)("li", { children: "Exclusive offers" }), (0,jsx_runtime.jsx)("li", { children: "Free events" }), (0,jsx_runtime.jsx)("li", { children: "Large discounts" })] }), (0,jsx_runtime.jsx)(SubscribeForm, {})] }) }));
     }
     return ((0,jsx_runtime.jsx)("div", { className: ctaBlock_module.ctaBlockContainer, children: (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("h3", { children: "Join the club and get the benefits" }), (0,jsx_runtime.jsx)("p", { children: "Sign up for our newsletter and receive exclusive offers on new ranges, sales, pop up stores and more" }), (0,jsx_runtime.jsx)(SubscribeForm, {})] }) }));
 }
@@ -35600,7 +35600,7 @@ function HeroBlock() {
     const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
     const [isLoad, setIsLoad] = (0,react.useState)(false);
     const dispatch = (0,ReduxHooks/* useAppDispatch */.j)();
-    return ((0,jsx_runtime.jsxs)("div", { className: heroBlock_module.heroBlock, children: [(0,jsx_runtime.jsxs)("div", { className: heroBlock_module.heroBlockLeft, children: [(0,jsx_runtime.jsx)("h3", { children: "The furniture brand for the future, with timeless designs" }), (0,jsx_runtime.jsxs)("div", { className: heroBlock_module.heroBlockLeftBottom, children: [(0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/allProducts', className: 'globalLink', onClick: () => dispatch((0,filtersOptionsSlice/* resetFiltersAction */.Fg)()), state: { scrollToTop: true }, children: "View collection" }), (0,jsx_runtime.jsx)("p", { children: "A new era in eco friendly furniture with Avelon, the French luxury retail brand with nice fonts, tasteful colors and a beautiful way to display things digitally using modern web technologies." })] })] }), (0,jsx_runtime.jsxs)("div", { className: heroBlock_module.heroBlockImgWrapper, children: [(0,jsx_runtime.jsx)("img", { src: `${base}/img/HeroBlock.jpg`, alt: "", loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#fff', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] })] }));
+    return ((0,jsx_runtime.jsxs)("div", { className: heroBlock_module.heroBlock, children: [(0,jsx_runtime.jsxs)("div", { className: heroBlock_module.heroBlockLeft, children: [(0,jsx_runtime.jsx)("h3", { children: "The furniture brand for the future, with timeless designs" }), (0,jsx_runtime.jsxs)("div", { className: heroBlock_module.heroBlockLeftBottom, children: [(0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/allProducts', className: 'globalLink', onClick: () => dispatch((0,filtersOptionsSlice/* resetFiltersAction */.Fg)()), state: { scrollToTop: true }, children: "View collection" }), (0,jsx_runtime.jsx)("p", { children: "A new era in eco friendly furniture with Avelon, the French luxury retail brand with nice fonts, tasteful colors and a beautiful way to display things digitally using modern web technologies." })] })] }), (0,jsx_runtime.jsxs)("div", { className: heroBlock_module.heroBlockImgWrapper, children: [(0,jsx_runtime.jsx)("img", { src: `${base}/img/HeroBlock.webp`, alt: "", loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#fff', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] })] }));
 }
 
 ;// ./node_modules/embla-carousel-reactive-utils/esm/embla-carousel-reactive-utils.esm.js
@@ -37744,7 +37744,7 @@ function HomePage() {
             window.scrollTo(0, 0);
         }
     });
-    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)(HeroBlock, {}), (0,jsx_runtime.jsx)(Features, {}), (0,jsx_runtime.jsx)(ProductListing, { category: 'Ceramics', sorting: "New arrivals", title: 'New Ceramics' }), (0,jsx_runtime.jsx)(ProductListing, { sorting: "Best sellers", title: 'Our popular products' }), (0,jsx_runtime.jsx)(CtaBlock, {}), (0,jsx_runtime.jsx)(AboutBlock/* default */.A, { withLink: true, linkLabel: "Get in touch", linkHref: "/contacts", imgSrc: "/img/AboutBlockImage.jpg", title: "From a studio in London to a global brand with over 400 outlets", paragraph: "When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market.", anotherParagraph: "Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community." })] }));
+    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)(HeroBlock, {}), (0,jsx_runtime.jsx)(Features, {}), (0,jsx_runtime.jsx)(ProductListing, { category: 'Ceramics', sorting: "New arrivals", title: 'New Ceramics' }), (0,jsx_runtime.jsx)(ProductListing, { sorting: "Best sellers", title: 'Our popular products' }), (0,jsx_runtime.jsx)(CtaBlock, {}), (0,jsx_runtime.jsx)(AboutBlock/* default */.A, { withLink: true, linkLabel: "Get in touch", linkHref: "/contacts", imgSrc: "/img/AboutBlockImage.webp", title: "From a studio in London to a global brand with over 400 outlets", paragraph: "When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market.", anotherParagraph: "Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community." })] }));
 }
 
 ;// ./src/Components/Footer/footer.module.scss
@@ -38226,7 +38226,7 @@ function AllProductsPage() {
             window.scrollTo(0, 0);
         }
     }, [location.state]);
-    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)("div", { className: allProductsPage_module.allProductsBanner, style: { backgroundImage: `url('${AllProductsPage_base}/img/allProductsBanner.jpg')` }, children: (0,jsx_runtime.jsx)("h2", { children: title }) }), (0,jsx_runtime.jsxs)("div", { className: allProductsPage_module.allProductsBlock, children: [(0,jsx_runtime.jsx)(ProductFiltersBar, {}), (0,jsx_runtime.jsx)(AllProductsGrid, {})] })] }));
+    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)("div", { className: allProductsPage_module.allProductsBanner, style: { backgroundImage: `url('${AllProductsPage_base}/img/allProductsBanner.webp')` }, children: (0,jsx_runtime.jsx)("h2", { children: title }) }), (0,jsx_runtime.jsxs)("div", { className: allProductsPage_module.allProductsBlock, children: [(0,jsx_runtime.jsx)(ProductFiltersBar, {}), (0,jsx_runtime.jsx)(AllProductsGrid, {})] })] }));
 }
 
 ;// ./src/pages/ShoppingCart/shoppingCart.module.scss

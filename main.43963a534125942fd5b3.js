@@ -38054,7 +38054,7 @@ function UserPage() {
 /* harmony default export */ const checkoutPage_module = ({"checkoutContainer":"zTJcyl","message":"cafx1b"});
 ;// ./src/Components/CheckoutForm/checkoutForm.module.scss
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const checkoutForm_module = ({"checkoutForm":"SbdPKG","textInput":"AptYpP","errorField":"Bo8nmq"});
+/* harmony default export */ const checkoutForm_module = ({"checkoutForm":"SbdPKG","inputWrapper":"OInuFB","textInput":"AptYpP","errorField":"Bo8nmq"});
 ;// ./src/data/checkoutFieldsDictionary.ts
 const contactsAndDeliveryFieldsDictionary = [
     {
@@ -38125,10 +38125,10 @@ const paymentOptionsDictionary = [
 
 
 function CheckoutForm({ formData, errors, setFormData, inputChangeHandler, placeOrder, formRef }) {
-    const contactsAndDeliveryFields = contactsAndDeliveryFieldsDictionary.map(field => ((0,jsx_runtime.jsx)("input", { className: errors[field.name] ? checkoutForm_module.errorField : '', onChange: inputChangeHandler, name: field.name, type: field.type, value: formData[field.name], placeholder: field.label }, field.name)));
+    const contactsAndDeliveryFields = contactsAndDeliveryFieldsDictionary.map(field => ((0,jsx_runtime.jsxs)("div", { className: checkoutForm_module.inputWrapper, children: [errors[field.name] && (0,jsx_runtime.jsx)("p", { children: errors[field.name] }), (0,jsx_runtime.jsx)("input", { className: `${checkoutForm_module.textInput} ${errors[field.name] ? checkoutForm_module.errorField : ''}`, onChange: inputChangeHandler, name: field.name, type: field.type, value: formData[field.name], placeholder: field.label })] }, field.name)));
     const shippingMethodOptionsItems = shippingMethodsDictionary.map((field, index) => ((0,jsx_runtime.jsxs)("label", { children: [(0,jsx_runtime.jsx)("input", { type: "radio", value: field.value, name: field.name, onChange: (e) => setFormData({ ...formData, [e.target.name]: e.target.value }), defaultChecked: index === 0 }), (0,jsx_runtime.jsx)("span", { children: field.value })] }, field.value)));
     const paymentOptionsItems = paymentOptionsDictionary.map((field, index) => ((0,jsx_runtime.jsxs)("label", { children: [(0,jsx_runtime.jsx)("input", { type: "radio", value: field.value, name: field.name, onChange: (e) => setFormData({ ...formData, [e.target.name]: e.target.value }), defaultChecked: index === 0 }), (0,jsx_runtime.jsx)("span", { children: field.value })] }, field.value)));
-    return ((0,jsx_runtime.jsxs)("form", { className: checkoutForm_module.checkoutForm, children: [(0,jsx_runtime.jsxs)("section", { ref: formRef, children: [(0,jsx_runtime.jsx)("p", { children: "Contacts and delivery information" }), contactsAndDeliveryFields] }), (0,jsx_runtime.jsxs)("section", { children: [(0,jsx_runtime.jsx)("p", { children: "Shipping method" }), shippingMethodOptionsItems] }), (0,jsx_runtime.jsxs)("section", { children: [(0,jsx_runtime.jsx)("p", { children: "Payment" }), paymentOptionsItems] }), (0,jsx_runtime.jsx)("button", { type: 'button', className: 'globalButton', onClick: placeOrder, children: "Place order" })] }));
+    return ((0,jsx_runtime.jsxs)("form", { className: checkoutForm_module.checkoutForm, children: [(0,jsx_runtime.jsxs)("section", { ref: formRef, children: [(0,jsx_runtime.jsx)("h3", { children: "Contacts and delivery information" }), contactsAndDeliveryFields] }), (0,jsx_runtime.jsxs)("section", { children: [(0,jsx_runtime.jsx)("h3", { children: "Shipping method" }), shippingMethodOptionsItems] }), (0,jsx_runtime.jsxs)("section", { children: [(0,jsx_runtime.jsx)("h3", { children: "Payment" }), paymentOptionsItems] }), (0,jsx_runtime.jsx)("button", { type: 'button', className: 'globalButton', onClick: placeOrder, children: "Place order" })] }));
 }
 
 ;// ./src/pages/CheckoutPage/CheckoutPage.tsx
@@ -38145,6 +38145,7 @@ function CheckoutForm({ formData, errors, setFormData, inputChangeHandler, place
 const CheckoutPage_fieldNames = [
     'email', 'phone', 'firstName', 'lastName', 'country', 'city', 'address', 'shippingMethod', 'payment'
 ];
+const CheckoutPage_initErrorFields = Object.fromEntries(CheckoutPage_fieldNames.map(f => [f, ""]));
 const CheckoutPage_validationRules = {
     isEmptyFieldsAllowed: false,
 };
@@ -38160,9 +38161,8 @@ function CheckoutPage() {
     const initFormData = Object.fromEntries(CheckoutPage_fieldNames.map(f => [f, userData?.[f] || ""]));
     initFormData.shippingMethod = 'Standard delivery';
     initFormData.payment = 'Credit card';
-    const initErrorFields = Object.fromEntries(CheckoutPage_fieldNames.map(f => [f, ""]));
     const [formData, setFormData] = (0,react.useState)(initFormData);
-    const [errors, setErrors] = (0,react.useState)(initErrorFields);
+    const [errors, setErrors] = (0,react.useState)(CheckoutPage_initErrorFields);
     function inputChangeHandler(e) {
         const { name, value } = e.target;
         const newFormData = { ...formData, [name]: value };

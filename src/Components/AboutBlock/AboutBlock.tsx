@@ -48,7 +48,7 @@ export default function AboutBlock({
   const dispatch = useAppDispatch()
 
   return (
-    <div className={`${styles.aboutBlock} ${variation && styles[variation]}`}>
+    <div className={`${styles.aboutBlock} ${variation ? styles[variation] : ''}`}>
     <div className={styles.aboutBlockText} >
       <div className={styles.aboutBlockTextTop}>
         <h3>{title}</h3>

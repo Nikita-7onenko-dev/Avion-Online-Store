@@ -11,6 +11,7 @@ type FormData = {
     phone?: string;
     country?: string;
     city?: string;
+    message?: string;
 }
 
 export const validationMethods: Record<string, (value: string, formData: FormData, isEmptyFieldsAllowed:boolean) => string> = {
@@ -75,6 +76,13 @@ export const validationMethods: Record<string, (value: string, formData: FormDat
     else if(!locationRegex.test(value)) return 'Invalid location format';
     else if(value.length < 2 || value.length > 75) return 'Location must be 2-75 chars long';
     return '';
-  }
+  },
 
+  message(value, _, isEmptyFieldsAllowed) {
+    const messageRegex = /^(?=.*\S)(?:(?! {5,}).)+$/s;
+    if(!value) return isEmptyFieldsAllowed ? '' : 'Field must be filled';
+    else if(!messageRegex.test(value)) return 'Invalid message format';
+    else if(value.length < 5) return 'Message must be at least 5 chars long';
+    return '';
+  }
 }

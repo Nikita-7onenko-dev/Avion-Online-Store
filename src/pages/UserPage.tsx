@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { ClipLoader } from "react-spinners";
 import EmailActivationMessage from "@/Components/EmailActivationMessage/EmailActivationMessage";
 import ProfileBlock from "@/Components/ProfileBlock/ProfileBlock";
 import AuthForm from "@/Components/AuthForm/AuthForm";

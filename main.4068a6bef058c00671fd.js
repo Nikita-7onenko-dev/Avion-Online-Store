@@ -54,18 +54,61 @@ function ContactsHeroBlock({ ref }) {
 
 ;// ./src/Components/FeedbackForm/feedbackForm.module.scss
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const feedbackForm_module = ({"feedbackFormContainer":"mGkwC2","imageWrapper":"W08WEU","feedbackForm":"T9fk_i"});
+/* harmony default export */ const feedbackForm_module = ({"feedbackFormContainer":"mGkwC2","imageWrapper":"W08WEU","feedbackForm":"T9fk_i","errorField":"_o8zxV"});
 // EXTERNAL MODULE: ./node_modules/react-spinners/esm/ClipLoader.js + 2 modules
 var esm_ClipLoader = __webpack_require__(769);
+// EXTERNAL MODULE: ./src/utils/formDataValidator.ts + 1 modules
+var formDataValidator = __webpack_require__(209);
+// EXTERNAL MODULE: ./src/utils/finalFormValidation.ts
+var finalFormValidation = __webpack_require__(915);
+// EXTERNAL MODULE: ./src/hooks/ReduxHooks.ts
+var ReduxHooks = __webpack_require__(713);
+// EXTERNAL MODULE: ./src/store/slices/toastSlice.ts
+var toastSlice = __webpack_require__(225);
 ;// ./src/Components/FeedbackForm/FeedbackForm.tsx
 
 
 
 
+
+
+
+
+const initFormDataFields = {
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+};
+const validationRules = { isEmptyFieldsAllowed: false };
+const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
 function FeedbackForm({ ref }) {
     const [isLoad, setIsLoad] = (0,react.useState)(false);
-    const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
-    return ((0,jsx_runtime.jsxs)("div", { className: feedbackForm_module.feedbackFormContainer, children: [(0,jsx_runtime.jsxs)("div", { className: feedbackForm_module.imageWrapper, children: [(0,jsx_runtime.jsx)("img", { src: `${base}/img/feedbackForm2.webp`, alt: "", loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)(esm_ClipLoader/* default */.A, { color: '#2a254b', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsxs)("form", { action: "/submit-form", className: feedbackForm_module.feedbackForm, ref: ref, children: [(0,jsx_runtime.jsx)("h3", { children: "Feedback form" }), (0,jsx_runtime.jsxs)("fieldset", { children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "name", children: "Name:" }), (0,jsx_runtime.jsx)("input", { type: "text", id: "name", name: "name", placeholder: "Enter your name", required: true })] }), (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "email", children: "Email:" }), (0,jsx_runtime.jsx)("input", { type: "email", id: "email", name: "email", placeholder: "Enter your email", required: true })] })] }), (0,jsx_runtime.jsxs)("fieldset", { children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "subject", children: "Subject:" }), (0,jsx_runtime.jsx)("input", { type: "subject", id: "subject", name: "subject", placeholder: "Subject of your message" })] }), (0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "message", children: "Message:" }), (0,jsx_runtime.jsx)("textarea", { id: "message", name: "message", placeholder: "Type your message here..." })] })] }), (0,jsx_runtime.jsx)("button", { type: "button", className: 'globalButton', children: "Send" })] })] }));
+    const [formData, setFormData] = (0,react.useState)(initFormDataFields);
+    const [errors, setErrors] = (0,react.useState)(initFormDataFields);
+    const dispatch = (0,ReduxHooks/* useAppDispatch */.j)();
+    function changeHandler(e) {
+        const { name, value } = e.target;
+        const newFormData = { ...formData, [name]: value };
+        setFormData(newFormData);
+        setErrors(prev => ({ ...prev, [name]: (0,formDataValidator/* formDataValidator */.p)(name, value, formData, validationRules) }));
+    }
+    function onSubmit() {
+        const { newErrorData, hasErrors } = (0,finalFormValidation/* finalFormValidation */.o)(formData, errors, validationRules);
+        if (hasErrors) {
+            setErrors(newErrorData);
+            return;
+        }
+        dispatch((0,toastSlice/* showToastThunk */.Dz)({
+            type: "success",
+            message: "Thank you! Your message has been sent. We'll review it and get back to you if needed"
+        }));
+        setFormData(initFormDataFields);
+    }
+    return ((0,jsx_runtime.jsxs)("div", { className: feedbackForm_module.feedbackFormContainer, children: [(0,jsx_runtime.jsxs)("div", { className: feedbackForm_module.imageWrapper, children: [(0,jsx_runtime.jsx)("img", { src: `${base}/img/feedbackForm2.webp`, alt: "", loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)(esm_ClipLoader/* default */.A, { color: '#2a254b', size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsxs)("form", { action: "submit-form", className: feedbackForm_module.feedbackForm, ref: ref, onSubmit: (e) => {
+                    e.preventDefault();
+                    onSubmit();
+                }, children: [(0,jsx_runtime.jsx)("h3", { children: "Feedback form" }), (0,jsx_runtime.jsxs)("fieldset", { children: [(0,jsx_runtime.jsx)("div", { children: (0,jsx_runtime.jsxs)("label", { htmlFor: "name", children: ["Name:", errors.name && (0,jsx_runtime.jsx)("p", { children: errors.name }), (0,jsx_runtime.jsx)("input", { className: errors.name ? feedbackForm_module.errorField : '', type: "text", id: "name", name: "name", placeholder: "Enter your name", value: formData.name, onChange: changeHandler })] }) }), (0,jsx_runtime.jsx)("div", { children: (0,jsx_runtime.jsxs)("label", { htmlFor: "email", children: ["Email:", errors.email && (0,jsx_runtime.jsx)("p", { children: errors.email }), (0,jsx_runtime.jsx)("input", { className: errors.email ? feedbackForm_module.errorField : '', type: "email", id: "email", name: "email", placeholder: "Enter your email", value: formData.email, onChange: changeHandler })] }) })] }), (0,jsx_runtime.jsxs)("fieldset", { children: [(0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)("label", { htmlFor: "subject", children: "Subject:" }), (0,jsx_runtime.jsx)("input", { type: "subject", id: "subject", name: "subject", placeholder: "Subject of your message", value: formData.subject, onChange: changeHandler })] }), (0,jsx_runtime.jsx)("div", { children: (0,jsx_runtime.jsxs)("label", { htmlFor: "message", children: ["Message:", errors.message && (0,jsx_runtime.jsx)("p", { children: errors.message }), (0,jsx_runtime.jsx)("textarea", { className: errors.message ? feedbackForm_module.errorField : '', id: "message", name: "message", placeholder: "Type your message here...", value: formData.message, onChange: changeHandler })] }) })] }), (0,jsx_runtime.jsx)("button", { type: "button", className: 'globalButton', onClick: onSubmit, children: "Send" })] })] }));
 }
 
 ;// ./src/pages/ContactsPage.tsx

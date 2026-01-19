@@ -725,6 +725,137 @@ exports.useSyncExternalStoreWithSelector = function (
 
 /***/ }),
 
+/***/ 209:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  p: () => (/* binding */ formDataValidator)
+});
+
+;// ./src/utils/validationMethods.ts
+const validationMethods = {
+    name(value, _, isEmptyFieldsAllowed) {
+        const nameRegex = /^[A-Za-zÀ-žА-Яа-яЁё]+(?:[-\s][A-Za-zÀ-žА-Яа-яЁё]+)*$/;
+        if (!value)
+            return isEmptyFieldsAllowed ? '' : 'Field must be filled';
+        else if (!nameRegex.test(value))
+            return 'Invalid name format';
+        else if (value.length < 2 || value.length > 33)
+            return 'Name must be 2-33 chars';
+        return '';
+    },
+    username(value) {
+        const nameRegex = /^[A-Za-zА-Яа-яЁё\s-]+$/;
+        if (!value)
+            return 'Field must be filled';
+        else if (value.length < 2 || value.length > 33)
+            return 'Name must be 2-33 chars';
+        else if (!nameRegex.test(value))
+            return 'Name can contain only letters, spaces and dashes';
+        else
+            return '';
+    },
+    email(value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!value)
+            return 'Field must be filled';
+        else if (!emailRegex.test(value))
+            return 'Invalid email format';
+        else
+            return '';
+    },
+    oldPassword(value) {
+        if (!value)
+            return 'Field must be filled';
+        else if (value.length < 6)
+            return 'Password must be at least 6 characters long';
+        return '';
+    },
+    password(value, formData) {
+        if (!formData)
+            return '';
+        if (!value)
+            return 'Field must be filled';
+        else if (value.length < 6)
+            return 'Password must be at least 6 characters long';
+        else if ('confirmPassword' in formData && (value !== formData.confirmPassword))
+            return 'Passwords do not match';
+        return '';
+    },
+    confirmPassword(value, formData) {
+        if (!formData)
+            return '';
+        if (!value)
+            return 'Field must be filled';
+        else if (value.length < 6)
+            return 'Password must be at least 6 characters long';
+        else if ('password' in formData && (value !== formData.password))
+            return 'Passwords do not match';
+        return '';
+    },
+    phone(value, _, isEmptyFieldsAllowed) {
+        const phoneRegex = /^\+?[0-9 ]*$/;
+        if (!value)
+            return isEmptyFieldsAllowed ? '' : 'Field must be filled';
+        else if (!phoneRegex.test(value))
+            return 'Invalid phone number format';
+        const digitsCount = value.replace(/\D/g, '').length;
+        if (digitsCount < 8 || digitsCount > 15)
+            return 'Phone number must be 8-15 digits long';
+        return '';
+    },
+    location(value, _, isEmptyFieldsAllowed) {
+        const locationRegex = /^[A-Za-zÀ-ž\s-]+$/;
+        if (!value)
+            return isEmptyFieldsAllowed ? '' : 'Field must be filled';
+        else if (!locationRegex.test(value))
+            return 'Invalid location format';
+        else if (value.length < 2 || value.length > 75)
+            return 'Location must be 2-75 chars long';
+        return '';
+    },
+    message(value, _, isEmptyFieldsAllowed) {
+        const messageRegex = /^(?=.*\S)(?:(?! {5,}).)+$/s;
+        if (!value)
+            return isEmptyFieldsAllowed ? '' : 'Field must be filled';
+        else if (!messageRegex.test(value))
+            return 'Invalid message format';
+        else if (value.length < 5)
+            return 'Message must be at least 5 chars long';
+        return '';
+    }
+};
+
+;// ./src/utils/formDataValidator.ts
+
+function formDataValidator(fieldKey, value, formData, rules) {
+    const dictionary = {
+        username: validationMethods.username,
+        firstName: validationMethods.name,
+        lastName: validationMethods.name,
+        name: validationMethods.name,
+        email: validationMethods.email,
+        oldPassword: validationMethods.oldPassword,
+        password: validationMethods.password,
+        confirmPassword: validationMethods.confirmPassword,
+        phone: validationMethods.phone,
+        country: validationMethods.location,
+        city: validationMethods.location,
+        address: validationMethods.location,
+        message: validationMethods.message
+    };
+    const validator = dictionary[fieldKey];
+    if (!validator)
+        return '';
+    let error = validator(value, formData, rules.isEmptyFieldsAllowed);
+    return error;
+}
+
+
+/***/ }),
+
 /***/ 221:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -30065,7 +30196,7 @@ function AboutBlock({ variation, imgSrc, title, paragraph, anotherParagraph, wit
     const base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
     const spinnerColor = variation === 'highlighted' ? '#fff' : '#2a254b';
     const dispatch = (0,ReduxHooks/* useAppDispatch */.j)();
-    return ((0,jsx_runtime.jsxs)("div", { className: `${aboutBlock_module.aboutBlock} ${variation && aboutBlock_module[variation]}`, children: [(0,jsx_runtime.jsxs)("div", { className: aboutBlock_module.aboutBlockText, children: [(0,jsx_runtime.jsxs)("div", { className: aboutBlock_module.aboutBlockTextTop, children: [(0,jsx_runtime.jsx)("h3", { children: title }), (0,jsx_runtime.jsx)("p", { children: paragraph }), anotherParagraph && (0,jsx_runtime.jsx)("p", { children: anotherParagraph })] }), withLink &&
+    return ((0,jsx_runtime.jsxs)("div", { className: `${aboutBlock_module.aboutBlock} ${variation ? aboutBlock_module[variation] : ''}`, children: [(0,jsx_runtime.jsxs)("div", { className: aboutBlock_module.aboutBlockText, children: [(0,jsx_runtime.jsxs)("div", { className: aboutBlock_module.aboutBlockTextTop, children: [(0,jsx_runtime.jsx)("h3", { children: title }), (0,jsx_runtime.jsx)("p", { children: paragraph }), anotherParagraph && (0,jsx_runtime.jsx)("p", { children: anotherParagraph })] }), withLink &&
                         (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { onClick: () => dispatch((0,filtersOptionsSlice/* resetFiltersAction */.Fg)()), to: linkHref, state: { scrollToTop: true }, className: 'globalLink', children: linkLabel })] }), (0,jsx_runtime.jsxs)("div", { className: aboutBlock_module.imageWrapper, children: [(0,jsx_runtime.jsx)("img", { src: `${base}${imgSrc}`, alt: "", loading: 'lazy', onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: spinnerColor, size: 80, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] })] }));
 }
 
@@ -34837,6 +34968,33 @@ function createRetryer(config) {
 
 /***/ }),
 
+/***/ 915:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   o: () => (/* binding */ finalFormValidation)
+/* harmony export */ });
+/* harmony import */ var _formDataValidator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(209);
+
+function finalFormValidation(formData, errors, rules) {
+    const newErrorData = { ...errors };
+    for (const key in formData) {
+        const value = formData[key];
+        if (rules.isEmptyFieldsAllowed && (key === 'password' || key === 'confirmPassword' || key === 'oldPassword')) {
+            continue;
+        }
+        newErrorData[key] = (0,_formDataValidator__WEBPACK_IMPORTED_MODULE_0__/* .formDataValidator */ .p)(key, value, formData, rules);
+    }
+    const hasErrors = Object.values(newErrorData).some(err => err);
+    return {
+        hasErrors,
+        newErrorData
+    };
+}
+
+
+/***/ }),
+
 /***/ 951:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -35014,7 +35172,7 @@ if (true) {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "main." + {"216":"c02b09ad1cb2d2d6b511","726":"493d32f89d80e383acc1","746":"f8b47363de9820c80555","954":"511e4668f9677f12772d"}[chunkId] + ".js";
+/******/ 			return "main." + {"216":"c02b09ad1cb2d2d6b511","726":"bd7b41f867dd4dd13cc6","746":"4068a6bef058c00671fd","954":"1929e09040595f5aa972"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -35023,7 +35181,7 @@ if (true) {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.miniCssF = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "styles." + {"216":"8b317503a1a8f3fbecf1","726":"c279d813a590e2432e33","746":"29b684c8d50b7a324d8b","954":"dea43fb74df956fbbf16"}[chunkId] + ".css";
+/******/ 			return "styles." + {"216":"8b317503a1a8f3fbecf1","726":"c279d813a590e2432e33","746":"589c4302ba52d44ea81b","954":"dea43fb74df956fbbf16"}[chunkId] + ".css";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -35524,17 +35682,54 @@ var AboutBlock = __webpack_require__(782);
 ;// ./src/Components/CtaBlock/ctaBlock.module.scss
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const ctaBlock_module = ({"ctaBlockContainer":"pfOzfv","withImage":"enT1FZ"});
+// EXTERNAL MODULE: ./src/utils/formDataValidator.ts + 1 modules
+var formDataValidator = __webpack_require__(209);
 ;// ./src/Components/SubscribeForm/subscribeForm.module.scss
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const subscribeForm_module = ({"subscribeForm":"lNWTdh"});
+/* harmony default export */ const subscribeForm_module = ({"subscribeForm":"lNWTdh","errorField":"bws9dI"});
+// EXTERNAL MODULE: ./src/utils/finalFormValidation.ts
+var finalFormValidation = __webpack_require__(915);
+// EXTERNAL MODULE: ./src/store/slices/toastSlice.ts
+var toastSlice = __webpack_require__(225);
 ;// ./src/Components/SubscribeForm/SubscribeForm.tsx
 
 
 
+
+
+
+
+const initField = { email: "" };
+const validationRules = { isEmptyFieldsAllowed: false };
 function SubscribeForm() {
-    const formRef = (0,react.useRef)(null);
+    const dispatch = (0,ReduxHooks/* useAppDispatch */.j)();
     const buttonRef = (0,react.useRef)(null);
     const [gap, setGap] = (0,react.useState)(false);
+    const [formData, setFormData] = (0,react.useState)(initField);
+    const [errors, setErrors] = (0,react.useState)(initField);
+    function onChange(e) {
+        const { name, value } = e.target;
+        const newFormData = { [name]: value };
+        setFormData(newFormData);
+        setErrors({ [name]: (0,formDataValidator/* formDataValidator */.p)(name, value, formData, validationRules) });
+    }
+    function onSubmit() {
+        const { hasErrors, newErrorData } = (0,finalFormValidation/* finalFormValidation */.o)(formData, errors, validationRules);
+        console.log(newErrorData);
+        if (hasErrors) {
+            setErrors(newErrorData);
+            return;
+        }
+        dispatch((0,toastSlice/* showToastThunk */.Dz)({
+            type: "success",
+            message: "You're in! Thanks for subscribing - stay tuned for exclusive offers and special updates ✨"
+        }));
+        setFormData(initField);
+    }
+    function onBlur() {
+        if (!formData.email)
+            setErrors(initField);
+    }
     (0,react.useEffect)(() => {
         if (!buttonRef.current)
             return;
@@ -35545,7 +35740,10 @@ function SubscribeForm() {
         observer.observe(buttonRef?.current);
         return () => observer.disconnect();
     }, []);
-    return ((0,jsx_runtime.jsxs)("form", { style: gap ? { gap: '30px' } : {}, className: subscribeForm_module.subscribeForm, children: [(0,jsx_runtime.jsx)("input", { type: "email", name: "email", placeholder: "your@email.com" }), (0,jsx_runtime.jsx)("button", { ref: buttonRef, type: 'button', className: 'globalButton', children: "Sign up" })] }));
+    return ((0,jsx_runtime.jsxs)("form", { className: subscribeForm_module.subscribeForm, onSubmit: (e) => {
+            e.preventDefault();
+            onSubmit();
+        }, children: [errors.email && (0,jsx_runtime.jsx)("p", { children: errors.email }), (0,jsx_runtime.jsxs)("label", { htmlFor: "email", style: gap ? { gap: '20px' } : {}, children: [(0,jsx_runtime.jsx)("input", { className: errors.email ? subscribeForm_module.errorField : '', onChange: onChange, value: formData.email, id: "email", type: "email", name: "email", placeholder: "your@email.com", onBlur: onBlur }), (0,jsx_runtime.jsx)("button", { ref: buttonRef, type: 'button', className: 'globalButton', onClick: onSubmit, children: "Sign up" })] })] }));
 }
 
 ;// ./src/Components/CtaBlock/CtaBlock.tsx
@@ -37801,7 +37999,7 @@ function FooterNavigation() {
                                 pathname: '/allProducts',
                             }, state: { scrollToTop: true }, children: "Recently viewed" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: {
                                 pathname: '/allProducts'
-                            }, onClick: () => dispatch((0,filtersOptionsSlice/* resetFiltersAction */.Fg)()), state: { scrollToTop: true }, children: "All products" }) })] }), (0,jsx_runtime.jsxs)("ul", { className: footerNavigation_module.categoryUl, children: [(0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)("h4", { children: "Categories" }) }), categoryListItems] }), (0,jsx_runtime.jsxs)("ul", { children: [(0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)("h4", { children: "Our company" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: "/about", state: { scrollToTop: true }, children: "About us" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: "", state: { scrollToTop: true }, children: "Vacancies" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: "/contacts", state: { scrollToTop: true }, children: "Contact us" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: "", state: { scrollToTop: true }, children: "Privacy" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: "", state: { scrollToTop: true }, children: "Returns policy" }) })] })] }));
+                            }, onClick: () => dispatch((0,filtersOptionsSlice/* resetFiltersAction */.Fg)()), state: { scrollToTop: true }, children: "All products" }) })] }), (0,jsx_runtime.jsxs)("ul", { className: footerNavigation_module.categoryUl, children: [(0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)("h4", { children: "Categories" }) }), categoryListItems] }), (0,jsx_runtime.jsxs)("ul", { children: [(0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)("h4", { children: "Our company" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: "/about", state: { scrollToTop: true }, children: "About us" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: "/contacts", state: { scrollToTop: true }, children: "Contact us" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: "", state: { scrollToTop: true }, children: "Privacy" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: "", state: { scrollToTop: true }, children: "Returns policy" }) })] })] }));
 }
 
 ;// ./src/Components/Footer/Footer.tsx
@@ -37861,8 +38059,6 @@ function QuantityInput({ quantity, setQuantity, productId }) {
     return ((0,jsx_runtime.jsxs)("div", { className: quantityInput_module.quantityInput, children: [(0,jsx_runtime.jsx)("button", { onClick: dec, disabled: quantity < 2, style: quantity < 2 ? { color: 'gray' } : {}, children: "-" }), (0,jsx_runtime.jsx)("input", { type: "number", value: quantity, onChange: (e) => lit(Math.round(Number(e.target.value))) }), (0,jsx_runtime.jsx)("button", { onClick: inc, children: "+" })] }));
 }
 
-// EXTERNAL MODULE: ./src/store/slices/toastSlice.ts
-var toastSlice = __webpack_require__(225);
 ;// ./src/Components/AddToCartBar/AddToCartBar.tsx
 
 

@@ -1,4 +1,4 @@
-import { userSessionService } from "@/api/UserSessionService";
+import { userSessionService } from "@/services/api/UserSessionService";
 import { ApiError } from "@/exceptions/ApiError";
 import { useAppDispatch } from "@/hooks/ReduxHooks";
 import { showToastThunk } from "@/store/slices/toastSlice";

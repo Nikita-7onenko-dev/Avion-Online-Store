@@ -24,7 +24,7 @@ export default function ProductsSorting({showOptions, setShowOptions}: Props): R
     if(isError) {
       dispatch(showToastThunk({
         type: 'error',
-        message: 'Loading meta data has failed. Please refresh the page.',
+        message: 'Loading meta data has failed. Please refresh the page',
       }));
     }
   }, [isError, dispatch])
@@ -56,8 +56,8 @@ export default function ProductsSorting({showOptions, setShowOptions}: Props): R
   return (
     <div className={`${styles.sorting} ${showOptions.sorting ? '' : styles.hidden}`}>
         <fieldset className={showOptions.sortingFieldset ? '' : styles.hiddenFieldset}>
-        <legend className={filtersOptions.sorting ? styles.activeLegend : ''} onClick={toggleFieldset}>Sorting</legend>
-        {sortingItems}
+          <legend className={filtersOptions.sorting ? styles.activeLegend : ''} onClick={toggleFieldset}>Sorting</legend>
+          {sortingItems}
       </fieldset>
     </div>   
   )

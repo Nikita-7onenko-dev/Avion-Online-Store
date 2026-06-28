@@ -52,10 +52,10 @@ export default function ProductFiltersBar(): React.JSX.Element {
         resetFilters={resetFilters}
       >
         <FiltersAndSortingList 
-        showOptions={ShowOptions}
-        setShowOptions={setShowOptions}
-        resetFilters={resetFilters}
-      />
+          showOptions={ShowOptions}
+          setShowOptions={setShowOptions}
+          resetFilters={resetFilters}
+        />
       </FiltersControls>
     </>
   )

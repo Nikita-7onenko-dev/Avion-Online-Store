@@ -1,4 +1,4 @@
-import { getMetaData } from "@/api/getMetaData";
+import { getMetaData } from "@/services/api/getMetaData";
 import { useQuery } from "@tanstack/react-query";
 
 type MetaStateType = {

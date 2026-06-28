@@ -61,7 +61,7 @@ export default function FooterNavigation(): React.JSX.Element {
         <li>
           <Link 
             to={{
-              pathname: '/allProducts',
+              pathname: '/recentlyViewed',
             }}
             state={{scrollToTop: true}}
             >Recently viewed
@@ -86,7 +86,6 @@ export default function FooterNavigation(): React.JSX.Element {
       <ul>
         <li><h4>Our company</h4></li>
         <li><Link to="/about" state={{scrollToTop: true}}>About us</Link></li>
-        <li><Link to="" state={{scrollToTop: true}}>Vacancies</Link></li>
         <li><Link to="/contacts" state={{scrollToTop: true}}>Contact us</Link></li>
         <li><Link to="" state={{scrollToTop: true}}>Privacy</Link></li>
         <li><Link to="" state={{scrollToTop: true}}>Returns policy</Link></li>

@@ -1,8 +1,8 @@
 import { formDataValidator, ValidationRules } from "./formDataValidator";
 
-export function finalFormValidation(
-  formData: Record<string, string>, 
-  errors: Record<string, string>,
+export function finalFormValidation<T>(
+  formData: Record<keyof T, string>, 
+  errors: Record<keyof T, string>,
   rules: ValidationRules
 ) {
 

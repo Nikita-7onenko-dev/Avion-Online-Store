@@ -1,0 +1,12 @@
+.layoutBlock{
+  padding: 20px;
+  min-height: 60vh;
+
+  span{
+    display: block;
+    text-align: center;
+    font-size: var(--fontSizeS);
+    color: var(--darkFontColor);
+    margin-block: 50px 30px ;
+  }
+}

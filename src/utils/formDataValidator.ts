@@ -10,7 +10,7 @@ export function formDataValidator<T extends Record<string, string>, K = keyof T 
   value: string,
   formData: T,
   rules: ValidationRules
-) {
+): string {
   const dictionary: Record<string, (value: string, formData: T, isEmptyFieldsAllowed: boolean) => string> = {
     username: validationMethods.username,
     firstName: validationMethods.name,

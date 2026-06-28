@@ -1,45 +1,29 @@
-
-
-.allProductsBanner{
-  background-image: url('/img/allProductsBanner.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #2f3237;
-  color: #fff;
-  height: 160px;
-  margin-block: auto;
-  position: relative;
-
-  h2{
-    font-family: ClashDisplay;
-    position: absolute;
-    bottom: 30px;
-    left: 50px;
-    font-size: var(--fontSizeXL);
-  }
-}
-
 .allProductsBlock{
   display: flex;
   color: var(--darkFontColor); 
   padding-inline: var(--paddingInline);
 }
 
+.productGridBlock{
+  padding-block: 20px;
+  flex-grow: 1;
 
+  button{
+    margin-inline: auto;
+    margin-block: 50px 30px ;
+  }
+
+  span{
+    display: block;
+    text-align: center;
+    font-size: var(--fontSizeS);
+    color: var(--darkFontColor);
+    margin-block: 50px 30px ;
+  }
+}
 
 @media screen and (max-width: 500px) {
   .allProductsBlock{
     flex-direction: column;
   } 
-
-  .allProductsBanner{
-    height: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    padding-bottom: 30px;
-    h2{
-      position: static;
-    }
-  }
 }

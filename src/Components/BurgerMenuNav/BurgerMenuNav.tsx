@@ -41,6 +41,7 @@ export default function BurgerMenuNav(): React.JSX.Element {
             onClick={() => dispatch(resetFiltersAction()) }>All Products</Link>
         </li>
         {productTypeLinkItems}
+        <li><Link to='/recentlyViewed'>Recently viewed</Link></li>
         <li><Link to='/about'>About us</Link></li>
         <li><Link to='/contacts'>Contacts</Link></li>
       </ul>

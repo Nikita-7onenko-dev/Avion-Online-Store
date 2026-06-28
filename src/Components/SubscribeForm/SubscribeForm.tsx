@@ -1,5 +1,5 @@
-import { formDataValidator } from '@/utils/formDataValidator';
 import styles from './subscribeForm.module.scss'
+import { formDataValidator } from '@/utils/formDataValidator';
 import { useRef, useEffect, useState } from 'react';
 import { finalFormValidation } from '@/utils/finalFormValidation';
 import { useAppDispatch } from '@/hooks/ReduxHooks';
@@ -30,7 +30,7 @@ export default function SubscribeForm(): React.JSX.Element {
     console.log(newErrorData)
 
     if(hasErrors) {
-      setErrors(newErrorData as typeof initField);
+      setErrors(newErrorData);
       return;
     }
 

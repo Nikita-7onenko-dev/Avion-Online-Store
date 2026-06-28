@@ -7,6 +7,7 @@ import ShoppingCart from '../../pages/ShoppingCart/ShoppingCart';
 import { Route, Routes } from 'react-router-dom';
 import React, { Suspense } from 'react';
 import { PageLoader } from '../PageLoader/PageLoader';
+import { HistoryPage } from '@/pages/HistoryPage/HistoryPage';
 
 const AboutPage = React.lazy(() => import('@/pages/AboutPage'));
 const ContactsPage = React.lazy(() => import('@/pages/ContactsPage'));
@@ -28,6 +29,7 @@ export default function App(): React.JSX.Element {
                 <Route path='/contacts' element={<Suspense fallback={<PageLoader />}> <ContactsPage /> </Suspense>} />
                 <Route path='/profile' element={<Suspense fallback={<PageLoader />}> <UserPage/> </Suspense>} />
                 <Route path='/checkout' element={<Suspense fallback ={<PageLoader />}> <CheckoutPage /> </Suspense>} />
+                <Route path='/recentlyViewed' element={<HistoryPage />} />
               </Routes>
             </main>
             <Footer />

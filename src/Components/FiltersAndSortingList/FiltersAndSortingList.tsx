@@ -17,11 +17,10 @@ export default function FiltersAndSortingList({
 }: Props): React.JSX.Element {
 
   return (
-      <div className={`${styles.filtersAndSortingList} ${(showOptions.filters || showOptions.sorting) ? styles.active : '' }`}>
+      <aside className={`${styles.filtersAndSortingList} ${(showOptions.filters || showOptions.sorting) ? styles.active : '' }`}>       
         <button onClick={resetFilters} className='globalLink' style={{height: "30px"}}>Reset Filters</button>
         <ProductsSorting showOptions={showOptions} setShowOptions={setShowOptions} />
         <ProductsFiltersLayout showOptions={showOptions} setShowOptions={setShowOptions} />
-      </div>
-
+      </aside>
   )
 }

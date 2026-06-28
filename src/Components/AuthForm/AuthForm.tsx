@@ -19,36 +19,37 @@ type FormDataType = {
   password: string;
 }
 
-type ErrorsDataType = Partial<Record<keyof FormDataType, string>>;
-
 const placeHolders = {
-  username: 'Your name',
-  email: 'Your email',
-  password: 'Password',
-  confirmPassword: 'Confirm password'
+  username: "Your name",
+  email: "Your email",
+  password: "Password",
+  confirmPassword: "Confirm password"
+};
+
+const initFormDataFields = {
+  "Sign up": {
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  },
+  "Log in": {
+    email: '',
+    password: '',
+  }
 };
 
 const validationRules = {
   isEmptyFieldsAllowed: false
-}
+};
 
 export default function AuthForm({variation, setSwitchForm}: Props): React.JSX.Element {
 
   const { mutate: postUser } = usePostUser();
   const isSignUp = variation === 'Sign up';
 
-  const initFormDataFields = isSignUp ? {
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  } : {
-    email: '',
-    password: '',
-  }
-
-  const [formData, setFormData] = useState<FormDataType>(initFormDataFields);
-  const [errors, setErrors] = useState<ErrorsDataType>(initFormDataFields);
+  const [formData, setFormData] = useState<FormDataType>(initFormDataFields[variation]);
+  const [errors, setErrors] = useState<FormDataType>(initFormDataFields[variation]);
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   function sendFormData() {
@@ -81,9 +82,9 @@ export default function AuthForm({variation, setSwitchForm}: Props): React.JSX.E
   const formInputs = Object.keys(formData).map(field => {
     return (
       <div className={styles.inputWrapper} key={field}>
-        {errors[field as keyof ErrorsDataType] && <p>{errors[field as keyof ErrorsDataType]}</p>}
+        {errors[field as keyof FormDataType] && <p>{errors[field as keyof FormDataType]}</p>}
         <input 
-          className={errors[field as keyof ErrorsDataType] ? styles.errorField : ''}
+          className={errors[field as keyof FormDataType] ? styles.errorField : ''}
           type={(field === 'password' || field === 'confirmPassword') ? (showPassword ? 'text' : 'password') : field}
           name={field}
           value={formData[field as keyof FormDataType]} 
@@ -95,7 +96,7 @@ export default function AuthForm({variation, setSwitchForm}: Props): React.JSX.E
     )
   })
   
-  const switchButtonLabel = isSignUp ? 'Log in' : 'Sign up';
+  const switchButtonLabel = isSignUp ? "Log in" : "Sign up";
   const question = isSignUp ? "Already have an account?" : "Don't have an account?";
  
   return (

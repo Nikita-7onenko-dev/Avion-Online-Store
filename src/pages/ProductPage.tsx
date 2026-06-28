@@ -5,13 +5,18 @@ import ProductListing from "@/Components/ProductsListing/ProductsListing";
 import Features from "@/Components/Features/Features";
 import CtaBlock from "@/Components/CtaBlock/CtaBlock";
 import { useOneProduct } from "@/queries/useProducts";
+import { saveHistory } from "@/services/storage/recentlyViewedStorage";
 
 
-export default function ProductPage(): React.JSX.Element {
+export default function ProductPage(): React.JSX.Element | null {
 
   const {id} = useParams();
 
-  const {data, isError, error} = useOneProduct(id as string);
+  if(!id) return null;
+
+  const {data, isError, error} = useOneProduct(id);
+
+  saveHistory(id);
 
   return (
     <>

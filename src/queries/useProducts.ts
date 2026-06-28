@@ -1,8 +1,9 @@
-import { productsService } from "@/api/ProductsService";
+import { productsService } from "@/services/api/ProductsService";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { ProductsDataResponseType } from "@/types/ResponseDataType";
 import { ProductType } from "@/types/ProductType";
 import { FiltersOptionsType } from "@/types/FiltersOptionsType";
+import { getHistory } from "@/services/storage/recentlyViewedStorage";
 
 export function useProductsListing(params: string, excludeId?: string) {
 
@@ -66,5 +67,16 @@ export function useProductsIncrementalLoading(queryKey: string[], filtersOptions
     select: data => {
       return data.pages.flatMap(page => page.products);
     }
+  })
+}
+
+export function useRecentlyViewedProducts() {
+
+  const ids = getHistory();
+  
+  return useQuery({
+    queryKey: ["recentlyViewed", ids.join(',')],
+    queryFn: () => productsService.getBatch(ids),
+    enabled: Boolean(ids.length)
   })
 }

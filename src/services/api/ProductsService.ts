@@ -1,4 +1,4 @@
-import { ApiError, errorCather, handleResponseError } from "@/exceptions/ApiError";
+import { errorCather, handleResponseError } from "@/exceptions/ApiError";
 import { ProductType } from "@/types/ProductType";
 import { ProductsDataResponseType } from "@/types/ResponseDataType";
 
@@ -32,7 +32,7 @@ class ProductsService {
   async getOneProduct(id: string): Promise<ProductType> {
 
     try {
-      const response = await fetch(this._baseURL + id /* + 'ss' */);
+      const response = await fetch(this._baseURL + id);
 
      if(!response.ok) {
         handleResponseError(response.status)
@@ -45,6 +45,27 @@ class ProductsService {
       errorCather(err)
     }
   } 
+
+  async getBatch(ids: string[]): Promise<ProductType[]> {
+    try {
+
+      const params = new URLSearchParams({
+        ids: ids.join(",")
+      })
+
+      const response = await fetch(this._baseURL + "batch" + "?" + params);
+
+      if(!response.ok) {
+        handleResponseError(response.status);
+      }
+
+      const productData: ProductType[] = await response.json();
+      return productData;
+
+    } catch(err) {
+      errorCather(err);
+    }
+  }
 }
 
 export const productsService = new ProductsService();

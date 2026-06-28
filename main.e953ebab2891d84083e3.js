@@ -28238,517 +28238,6 @@ if (true) {
 
 /***/ }),
 
-/***/ 620:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  TN: () => (/* binding */ useLogoutUser),
-  Vg: () => (/* binding */ usePostUser),
-  S8: () => (/* binding */ useRefreshUser),
-  o4: () => (/* binding */ useRefreshUserConfig),
-  Qc: () => (/* binding */ useUpdateUser)
-});
-
-;// ./node_modules/jwt-decode/build/esm/index.js
-class InvalidTokenError extends Error {
-}
-InvalidTokenError.prototype.name = "InvalidTokenError";
-function b64DecodeUnicode(str) {
-    return decodeURIComponent(atob(str).replace(/(.)/g, (m, p) => {
-        let code = p.charCodeAt(0).toString(16).toUpperCase();
-        if (code.length < 2) {
-            code = "0" + code;
-        }
-        return "%" + code;
-    }));
-}
-function base64UrlDecode(str) {
-    let output = str.replace(/-/g, "+").replace(/_/g, "/");
-    switch (output.length % 4) {
-        case 0:
-            break;
-        case 2:
-            output += "==";
-            break;
-        case 3:
-            output += "=";
-            break;
-        default:
-            throw new Error("base64 string is not of the correct length");
-    }
-    try {
-        return b64DecodeUnicode(output);
-    }
-    catch (err) {
-        return atob(output);
-    }
-}
-function jwtDecode(token, options) {
-    if (typeof token !== "string") {
-        throw new InvalidTokenError("Invalid token specified: must be a string");
-    }
-    options || (options = {});
-    const pos = options.header === true ? 0 : 1;
-    const part = token.split(".")[pos];
-    if (typeof part !== "string") {
-        throw new InvalidTokenError(`Invalid token specified: missing part #${pos + 1}`);
-    }
-    let decoded;
-    try {
-        decoded = base64UrlDecode(part);
-    }
-    catch (e) {
-        throw new InvalidTokenError(`Invalid token specified: invalid base64 for part #${pos + 1} (${e.message})`);
-    }
-    try {
-        return JSON.parse(decoded);
-    }
-    catch (e) {
-        throw new InvalidTokenError(`Invalid token specified: invalid json for part #${pos + 1} (${e.message})`);
-    }
-}
-
-;// ./src/api/TokenService.ts
-
-class TokenService {
-    accessToken = null;
-    setSession(token) {
-        this.accessToken = token;
-        const payload = jwtDecode(this.accessToken);
-        return payload.exp * 1000;
-    }
-    getToken() {
-        return this.accessToken;
-    }
-    clear() {
-        this.accessToken = null;
-    }
-}
-const tokenService = new TokenService();
-
-// EXTERNAL MODULE: ./src/exceptions/ApiError.ts
-var ApiError = __webpack_require__(833);
-;// ./src/api/UserSessionService.ts
-
-
-class UserSessionService {
-    isAuthorized = true;
-    baseUrl = "https://avion-online-store-server.onrender.com/api/" || 0;
-    timeToRefresh = null;
-    refreshTimerId = null;
-    setTokenAndRefreshTimer(accessToken) {
-        this.timeToRefresh = tokenService.setSession(accessToken);
-        // if(this.refreshTimerId) clearTimeout(this.refreshTimerId);
-        // this.refreshTimerId = setTimeout(() => this.fetchRefreshUserData(), this.timeToRefresh - (1000 * 30));
-    }
-    clearTokenAndRefreshTimer() {
-        tokenService.clear();
-        this.timeToRefresh = null;
-        if (this.refreshTimerId)
-            clearTimeout(this.refreshTimerId);
-    }
-    // Запрос на обновление токенов 
-    async fetchRefreshUserData() {
-        const url = this.baseUrl + "refresh/";
-        try {
-            if (!this.isAuthorized)
-                return null;
-            const response = await fetch(url, {
-                credentials: 'include'
-            });
-            if (response.ok) {
-                const userDTO = await response.json();
-                const { accessToken, ...userData } = userDTO;
-                this.setTokenAndRefreshTimer(accessToken);
-                this.isAuthorized = true;
-                return userData;
-            }
-            else if (response.status === 401) {
-                this.isAuthorized = false;
-                throw new ApiError/* ApiError */.hD('server', 'Unauthorized error');
-            }
-            else {
-                (0,ApiError/* handleResponseError */.gQ)(response.status);
-            }
-        }
-        catch (err) {
-            (0,ApiError/* errorCather */.qv)(err);
-        }
-    }
-    // Запрос на логин или регистрацию
-    async postUser(userData) {
-        let url;
-        let isRegister;
-        if ("username" in userData) {
-            url = this.baseUrl + "register/";
-            isRegister = true;
-        }
-        else {
-            url = this.baseUrl + "login/";
-            isRegister = false;
-        }
-        try {
-            const response = await fetch(url, {
-                method: "POST",
-                credentials: 'include',
-                body: JSON.stringify(userData),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            if (response.ok) {
-                const userDto = await response.json();
-                const { accessToken, ...userData } = userDto;
-                this.setTokenAndRefreshTimer(accessToken);
-                this.isAuthorized = true;
-                return userData;
-            }
-            else if (response.status === 400) {
-                const message = isRegister ? 'This email is already registered' : 'Invalid email or password';
-                throw new ApiError/* ApiError */.hD('server', message);
-            }
-            else {
-                (0,ApiError/* handleResponseError */.gQ)(response.status);
-            }
-        }
-        catch (err) {
-            (0,ApiError/* errorCather */.qv)(err);
-        }
-    }
-    async logout() {
-        const url = this.baseUrl + "logout/";
-        try {
-            const response = await fetch(url, {
-                method: "POST",
-                credentials: 'include',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            if (response.ok) {
-                this.clearTokenAndRefreshTimer();
-                this.isAuthorized = false;
-                return null;
-            }
-            else if (response.status === 400) {
-                throw new ApiError/* ApiError */.hD('server', 'There is no active session');
-            }
-            else {
-                (0,ApiError/* handleResponseError */.gQ)(response.status);
-            }
-        }
-        catch (err) {
-            (0,ApiError/* errorCather */.qv)(err);
-        }
-    }
-    async updateUser(newUserData) {
-        const url = this.baseUrl + "updateUser/";
-        try {
-            const response = await fetch(url, {
-                method: "PUT",
-                body: JSON.stringify(newUserData),
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${tokenService.getToken()}`
-                },
-            });
-            if (response.ok) {
-                const userDto = await response.json();
-                const { accessToken, ...userData } = userDto;
-                this.setTokenAndRefreshTimer(accessToken);
-                return userData;
-            }
-            else if (response.status === 401 && this.isAuthorized) {
-                await this.fetchRefreshUserData();
-                return this.updateUser(newUserData);
-            }
-            else {
-                (0,ApiError/* handleResponseError */.gQ)(response.status);
-            }
-        }
-        catch (err) {
-            (0,ApiError/* errorCather */.qv)(err);
-        }
-    }
-}
-const userSessionService = new UserSessionService();
-
-// EXTERNAL MODULE: ./src/hooks/ReduxHooks.ts
-var ReduxHooks = __webpack_require__(713);
-// EXTERNAL MODULE: ./src/store/slices/toastSlice.ts
-var toastSlice = __webpack_require__(225);
-// EXTERNAL MODULE: ./node_modules/@tanstack/react-query/build/modern/useQuery.js
-var useQuery = __webpack_require__(286);
-// EXTERNAL MODULE: ./node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js
-var QueryClientProvider = __webpack_require__(665);
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(540);
-// EXTERNAL MODULE: ./node_modules/@tanstack/query-core/build/modern/mutation.js
-var mutation = __webpack_require__(158);
-// EXTERNAL MODULE: ./node_modules/@tanstack/query-core/build/modern/notifyManager.js
-var notifyManager = __webpack_require__(261);
-// EXTERNAL MODULE: ./node_modules/@tanstack/query-core/build/modern/subscribable.js
-var subscribable = __webpack_require__(500);
-// EXTERNAL MODULE: ./node_modules/@tanstack/query-core/build/modern/utils.js
-var utils = __webpack_require__(880);
-;// ./node_modules/@tanstack/query-core/build/modern/mutationObserver.js
-// src/mutationObserver.ts
-
-
-
-
-var MutationObserver = class extends subscribable/* Subscribable */.Q {
-  #client;
-  #currentResult = void 0;
-  #currentMutation;
-  #mutateOptions;
-  constructor(client, options) {
-    super();
-    this.#client = client;
-    this.setOptions(options);
-    this.bindMethods();
-    this.#updateResult();
-  }
-  bindMethods() {
-    this.mutate = this.mutate.bind(this);
-    this.reset = this.reset.bind(this);
-  }
-  setOptions(options) {
-    const prevOptions = this.options;
-    this.options = this.#client.defaultMutationOptions(options);
-    if (!(0,utils/* shallowEqualObjects */.f8)(this.options, prevOptions)) {
-      this.#client.getMutationCache().notify({
-        type: "observerOptionsUpdated",
-        mutation: this.#currentMutation,
-        observer: this
-      });
-    }
-    if (prevOptions?.mutationKey && this.options.mutationKey && (0,utils/* hashKey */.EN)(prevOptions.mutationKey) !== (0,utils/* hashKey */.EN)(this.options.mutationKey)) {
-      this.reset();
-    } else if (this.#currentMutation?.state.status === "pending") {
-      this.#currentMutation.setOptions(this.options);
-    }
-  }
-  onUnsubscribe() {
-    if (!this.hasListeners()) {
-      this.#currentMutation?.removeObserver(this);
-    }
-  }
-  onMutationUpdate(action) {
-    this.#updateResult();
-    this.#notify(action);
-  }
-  getCurrentResult() {
-    return this.#currentResult;
-  }
-  reset() {
-    this.#currentMutation?.removeObserver(this);
-    this.#currentMutation = void 0;
-    this.#updateResult();
-    this.#notify();
-  }
-  mutate(variables, options) {
-    this.#mutateOptions = options;
-    this.#currentMutation?.removeObserver(this);
-    this.#currentMutation = this.#client.getMutationCache().build(this.#client, this.options);
-    this.#currentMutation.addObserver(this);
-    return this.#currentMutation.execute(variables);
-  }
-  #updateResult() {
-    const state = this.#currentMutation?.state ?? (0,mutation/* getDefaultState */.$)();
-    this.#currentResult = {
-      ...state,
-      isPending: state.status === "pending",
-      isSuccess: state.status === "success",
-      isError: state.status === "error",
-      isIdle: state.status === "idle",
-      mutate: this.mutate,
-      reset: this.reset
-    };
-  }
-  #notify(action) {
-    notifyManager/* notifyManager */.jG.batch(() => {
-      if (this.#mutateOptions && this.hasListeners()) {
-        const variables = this.#currentResult.variables;
-        const onMutateResult = this.#currentResult.context;
-        const context = {
-          client: this.#client,
-          meta: this.options.meta,
-          mutationKey: this.options.mutationKey
-        };
-        if (action?.type === "success") {
-          try {
-            this.#mutateOptions.onSuccess?.(
-              action.data,
-              variables,
-              onMutateResult,
-              context
-            );
-          } catch (e) {
-            void Promise.reject(e);
-          }
-          try {
-            this.#mutateOptions.onSettled?.(
-              action.data,
-              null,
-              variables,
-              onMutateResult,
-              context
-            );
-          } catch (e) {
-            void Promise.reject(e);
-          }
-        } else if (action?.type === "error") {
-          try {
-            this.#mutateOptions.onError?.(
-              action.error,
-              variables,
-              onMutateResult,
-              context
-            );
-          } catch (e) {
-            void Promise.reject(e);
-          }
-          try {
-            this.#mutateOptions.onSettled?.(
-              void 0,
-              action.error,
-              variables,
-              onMutateResult,
-              context
-            );
-          } catch (e) {
-            void Promise.reject(e);
-          }
-        }
-      }
-      this.listeners.forEach((listener) => {
-        listener(this.#currentResult);
-      });
-    });
-  }
-};
-
-//# sourceMappingURL=mutationObserver.js.map
-;// ./node_modules/@tanstack/react-query/build/modern/useMutation.js
-"use client";
-
-// src/useMutation.ts
-
-
-
-function useMutation(options, queryClient) {
-  const client = (0,QueryClientProvider/* useQueryClient */.jE)(queryClient);
-  const [observer] = react.useState(
-    () => new MutationObserver(
-      client,
-      options
-    )
-  );
-  react.useEffect(() => {
-    observer.setOptions(options);
-  }, [observer, options]);
-  const result = react.useSyncExternalStore(
-    react.useCallback(
-      (onStoreChange) => observer.subscribe(notifyManager/* notifyManager */.jG.batchCalls(onStoreChange)),
-      [observer]
-    ),
-    () => observer.getCurrentResult(),
-    () => observer.getCurrentResult()
-  );
-  const mutate = react.useCallback(
-    (variables, mutateOptions) => {
-      observer.mutate(variables, mutateOptions).catch(utils/* noop */.lQ);
-    },
-    [observer]
-  );
-  if (result.error && (0,utils/* shouldThrowError */.GU)(observer.options.throwOnError, [result.error])) {
-    throw result.error;
-  }
-  return { ...result, mutate, mutateAsync: result.mutate };
-}
-
-//# sourceMappingURL=useMutation.js.map
-;// ./src/queries/useUserSessionQueries.ts
-
-
-
-
-
-const queryKey = ['userSession', 'refresh'];
-const useRefreshUserConfig = {
-    queryKey: queryKey,
-    queryFn: () => userSessionService.fetchRefreshUserData(),
-    staleTime: Infinity,
-    retry: (failureCount, error) => {
-        if (error instanceof ApiError/* ApiError */.hD && error.message.includes('Unauthorized'))
-            return false;
-        return failureCount < 3;
-    }
-};
-function useRefreshUser() {
-    return (0,useQuery/* useQuery */.I)(useRefreshUserConfig);
-}
-function usePostUser() {
-    const queryClient = (0,QueryClientProvider/* useQueryClient */.jE)();
-    const dispatch = (0,ReduxHooks/* useAppDispatch */.j)();
-    return useMutation({
-        mutationFn: (formData) => userSessionService.postUser(formData),
-        onSuccess: (data) => {
-            queryClient.setQueryData(queryKey, data);
-        },
-        onError: (err) => {
-            dispatch((0,toastSlice/* showToastThunk */.Dz)({
-                type: 'error',
-                message: err.message
-            }));
-            console.log('Login/register error: ', err.message);
-        }
-    });
-}
-function useLogoutUser() {
-    const queryClient = (0,QueryClientProvider/* useQueryClient */.jE)();
-    const dispatch = (0,ReduxHooks/* useAppDispatch */.j)();
-    return useMutation({
-        mutationFn: () => userSessionService.logout(),
-        onSuccess: () => {
-            queryClient.setQueryData(queryKey, null);
-            queryClient.removeQueries({ queryKey: ['userSession'], exact: false });
-        },
-        onError: (err) => {
-            dispatch((0,toastSlice/* showToastThunk */.Dz)({
-                type: 'error',
-                message: `Logout error: ${err.message}`
-            }));
-        }
-    });
-}
-function useUpdateUser() {
-    const queryClient = (0,QueryClientProvider/* useQueryClient */.jE)();
-    const dispatch = (0,ReduxHooks/* useAppDispatch */.j)();
-    return useMutation({
-        mutationFn: (formData) => userSessionService.updateUser(formData),
-        onSuccess: (data) => {
-            queryClient.setQueryData(queryKey, data);
-            dispatch((0,toastSlice/* showToastThunk */.Dz)({
-                type: 'success',
-                message: 'Data has been updated successfully'
-            }));
-        },
-        onError: (err) => {
-            dispatch((0,toastSlice/* showToastThunk */.Dz)({
-                type: 'error',
-                message: err.message
-            }));
-        }
-    });
-}
-
-
-/***/ }),
-
 /***/ 651:
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -33986,6 +33475,517 @@ class ApiError extends Error {
 
 /***/ }),
 
+/***/ 847:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  TN: () => (/* binding */ useLogoutUser),
+  Vg: () => (/* binding */ usePostUser),
+  S8: () => (/* binding */ useRefreshUser),
+  o4: () => (/* binding */ useRefreshUserConfig),
+  Qc: () => (/* binding */ useUpdateUser)
+});
+
+;// ./node_modules/jwt-decode/build/esm/index.js
+class InvalidTokenError extends Error {
+}
+InvalidTokenError.prototype.name = "InvalidTokenError";
+function b64DecodeUnicode(str) {
+    return decodeURIComponent(atob(str).replace(/(.)/g, (m, p) => {
+        let code = p.charCodeAt(0).toString(16).toUpperCase();
+        if (code.length < 2) {
+            code = "0" + code;
+        }
+        return "%" + code;
+    }));
+}
+function base64UrlDecode(str) {
+    let output = str.replace(/-/g, "+").replace(/_/g, "/");
+    switch (output.length % 4) {
+        case 0:
+            break;
+        case 2:
+            output += "==";
+            break;
+        case 3:
+            output += "=";
+            break;
+        default:
+            throw new Error("base64 string is not of the correct length");
+    }
+    try {
+        return b64DecodeUnicode(output);
+    }
+    catch (err) {
+        return atob(output);
+    }
+}
+function jwtDecode(token, options) {
+    if (typeof token !== "string") {
+        throw new InvalidTokenError("Invalid token specified: must be a string");
+    }
+    options || (options = {});
+    const pos = options.header === true ? 0 : 1;
+    const part = token.split(".")[pos];
+    if (typeof part !== "string") {
+        throw new InvalidTokenError(`Invalid token specified: missing part #${pos + 1}`);
+    }
+    let decoded;
+    try {
+        decoded = base64UrlDecode(part);
+    }
+    catch (e) {
+        throw new InvalidTokenError(`Invalid token specified: invalid base64 for part #${pos + 1} (${e.message})`);
+    }
+    try {
+        return JSON.parse(decoded);
+    }
+    catch (e) {
+        throw new InvalidTokenError(`Invalid token specified: invalid json for part #${pos + 1} (${e.message})`);
+    }
+}
+
+;// ./src/services/api/TokenService.ts
+
+class TokenService {
+    accessToken = null;
+    setSession(token) {
+        this.accessToken = token;
+        const payload = jwtDecode(this.accessToken);
+        return payload.exp * 1000;
+    }
+    getToken() {
+        return this.accessToken;
+    }
+    clear() {
+        this.accessToken = null;
+    }
+}
+const tokenService = new TokenService();
+
+// EXTERNAL MODULE: ./src/exceptions/ApiError.ts
+var ApiError = __webpack_require__(833);
+;// ./src/services/api/UserSessionService.ts
+
+
+class UserSessionService {
+    isAuthorized = true;
+    baseUrl = "https://avion-online-store-server.onrender.com/api/" || 0;
+    timeToRefresh = null;
+    refreshTimerId = null;
+    setTokenAndRefreshTimer(accessToken) {
+        this.timeToRefresh = tokenService.setSession(accessToken);
+        // if(this.refreshTimerId) clearTimeout(this.refreshTimerId);
+        // this.refreshTimerId = setTimeout(() => this.fetchRefreshUserData(), this.timeToRefresh - (1000 * 30));
+    }
+    clearTokenAndRefreshTimer() {
+        tokenService.clear();
+        this.timeToRefresh = null;
+        if (this.refreshTimerId)
+            clearTimeout(this.refreshTimerId);
+    }
+    // Запрос на обновление токенов 
+    async fetchRefreshUserData() {
+        const url = this.baseUrl + "refresh/";
+        try {
+            if (!this.isAuthorized)
+                return null;
+            const response = await fetch(url, {
+                credentials: 'include'
+            });
+            if (response.ok) {
+                const userDTO = await response.json();
+                const { accessToken, ...userData } = userDTO;
+                this.setTokenAndRefreshTimer(accessToken);
+                this.isAuthorized = true;
+                return userData;
+            }
+            else if (response.status === 401) {
+                this.isAuthorized = false;
+                throw new ApiError/* ApiError */.hD('server', 'Unauthorized error');
+            }
+            else {
+                (0,ApiError/* handleResponseError */.gQ)(response.status);
+            }
+        }
+        catch (err) {
+            (0,ApiError/* errorCather */.qv)(err);
+        }
+    }
+    // Запрос на логин или регистрацию
+    async postUser(userData) {
+        let url;
+        let isRegister;
+        if ("username" in userData) {
+            url = this.baseUrl + "register/";
+            isRegister = true;
+        }
+        else {
+            url = this.baseUrl + "login/";
+            isRegister = false;
+        }
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                credentials: 'include',
+                body: JSON.stringify(userData),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            if (response.ok) {
+                const userDto = await response.json();
+                const { accessToken, ...userData } = userDto;
+                this.setTokenAndRefreshTimer(accessToken);
+                this.isAuthorized = true;
+                return userData;
+            }
+            else if (response.status === 400) {
+                const message = isRegister ? 'This email is already registered' : 'Invalid email or password';
+                throw new ApiError/* ApiError */.hD('server', message);
+            }
+            else {
+                (0,ApiError/* handleResponseError */.gQ)(response.status);
+            }
+        }
+        catch (err) {
+            (0,ApiError/* errorCather */.qv)(err);
+        }
+    }
+    async logout() {
+        const url = this.baseUrl + "logout/";
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                credentials: 'include',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            if (response.ok) {
+                this.clearTokenAndRefreshTimer();
+                this.isAuthorized = false;
+                return null;
+            }
+            else if (response.status === 400) {
+                throw new ApiError/* ApiError */.hD('server', 'There is no active session');
+            }
+            else {
+                (0,ApiError/* handleResponseError */.gQ)(response.status);
+            }
+        }
+        catch (err) {
+            (0,ApiError/* errorCather */.qv)(err);
+        }
+    }
+    async updateUser(newUserData) {
+        const url = this.baseUrl + "updateUser/";
+        try {
+            const response = await fetch(url, {
+                method: "PUT",
+                body: JSON.stringify(newUserData),
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${tokenService.getToken()}`
+                },
+            });
+            if (response.ok) {
+                const userDto = await response.json();
+                const { accessToken, ...userData } = userDto;
+                this.setTokenAndRefreshTimer(accessToken);
+                return userData;
+            }
+            else if (response.status === 401 && this.isAuthorized) {
+                await this.fetchRefreshUserData();
+                return this.updateUser(newUserData);
+            }
+            else {
+                (0,ApiError/* handleResponseError */.gQ)(response.status);
+            }
+        }
+        catch (err) {
+            (0,ApiError/* errorCather */.qv)(err);
+        }
+    }
+}
+const userSessionService = new UserSessionService();
+
+// EXTERNAL MODULE: ./src/hooks/ReduxHooks.ts
+var ReduxHooks = __webpack_require__(713);
+// EXTERNAL MODULE: ./src/store/slices/toastSlice.ts
+var toastSlice = __webpack_require__(225);
+// EXTERNAL MODULE: ./node_modules/@tanstack/react-query/build/modern/useQuery.js
+var useQuery = __webpack_require__(286);
+// EXTERNAL MODULE: ./node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js
+var QueryClientProvider = __webpack_require__(665);
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(540);
+// EXTERNAL MODULE: ./node_modules/@tanstack/query-core/build/modern/mutation.js
+var mutation = __webpack_require__(158);
+// EXTERNAL MODULE: ./node_modules/@tanstack/query-core/build/modern/notifyManager.js
+var notifyManager = __webpack_require__(261);
+// EXTERNAL MODULE: ./node_modules/@tanstack/query-core/build/modern/subscribable.js
+var subscribable = __webpack_require__(500);
+// EXTERNAL MODULE: ./node_modules/@tanstack/query-core/build/modern/utils.js
+var utils = __webpack_require__(880);
+;// ./node_modules/@tanstack/query-core/build/modern/mutationObserver.js
+// src/mutationObserver.ts
+
+
+
+
+var MutationObserver = class extends subscribable/* Subscribable */.Q {
+  #client;
+  #currentResult = void 0;
+  #currentMutation;
+  #mutateOptions;
+  constructor(client, options) {
+    super();
+    this.#client = client;
+    this.setOptions(options);
+    this.bindMethods();
+    this.#updateResult();
+  }
+  bindMethods() {
+    this.mutate = this.mutate.bind(this);
+    this.reset = this.reset.bind(this);
+  }
+  setOptions(options) {
+    const prevOptions = this.options;
+    this.options = this.#client.defaultMutationOptions(options);
+    if (!(0,utils/* shallowEqualObjects */.f8)(this.options, prevOptions)) {
+      this.#client.getMutationCache().notify({
+        type: "observerOptionsUpdated",
+        mutation: this.#currentMutation,
+        observer: this
+      });
+    }
+    if (prevOptions?.mutationKey && this.options.mutationKey && (0,utils/* hashKey */.EN)(prevOptions.mutationKey) !== (0,utils/* hashKey */.EN)(this.options.mutationKey)) {
+      this.reset();
+    } else if (this.#currentMutation?.state.status === "pending") {
+      this.#currentMutation.setOptions(this.options);
+    }
+  }
+  onUnsubscribe() {
+    if (!this.hasListeners()) {
+      this.#currentMutation?.removeObserver(this);
+    }
+  }
+  onMutationUpdate(action) {
+    this.#updateResult();
+    this.#notify(action);
+  }
+  getCurrentResult() {
+    return this.#currentResult;
+  }
+  reset() {
+    this.#currentMutation?.removeObserver(this);
+    this.#currentMutation = void 0;
+    this.#updateResult();
+    this.#notify();
+  }
+  mutate(variables, options) {
+    this.#mutateOptions = options;
+    this.#currentMutation?.removeObserver(this);
+    this.#currentMutation = this.#client.getMutationCache().build(this.#client, this.options);
+    this.#currentMutation.addObserver(this);
+    return this.#currentMutation.execute(variables);
+  }
+  #updateResult() {
+    const state = this.#currentMutation?.state ?? (0,mutation/* getDefaultState */.$)();
+    this.#currentResult = {
+      ...state,
+      isPending: state.status === "pending",
+      isSuccess: state.status === "success",
+      isError: state.status === "error",
+      isIdle: state.status === "idle",
+      mutate: this.mutate,
+      reset: this.reset
+    };
+  }
+  #notify(action) {
+    notifyManager/* notifyManager */.jG.batch(() => {
+      if (this.#mutateOptions && this.hasListeners()) {
+        const variables = this.#currentResult.variables;
+        const onMutateResult = this.#currentResult.context;
+        const context = {
+          client: this.#client,
+          meta: this.options.meta,
+          mutationKey: this.options.mutationKey
+        };
+        if (action?.type === "success") {
+          try {
+            this.#mutateOptions.onSuccess?.(
+              action.data,
+              variables,
+              onMutateResult,
+              context
+            );
+          } catch (e) {
+            void Promise.reject(e);
+          }
+          try {
+            this.#mutateOptions.onSettled?.(
+              action.data,
+              null,
+              variables,
+              onMutateResult,
+              context
+            );
+          } catch (e) {
+            void Promise.reject(e);
+          }
+        } else if (action?.type === "error") {
+          try {
+            this.#mutateOptions.onError?.(
+              action.error,
+              variables,
+              onMutateResult,
+              context
+            );
+          } catch (e) {
+            void Promise.reject(e);
+          }
+          try {
+            this.#mutateOptions.onSettled?.(
+              void 0,
+              action.error,
+              variables,
+              onMutateResult,
+              context
+            );
+          } catch (e) {
+            void Promise.reject(e);
+          }
+        }
+      }
+      this.listeners.forEach((listener) => {
+        listener(this.#currentResult);
+      });
+    });
+  }
+};
+
+//# sourceMappingURL=mutationObserver.js.map
+;// ./node_modules/@tanstack/react-query/build/modern/useMutation.js
+"use client";
+
+// src/useMutation.ts
+
+
+
+function useMutation(options, queryClient) {
+  const client = (0,QueryClientProvider/* useQueryClient */.jE)(queryClient);
+  const [observer] = react.useState(
+    () => new MutationObserver(
+      client,
+      options
+    )
+  );
+  react.useEffect(() => {
+    observer.setOptions(options);
+  }, [observer, options]);
+  const result = react.useSyncExternalStore(
+    react.useCallback(
+      (onStoreChange) => observer.subscribe(notifyManager/* notifyManager */.jG.batchCalls(onStoreChange)),
+      [observer]
+    ),
+    () => observer.getCurrentResult(),
+    () => observer.getCurrentResult()
+  );
+  const mutate = react.useCallback(
+    (variables, mutateOptions) => {
+      observer.mutate(variables, mutateOptions).catch(utils/* noop */.lQ);
+    },
+    [observer]
+  );
+  if (result.error && (0,utils/* shouldThrowError */.GU)(observer.options.throwOnError, [result.error])) {
+    throw result.error;
+  }
+  return { ...result, mutate, mutateAsync: result.mutate };
+}
+
+//# sourceMappingURL=useMutation.js.map
+;// ./src/queries/useUserSessionQueries.ts
+
+
+
+
+
+const queryKey = ['userSession', 'refresh'];
+const useRefreshUserConfig = {
+    queryKey: queryKey,
+    queryFn: () => userSessionService.fetchRefreshUserData(),
+    staleTime: Infinity,
+    retry: (failureCount, error) => {
+        if (error instanceof ApiError/* ApiError */.hD && error.message.includes('Unauthorized'))
+            return false;
+        return failureCount < 3;
+    }
+};
+function useRefreshUser() {
+    return (0,useQuery/* useQuery */.I)(useRefreshUserConfig);
+}
+function usePostUser() {
+    const queryClient = (0,QueryClientProvider/* useQueryClient */.jE)();
+    const dispatch = (0,ReduxHooks/* useAppDispatch */.j)();
+    return useMutation({
+        mutationFn: (formData) => userSessionService.postUser(formData),
+        onSuccess: (data) => {
+            queryClient.setQueryData(queryKey, data);
+        },
+        onError: (err) => {
+            dispatch((0,toastSlice/* showToastThunk */.Dz)({
+                type: 'error',
+                message: err.message
+            }));
+            console.log('Login/register error: ', err.message);
+        }
+    });
+}
+function useLogoutUser() {
+    const queryClient = (0,QueryClientProvider/* useQueryClient */.jE)();
+    const dispatch = (0,ReduxHooks/* useAppDispatch */.j)();
+    return useMutation({
+        mutationFn: () => userSessionService.logout(),
+        onSuccess: () => {
+            queryClient.setQueryData(queryKey, null);
+            queryClient.removeQueries({ queryKey: ['userSession'], exact: false });
+        },
+        onError: (err) => {
+            dispatch((0,toastSlice/* showToastThunk */.Dz)({
+                type: 'error',
+                message: `Logout error: ${err.message}`
+            }));
+        }
+    });
+}
+function useUpdateUser() {
+    const queryClient = (0,QueryClientProvider/* useQueryClient */.jE)();
+    const dispatch = (0,ReduxHooks/* useAppDispatch */.j)();
+    return useMutation({
+        mutationFn: (formData) => userSessionService.updateUser(formData),
+        onSuccess: (data) => {
+            queryClient.setQueryData(queryKey, data);
+            dispatch((0,toastSlice/* showToastThunk */.Dz)({
+                type: 'success',
+                message: 'Data has been updated successfully'
+            }));
+        },
+        onError: (err) => {
+            dispatch((0,toastSlice/* showToastThunk */.Dz)({
+                type: 'error',
+                message: err.message
+            }));
+        }
+    });
+}
+
+
+/***/ }),
+
 /***/ 848:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -35172,7 +35172,7 @@ if (true) {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "main." + {"216":"c02b09ad1cb2d2d6b511","726":"bd7b41f867dd4dd13cc6","746":"4068a6bef058c00671fd","954":"1929e09040595f5aa972"}[chunkId] + ".js";
+/******/ 			return "main." + {"216":"c02b09ad1cb2d2d6b511","726":"71b3e2c3b66b4e2643de","746":"4068a6bef058c00671fd","954":"cc0452158e795f03b625"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -35518,7 +35518,7 @@ function HeaderTop({ isOpenBurger, setIsOpenBurger }) {
 /* harmony default export */ const headerNavigationBar_module = ({"headerNav":"wt1M9L","headerNavigationList":"YSof_W"});
 // EXTERNAL MODULE: ./src/exceptions/ApiError.ts
 var ApiError = __webpack_require__(833);
-;// ./src/api/getMetaData.ts
+;// ./src/services/api/getMetaData.ts
 
 async function getMetaData() {
     const url = `${"https://avion-online-store-server.onrender.com/api/" || 0}filtersOptions/`;
@@ -35617,7 +35617,7 @@ function BurgerMenuNav() {
                     }));
                 }, children: productType }) }, productType)));
     }
-    return ((0,jsx_runtime.jsxs)("ul", { className: burgerMenuNav_module.burgerMenuNavList, children: [(0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/allProducts', onClick: () => dispatch((0,filtersOptionsSlice/* resetFiltersAction */.Fg)()), children: "All Products" }) }), productTypeLinkItems, (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/about', children: "About us" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/contacts', children: "Contacts" }) })] }));
+    return ((0,jsx_runtime.jsxs)("ul", { className: burgerMenuNav_module.burgerMenuNavList, children: [(0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/allProducts', onClick: () => dispatch((0,filtersOptionsSlice/* resetFiltersAction */.Fg)()), children: "All Products" }) }), productTypeLinkItems, (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/recentlyViewed', children: "Recently viewed" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/about', children: "About us" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: '/contacts', children: "Contacts" }) })] }));
 }
 
 ;// ./src/Components/BurgerMenuFooter/burgerMenuFooter.module.scss
@@ -35682,11 +35682,11 @@ var AboutBlock = __webpack_require__(782);
 ;// ./src/Components/CtaBlock/ctaBlock.module.scss
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const ctaBlock_module = ({"ctaBlockContainer":"pfOzfv","withImage":"enT1FZ"});
-// EXTERNAL MODULE: ./src/utils/formDataValidator.ts + 1 modules
-var formDataValidator = __webpack_require__(209);
 ;// ./src/Components/SubscribeForm/subscribeForm.module.scss
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const subscribeForm_module = ({"subscribeForm":"lNWTdh","errorField":"bws9dI"});
+// EXTERNAL MODULE: ./src/utils/formDataValidator.ts + 1 modules
+var formDataValidator = __webpack_require__(209);
 // EXTERNAL MODULE: ./src/utils/finalFormValidation.ts
 var finalFormValidation = __webpack_require__(915);
 // EXTERNAL MODULE: ./src/store/slices/toastSlice.ts
@@ -37599,7 +37599,7 @@ function MainProductCard({ product, variation }) {
     return ((0,jsx_runtime.jsx)("li", { className: `${frameClass} ${variation === 'listingElement' ? 'embla__slide' : ''}`, children: (0,jsx_runtime.jsxs)(chunk_EF7DTUVF/* Link */.N_, { className: `${mainProductCard_module.productCard}`, to: `/${product?._id || ''}`, children: [(0,jsx_runtime.jsxs)("div", { className: `${aspectRatio === '4/5' ? mainProductCard_module.imgFrameSmall : mainProductCard_module.imgFrameWide} ${mainProductCard_module.imgFrame}`, children: [product && (0,jsx_runtime.jsx)("img", { src: `${product.image}`, alt: "", loading: "lazy", onLoad: () => setIsLoad(true), style: isLoad ? { visibility: 'visible' } : { visibility: 'hidden' } }), (0,jsx_runtime.jsx)((ClipLoader_default()), { color: '#2a254b', size: 40, cssOverride: isLoad ? { display: 'none' } : { display: 'inline-block', position: 'absolute' } })] }), (0,jsx_runtime.jsx)("p", { style: product ? {} : { backgroundColor: "#f4f4ffbc" }, children: name }), (0,jsx_runtime.jsx)("p", { style: product ? {} : { backgroundColor: "#f4f4ffbc" }, children: price })] }) }));
 }
 
-;// ./src/api/ProductsService.ts
+;// ./src/services/api/ProductsService.ts
 
 class ProductsService {
     _baseURL = `${"https://avion-online-store-server.onrender.com/api/" || 0}products/`;
@@ -37622,7 +37622,23 @@ class ProductsService {
     }
     async getOneProduct(id) {
         try {
-            const response = await fetch(this._baseURL + id /* + 'ss' */);
+            const response = await fetch(this._baseURL + id);
+            if (!response.ok) {
+                (0,ApiError/* handleResponseError */.gQ)(response.status);
+            }
+            const productData = await response.json();
+            return productData;
+        }
+        catch (err) {
+            (0,ApiError/* errorCather */.qv)(err);
+        }
+    }
+    async getBatch(ids) {
+        try {
+            const params = new URLSearchParams({
+                ids: ids.join(",")
+            });
+            const response = await fetch(this._baseURL + "batch" + "?" + params);
             if (!response.ok) {
                 (0,ApiError/* handleResponseError */.gQ)(response.status);
             }
@@ -37835,7 +37851,25 @@ function useInfiniteQuery(options, queryClient) {
 }
 
 //# sourceMappingURL=useInfiniteQuery.js.map
+;// ./src/services/storage/recentlyViewedStorage.ts
+const HISTORY_LIMIT = 8;
+function getHistory() {
+    const json = localStorage.getItem("recentlyViewed");
+    if (!json)
+        return [];
+    return JSON.parse(json);
+}
+function saveHistory(id) {
+    const history = getHistory();
+    const newHistory = [
+        id,
+        ...history.filter(item => item !== id)
+    ].slice(0, HISTORY_LIMIT);
+    localStorage.setItem("recentlyViewed", JSON.stringify(newHistory));
+}
+
 ;// ./src/queries/useProducts.ts
+
 
 
 function useProductsListing(params, excludeId) {
@@ -37886,6 +37920,14 @@ function useProductsIncrementalLoading(queryKey, filtersOptions, limit) {
         select: data => {
             return data.pages.flatMap(page => page.products);
         }
+    });
+}
+function useRecentlyViewedProducts() {
+    const ids = getHistory();
+    return (0,useQuery/* useQuery */.I)({
+        queryKey: ["recentlyViewed", ids.join(',')],
+        queryFn: () => productsService.getBatch(ids),
+        enabled: Boolean(ids.length)
     });
 }
 
@@ -37996,7 +38038,7 @@ function FooterNavigation() {
                 }));
             }, state: { scrollToTop: true }, children: sorting }) }, sorting)));
     return ((0,jsx_runtime.jsxs)("nav", { className: footerNavigation_module.navigation, children: [(0,jsx_runtime.jsxs)("ul", { children: [(0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)("h4", { children: "Menu" }) }), sortingListItems, (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: {
-                                pathname: '/allProducts',
+                                pathname: '/recentlyViewed',
                             }, state: { scrollToTop: true }, children: "Recently viewed" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: {
                                 pathname: '/allProducts'
                             }, onClick: () => dispatch((0,filtersOptionsSlice/* resetFiltersAction */.Fg)()), state: { scrollToTop: true }, children: "All products" }) })] }), (0,jsx_runtime.jsxs)("ul", { className: footerNavigation_module.categoryUl, children: [(0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)("h4", { children: "Categories" }) }), categoryListItems] }), (0,jsx_runtime.jsxs)("ul", { children: [(0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)("h4", { children: "Our company" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: "/about", state: { scrollToTop: true }, children: "About us" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: "/contacts", state: { scrollToTop: true }, children: "Contact us" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: "", state: { scrollToTop: true }, children: "Privacy" }) }), (0,jsx_runtime.jsx)("li", { children: (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Link */.N_, { to: "", state: { scrollToTop: true }, children: "Returns policy" }) })] })] }));
@@ -38173,62 +38215,42 @@ function ProductBlock({ productData, isError, error }) {
 
 
 
+
 function ProductPage() {
     const { id } = (0,chunk_EF7DTUVF/* useParams */.g)();
+    if (!id)
+        return null;
     const { data, isError, error } = useOneProduct(id);
+    saveHistory(id);
     return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)(ProductBlock, { productData: data, isError: isError, error: error }), (0,jsx_runtime.jsx)(ProductListing, { productType: data?.productType[0] || '', excludeId: data?._id, title: 'You might also like' }), (0,jsx_runtime.jsx)(Features, {}), (0,jsx_runtime.jsx)(CtaBlock, { isWithImage: true })] }));
 }
 
 ;// ./src/pages/AllProductsPage/allProductsPage.module.scss
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const allProductsPage_module = ({"allProductsBanner":"YsA1ms","allProductsBlock":"btibqd"});
-;// ./src/Components/AllProductsGrid/AllProductsGrid.module.scss
+/* harmony default export */ const allProductsPage_module = ({"allProductsBlock":"btibqd","productGridBlock":"aKNYgr"});
+;// ./src/Components/ProductsGrid/ProductsGrid.module.scss
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const AllProductsGrid_module = ({"productGridBlock":"gVBi0u","productGrid":"oQXug7"});
-;// ./src/Components/LoadingDots/LoadingDots.tsx
+/* harmony default export */ const ProductsGrid_module = ({"productGridBlock":"AQ6OeB","productGrid":"rrBiZc"});
+;// ./src/Components/ProductGridSkeletons/ProductGridSkeletons.tsx
 
 
-function LoadingDots() {
-    const [dots, setDots] = (0,react.useState)('');
-    (0,react.useEffect)(() => {
-        const intervalId = setInterval(() => setDots(prev => prev.length >= 3 ? '' : prev + '.'), 300);
-        return () => clearInterval(intervalId);
-    }, []);
-    return ((0,jsx_runtime.jsxs)("span", { style: { fontSize: '20px' }, children: ["Loading", dots] }));
+function ProductGridSkeletons({ quantity = 4 }) {
+    const skeletons = [];
+    for (let i = 0; i < quantity; i++) {
+        skeletons.push((0,jsx_runtime.jsx)(MainProductCard, { variation: 'gridElement' }, i));
+    }
+    return ([...Array(quantity)].map((_, index) => (0,jsx_runtime.jsx)(MainProductCard, { variation: "gridElement" }, index)));
 }
 
-;// ./src/Components/AllProductsGrid/AllProductsGrid.tsx
+;// ./src/Components/ProductsGrid/ProductsGrid.tsx
 
 
 
 
-
-
-const pageSize = 5;
-function AllProductsGrid() {
-    const filtersOptions = (0,ReduxHooks/* useAppSelector */.G)(state => state.filtersOptions);
-    const queryKey = [
-        'products',
-        filtersOptions.filters.productTypes.join(','),
-        filtersOptions.filters.category.join(','),
-        filtersOptions.filters.designers.join(','),
-        filtersOptions.filters.priceFilters.join(','),
-        filtersOptions.sorting,
-        filtersOptions.search
-    ];
-    const { data, hasNextPage, isFetching, isError, error, fetchNextPage } = useProductsIncrementalLoading(queryKey, filtersOptions, pageSize);
-    function getScreenState() {
-        if (isError && error)
-            return 'error';
-        if (!data && isFetching)
-            return 'initial-loading';
-        if (data?.length === 0)
-            return 'empty';
-        return 'list';
-    }
-    const isLoadingMore = hasNextPage && isFetching;
-    const screenState = getScreenState();
-    return ((0,jsx_runtime.jsxs)("div", { className: AllProductsGrid_module.productGridBlock, style: hasNextPage ? {} : { paddingBottom: '50px' }, children: [screenState === 'error' && (0,jsx_runtime.jsx)("span", { children: error?.message }), screenState === 'initial-loading' && (0,jsx_runtime.jsx)(LoadingDots, {}), screenState === 'empty' && (0,jsx_runtime.jsx)("span", { children: "We couldn't find any products matching your search" }), screenState === 'list' && ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsxs)("ul", { className: AllProductsGrid_module.productGrid, children: [data?.map(product => (0,jsx_runtime.jsx)(MainProductCard, { product: product, variation: 'gridElement' }, product._id)), isLoadingMore && [...Array(pageSize).keys()].map(index => (0,jsx_runtime.jsx)(MainProductCard, { variation: 'gridElement' }, index))] }), hasNextPage && (0,jsx_runtime.jsx)("button", { className: 'globalButton', onClick: () => fetchNextPage(), children: "Load more" })] }))] }));
+function ProductsGrid({ data, isLoadingMore }) {
+    if (!data)
+        return null;
+    return ((0,jsx_runtime.jsx)(jsx_runtime.Fragment, { children: (0,jsx_runtime.jsxs)("ul", { className: ProductsGrid_module.productGrid, children: [data?.map(product => (0,jsx_runtime.jsx)(MainProductCard, { product: product, variation: 'gridElement' }, product._id)), isLoadingMore && (0,jsx_runtime.jsx)(ProductGridSkeletons, {})] }) }));
 }
 
 ;// ./src/Components/FiltersAndSortingList/filtersAndSortingList.module.scss
@@ -38302,7 +38324,7 @@ function ProductsSorting({ showOptions, setShowOptions }) {
         if (isError) {
             dispatch((0,toastSlice/* showToastThunk */.Dz)({
                 type: 'error',
-                message: 'Loading meta data has failed. Please refresh the page.',
+                message: 'Loading meta data has failed. Please refresh the page',
             }));
         }
     }, [isError, dispatch]);
@@ -38331,7 +38353,7 @@ function ProductsSorting({ showOptions, setShowOptions }) {
 
 
 function FiltersAndSortingList({ showOptions, setShowOptions, resetFilters }) {
-    return ((0,jsx_runtime.jsxs)("div", { className: `${filtersAndSortingList_module.filtersAndSortingList} ${(showOptions.filters || showOptions.sorting) ? filtersAndSortingList_module.active : ''}`, children: [(0,jsx_runtime.jsx)("button", { onClick: resetFilters, className: 'globalLink', style: { height: "30px" }, children: "Reset Filters" }), (0,jsx_runtime.jsx)(ProductsSorting, { showOptions: showOptions, setShowOptions: setShowOptions }), (0,jsx_runtime.jsx)(ProductsFiltersLayout, { showOptions: showOptions, setShowOptions: setShowOptions })] }));
+    return ((0,jsx_runtime.jsxs)("aside", { className: `${filtersAndSortingList_module.filtersAndSortingList} ${(showOptions.filters || showOptions.sorting) ? filtersAndSortingList_module.active : ''}`, children: [(0,jsx_runtime.jsx)("button", { onClick: resetFilters, className: 'globalLink', style: { height: "30px" }, children: "Reset Filters" }), (0,jsx_runtime.jsx)(ProductsSorting, { showOptions: showOptions, setShowOptions: setShowOptions }), (0,jsx_runtime.jsx)(ProductsFiltersLayout, { showOptions: showOptions, setShowOptions: setShowOptions })] }));
 }
 
 ;// ./src/Components/FiltersControls/filtersControls.module.scss
@@ -38405,6 +38427,29 @@ function getAllProductsTitle() {
     return title;
 }
 
+;// ./src/Components/LoadingDots/LoadingDots.tsx
+
+
+function LoadingDots() {
+    const [dots, setDots] = (0,react.useState)('');
+    (0,react.useEffect)(() => {
+        const intervalId = setInterval(() => setDots(prev => prev.length >= 3 ? '' : prev + '.'), 300);
+        return () => clearInterval(intervalId);
+    }, []);
+    return ((0,jsx_runtime.jsxs)("span", { style: { fontSize: '20px' }, children: ["Loading", dots] }));
+}
+
+;// ./src/Components/ProductsGridBanner/ProductGridBanner.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const ProductGridBanner_module = ({"productsGridBanner":"xOzanE"});
+;// ./src/Components/ProductsGridBanner/ProductsGridBanner.tsx
+
+
+const BASE = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
+function ProductsGridBanner({ title }) {
+    return ((0,jsx_runtime.jsx)("div", { className: ProductGridBanner_module.productsGridBanner, style: { backgroundImage: `url('${BASE}/img/allProductsBanner.webp')` }, children: (0,jsx_runtime.jsx)("h2", { children: title }) }));
+}
+
 ;// ./src/pages/AllProductsPage/AllProductsPage.tsx
 
 
@@ -38413,7 +38458,11 @@ function getAllProductsTitle() {
 
 
 
-const AllProductsPage_base = "https://nikita-7onenko-dev.github.io/Avion-Online-Store";
+
+
+
+
+const LIMIT = 5;
 function AllProductsPage() {
     const title = getAllProductsTitle();
     const location = (0,chunk_EF7DTUVF/* useLocation */.zy)();
@@ -38422,7 +38471,29 @@ function AllProductsPage() {
             window.scrollTo(0, 0);
         }
     }, [location.state]);
-    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)("div", { className: allProductsPage_module.allProductsBanner, style: { backgroundImage: `url('${AllProductsPage_base}/img/allProductsBanner.webp')` }, children: (0,jsx_runtime.jsx)("h2", { children: title }) }), (0,jsx_runtime.jsxs)("div", { className: allProductsPage_module.allProductsBlock, children: [(0,jsx_runtime.jsx)(ProductFiltersBar, {}), (0,jsx_runtime.jsx)(AllProductsGrid, {})] })] }));
+    const filtersOptions = (0,ReduxHooks/* useAppSelector */.G)(state => state.filtersOptions);
+    const queryKey = [
+        'products',
+        filtersOptions.filters.productTypes.join(','),
+        filtersOptions.filters.category.join(','),
+        filtersOptions.filters.designers.join(','),
+        filtersOptions.filters.priceFilters.join(','),
+        filtersOptions.sorting,
+        filtersOptions.search
+    ];
+    const { data, hasNextPage, isFetching, isError, error, fetchNextPage } = useProductsIncrementalLoading(queryKey, filtersOptions, LIMIT);
+    function getScreenState() {
+        if (isError && error)
+            return 'error';
+        if (!data && isFetching)
+            return 'initial-loading';
+        if (data?.length === 0)
+            return 'empty';
+        return 'list';
+    }
+    const isLoadingMore = hasNextPage && isFetching;
+    const screenState = getScreenState();
+    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)(ProductsGridBanner, { title: title }), (0,jsx_runtime.jsxs)("div", { className: allProductsPage_module.allProductsBlock, children: [(0,jsx_runtime.jsx)(ProductFiltersBar, {}), (0,jsx_runtime.jsxs)("div", { className: allProductsPage_module.productGridBlock, style: hasNextPage ? {} : { paddingBottom: '50px' }, children: [screenState === 'error' && (0,jsx_runtime.jsx)("span", { children: error?.message }), screenState === 'initial-loading' && (0,jsx_runtime.jsx)(LoadingDots, {}), screenState === 'empty' && (0,jsx_runtime.jsx)("span", { children: "We couldn't find any products matching your search" }), screenState === 'list' && ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)(ProductsGrid, { data: data, isLoadingMore: isLoadingMore }), hasNextPage && (0,jsx_runtime.jsx)("button", { className: 'globalButton', onClick: () => fetchNextPage(), children: "Load more" })] }))] })] })] }));
 }
 
 ;// ./src/pages/ShoppingCart/shoppingCart.module.scss
@@ -38466,7 +38537,34 @@ function ShoppingCart() {
 
 // EXTERNAL MODULE: ./src/Components/PageLoader/PageLoader.tsx + 1 modules
 var PageLoader = __webpack_require__(228);
+;// ./src/pages/HistoryPage/historyPage.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const historyPage_module = ({"layoutBlock":"kvOvZz"});
+;// ./src/pages/HistoryPage/HistoryPage.tsx
+
+
+
+
+
+
+function HistoryPage() {
+    const { data, isFetching, isError, error } = useRecentlyViewedProducts();
+    function getScreenState() {
+        if (!data && isFetching)
+            return "loading";
+        if (isError)
+            return "error";
+        if (!data?.length || !data)
+            return "empty";
+        else
+            return "list";
+    }
+    const screenState = getScreenState();
+    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)(ProductsGridBanner, { title: "Recently Viewed" }), (0,jsx_runtime.jsxs)("div", { className: historyPage_module.layoutBlock, children: [screenState === "loading" && (0,jsx_runtime.jsx)(LoadingDots, {}), screenState === "error" && (0,jsx_runtime.jsx)("span", { children: error?.message }), screenState === "empty" && (0,jsx_runtime.jsx)("span", { children: "There is no history yet" }), screenState === "list" && (0,jsx_runtime.jsx)(ProductsGrid, { data: data, isLoadingMore: false })] })] }));
+}
+
 ;// ./src/Components/App/App.tsx
+
 
 
 
@@ -38482,7 +38580,7 @@ const ContactsPage = react.lazy(() => __webpack_require__.e(/* import() */ 746).
 const UserPage = react.lazy(() => __webpack_require__.e(/* import() */ 726).then(__webpack_require__.bind(__webpack_require__, 726)));
 const CheckoutPage = react.lazy(() => __webpack_require__.e(/* import() */ 954).then(__webpack_require__.bind(__webpack_require__, 954)));
 function App() {
-    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)(Header, {}), (0,jsx_runtime.jsx)("main", { children: (0,jsx_runtime.jsxs)(chunk_EF7DTUVF/* Routes */.BV, { children: [(0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Route */.qh, { path: '/', element: (0,jsx_runtime.jsx)(HomePage, {}) }), (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Route */.qh, { path: '/about', element: (0,jsx_runtime.jsxs)(react.Suspense, { fallback: (0,jsx_runtime.jsx)(PageLoader/* PageLoader */.D, {}), children: [" ", (0,jsx_runtime.jsx)(AboutPage, {}), " "] }) }), (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Route */.qh, { path: '/shoppingCart', element: (0,jsx_runtime.jsx)(ShoppingCart, {}) }), (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Route */.qh, { path: '/allProducts', element: (0,jsx_runtime.jsx)(AllProductsPage, {}) }), (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Route */.qh, { path: '/:id', element: (0,jsx_runtime.jsx)(ProductPage, {}) }), (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Route */.qh, { path: '/contacts', element: (0,jsx_runtime.jsxs)(react.Suspense, { fallback: (0,jsx_runtime.jsx)(PageLoader/* PageLoader */.D, {}), children: [" ", (0,jsx_runtime.jsx)(ContactsPage, {}), " "] }) }), (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Route */.qh, { path: '/profile', element: (0,jsx_runtime.jsxs)(react.Suspense, { fallback: (0,jsx_runtime.jsx)(PageLoader/* PageLoader */.D, {}), children: [" ", (0,jsx_runtime.jsx)(UserPage, {}), " "] }) }), (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Route */.qh, { path: '/checkout', element: (0,jsx_runtime.jsxs)(react.Suspense, { fallback: (0,jsx_runtime.jsx)(PageLoader/* PageLoader */.D, {}), children: [" ", (0,jsx_runtime.jsx)(CheckoutPage, {}), " "] }) })] }) }), (0,jsx_runtime.jsx)(Footer, {})] }));
+    return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)(Header, {}), (0,jsx_runtime.jsx)("main", { children: (0,jsx_runtime.jsxs)(chunk_EF7DTUVF/* Routes */.BV, { children: [(0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Route */.qh, { path: '/', element: (0,jsx_runtime.jsx)(HomePage, {}) }), (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Route */.qh, { path: '/about', element: (0,jsx_runtime.jsxs)(react.Suspense, { fallback: (0,jsx_runtime.jsx)(PageLoader/* PageLoader */.D, {}), children: [" ", (0,jsx_runtime.jsx)(AboutPage, {}), " "] }) }), (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Route */.qh, { path: '/shoppingCart', element: (0,jsx_runtime.jsx)(ShoppingCart, {}) }), (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Route */.qh, { path: '/allProducts', element: (0,jsx_runtime.jsx)(AllProductsPage, {}) }), (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Route */.qh, { path: '/:id', element: (0,jsx_runtime.jsx)(ProductPage, {}) }), (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Route */.qh, { path: '/contacts', element: (0,jsx_runtime.jsxs)(react.Suspense, { fallback: (0,jsx_runtime.jsx)(PageLoader/* PageLoader */.D, {}), children: [" ", (0,jsx_runtime.jsx)(ContactsPage, {}), " "] }) }), (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Route */.qh, { path: '/profile', element: (0,jsx_runtime.jsxs)(react.Suspense, { fallback: (0,jsx_runtime.jsx)(PageLoader/* PageLoader */.D, {}), children: [" ", (0,jsx_runtime.jsx)(UserPage, {}), " "] }) }), (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Route */.qh, { path: '/checkout', element: (0,jsx_runtime.jsxs)(react.Suspense, { fallback: (0,jsx_runtime.jsx)(PageLoader/* PageLoader */.D, {}), children: [" ", (0,jsx_runtime.jsx)(CheckoutPage, {}), " "] }) }), (0,jsx_runtime.jsx)(chunk_EF7DTUVF/* Route */.qh, { path: '/recentlyViewed', element: (0,jsx_runtime.jsx)(HistoryPage, {}) })] }) }), (0,jsx_runtime.jsx)(Footer, {})] }));
 }
 
 ;// ./src/globalStyles/global.scss
@@ -39050,7 +39148,7 @@ var QueryClient = class {
 // EXTERNAL MODULE: ./node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js
 var QueryClientProvider = __webpack_require__(665);
 // EXTERNAL MODULE: ./src/queries/useUserSessionQueries.ts + 5 modules
-var useUserSessionQueries = __webpack_require__(620);
+var useUserSessionQueries = __webpack_require__(847);
 ;// ./src/Components/ToastsContainer/toastsContainer.module.scss
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const toastsContainer_module = ({"toastContainer":"BaQjSA"});

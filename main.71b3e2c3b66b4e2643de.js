@@ -136,7 +136,7 @@ function ProfileInfoFields({ edit, errors, formData, changeHandler, variation })
 // EXTERNAL MODULE: ./src/utils/finalFormValidation.ts
 var finalFormValidation = __webpack_require__(915);
 // EXTERNAL MODULE: ./src/queries/useUserSessionQueries.ts + 5 modules
-var useUserSessionQueries = __webpack_require__(620);
+var useUserSessionQueries = __webpack_require__(847);
 ;// ./src/Components/ProfileSettingsForm/ProfileSettingsForm.tsx
 
 
@@ -234,10 +234,22 @@ function ProfileBlock() {
 
 
 const placeHolders = {
-    username: 'Your name',
-    email: 'Your email',
-    password: 'Password',
-    confirmPassword: 'Confirm password'
+    username: "Your name",
+    email: "Your email",
+    password: "Password",
+    confirmPassword: "Confirm password"
+};
+const initFormDataFields = {
+    "Sign up": {
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+    },
+    "Log in": {
+        email: '',
+        password: '',
+    }
 };
 const validationRules = {
     isEmptyFieldsAllowed: false
@@ -245,17 +257,8 @@ const validationRules = {
 function AuthForm({ variation, setSwitchForm }) {
     const { mutate: postUser } = (0,useUserSessionQueries/* usePostUser */.Vg)();
     const isSignUp = variation === 'Sign up';
-    const initFormDataFields = isSignUp ? {
-        username: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
-    } : {
-        email: '',
-        password: '',
-    };
-    const [formData, setFormData] = (0,react.useState)(initFormDataFields);
-    const [errors, setErrors] = (0,react.useState)(initFormDataFields);
+    const [formData, setFormData] = (0,react.useState)(initFormDataFields[variation]);
+    const [errors, setErrors] = (0,react.useState)(initFormDataFields[variation]);
     const [showPassword, setShowPassword] = (0,react.useState)(false);
     function sendFormData() {
         const { newErrorData, hasErrors } = (0,finalFormValidation/* finalFormValidation */.o)(formData, errors, validationRules);
@@ -285,7 +288,7 @@ function AuthForm({ variation, setSwitchForm }) {
     const formInputs = Object.keys(formData).map(field => {
         return ((0,jsx_runtime.jsxs)("div", { className: registerForm_module.inputWrapper, children: [errors[field] && (0,jsx_runtime.jsx)("p", { children: errors[field] }), (0,jsx_runtime.jsx)("input", { className: errors[field] ? registerForm_module.errorField : '', type: (field === 'password' || field === 'confirmPassword') ? (showPassword ? 'text' : 'password') : field, name: field, value: formData[field], onChange: changeHandler, placeholder: placeHolders[field], autoComplete: "AutoFill" })] }, field));
     });
-    const switchButtonLabel = isSignUp ? 'Log in' : 'Sign up';
+    const switchButtonLabel = isSignUp ? "Log in" : "Sign up";
     const question = isSignUp ? "Already have an account?" : "Don't have an account?";
     return ((0,jsx_runtime.jsx)("div", { className: registerForm_module.registerFormBlock, children: (0,jsx_runtime.jsxs)("form", { onSubmit: (e) => {
                 e.preventDefault();
